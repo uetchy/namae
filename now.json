@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "namae",
+  "alias": "namae.dev",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "build" }
+    },
+    {
+      "src": "availability/*.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/availability/(?<provider>[^/]+)/(?<id>[^/]+)",
+      "dest": "/availability/$provider.js?name=$id"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
