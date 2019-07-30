@@ -11,7 +11,9 @@
     "react-icons": "^3.7.0",
     "react-scripts": "3.0.1",
     "react-spinners": "^0.5.13",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "whois": "^2.10.1",
+    "whois-json": "^2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
