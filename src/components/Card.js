@@ -115,7 +115,14 @@ export function Alternatives({ nameList, children }) {
       {show ? (
         nameList.map((name) => (
           <ErrorBoundary>
-            <Suspense fallback={<BarLoader />}>{children(name)}</Suspense>
+            <Suspense
+              fallback={
+                <ItemContainer>
+                  <BarLoader />
+                </ItemContainer>
+              }>
+              {children(name)}
+            </Suspense>
           </ErrorBoundary>
         ))
       ) : (

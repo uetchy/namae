@@ -1,29 +1,46 @@
 import React from 'react'
-import { Card, CardTitle, DedicatedAvailability } from './Card'
+import { Card, CardTitle, DedicatedAvailability, Alternatives } from './Card'
 import { FaMapSigns } from 'react-icons/fa'
 
 export default function DomainCard({ name }) {
+  const lowerCase = name.toLowerCase()
+
   return (
-    <Card key={name}>
+    <Card key={lowerCase}>
       <CardTitle>Domain</CardTitle>
       <DedicatedAvailability
-        name={`${name}.app`}
+        name={`${lowerCase}.app`}
         provider="domain"
-        url={`https://domainr.com/?q=${name}.app`}
+        url={`https://domainr.com/?q=${lowerCase}.app`}
         icon={<FaMapSigns />}
       />
       <DedicatedAvailability
-        name={`${name}.dev`}
+        name={`${lowerCase}.dev`}
         provider="domain"
-        url={`https://domainr.com/?q=${name}.dev`}
+        url={`https://domainr.com/?q=${lowerCase}.dev`}
         icon={<FaMapSigns />}
       />
       <DedicatedAvailability
-        name={`${name}.org`}
+        name={`${lowerCase}.org`}
         provider="domain"
-        url={`https://domainr.com/?q=${name}.org`}
+        url={`https://domainr.com/?q=${lowerCase}.org`}
         icon={<FaMapSigns />}
       />
+      <Alternatives
+        nameList={[
+          `${lowerCase}app.com`,
+          `${lowerCase}.build`,
+          `${lowerCase}.ai`,
+        ]}>
+        {(name) => (
+          <DedicatedAvailability
+            name={name}
+            provider="domain"
+            url={`https://domainr.com/?q=${name}.org`}
+            icon={<FaMapSigns />}
+          />
+        )}
+      </Alternatives>
     </Card>
   )
 }

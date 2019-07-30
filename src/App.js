@@ -43,13 +43,13 @@ export default function App() {
           <CardHolder>
             <GithubCard name={query} />
             <DomainCard name={query} />
-            <HomebrewCard name={query} />
             <TwitterCard name={query} />
-            <SlackCard name={query} />
+            <HomebrewCard name={query} />
             <NpmCard name={query} />
-            <JsOrgCard name={query} />
             <PypiCard name={query} />
             <CratesioCard name={query} />
+            <JsOrgCard name={query} />
+            <SlackCard name={query} />
             <S3Card name={query} />
           </CardHolder>
         </Result>
