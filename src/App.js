@@ -117,13 +117,13 @@ const Result = styled.div`
 `
 
 const ResultHeader = styled.div`
-  padding-left: 20px;
   margin-bottom: 20px;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
 
   ${mobile} {
+    padding-left: 20px;
     text-align: left;
   }
 `
