@@ -18,6 +18,12 @@ export default function DomainCard({ name }) {
         url={`https://${name}.dev`}
         icon={<FaMapSigns />}
       />
+      <DedicatedAvailability
+        name={`${name}.org`}
+        provider="domain"
+        url={`https://${name}.org`}
+        icon={<FaMapSigns />}
+      />
     </Card>
   )
 }
