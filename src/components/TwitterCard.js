@@ -1,31 +1,31 @@
 import React from 'react'
-import useFetch from 'fetch-suspense'
-import { Card, CardTitle, AvailabilityCell } from './Card'
 import { FaTwitter } from 'react-icons/fa'
-
-function Availability({ name }) {
-  const response = useFetch(`/availability/twitter/${name}`)
-
-  if (response.error) {
-    throw new Error(`Twitter: ${response.error}`)
-  }
-
-  return (
-    <AvailabilityCell
-      name={name}
-      availability={response.availability}
-      url={`https://twitter.com/${name}`}
-      prefix="twitter.com/"
-      icon={<FaTwitter />}
-    />
-  )
-}
+import { Card, CardTitle, DedicatedAvailability, Alternatives } from './Card'
+import { capitalize } from '../util/text'
 
 export default function TwitterCard({ name }) {
   return (
     <Card key={name}>
       <CardTitle>Twitter</CardTitle>
-      <Availability name={name} />
+      <DedicatedAvailability
+        name={name}
+        provider="twitter"
+        url={`https://twitter.com/${name}`}
+        prefix="twitter.com/"
+        icon={<FaTwitter />}
+      />
+      <Alternatives
+        nameList={[`${capitalize(name)}HQ`, `${name.toLowerCase()}app`]}>
+        {(name) => (
+          <DedicatedAvailability
+            name={name}
+            provider="twitter"
+            url={`https://twitter.com/${name}`}
+            prefix="twitter.com/"
+            icon={<FaTwitter />}
+          />
+        )}
+      </Alternatives>
     </Card>
   )
 }

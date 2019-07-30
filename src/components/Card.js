@@ -1,5 +1,6 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 import styled from 'styled-components'
+import useFetch from 'fetch-suspense'
 import { BarLoader } from 'react-spinners'
 
 export function Card({ children }) {
@@ -49,6 +50,96 @@ export function AvailabilityCell({
   )
 }
 
+export function DedicatedAvailability({
+  name,
+  provider,
+  url,
+  prefix = '',
+  suffix = '',
+  icon,
+}) {
+  const response = useFetch(`/availability/${provider}/${name}`)
+
+  if (response.error) {
+    throw new Error(`${provider}: ${response.error}`)
+  }
+
+  return (
+    <AvailabilityCell
+      availability={response.availability}
+      name={name}
+      url={url}
+      prefix={prefix}
+      suffix={suffix}
+      icon={icon}
+    />
+  )
+}
+
+export function ExistenceAvailability({
+  name,
+  target,
+  prefix = '',
+  suffix = '',
+  icon,
+}) {
+  const response = useFetch(target, null, { metadata: true })
+
+  if (response.status !== 404 && response.status !== 200) {
+    throw new Error(`Homebrew: ${response.statusText}`)
+  }
+
+  const availability = response.status === 404
+
+  return (
+    <AvailabilityCell
+      name={name}
+      availability={availability}
+      url={`https://formulae.brew.sh/formula/${name}`}
+      prefix={prefix}
+      suffix={suffix}
+      icon={icon}
+    />
+  )
+}
+
+export function Alternatives({ nameList, children }) {
+  const [show, setShow] = useState(false)
+
+  console.log(children)
+
+  function onClick() {
+    setShow(true)
+  }
+
+  return (
+    <>
+      {show ? (
+        nameList.map((name) => (
+          <ErrorBoundary>
+            <Suspense fallback={<BarLoader />}>{children(name)}</Suspense>
+          </ErrorBoundary>
+        ))
+      ) : (
+        <ShowAlternativesButton onClick={onClick}>
+          Show Alternatives
+        </ShowAlternativesButton>
+      )}
+    </>
+  )
+}
+
+const ShowAlternativesButton = styled.div`
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 0;
+  border: none;
+  border-bottom: 1px dashed black;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 1rem;
+`
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
@@ -77,7 +168,7 @@ const CardWrapper = styled.div`
   border-radius: 2px;
 `
 
-const ItemContainer = styled.span`
+const ItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;

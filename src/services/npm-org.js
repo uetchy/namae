@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const availability = await npmName(name)
+    const availability = await npmName(`@${name}`)
     res.json({ availability })
   } catch (err) {
     res.status(400).json({ error: err.message })
