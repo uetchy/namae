@@ -104,10 +104,16 @@ const Input = styled.input`
   margin-top: 20px;
   padding: 20px;
   outline: none;
+  text-align: center;
   font-size: 4rem;
   font-family: monospace;
   border: none;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+  transition: box-shadow 0.5s ease-out;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
 
   @media screen and (max-width: 800px) {
     font-size: 2rem;
@@ -126,7 +132,7 @@ const ResultHeader = styled.div`
 `
 
 const Footer = styled.footer`
-  margin-top: 40px;
+  margin: 40px 0;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
