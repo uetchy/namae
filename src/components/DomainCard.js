@@ -9,19 +9,19 @@ export default function DomainCard({ name }) {
       <DedicatedAvailability
         name={`${name}.app`}
         provider="domain"
-        url={`https://${name}.app`}
+        url={`https://domainr.com/?q=${name}.app`}
         icon={<FaMapSigns />}
       />
       <DedicatedAvailability
         name={`${name}.dev`}
         provider="domain"
-        url={`https://${name}.dev`}
+        url={`https://domainr.com/?q=${name}.dev`}
         icon={<FaMapSigns />}
       />
       <DedicatedAvailability
         name={`${name}.org`}
         provider="domain"
-        url={`https://${name}.org`}
+        url={`https://domainr.com/?q=${name}.org`}
         icon={<FaMapSigns />}
       />
     </Card>
