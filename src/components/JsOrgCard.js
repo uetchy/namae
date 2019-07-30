@@ -7,10 +7,9 @@ export default function JsOrgCard({ name }) {
     <Card key={name}>
       <CardTitle>js.org</CardTitle>
       <DedicatedAvailability
-        name={name}
-        provider="jsorg"
+        name={`${name}.js.org`}
+        provider="dns"
         url={`https://${name}.js.org`}
-        suffix=".js.org"
         icon={<FaJsSquare />}
       />
     </Card>
