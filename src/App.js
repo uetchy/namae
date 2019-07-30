@@ -28,6 +28,7 @@ export default function App() {
     <>
       <GlobalStyle />
       <header>
+        <Logo>namae.dev — name your new project</Logo>
         <Input
           onChange={onChange}
           placeholder="awesome-package"
@@ -53,12 +54,19 @@ export default function App() {
   )
 }
 
+const Logo = styled.div`
+  margin: 15px;
+  text-align: center;
+`
+
 const Input = styled.input`
   width: 100%;
   padding: 20px;
   outline: none;
   font-size: 4rem;
   font-family: monospace;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 
   @media screen and (max-width: 800px) {
     font-size: 2rem;

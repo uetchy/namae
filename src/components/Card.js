@@ -71,9 +71,9 @@ class ErrorBoundary extends React.Component {
 }
 
 const CardWrapper = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 `
 
