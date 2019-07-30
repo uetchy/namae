@@ -12,6 +12,13 @@ export default function HomebrewCard({ name }) {
         url={`https://formulae.brew.sh/formula/${name}`}
         icon={<IoIosBeer />}
       />
+      <ExistenceAvailability
+        name={name}
+        target={`https://formulae.brew.sh/api/cask/${name}.json`}
+        url={`https://formulae.brew.sh/cask/${name}`}
+        suffix=" (Cask)"
+        icon={<IoIosBeer />}
+      />
     </Card>
   )
 }
