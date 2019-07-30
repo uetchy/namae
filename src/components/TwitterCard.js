@@ -15,7 +15,12 @@ export default function TwitterCard({ name }) {
         icon={<FaTwitter />}
       />
       <Alternatives
-        nameList={[`${capitalize(name)}HQ`, `${name.toLowerCase()}app`]}>
+        nameList={[
+          `${capitalize(name)}HQ`,
+          `${name.toLowerCase()}app`,
+          `${name.toLowerCase()}-support`,
+          `${capitalize(name)}Team`,
+        ]}>
         {(name) => (
           <DedicatedAvailability
             name={name}
