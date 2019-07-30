@@ -7,6 +7,7 @@ import TwitterCard from './components/TwitterCard'
 import NpmCard from './components/NpmCard'
 import JsOrgCard from './components/JsOrgCard'
 import HomebrewCard from './components/HomebrewCard'
+import PypiCard from './components/PypiCard'
 import './App.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -47,6 +48,7 @@ export default function App() {
             <NpmCard name={query} />
             <JsOrgCard name={query} />
             <HomebrewCard name={query} />
+            <PypiCard name={query} />
           </CardHolder>
         </Result>
       ) : null}

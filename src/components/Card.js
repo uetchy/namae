@@ -86,7 +86,7 @@ export function ExistenceAvailability({
   const response = useFetch(target, null, { metadata: true })
 
   if (response.status !== 404 && response.status !== 200) {
-    throw new Error(`Homebrew: ${response.statusText}`)
+    throw new Error(`${name}: ${response.status}`)
   }
 
   const availability = response.status === 404
@@ -105,8 +105,6 @@ export function ExistenceAvailability({
 
 export function Alternatives({ nameList, children }) {
   const [show, setShow] = useState(false)
-
-  console.log(children)
 
   function onClick() {
     setShow(true)
