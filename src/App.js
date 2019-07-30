@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { FaTwitter, FaGlobe } from 'react-icons/fa'
 
 import { useDeferredState } from './hooks/state'
+import { mobile } from './util/css'
 import { CardHolder } from './components/Card'
 import GithubCard from './components/GithubCard'
 import DomainCard from './components/DomainCard'
@@ -106,7 +107,7 @@ const Input = styled.input`
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 
-  @media screen and (max-width: 800px) {
+  ${mobile} {
     font-size: 2rem;
   }
 `
@@ -120,6 +121,11 @@ const ResultHeader = styled.div`
   margin-bottom: 20px;
   font-size: 1.2rem;
   font-weight: bold;
+  text-align: center;
+
+  ${mobile} {
+    text-align: left;
+  }
 `
 
 const Footer = styled.footer`

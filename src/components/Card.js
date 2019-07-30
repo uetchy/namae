@@ -2,6 +2,7 @@ import React, { Suspense, useState } from 'react'
 import styled from 'styled-components'
 import useFetch from 'fetch-suspense'
 import { BarLoader } from 'react-spinners'
+import { mobile } from '../util/css'
 
 export function Card({ children }) {
   return (
@@ -21,7 +22,13 @@ export const CardTitle = styled.div`
 
 export const CardHolder = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  ${mobile} {
+    flex-direction: column;
+  }
 `
 
 export function AvailabilityCell({
@@ -168,9 +175,14 @@ class ErrorBoundary extends React.Component {
 
 const CardWrapper = styled.div`
   margin-bottom: 20px;
-  padding: 20px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
   border-radius: 2px;
+
+  ${mobile} {
+    padding: 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+  }
 `
 
 const ItemContainer = styled.div`
