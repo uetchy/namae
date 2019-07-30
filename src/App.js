@@ -10,6 +10,7 @@ import SlackCard from './components/SlackCard'
 import NpmCard from './components/NpmCard'
 import JsOrgCard from './components/JsOrgCard'
 import PypiCard from './components/PypiCard'
+import S3Card from './components/S3Card'
 import './App.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -53,6 +54,7 @@ export default function App() {
             <NpmCard name={query} />
             <JsOrgCard name={query} />
             <PypiCard name={query} />
+            <S3Card name={query} />
           </CardHolder>
         </Result>
       ) : null}
