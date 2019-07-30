@@ -41,9 +41,10 @@ export default function App() {
           onChange={onChange}
           type="text"
           placeholder="awesome-package"
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
         />
       </Header>
       {query && query.length > 0 ? (
@@ -112,7 +113,7 @@ const Input = styled.input`
   transition: box-shadow 0.5s ease-out;
 
   &:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
 
   @media screen and (max-width: 800px) {
