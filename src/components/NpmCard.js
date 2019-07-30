@@ -10,14 +10,15 @@ export default function NpmCard({ name }) {
         name={name}
         provider="npm"
         url={`https://www.npmjs.com/package/${name}`}
-        prefix="npmjs.com/package/"
+        prefix="npmjs.com/"
         icon={<FaNpm />}
       />
       <DedicatedAvailability
         name={name}
         provider="npm-org"
         url={`https://www.npmjs.com/org/${name}`}
-        prefix="npmjs.com/org/"
+        prefix="npmjs.com/~"
+        suffix=" (Org)"
         icon={<FaNpm />}
       />
     </Card>
