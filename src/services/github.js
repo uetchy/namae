@@ -8,9 +8,15 @@ async function getGitHubAvailability(name) {
 
 module.exports = async (req, res) => {
   const name = req.query.name
+
   if (!name) {
     return res.status(400).json({ error: 'no query given' })
   }
-  const availability = await getGitHubAvailability(name)
-  res.json({ availability })
+
+  try {
+    const availability = await getGitHubAvailability(name)
+    res.json({ availability })
+  } catch (err) {
+    res.status(400).json({ error: err.message })
+  }
 }

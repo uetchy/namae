@@ -1,86 +1,71 @@
 import React from 'react'
+import styled, { createGlobalStyle } from 'styled-components'
+import { useDeferredState } from './hooks/state'
+import { CardHolder } from './components/Card'
+import GithubCard from './components/GithubCard'
+import TwitterCard from './components/TwitterCard'
+import NpmCard from './components/NpmCard'
 import './App.css'
 
-function useDeferredState(duration) {
-  const [response, setResponse] = React.useState()
-  const [innerValue, setInnerValue] = React.useState()
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+`
 
-  React.useEffect(() => {
-    const fn = setTimeout(() => {
-      setResponse(innerValue)
-    }, duration)
-
-    return () => {
-      clearTimeout(fn)
-    }
-  }, [duration, innerValue])
-
-  return [response, setInnerValue]
-}
-
-async function githubAvailability(name) {
-  const response = await fetch(`/availability/github/${name}`)
-  const json = await response.json()
-  return json.availability
-}
-
-async function npmAvailability(name) {
-  const response = await fetch(`/availability/npm/${name}`)
-  const json = await response.json()
-  return json.availability
-}
-
-function App() {
-  const [query, setQuery] = useDeferredState(1000) // 1sec 遅延
-  const [githubOrg, setGithubOrg] = React.useState()
-  const [npmOrg, setNpmOrg] = React.useState()
+export default function App() {
+  const [query, setQuery] = useDeferredState(1000)
 
   function onChange(e) {
     setQuery(e.target.value)
   }
 
-  React.useEffect(() => {
-    const fn = async () => {
-      if (!query) return
-      const github = await githubAvailability(query)
-      const npm = await npmAvailability(query)
-      setGithubOrg(github)
-      setNpmOrg(npm)
-    }
-    fn()
-  }, [query])
-
   return (
-    <div>
+    <>
+      <GlobalStyle />
       <header>
-        <input onChange={onChange} />
+        <Input
+          onChange={onChange}
+          placeholder="awesome-package"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
+        />
       </header>
-      <div>
-        {githubOrg !== undefined && (
-          <div>
-            github.com/
-            {githubOrg ? (
-              <span style={{ color: 'blue' }}>{query}</span>
-            ) : (
-              <span style={{ color: 'red' }}>{query}</span>
-            )}
-          </div>
-        )}
-      </div>
-      <div>
-        {npmOrg !== undefined && (
-          <div>
-            npmjs.com/~
-            {npmOrg ? (
-              <span style={{ color: 'blue' }}>{query}</span>
-            ) : (
-              <span style={{ color: 'red' }}>{query}</span>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
+      {query && query.length > 0 ? (
+        <SearchResult>
+          <ResultHeader>Result for {query}</ResultHeader>
+          <CardHolder>
+            <GithubCard name={query} />
+            <TwitterCard name={query} />
+            <NpmCard name={query} />
+          </CardHolder>
+        </SearchResult>
+      ) : null}
+    </>
   )
 }
 
-export default App
+const Input = styled.input`
+  width: 100%;
+  padding: 20px;
+  outline: none;
+  font-size: 4rem;
+  font-family: monospace;
+
+  @media screen and (max-width: 800px) {
+    font-size: 2rem;
+  }
+`
+
+const SearchResult = styled.div`
+  margin-top: 40px;
+`
+
+const ResultHeader = styled.h4`
+  padding-left: 20px;
+  margin-bottom: 20px;
+`

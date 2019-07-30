@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fetch-suspense": "^1.2.0",
     "isomorphic-unfetch": "^3.0.0",
     "npm-name": "^5.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-icons": "^3.7.0",
+    "react-scripts": "3.0.1",
+    "react-spinners": "^0.5.13",
+    "styled-components": "^4.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
