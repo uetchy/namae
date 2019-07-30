@@ -3,12 +3,13 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { useDeferredState } from './hooks/state'
 import { CardHolder } from './components/Card'
 import GithubCard from './components/GithubCard'
+import DomainCard from './components/DomainCard'
+import HomebrewCard from './components/HomebrewCard'
 import TwitterCard from './components/TwitterCard'
+import SlackCard from './components/SlackCard'
 import NpmCard from './components/NpmCard'
 import JsOrgCard from './components/JsOrgCard'
-import HomebrewCard from './components/HomebrewCard'
 import PypiCard from './components/PypiCard'
-import DomainCard from './components/DomainCard'
 import './App.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -45,9 +46,10 @@ export default function App() {
           <ResultHeader>Result for {query}</ResultHeader>
           <CardHolder>
             <GithubCard name={query} />
-            <TwitterCard name={query} />
             <DomainCard name={query} />
             <HomebrewCard name={query} />
+            <TwitterCard name={query} />
+            <SlackCard name={query} />
             <NpmCard name={query} />
             <JsOrgCard name={query} />
             <PypiCard name={query} />
