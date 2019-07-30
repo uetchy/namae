@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import { FaTwitter, FaGlobe } from 'react-icons/fa'
 
 import { useDeferredState } from './hooks/state'
@@ -14,15 +14,6 @@ import JsOrgCard from './components/JsOrgCard'
 import PypiCard from './components/PypiCard'
 import S3Card from './components/S3Card'
 import CratesioCard from './components/CratesioCard'
-import './App.css'
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-`
 
 export default function App() {
   const [query, setQuery] = useDeferredState(1000)
@@ -33,7 +24,6 @@ export default function App() {
 
   return (
     <>
-      <GlobalStyle />
       <Header>
         <Logo>namae.dev</Logo>
         <SubHeader>name your new project</SubHeader>
