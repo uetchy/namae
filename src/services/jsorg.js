@@ -1,10 +1,16 @@
 const fetch = require('isomorphic-unfetch')
 
 async function getAvailability(name) {
-  const response = await fetch(
-    `https://twitter.com/${encodeURIComponent(name)}`
-  )
-  return response.status !== 200
+  try {
+    const response = await fetch(`https://${encodeURIComponent(name)}.js.org`)
+    return response.status !== 200
+  } catch (err) {
+    if (err.code === 'ENOTFOUND') {
+      return true
+    } else {
+      throw new Error(err.message)
+    }
+  }
 }
 
 module.exports = async (req, res) => {

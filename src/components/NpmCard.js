@@ -1,9 +1,9 @@
 import React from 'react'
 import useFetch from 'fetch-suspense'
-import { Card, AvailabilityCell } from './Card'
+import { Card, CardTitle, AvailabilityCell } from './Card'
 import { FaNpm } from 'react-icons/fa'
 
-function NpmPanel({ name }) {
+function Availability({ name }) {
   const response = useFetch(`/availability/npm/${name}`)
 
   if (response.error) {
@@ -15,9 +15,9 @@ function NpmPanel({ name }) {
       <AvailabilityCell
         name={name}
         availability={response.packageAvailability}
-        icon={<FaNpm />}
-        url="https://www.npmjs.com/package/"
+        url={`https://www.npmjs.com/package/${name}`}
         prefix="npmjs.com/package/"
+        icon={<FaNpm />}
       />
       <AvailabilityCell
         name={name}
@@ -32,8 +32,9 @@ function NpmPanel({ name }) {
 
 export default function NpmCard({ name }) {
   return (
-    <Card key={name.toLowerCase()}>
-      <NpmPanel name={name.toLowerCase()} />
+    <Card key={name}>
+      <CardTitle>npm</CardTitle>
+      <Availability name={name.toLowerCase()} />
     </Card>
   )
 }

@@ -5,6 +5,8 @@ import { CardHolder } from './components/Card'
 import GithubCard from './components/GithubCard'
 import TwitterCard from './components/TwitterCard'
 import NpmCard from './components/NpmCard'
+import JsOrgCard from './components/JsOrgCard'
+import HomebrewCard from './components/HomebrewCard'
 import './App.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -36,14 +38,16 @@ export default function App() {
         />
       </header>
       {query && query.length > 0 ? (
-        <SearchResult>
+        <Result>
           <ResultHeader>Result for {query}</ResultHeader>
           <CardHolder>
             <GithubCard name={query} />
             <TwitterCard name={query} />
             <NpmCard name={query} />
+            <JsOrgCard name={query} />
+            <HomebrewCard name={query} />
           </CardHolder>
-        </SearchResult>
+        </Result>
       ) : null}
     </>
   )
@@ -61,11 +65,13 @@ const Input = styled.input`
   }
 `
 
-const SearchResult = styled.div`
+const Result = styled.div`
   margin-top: 40px;
 `
 
-const ResultHeader = styled.h4`
+const ResultHeader = styled.div`
   padding-left: 20px;
   margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
 `

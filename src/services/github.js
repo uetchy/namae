@@ -1,9 +1,8 @@
 const fetch = require('isomorphic-unfetch')
 
-async function getGitHubAvailability(name) {
-  const githubURL = 'https://github.com'
-  const response = await fetch(`${githubURL}/${encodeURIComponent(name)}`)
-  return response.status === 404
+async function getAvailability(name) {
+  const response = await fetch(`https://github.com/${encodeURIComponent(name)}`)
+  return response.status !== 200
 }
 
 module.exports = async (req, res) => {
@@ -14,7 +13,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const availability = await getGitHubAvailability(name)
+    const availability = await getAvailability(name)
     res.json({ availability })
   } catch (err) {
     res.status(400).json({ error: err.message })

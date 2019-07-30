@@ -2,6 +2,53 @@ import React, { Suspense } from 'react'
 import styled from 'styled-components'
 import { BarLoader } from 'react-spinners'
 
+export function Card({ children }) {
+  return (
+    <CardWrapper>
+      <ErrorBoundary>
+        <Suspense fallback={<BarLoader />}>{children}</Suspense>
+      </ErrorBoundary>
+    </CardWrapper>
+  )
+}
+
+export const CardTitle = styled.div`
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+`
+
+export const CardHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export function AvailabilityCell({
+  name,
+  availability,
+  url,
+  prefix = '',
+  suffix = '',
+  icon,
+}) {
+  return (
+    <ItemContainer>
+      {icon}
+      <Item>
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          {prefix}
+          {availability ? (
+            <span style={{ color: 'green' }}>{name}</span>
+          ) : (
+            <span style={{ color: 'red' }}>{name}</span>
+          )}
+          {suffix}
+        </a>
+      </Item>
+    </ItemContainer>
+  )
+}
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
@@ -23,22 +70,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-export function Card({ children }) {
-  return (
-    <CardWrapper>
-      <ErrorBoundary>
-        <Suspense fallback={<BarLoader />}>{children}</Suspense>
-      </ErrorBoundary>
-    </CardWrapper>
-  )
-}
-
-export const CardHolder = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-
-export const CardWrapper = styled.div`
+const CardWrapper = styled.div`
   margin-bottom: 40px;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -63,21 +95,3 @@ const Item = styled.span`
     color: inherit;
   }
 `
-
-export function AvailabilityCell({ name, availability, url, prefix, icon }) {
-  return (
-    <ItemContainer>
-      {icon}
-      <Item>
-        <a href={url + name} target="_blank" rel="noopener noreferrer">
-          {prefix}
-          {availability ? (
-            <span style={{ color: 'green' }}>{name}</span>
-          ) : (
-            <span style={{ color: 'red' }}>{name}</span>
-          )}
-        </a>
-      </Item>
-    </ItemContainer>
-  )
-}
