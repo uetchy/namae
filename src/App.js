@@ -65,11 +65,10 @@ export default function App() {
       ) : null}
       <Footer>
         <p>
-          Made with{' '}
+          Made by U with{' '}
           <span role="img" aria-label="love">
             🐤
           </span>{' '}
-          by U{' '}
           <a
             href="https://twitter.com/uetschy"
             target="_blank"
