@@ -9,8 +9,8 @@ export default function PypiCard({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={name}
-          provider="pypi"
-          url={`https://pypi.org/project/${name}`}
+          service="pypi"
+          link={`https://pypi.org/project/${name}`}
           icon={<FaPython />}
         />
       )}

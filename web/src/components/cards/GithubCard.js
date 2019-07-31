@@ -19,8 +19,8 @@ export default function GithubCard({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={name}
-          provider="github"
-          url={`https://github.com/${name}`}
+          service="github"
+          link={`https://github.com/${name}`}
           prefix="github.com/"
           icon={<FaGithub />}
         />

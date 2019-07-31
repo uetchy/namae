@@ -11,8 +11,8 @@ export default function SlackCard({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={name}
-          provider="slack"
-          url={`https://${name}.slack.com`}
+          service="slack"
+          link={`https://${name}.slack.com`}
           suffix=".slack.com"
           icon={<FaSlack />}
         />

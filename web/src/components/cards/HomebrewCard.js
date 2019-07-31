@@ -13,13 +13,13 @@ export default function HomebrewCard({ name }) {
           <ExistentialAvailability
             name={name}
             target={`https://formulae.brew.sh/api/formula/${name}.json`}
-            url={`https://formulae.brew.sh/formula/${name}`}
+            link={`https://formulae.brew.sh/formula/${name}`}
             icon={<IoIosBeer />}
           />
           <ExistentialAvailability
             name={name}
             target={`https://formulae.brew.sh/api/cask/${name}.json`}
-            url={`https://formulae.brew.sh/cask/${name}`}
+            link={`https://formulae.brew.sh/cask/${name}`}
             suffix=" (Cask)"
             icon={<IoIosBeer />}
           />

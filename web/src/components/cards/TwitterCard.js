@@ -19,8 +19,8 @@ export default function TwitterCard({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={name}
-          provider="twitter"
-          url={`https://twitter.com/${name}`}
+          service="twitter"
+          link={`https://twitter.com/${name}`}
           prefix="twitter.com/"
           icon={<FaTwitter />}
         />

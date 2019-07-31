@@ -6,7 +6,7 @@ import { BarLoader } from 'react-spinners'
 function AvailabilityCell({
   name,
   availability,
-  url,
+  link,
   prefix = '',
   suffix = '',
   icon,
@@ -15,7 +15,7 @@ function AvailabilityCell({
     <ItemContainer>
       {icon}
       <Item>
-        <a href={url} target="_blank" rel="noopener noreferrer">
+        <a href={link} target="_blank" rel="noopener noreferrer">
           {prefix}
           {availability ? (
             <span style={{ color: 'green' }}>{name}</span>
@@ -37,21 +37,21 @@ export const Fallback = () => (
 
 export function DedicatedAvailability({
   name,
-  provider,
-  url,
+  service,
+  link,
   prefix = '',
   suffix = '',
   icon,
 }) {
-  const response = useFetch(`/availability/${provider}/${name}`)
+  const response = useFetch(`/availability/${service}/${name}`)
   if (response.error) {
-    throw new Error(`${provider}: ${response.error}`)
+    throw new Error(`${service}: ${response.error}`)
   }
   return (
     <AvailabilityCell
       availability={response.availability}
       name={name}
-      url={url}
+      link={link}
       prefix={prefix}
       suffix={suffix}
       icon={icon}
@@ -75,7 +75,7 @@ export function ExistentialAvailability({
     <AvailabilityCell
       name={name}
       availability={availability}
-      url={`https://formulae.brew.sh/formula/${name}`}
+      link={`https://formulae.brew.sh/formula/${name}`}
       prefix={prefix}
       suffix={suffix}
       icon={icon}

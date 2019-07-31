@@ -11,8 +11,8 @@ export default function JsOrgCard({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={`${name}.js.org`}
-          provider="dns"
-          url={`https://${name}.js.org`}
+          service="dns"
+          link={`https://${name}.js.org`}
           icon={<FaJsSquare />}
         />
       )}

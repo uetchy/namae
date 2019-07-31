@@ -11,8 +11,8 @@ export default function CratesioCard({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={name}
-          provider="cratesio"
-          url={`https://crates.io/crates/${name}`}
+          service="cratesio"
+          link={`https://crates.io/crates/${name}`}
           icon={<DiRust />}
         />
       )}

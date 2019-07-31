@@ -19,8 +19,8 @@ export default function DomainCard({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={name}
-          provider="domain"
-          url={`https://domainr.com/?q=${name}`}
+          service="domain"
+          link={`https://domainr.com/?q=${name}`}
           icon={<FaMapSigns />}
         />
       )}

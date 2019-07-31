@@ -11,8 +11,8 @@ export default function S3Card({ name }) {
       {(name) => (
         <DedicatedAvailability
           name={name}
-          provider="s3"
-          url={`https://${name}.s3.amazonaws.com`}
+          service="s3"
+          link={`https://${name}.s3.amazonaws.com`}
           suffix=".s3.amazonaws.com"
           icon={<FaAws />}
         />
