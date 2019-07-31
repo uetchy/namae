@@ -1,20 +1,22 @@
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { Card } from '../Card'
+import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 import { capitalize } from '../../util/text'
 
 export default function GithubCard({ name }) {
+  const lowerCase = name.toLowerCase()
+
   return (
     <Card
       title="GitHub Organization"
       key={name}
       nameList={[name]}
       alternativeList={[
-        `${name.toLowerCase()}hq`,
-        `${name.toLowerCase()}-team`,
+        `${lowerCase}hq`,
+        `${lowerCase}-team`,
         `${capitalize(name)}Team`,
-        `${name.toLowerCase()}-org`,
+        `${lowerCase}-org`,
       ]}>
       {(name) => (
         <DedicatedAvailability

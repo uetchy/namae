@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaMapSigns } from 'react-icons/fa'
-import { Card } from '../Card'
+import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 
 export default function DomainCard({ name }) {
@@ -13,8 +13,8 @@ export default function DomainCard({ name }) {
       nameList={[`${lowerCase}.app`, `${lowerCase}.dev`, `${lowerCase}.org`]}
       alternativeList={[
         `${lowerCase}app.com`,
+        `get${lowerCase}.com`,
         `${lowerCase}.build`,
-        `${lowerCase}.ai`,
       ]}>
       {(name) => (
         <DedicatedAvailability

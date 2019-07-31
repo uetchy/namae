@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import useFetch from 'fetch-suspense'
 import { BarLoader } from 'react-spinners'
 
+import { ExternalLink } from './Links'
+
 function AvailabilityCell({
   name,
   availability,
@@ -15,7 +17,7 @@ function AvailabilityCell({
     <ItemContainer>
       {icon}
       <Item>
-        <a href={link} target="_blank" rel="noopener noreferrer">
+        <ExternalLink href={link}>
           {prefix}
           {availability ? (
             <span style={{ color: 'green' }}>{name}</span>
@@ -23,7 +25,7 @@ function AvailabilityCell({
             <span style={{ color: 'red' }}>{name}</span>
           )}
           {suffix}
-        </a>
+        </ExternalLink>
       </Item>
     </ItemContainer>
   )

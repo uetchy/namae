@@ -5,6 +5,9 @@
   "scripts": {
     "start": "now dev"
   },
+  "dependencies": {
+    "@types/node": "^12.6.8"
+  },
   "license": "MIT",
   "private": true,
   "workspaces": [

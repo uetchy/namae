@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaTwitter } from 'react-icons/fa'
-import { Card } from '../Card'
+import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 import { capitalize } from '../../util/text'
 

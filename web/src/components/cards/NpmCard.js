@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaNpm } from 'react-icons/fa'
-import { Card } from '../Card'
+import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 
 export default function NpmCard({ name }) {

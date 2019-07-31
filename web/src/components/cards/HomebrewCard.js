@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoIosBeer } from 'react-icons/io'
-import { Card } from '../Card'
+import { Card } from '../Cards'
 import { ExistentialAvailability } from '../Availability'
 
 export default function HomebrewCard({ name }) {

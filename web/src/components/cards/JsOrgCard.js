@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaJsSquare } from 'react-icons/fa'
-import { Card } from '../Card'
+import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 
 export default function JsOrgCard({ name }) {

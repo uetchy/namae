@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { FaTwitter, FaGithubAlt } from 'react-icons/fa'
 
+import { ExternalLink } from './Links'
+
 export default function Footer() {
   return (
     <Container>
@@ -12,18 +14,12 @@ export default function Footer() {
         </span>
         <br />
         <br />
-        <a
-          href="https://twitter.com/uetschy"
-          target="_blank"
-          rel="noopener noreferrer">
+        <ExternalLink href="https://twitter.com/uetschy">
           <FaTwitter />
-        </a>{' '}
-        <a
-          href="https://github.com/uetchy/namae"
-          target="_blank"
-          rel="noopener noreferrer">
+        </ExternalLink>{' '}
+        <ExternalLink href="https://github.com/uetchy/namae">
           <FaGithubAlt />
-        </a>
+        </ExternalLink>
       </p>
     </Container>
   )

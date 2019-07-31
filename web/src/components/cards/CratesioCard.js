@@ -1,6 +1,6 @@
 import React from 'react'
 import { DiRust } from 'react-icons/di'
-import { Card } from '../Card'
+import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 
 export default function CratesioCard({ name }) {
