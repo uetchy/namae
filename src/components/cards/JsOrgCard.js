@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaJsSquare } from 'react-icons/fa'
-import { Card, CardTitle, DedicatedAvailability } from './Card'
+import { Card, CardTitle, DedicatedAvailability } from '../Card'
 
 export default function JsOrgCard({ name }) {
   const lowerCase = name.toLowerCase()

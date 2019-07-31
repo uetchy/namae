@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { Card, CardTitle, DedicatedAvailability, Alternatives } from './Card'
-import { capitalize } from '../util/text'
+import { Card, CardTitle, DedicatedAvailability, Alternatives } from '../Card'
+import { capitalize } from '../../util/text'
 
 export default function GithubCard({ name }) {
   return (

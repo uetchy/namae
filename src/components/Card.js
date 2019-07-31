@@ -20,17 +20,6 @@ export const CardTitle = styled.div`
   margin-bottom: 15px;
 `
 
-export const CardHolder = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  ${mobile} {
-    flex-direction: column;
-  }
-`
-
 export function AvailabilityCell({
   name,
   availability,
@@ -83,7 +72,7 @@ export function DedicatedAvailability({
   )
 }
 
-export function ExistenceAvailability({
+export function ExistentialAvailability({
   name,
   target,
   prefix = '',

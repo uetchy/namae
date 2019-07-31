@@ -1,20 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FaTwitter, FaGlobe } from 'react-icons/fa'
 
 import { useDeferredState } from './hooks/state'
 import { mobile } from './util/css'
-import { CardHolder } from './components/Card'
-import GithubCard from './components/GithubCard'
-import DomainCard from './components/DomainCard'
-import HomebrewCard from './components/HomebrewCard'
-import TwitterCard from './components/TwitterCard'
-import SlackCard from './components/SlackCard'
-import NpmCard from './components/NpmCard'
-import JsOrgCard from './components/JsOrgCard'
-import PypiCard from './components/PypiCard'
-import S3Card from './components/S3Card'
-import CratesioCard from './components/CratesioCard'
+
+import GithubCard from './components/cards/GithubCard'
+import DomainCard from './components/cards/DomainCard'
+import HomebrewCard from './components/cards/HomebrewCard'
+import TwitterCard from './components/cards/TwitterCard'
+import SlackCard from './components/cards/SlackCard'
+import NpmCard from './components/cards/NpmCard'
+import JsOrgCard from './components/cards/JsOrgCard'
+import PypiCard from './components/cards/PypiCard'
+import S3Card from './components/cards/S3Card'
+import CratesioCard from './components/cards/CratesioCard'
+import Footer from './components/Footer'
 
 export default function App() {
   const [query, setQuery] = useDeferredState(1000)
@@ -26,22 +26,15 @@ export default function App() {
   return (
     <>
       <Header>
-        <Logo>namae.dev</Logo>
+        <Logo>namæ</Logo>
         <SubHeader>name your new project</SubHeader>
-        <Input
-          onChange={onChange}
-          type="text"
-          placeholder="awesome-package"
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-          spellcheck="false"
-        />
+        <Input onChange={onChange} />
       </Header>
+
       {query && query.length > 0 ? (
-        <Result>
-          <ResultHeader>Result for {query}</ResultHeader>
-          <CardHolder>
+        <Cards>
+          <CardHeader>Result for {query}</CardHeader>
+          <CardContainer>
             <GithubCard name={query} />
             <DomainCard name={query} />
             <TwitterCard name={query} />
@@ -52,28 +45,11 @@ export default function App() {
             <JsOrgCard name={query} />
             <SlackCard name={query} />
             <S3Card name={query} />
-          </CardHolder>
-        </Result>
+          </CardContainer>
+        </Cards>
       ) : null}
-      <Footer>
-        <p>
-          Made by U with{' '}
-          <span role="img" aria-label="love">
-            🐤
-          </span>
-          <br />
-          <br />
-          <a
-            href="https://twitter.com/uetschy"
-            target="_blank"
-            rel="noopener noreferrer">
-            <FaTwitter />
-          </a>{' '}
-          <a href="https://uechi.io" target="_blank" rel="noopener noreferrer">
-            <FaGlobe />
-          </a>
-        </p>
-      </Footer>
+
+      <Footer />
     </>
   )
 }
@@ -94,7 +70,14 @@ const SubHeader = styled.div`
   font-style: italic;
 `
 
-const Input = styled.input`
+const Input = styled.input.attrs({
+  type: 'text',
+  placeholder: 'awesome-package',
+  autocomplete: 'off',
+  autocorrect: 'off',
+  autocapitalize: 'off',
+  spellcheck: 'false',
+})`
   width: 100%;
   margin-top: 20px;
   padding: 20px;
@@ -115,11 +98,11 @@ const Input = styled.input`
   }
 `
 
-const Result = styled.div`
+const Cards = styled.div`
   margin-top: 40px;
 `
 
-const ResultHeader = styled.div`
+const CardHeader = styled.div`
   margin-bottom: 20px;
   font-size: 1.2rem;
   font-weight: bold;
@@ -130,11 +113,13 @@ const ResultHeader = styled.div`
     text-align: left;
   }
 `
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 
-const Footer = styled.footer`
-  margin: 40px 0;
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 0.8em;
+  ${mobile} {
+    flex-direction: column;
+  }
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import { DiRust } from 'react-icons/di'
-import { Card, CardTitle, DedicatedAvailability } from './Card'
+import { Card, CardTitle, DedicatedAvailability } from '../Card'
 
 export default function CratesioCard({ name }) {
   const lowerCase = name.toLowerCase()

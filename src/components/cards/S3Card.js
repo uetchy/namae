@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardTitle, DedicatedAvailability } from './Card'
+import { Card, CardTitle, DedicatedAvailability } from '../Card'
 import { FaAws } from 'react-icons/fa'
 
 export default function S3Card({ name }) {

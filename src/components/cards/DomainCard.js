@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardTitle, DedicatedAvailability, Alternatives } from './Card'
+import { Card, CardTitle, DedicatedAvailability, Alternatives } from '../Card'
 import { FaMapSigns } from 'react-icons/fa'
 
 export default function DomainCard({ name }) {
