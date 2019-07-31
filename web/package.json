@@ -13,6 +13,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.6.0",
     "react-icons": "^3.7.0",
     "react-scripts": "3.0.1",
     "react-spinners": "^0.5.13",
