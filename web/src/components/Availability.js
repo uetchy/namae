@@ -62,6 +62,7 @@ export function DedicatedAvailability({
 export function ExistentialAvailability({
   name,
   target,
+  link,
   prefix = '',
   suffix = '',
   icon,
@@ -75,7 +76,7 @@ export function ExistentialAvailability({
     <AvailabilityCell
       name={name}
       availability={availability}
-      link={`https://formulae.brew.sh/formula/${name}`}
+      link={link}
       prefix={prefix}
       suffix={suffix}
       icon={icon}
