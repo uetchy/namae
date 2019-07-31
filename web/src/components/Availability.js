@@ -128,9 +128,8 @@ const Cell = styled.div`
   color: ${({ availability }) => (availability ? 'green' : 'red')};
 `
 
-const Name = styled.span`
+const Name = styled.div`
   margin-left: 6px;
-  margin-top: -1px;
   font-family: monospace;
   font-size: 1rem;
 
