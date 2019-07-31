@@ -54,7 +54,7 @@ and add the card to `/web/src/App.js`:
 import NewCard from './components/cards/NewCard'
 ```
 
-```jsx
+```patch
 <Cards>
   <CardHeader>Result for {query}</CardHeader>
   <CardContainer>
@@ -68,7 +68,7 @@ import NewCard from './components/cards/NewCard'
     <JsOrgCard name={query} />
     <SlackCard name={query} />
     <S3Card name={query} />
-    <NewCard name={query} />
++   <NewCard name={query} />
   </CardContainer>
 </Cards>
 ```
@@ -82,7 +82,3 @@ For example, `<ExistentialAvailability target="https://formulae.brew.sh/api/form
 
 `DedicatedAvailability` is for interacting with defined API endpoint to check availability.
 For example, `<DedicatedAvailability service="<service>" />` will send a request to `https://namae.dev/availability/<service>/<query>` which is routed to `/api/services/<service>.js` in the repo.
-
-```
-
-```
