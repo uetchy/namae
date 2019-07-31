@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FaTwitter, FaGlobe } from 'react-icons/fa'
+import { FaTwitter, FaGithubAlt } from 'react-icons/fa'
 
 export default function Footer() {
   return (
     <Container>
       <p>
         Made by U with{' '}
-        <span role="img" aria-label="love">
-          🐤
+        <span role="img" aria-label="coffee">
+          ☕️
         </span>
         <br />
         <br />
@@ -18,8 +18,11 @@ export default function Footer() {
           rel="noopener noreferrer">
           <FaTwitter />
         </a>{' '}
-        <a href="https://uechi.io" target="_blank" rel="noopener noreferrer">
-          <FaGlobe />
+        <a
+          href="https://github.com/uetchy/namae"
+          target="_blank"
+          rel="noopener noreferrer">
+          <FaGithubAlt />
         </a>
       </p>
     </Container>

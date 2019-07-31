@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { useDeferredState } from './hooks/state'
 import { mobile } from './util/css'
 
+import Footer from './components/Footer'
+
 import GithubCard from './components/cards/GithubCard'
 import DomainCard from './components/cards/DomainCard'
 import HomebrewCard from './components/cards/HomebrewCard'
@@ -14,7 +16,6 @@ import JsOrgCard from './components/cards/JsOrgCard'
 import PypiCard from './components/cards/PypiCard'
 import S3Card from './components/cards/S3Card'
 import CratesioCard from './components/cards/CratesioCard'
-import Footer from './components/Footer'
 
 export default function App() {
   const [query, setQuery] = useDeferredState(1000)

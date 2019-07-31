@@ -2,7 +2,7 @@
 
 ## Setup environment
 
-Install `now` for development:
+Install `now` for development server:
 
 ```
 yarn global add now
@@ -17,36 +17,60 @@ yarn start
 
 ## Add new provider
 
-Create `web/src/components/cards/<NewCard>.js` and paste following GitHub example into it:
+Create `web/src/components/cards/<NewCard>.js` and paste following template into it:
 
 ```jsx
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
 
 import { Card } from '../Card'
-import { DedicatedAvailability } from '../Availability'
+import { ExistentialAvailability } from '../Availability'
 import { capitalize } from '../../util/text'
 
-export default function CratesioCard({ name }) {
+export default function NewCard({ name }) {
   return (
     <Card
-      title="GitHub"
+      title="NewCard"
       key={name}
       nameList={[name, `${name}-team`]}
       alternativeList={[`${capitalize(name)}HQ`]}>
       {(name) => (
-        <DedicatedAvailability
+        <ExistentialAvailability
           name={name}
-          service="github"
-          link={`https://github.com/${name}`}
-          prefix="github.com/"
-          suffix=""
+          target={`https://api.newservice.com/items/${name}`}
+          link={`https://newservice.com/${name}`}
+          prefix="newservice.com/"
           icon={<FaGithub />}
         />
       )}
     </Card>
   )
 }
+```
+
+and add the card to `/web/src/App.js`:
+
+```jsx
+import NewCard from './components/cards/NewCard'
+```
+
+```jsx
+<Cards>
+  <CardHeader>Result for {query}</CardHeader>
+  <CardContainer>
+    <GithubCard name={query} />
+    <DomainCard name={query} />
+    <TwitterCard name={query} />
+    <HomebrewCard name={query} />
+    <NpmCard name={query} />
+    <PypiCard name={query} />
+    <CratesioCard name={query} />
+    <JsOrgCard name={query} />
+    <SlackCard name={query} />
+    <S3Card name={query} />
+    <NewCard name={query} />
+  </CardContainer>
+</Cards>
 ```
 
 ### ExistentialAvailability
@@ -57,4 +81,8 @@ For example, `<ExistentialAvailability target="https://formulae.brew.sh/api/form
 ### DedicatedAvailability
 
 `DedicatedAvailability` is for interacting with defined API endpoint to check availability.
-For example, `<DedicatedAvailability service="github" />` will send a request to `https://namae.dev/availability/<github>/<query>` which is routed to `/api/services/github.js` in the repo.
+For example, `<DedicatedAvailability service="<service>" />` will send a request to `https://namae.dev/availability/<service>/<query>` which is routed to `/api/services/<service>.js` in the repo.
+
+```
+
+```
