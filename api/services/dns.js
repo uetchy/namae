@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
 
     res.json({ availability })
   } catch (err) {
-    if (err.code === 'ENODATA') {
+    if (err.code === 'ENODATA' || err.code === 'ENOTFOUND') {
       return res.status(200).json({ availability: true })
     }
     res.status(400).json({ error: err.message })
