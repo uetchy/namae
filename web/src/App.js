@@ -16,6 +16,7 @@ import JsOrgCard from './components/cards/JsOrgCard'
 import PypiCard from './components/cards/PypiCard'
 import S3Card from './components/cards/S3Card'
 import CratesioCard from './components/cards/CratesioCard'
+import { EventReporter } from './components/Analytics'
 
 export default function App() {
   const [query, setQuery] = useDeferredState(1000)
@@ -47,6 +48,7 @@ export default function App() {
             <S3Card name={query} />
             <JsOrgCard name={query} />
           </CardContainer>
+          <EventReporter query={query} />
         </Cards>
       ) : null}
 
@@ -80,7 +82,7 @@ const Input = styled.input.attrs({
   spellcheck: 'false',
 })`
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 20px;
   outline: none;
   text-align: center;
@@ -88,11 +90,7 @@ const Input = styled.input.attrs({
   font-family: monospace;
   border: none;
 
-  transition: box-shadow 0.5s ease-out;
-
-  &:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  }
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 
   ${mobile} {
     font-size: 2rem;
