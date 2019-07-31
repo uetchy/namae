@@ -7,7 +7,7 @@ import { capitalize } from '../../util/text'
 export default function GithubCard({ name }) {
   return (
     <Card
-      title="GitHub"
+      title="GitHub Organization"
       key={name}
       nameList={[name]}
       alternativeList={[

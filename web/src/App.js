@@ -36,16 +36,16 @@ export default function App() {
         <Cards>
           <CardHeader>Result for {query}</CardHeader>
           <CardContainer>
-            <GithubCard name={query} />
             <DomainCard name={query} />
-            <TwitterCard name={query} />
+            <GithubCard name={query} />
             <HomebrewCard name={query} />
             <NpmCard name={query} />
             <PypiCard name={query} />
             <CratesioCard name={query} />
-            <JsOrgCard name={query} />
+            <TwitterCard name={query} />
             <SlackCard name={query} />
             <S3Card name={query} />
+            <JsOrgCard name={query} />
           </CardContainer>
         </Cards>
       ) : null}
