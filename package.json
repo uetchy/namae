@@ -1,0 +1,14 @@
+{
+  "name": "namae",
+  "description": "name your new project.",
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
+  "scripts": {
+    "start": "now dev"
+  },
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web"
+  ]
+}

@@ -1034,9 +1034,9 @@
   integrity sha512-HOJ20Kc93DkDVvjwHyHawPwPkX44sIrbXazAUDiUXaY2R9JwQGo2PhFfnQtdrsIe4igjG2fPgMra7NYw7qhy0A==
 
 "@hapi/hoek@8.x.x":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-8.0.2.tgz#f63a5ff00e891a4e7aa98f11119f9515c6672032"
-  integrity sha512-O6o6mrV4P65vVccxymuruucb+GhP2zl9NLCG8OdoFRS8BEGw3vwpPp20wpAtpbQQxz1CEUtmxJGgWhjq1XA3qw==
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-8.1.0.tgz#8f7627b23ed9bf67088fc7f9669e48c63ad421bd"
+  integrity sha512-b1J4jxYnW+n6lC91V6Pqg9imP9BZq0HNCeM+3sbXg05rQsE9cGYrKFpZjyztVesGmNRE6R+QaEoWGATeIiUVjA==
 
 "@hapi/joi@^15.0.0":
   version "15.1.0"
@@ -2495,9 +2495,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000939, caniuse-lite@^1.0.30000955, caniuse-lite@^1.0.30000980, caniuse-lite@^1.0.30000984:
-  version "1.0.30000985"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000985.tgz#0eb40f6c8a8c219155cbe43c4975c0efb4a0f77f"
-  integrity sha512-1ngiwkgqAYPG0JSSUp3PUDGPKKY59EK7NrGGX+VOxaKCNzRbNc7uXMny+c3VJfZxtoK3wSImTvG9T9sXiTw2+w==
+  version "1.0.30000988"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000988.tgz#742f35ec1b8b75b9628d705d7652eea1fef983db"
+  integrity sha512-lPj3T8poYrRc/bniW5SQPND3GRtSrQdUM/R4mCYTbZxyi3jQiggLvZH4+BYUuX0t4TXjU+vMM7KFDQg+rSzZUQ==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -3603,9 +3603,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.122, electron-to-chromium@^1.3.191:
-  version "1.3.200"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.200.tgz#78fb858b466269e8eb46d31a52562f00c865127f"
-  integrity sha512-PUurrpyDA74MuAjJRD+79ss5BqJlU3mdArRbuu4wO/dt6jc3Ic/6BDmFJxkdwbfq39cHf/XKm2vW98XSvut9Dg==
+  version "1.3.207"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.207.tgz#b19ce94d61187d72411ebb83dfe287366a785102"
+  integrity sha512-RIgAnfqbjZNECBLjslfy4cIYvcPl3GAXmnENrcoo0TZ8fGkyEEAealAbO7MoevW4xYUPe+e68cWAj6eP0DmMHw==
 
 elliptic@^6.0.0:
   version "6.5.0"
@@ -3918,9 +3918,9 @@ estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   integrity sha1-De4/7TH81GlhjOc0IJn8GvoL2xM=
 
 esutils@^2.0.0, esutils@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
-  integrity sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
+  integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
 etag@~1.8.1:
   version "1.8.1"
@@ -7758,9 +7758,9 @@ postcss-modules-values@^2.0.0:
     postcss "^7.0.6"
 
 postcss-nesting@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-7.0.0.tgz#6e26a770a0c8fcba33782a6b6f350845e1a448f6"
-  integrity sha512-WSsbVd5Ampi3Y0nk/SKr5+K34n52PqMqEfswu6RtU4r7wA8vSD+gM8/D9qq4aJkHImwn1+9iEFTbjoWsQeqtaQ==
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-7.0.1.tgz#b50ad7b7f0173e5b5e3880c3501344703e04c052"
+  integrity sha512-FrorPb0H3nuVq0Sff7W2rnc3SmIcruVC6YwpcS+k687VxyxO33iE1amna7wHuRVzM8vfiYofXSBHNAZ3QhLvYg==
   dependencies:
     postcss "^7.0.2"
 
@@ -8072,9 +8072,9 @@ prepend-http@^2.0.0:
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
 pretty-bytes@^5.1.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.2.0.tgz#96c92c6e95a0b35059253fb33c03e260d40f5a1f"
-  integrity sha512-ujANBhiUsl9AhREUDUEY1GPOharMGm8x8juS7qOHybcLi7XsKfrYQ88hSly1l2i0klXHTDYrlL8ihMCG55Dc3w==
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.3.0.tgz#f2849e27db79fb4d6cfe24764fc4134f165989f2"
+  integrity sha512-hjGrh+P926p4R4WbaB6OckyRtO0F0/lQBiT+0gnxjV+5kjPBrfVBFCsCLbMqVQeydvIoouYTCmmEURiH3R1Bdg==
 
 pretty-error@^2.1.1:
   version "2.1.1"
@@ -9281,9 +9281,9 @@ spdy-transport@^3.0.0:
     wbuf "^1.7.3"
 
 spdy@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/spdy/-/spdy-4.0.0.tgz#81f222b5a743a329aa12cea6a390e60e9b613c52"
-  integrity sha512-ot0oEGT/PGUpzf/6uk4AWLqkq+irlqHXkrdbk51oWONh3bxQmBuljxPNl66zlRRcIJStWq0QkLUCPOPjgjvU0Q==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/spdy/-/spdy-4.0.1.tgz#6f12ed1c5db7ea4f24ebb8b89ba58c87c08257f2"
+  integrity sha512-HeZS3PBdMA+sZSu0qwpCxl3DeALD5ASx8pAX0jZdKXSpPWbQ6SYGnlg3BBmYLx5LtiZrmkAZfErCm2oECBcioA==
   dependencies:
     debug "^4.1.0"
     handle-thing "^2.0.0"
@@ -9552,9 +9552,9 @@ supports-color@^6.1.0:
     has-flag "^3.0.0"
 
 svg-parser@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/svg-parser/-/svg-parser-2.0.1.tgz#2379e84748b31fad7bf80913e173492f3bcc9f20"
-  integrity sha512-8eUnCsU2sc2hyfvjK++zi5u24a2UQIB2DK9GY/cprGlaDr7SIhm9F0m9CkGYOnOgrK3iTUSnJ7M1DTLqqZt96g==
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/svg-parser/-/svg-parser-2.0.2.tgz#d134cc396fa2681dc64f518330784e98bd801ec8"
+  integrity sha512-1gtApepKFweigFZj3sGO8KT8LvVZK8io146EzXrpVuWCDAbISz/yMucco3hWTkpZNoPabM+dnMOpy6Swue68Zg==
 
 svgo@^1.0.0, svgo@^1.2.2:
   version "1.3.0"
@@ -9828,9 +9828,9 @@ tslib@^1.8.1, tslib@^1.9.0:
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 tsutils@^3.7.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.14.0.tgz#bf8d5a7bae5369331fa0f2b0a5a10bd7f7396c77"
-  integrity sha512-SmzGbB0l+8I0QwsPgjooFRaRvHLBLNYM8SeQ0k6rtNDru5sCGeLJcZdwilNndN+GysuFjF5EIYgN8GfFG6UeUw==
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.14.1.tgz#f1d2b93d2a0876481f2f1f98c25ba42bbd7ee860"
+  integrity sha512-kiuZzD1uUA5DxGj/uxbde+ymp6VVdAxdzOIlAFbYKrPyla8/uiJ9JLBm1QsPhOm4Muj0/+cWEDP99yoCUcSl6Q==
   dependencies:
     tslib "^1.8.1"
 
@@ -10353,7 +10353,7 @@ whois-json@^2.0.4:
     html-entities "^1.2.1"
     whois "^2.6.0"
 
-whois@^2.10.1, whois@^2.6.0:
+whois@^2.6.0:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/whois/-/whois-2.10.1.tgz#2d406583431d793bfe063d638a2c7addc21d1c6d"
   integrity sha512-K64qIp1vxj0a24wHETb9AiaZrIxXrFkTzE7fL+87p0c5+Mng/t1vu3QVvgKmKgIxYujl09nzlHKUM4xuFflCOQ==
