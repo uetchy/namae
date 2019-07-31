@@ -134,7 +134,7 @@ export function Alternatives({ nameList, children }) {
         ))
       ) : (
         <ShowAlternativesButton onClick={onClick}>
-          Show Alternatives
+          show alternatives
         </ShowAlternativesButton>
       )}
     </>

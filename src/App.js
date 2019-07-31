@@ -60,7 +60,9 @@ export default function App() {
           Made by U with{' '}
           <span role="img" aria-label="love">
             🐤
-          </span>{' '}
+          </span>
+          <br />
+          <br />
           <a
             href="https://twitter.com/uetschy"
             target="_blank"
@@ -77,11 +79,12 @@ export default function App() {
 }
 
 const Header = styled.header`
+  margin-top: 30px;
   text-align: center;
 `
 
 const Logo = styled.div`
-  margin: 15px 0 5px;
+  margin-bottom: 5px;
   font-family: sans-serif;
   font-weight: bold;
 `
