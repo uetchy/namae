@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 import { useDeferredState } from './hooks/state'
 import { mobile } from './util/css'
@@ -26,36 +26,49 @@ export default function App() {
   }
 
   return (
-    <Content>
-      <Header>
-        <InputContainer>
-          <Logo>namæ</Logo>
-          <Input onChange={onChange} />
-        </InputContainer>
-      </Header>
+    <>
+      <GlobalStyle />
+      <Content>
+        <Header>
+          <InputContainer>
+            <Logo>namæ</Logo>
+            <Input onChange={onChange} />
+          </InputContainer>
+        </Header>
 
-      {query && query.length > 0 ? (
-        <Cards>
-          <CardHeader>Result for {query}</CardHeader>
-          <CardContainer>
-            <DomainCard name={query} />
-            <GithubCard name={query} />
-            <HomebrewCard name={query} />
-            <NpmCard name={query} />
-            <PypiCard name={query} />
-            <CratesioCard name={query} />
-            <TwitterCard name={query} />
-            <SlackCard name={query} />
-            <S3Card name={query} />
-            <JsOrgCard name={query} />
-          </CardContainer>
-          <EventReporter query={query} />
-        </Cards>
-      ) : null}
-      <Footer />
-    </Content>
+        {query && query.length > 0 ? (
+          <Cards>
+            <CardHeader>Result for {query}</CardHeader>
+            <CardContainer>
+              <DomainCard name={query} />
+              <GithubCard name={query} />
+              <HomebrewCard name={query} />
+              <NpmCard name={query} />
+              <PypiCard name={query} />
+              <CratesioCard name={query} />
+              <TwitterCard name={query} />
+              <SlackCard name={query} />
+              <S3Card name={query} />
+              <JsOrgCard name={query} />
+            </CardContainer>
+            <EventReporter query={query} />
+          </Cards>
+        ) : null}
+        <Footer />
+      </Content>
+    </>
   )
 }
+
+const GlobalStyle = createGlobalStyle`
+body {
+  background: #ffffff;
+
+  ${mobile} {
+    background: #f5f5f5;
+  }
+}
+`
 
 const Content = styled.div``
 
@@ -89,6 +102,10 @@ const Logo = styled.div`
   font-weight: bold;
   font-size: 20px;
   color: #4a90e2;
+
+  ${mobile} {
+    font-size: 15px;
+  }
 `
 
 const Input = styled.input.attrs({
