@@ -1,40 +1,62 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styled from 'styled-components'
 import useFetch from 'fetch-suspense'
 import { BarLoader } from 'react-spinners'
 
 import { ExternalLink } from './Links'
 
-function AvailabilityCell({
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, message: error.message }
+  }
+
+  componentDidCatch(error, info) {}
+
+  render() {
+    if (this.state.hasError) {
+      return <h4>{this.state.message}</h4>
+    }
+    return this.props.children
+  }
+}
+
+const Result = ({
   name,
   availability,
   link,
   prefix = '',
   suffix = '',
   icon,
-}) {
-  return (
-    <ItemContainer>
+}) => (
+  <Container>
+    <Cell availability={availability}>
       {icon}
-      <Item>
+      <Name>
         <ExternalLink href={link}>
           {prefix}
-          {availability ? (
-            <span style={{ color: 'green' }}>{name}</span>
-          ) : (
-            <span style={{ color: 'red' }}>{name}</span>
-          )}
+          {name}
           {suffix}
         </ExternalLink>
-      </Item>
-    </ItemContainer>
-  )
-}
+      </Name>
+    </Cell>
+  </Container>
+)
 
-export const Fallback = () => (
-  <ItemContainer>
+const Fallback = () => (
+  <Container>
     <BarLoader />
-  </ItemContainer>
+  </Container>
+)
+
+export const AvailabilityContainer = ({ children }) => (
+  <ErrorBoundary>
+    <Suspense fallback={<Fallback />}>{children}</Suspense>
+  </ErrorBoundary>
 )
 
 export function DedicatedAvailability({
@@ -46,11 +68,13 @@ export function DedicatedAvailability({
   icon,
 }) {
   const response = useFetch(`/availability/${service}/${name}`)
+
   if (response.error) {
     throw new Error(`${service}: ${response.error}`)
   }
+
   return (
-    <AvailabilityCell
+    <Result
       availability={response.availability}
       name={name}
       link={link}
@@ -70,12 +94,15 @@ export function ExistentialAvailability({
   icon,
 }) {
   const response = useFetch(target, null, { metadata: true })
+
   if (response.status !== 404 && response.status !== 200) {
     throw new Error(`${name}: ${response.status}`)
   }
+
   const availability = response.status === 404
+
   return (
-    <AvailabilityCell
+    <Result
       name={name}
       availability={availability}
       link={link}
@@ -86,16 +113,24 @@ export function ExistentialAvailability({
   )
 }
 
-const ItemContainer = styled.div`
+const Container = styled.div`
+  min-height: 1em;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+`
+
+const Cell = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin-top: 8px;
   word-break: break-all;
+  color: ${({ availability }) => (availability ? 'green' : 'red')};
 `
 
-const Item = styled.span`
+const Name = styled.span`
   margin-left: 6px;
+  margin-top: -1px;
   font-family: monospace;
   font-size: 1rem;
 

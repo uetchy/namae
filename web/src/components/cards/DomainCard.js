@@ -10,11 +10,12 @@ export default function DomainCard({ name }) {
     <Card
       title="Domain"
       key={lowerCase}
-      nameList={[`${lowerCase}.app`, `${lowerCase}.dev`, `${lowerCase}.org`]}
+      nameList={[`${lowerCase}.com`, `${lowerCase}app.com`, `${lowerCase}.app`]}
       alternativeList={[
-        `${lowerCase}app.com`,
-        `get${lowerCase}.com`,
+        `${lowerCase}.dev`,
+        `${lowerCase}.io`,
         `${lowerCase}.build`,
+        `get${lowerCase}.com`,
       ]}>
       {(name) => (
         <DedicatedAvailability
