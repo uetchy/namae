@@ -42,9 +42,9 @@ const CardWrapper = styled.div`
 `
 
 const CardTitle = styled.div`
+  margin-bottom: 15px;
   font-size: 0.8rem;
   font-weight: bold;
-  margin-bottom: 15px;
 
   ${mobile} {
     padding-left: 20px;
@@ -57,6 +57,7 @@ const CardList = styled.div`
   ${mobile} {
     padding: 20px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    background: white;
     border-radius: 0;
   }
 `

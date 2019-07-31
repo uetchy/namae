@@ -26,11 +26,12 @@ export default function App() {
   }
 
   return (
-    <>
+    <Content>
       <Header>
-        <Logo>namæ</Logo>
-        <SubHeader>name your new project</SubHeader>
-        <Input onChange={onChange} />
+        <InputContainer>
+          <Logo>namæ</Logo>
+          <Input onChange={onChange} />
+        </InputContainer>
       </Header>
 
       {query && query.length > 0 ? (
@@ -51,46 +52,61 @@ export default function App() {
           <EventReporter query={query} />
         </Cards>
       ) : null}
-
       <Footer />
-    </>
+    </Content>
   )
 }
 
+const Content = styled.div``
+
 const Header = styled.header`
-  margin-top: 30px;
-  text-align: center;
+  margin-bottom: 100px;
+  padding: 0 40px;
+  background-image: linear-gradient(180deg, #a2d4ff 0%, #ac57ff 99%);
+
+  ${mobile} {
+    margin-bottom: 60px;
+    padding: 0 20px;
+  }
+`
+
+const InputContainer = styled.div`
+  transform: translateY(40px);
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 20px 0 #3c94fa;
+  border-radius: 4px;
+
+  ${mobile} {
+    transform: translateY(20px);
+  }
 `
 
 const Logo = styled.div`
   margin-bottom: 5px;
+  text-align: center;
   font-family: sans-serif;
   font-weight: bold;
-`
-
-const SubHeader = styled.div`
-  font-size: 0.8em;
-  font-style: italic;
+  font-size: 20px;
+  color: #4a90e2;
 `
 
 const Input = styled.input.attrs({
   type: 'text',
-  placeholder: 'awesome-package',
+  placeholder: ['awesome-library', 'stunning-package', 'magnificent-app'][
+    Math.floor(Math.random() * 3)
+  ],
   autocomplete: 'off',
   autocorrect: 'off',
   autocapitalize: 'off',
   spellcheck: 'false',
 })`
   width: 100%;
-  margin-top: 30px;
-  padding: 20px;
   outline: none;
   text-align: center;
-  font-size: 4rem;
+  font-size: 5rem;
   font-family: monospace;
   border: none;
-
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 
   ${mobile} {
     font-size: 2rem;
