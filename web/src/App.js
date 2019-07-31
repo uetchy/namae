@@ -25,18 +25,20 @@ export default function App() {
     setQuery(e.target.value)
   }
 
+  const queryGiven = query && query.length > 0
+
   return (
     <>
       <GlobalStyle />
       <Content>
-        <Header>
+        <Header queryGiven={queryGiven}>
           <InputContainer>
             <Logo>namæ</Logo>
             <Input onChange={onChange} />
           </InputContainer>
         </Header>
 
-        {query && query.length > 0 ? (
+        {queryGiven && (
           <Cards>
             <CardHeader>Result for {query}</CardHeader>
             <CardContainer>
@@ -53,7 +55,7 @@ export default function App() {
             </CardContainer>
             <EventReporter query={query} />
           </Cards>
-        ) : null}
+        )}
         <Footer />
       </Content>
     </>
@@ -74,12 +76,13 @@ const Content = styled.div``
 
 const Header = styled.header`
   margin-bottom: 100px;
-  padding: 0 40px;
+  padding: ${({ queryGiven }) => (queryGiven ? '0 40px' : '40vh 40px 0')};
   background-image: linear-gradient(180deg, #a2d4ff 0%, #ac57ff 99%);
+  transition: padding 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 
   ${mobile} {
     margin-bottom: 60px;
-    padding: 0 20px;
+    padding: ${({ queryGiven }) => (queryGiven ? '0 20px' : '40vh 20px 0')};
   }
 `
 
