@@ -31,7 +31,7 @@ export default function App() {
     <>
       <GlobalStyle />
       <Content>
-        <Header queryGiven={queryGiven}>
+        <Header>
           <InputContainer>
             <Logo>namæ</Logo>
             <Input onChange={onChange} />
@@ -76,13 +76,12 @@ const Content = styled.div``
 
 const Header = styled.header`
   margin-bottom: 100px;
-  padding: ${({ queryGiven }) => (queryGiven ? '0 40px' : '40vh 40px 0')};
+  padding: 0 40px;
   background-image: linear-gradient(180deg, #a2d4ff 0%, #ac57ff 99%);
-  transition: padding 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 
   ${mobile} {
     margin-bottom: 60px;
-    padding: ${({ queryGiven }) => (queryGiven ? '0 20px' : '40vh 20px 0')};
+    padding: 0 20px;
   }
 `
 
