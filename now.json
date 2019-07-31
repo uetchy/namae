@@ -4,26 +4,26 @@
   "alias": "namae.dev",
   "builds": [
     {
-      "src": "/package.json",
+      "src": "/web/package.json",
       "use": "@now/static-build",
       "config": { "distDir": "build" }
     },
     {
-      "src": "/src/services/*.js",
+      "src": "/api/services/*.js",
       "use": "@now/node"
     }
   ],
   "routes": [
     {
       "src": "/availability/(?<provider>[^/]+)/(?<id>[^/]+)",
-      "dest": "/src/services/$provider.js?name=$id",
+      "dest": "/api/services/$provider.js?name=$id",
       "headers": {
         "Cache-Control": "maxage=0, s-maxage=3600"
       }
     },
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/web/$1"
     }
   ]
 }

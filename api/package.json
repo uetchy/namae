@@ -1,0 +1,10 @@
+{
+  "name": "@namae/availability",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
+    "npm-name": "^5.5.0",
+    "whois-json": "^2.0.4"
+  }
+}
