@@ -3,11 +3,10 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 import { useDeferredState } from './hooks/state'
 import { mobile } from './util/css'
-
+import { isStandalone } from './util/pwa'
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
 import { Cards, CardContainer } from './components/Cards'
-
 import GithubCard from './components/cards/GithubCard'
 import DomainCard from './components/cards/DomainCard'
 import HomebrewCard from './components/cards/HomebrewCard'
@@ -32,14 +31,13 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
+      <Header>
+        <InputContainer>
+          <Logo>namæ</Logo>
+          <Input onChange={onChange} />
+        </InputContainer>
+      </Header>
       <Content>
-        <Header>
-          <InputContainer>
-            <Logo>namæ</Logo>
-            <Input onChange={onChange} />
-          </InputContainer>
-        </Header>
-
         {queryGiven ? (
           <Cards>
             <CardContainer>
@@ -56,10 +54,10 @@ export default function App() {
             </CardContainer>
             <EventReporter query={query} />
           </Cards>
-        ) : (
+        ) : !isStandalone() ? (
           <Welcome />
-        )}
-        <Footer />
+        ) : null}
+        {!isStandalone() ? <Footer /> : null}
       </Content>
     </>
   )
@@ -77,29 +75,31 @@ html {
 }
 
 body {
-  background: #ffffff;
-
-  ${mobile} {
-    background: #f5f5f5;
-  }
-
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  ${mobile} {
+    background: #f5f5f5;
+  }
 }
 `
 
-const Content = styled.div``
+const Content = styled.div`
+  padding-top: 80px;
+
+  ${mobile} {
+    padding-top: 60px;
+  }
+`
 
 const Header = styled.header`
-  margin-bottom: 100px;
   padding: 0 40px;
   background-image: linear-gradient(180deg, #a2d4ff 0%, #ac57ff 99%);
 
   ${mobile} {
-    margin-bottom: 60px;
     padding: 0 20px;
   }
 `

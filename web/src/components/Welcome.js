@@ -87,13 +87,7 @@ const Text = styled.p`
   color: #3c3c3c;
 `
 
-const Hero = styled.div`
-  padding-top: 40px;
-
-  ${mobile} {
-    padding-top: 20px;
-  }
-`
+const Hero = styled.div``
 
 const List = styled.div`
   margin-top: 50px;

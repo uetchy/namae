@@ -32,9 +32,7 @@ export function Card({ title, nameList, alternativeList = [], children }) {
   )
 }
 
-export const Cards = styled.div`
-  margin-top: 40px;
-`
+export const Cards = styled.div``
 
 export const CardContainer = styled.div`
   display: flex;
@@ -58,7 +56,7 @@ const CardWrapper = styled.div`
 
 const CardTitle = styled.div`
   margin-bottom: 15px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
 
   ${mobile} {
