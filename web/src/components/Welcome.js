@@ -72,17 +72,14 @@ const Container = styled.div`
     text-align: left;
     padding-right: 40px;
     padding-left: 40px;
+    font-size: 1.2rem;
   }
 `
 
 const Header = styled.h1`
-  font-size: 5rem;
+  font-size: 3.5em;
   line-height: 0.8em;
   padding-bottom: 30px;
-
-  ${mobile} {
-    font-size: 4rem;
-  }
 `
 
 const Text = styled.p`

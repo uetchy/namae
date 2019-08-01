@@ -12,14 +12,17 @@ export default function Footer() {
         <span role="img" aria-label="coffee">
           🦀
         </span>
-        {'  '}by <Bold>Yasuaki Uechi</Bold>
+        by{' '}
+        <ExternalLink href="https://uechi.io">
+          <Bold>Yasuaki Uechi</Bold>
+        </ExternalLink>
       </p>
       <Links>
-        <ExternalLink href="https://twitter.com/uetschy">
-          <FaTwitter />
-        </ExternalLink>{' '}
         <ExternalLink href="https://github.com/uetchy/namae">
           <FaGithubAlt />
+        </ExternalLink>
+        <ExternalLink href="https://twitter.com/uetschy">
+          <FaTwitter />
         </ExternalLink>
       </Links>
     </Container>
@@ -35,6 +38,11 @@ const Container = styled.footer`
   display: flex;
   align-items: stretch;
   justify-content: center;
+
+  ${ExternalLink} {
+    color: black;
+    text-decoration: none;
+  }
 `
 
 const Links = styled.div`
@@ -42,9 +50,8 @@ const Links = styled.div`
   display: flex;
   align-items: flex-end;
 
-  a {
+  ${ExternalLink} {
     margin-right: 5px;
-    color: black;
   }
 `
 
