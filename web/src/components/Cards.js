@@ -32,11 +32,26 @@ export function Card({ title, nameList, alternativeList = [], children }) {
   )
 }
 
+export const Cards = styled.div`
+  margin-top: 40px;
+`
+
+export const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  ${mobile} {
+    flex-direction: column;
+  }
+`
+
 const CardWrapper = styled.div`
-  margin-bottom: 40px;
   padding: 40px;
 
   ${mobile} {
+    margin-bottom: 40px;
     padding: 0px;
   }
 `

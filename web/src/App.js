@@ -4,7 +4,9 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { useDeferredState } from './hooks/state'
 import { mobile } from './util/css'
 
+import Welcome from './components/Welcome'
 import Footer from './components/Footer'
+import { Cards, CardContainer } from './components/Cards'
 
 import GithubCard from './components/cards/GithubCard'
 import DomainCard from './components/cards/DomainCard'
@@ -38,9 +40,8 @@ export default function App() {
           </InputContainer>
         </Header>
 
-        {queryGiven && (
+        {queryGiven ? (
           <Cards>
-            <CardHeader>Result for {query}</CardHeader>
             <CardContainer>
               <DomainCard name={query} />
               <GithubCard name={query} />
@@ -55,6 +56,8 @@ export default function App() {
             </CardContainer>
             <EventReporter query={query} />
           </Cards>
+        ) : (
+          <Welcome />
         )}
         <Footer />
       </Content>
@@ -63,12 +66,28 @@ export default function App() {
 }
 
 const GlobalStyle = createGlobalStyle`
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
 body {
   background: #ffffff;
 
   ${mobile} {
     background: #f5f5f5;
   }
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 `
 
@@ -89,8 +108,8 @@ const InputContainer = styled.div`
   transform: translateY(40px);
   padding: 20px;
   background: #ffffff;
-  box-shadow: 0 10px 20px 0 #3c94fa;
-  border-radius: 4px;
+  box-shadow: 0 10px 20px 0 #c7dcf7;
+  border-radius: 20px;
 
   ${mobile} {
     transform: translateY(20px);
@@ -112,48 +131,20 @@ const Logo = styled.div`
 
 const Input = styled.input.attrs({
   type: 'text',
-  placeholder: ['awesome-library', 'stunning-package', 'magnificent-app'][
-    Math.floor(Math.random() * 3)
-  ],
+  placeholder: 'search',
   autocomplete: 'off',
   autocorrect: 'off',
   autocapitalize: 'off',
   spellcheck: 'false',
 })`
   width: 100%;
+  border: none;
   outline: none;
   text-align: center;
-  font-size: 5rem;
   font-family: monospace;
-  border: none;
+  font-size: 5rem;
 
   ${mobile} {
-    font-size: 2rem;
-  }
-`
-
-const Cards = styled.div`
-  margin-top: 40px;
-`
-
-const CardHeader = styled.div`
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-
-  ${mobile} {
-    padding-left: 20px;
-    text-align: left;
-  }
-`
-const CardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  ${mobile} {
-    flex-direction: column;
+    font-size: 1.5rem;
   }
 `

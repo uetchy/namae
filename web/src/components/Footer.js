@@ -8,19 +8,19 @@ export default function Footer() {
   return (
     <Container>
       <p>
-        Made by U with{' '}
+        Made by U with{'  '}
         <span role="img" aria-label="coffee">
           ☕️
         </span>
-        <br />
-        <br />
+      </p>
+      <Links>
         <ExternalLink href="https://twitter.com/uetschy">
           <FaTwitter />
         </ExternalLink>{' '}
         <ExternalLink href="https://github.com/uetchy/namae">
           <FaGithubAlt />
         </ExternalLink>
-      </p>
+      </Links>
     </Container>
   )
 }
@@ -31,4 +31,18 @@ const Container = styled.footer`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 0.8em;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+`
+
+const Links = styled.div`
+  margin-left: 15px;
+  display: flex;
+  align-items: flex-end;
+
+  a {
+    margin-right: 5px;
+    color: black;
+  }
 `
