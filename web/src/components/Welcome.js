@@ -79,16 +79,23 @@ const Header = styled.h1`
   font-size: 5rem;
   line-height: 0.8em;
   padding-bottom: 30px;
+
+  ${mobile} {
+    font-size: 4rem;
+  }
 `
 
 const Text = styled.p`
   font-size: 1.2em;
   color: #3c3c3c;
-}
 `
 
 const Hero = styled.div`
   padding-top: 40px;
+
+  ${mobile} {
+    padding-top: 20px;
+  }
 `
 
 const List = styled.div`

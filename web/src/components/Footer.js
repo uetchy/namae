@@ -8,10 +8,11 @@ export default function Footer() {
   return (
     <Container>
       <p>
-        Made by <Bold>Yasuaki Uechi</Bold> with{'  '}
+        Made with{'  '}
         <span role="img" aria-label="coffee">
           🦀
         </span>
+        {'  '}by <Bold>Yasuaki Uechi</Bold>
       </p>
       <Links>
         <ExternalLink href="https://twitter.com/uetschy">
