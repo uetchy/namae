@@ -1,10 +1,8 @@
-# namae.dev
+# namae
 
-> name your new project.
+> name new project.
 
-## Usage
-
-Access to [namae.dev](https://namae.dev).
+namae saves your time searching around registries and checking if the desired name is ready for use.
 
 ## Contributing
 

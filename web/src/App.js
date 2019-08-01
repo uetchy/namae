@@ -145,6 +145,6 @@ const Input = styled.input.attrs({
   font-size: 5rem;
 
   ${mobile} {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 `

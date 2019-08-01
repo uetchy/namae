@@ -8,9 +8,9 @@ export default function Footer() {
   return (
     <Container>
       <p>
-        Made by U with{'  '}
+        Made by <Bold>Yasuaki Uechi</Bold> with{'  '}
         <span role="img" aria-label="coffee">
-          ☕️
+          🦀
         </span>
       </p>
       <Links>
@@ -30,7 +30,7 @@ const Container = styled.footer`
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 0.8em;
+  font-size: 0.7rem;
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -45,4 +45,8 @@ const Links = styled.div`
     margin-right: 5px;
     color: black;
   }
+`
+
+const Bold = styled.span`
+  font-weight: bold;
 `

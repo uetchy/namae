@@ -17,67 +17,82 @@ import { mobile } from '../util/css'
 export default function Welcome() {
   return (
     <Container>
-      <Header>name your brand new project</Header>
-      <p>
-        namæ helps you by searching around package registries and domains to see
-        if your desired name is already taken.
-      </p>
-      <ul>
-        <List>
-          <ListItem>
-            <FaMapSigns /> Domains
-          </ListItem>
-          <ListItem>
-            <FaGithub /> GitHub Organization
-          </ListItem>
-          <ListItem>
-            <FaNpm /> npm
-          </ListItem>
-          <ListItem>
-            <FaPython /> PyPI
-          </ListItem>
-          <ListItem>
-            <IoIosBeer /> Homebrew
-          </ListItem>
-          <ListItem>
-            <DiRust /> crates.io (Rust)
-          </ListItem>
-          <ListItem>
-            <FaJsSquare /> js.org
-          </ListItem>
-          <ListItem>
-            <FaAws /> AWS S3 Bucket
-          </ListItem>
-          <ListItem>
-            <FaTwitter /> Twitter
-          </ListItem>
-          <ListItem>
-            <FaSlack /> Slack
-          </ListItem>
-        </List>
-      </ul>
+      <Hero>
+        <Header>name new project</Header>
+        <Text>
+          namæ saves your time searching around registries and checking if the
+          desired name is ready for use.
+        </Text>
+      </Hero>
+      <List>
+        <ListItem>
+          <FaMapSigns /> Domains
+        </ListItem>
+        <ListItem>
+          <FaGithub /> GitHub Organization
+        </ListItem>
+        <ListItem>
+          <FaNpm /> npm
+        </ListItem>
+        <ListItem>
+          <FaPython /> PyPI
+        </ListItem>
+        <ListItem>
+          <IoIosBeer /> Homebrew
+        </ListItem>
+        <ListItem>
+          <DiRust /> crates.io (Rust)
+        </ListItem>
+        <ListItem>
+          <FaJsSquare /> js.org
+        </ListItem>
+        <ListItem>
+          <FaAws /> AWS S3 Bucket
+        </ListItem>
+        <ListItem>
+          <FaTwitter /> Twitter
+        </ListItem>
+        <ListItem>
+          <FaSlack /> Slack
+        </ListItem>
+      </List>
     </Container>
   )
 }
 
 const Container = styled.div`
+  padding-bottom: 40px;
+  padding-right: 20vw;
+  padding-left: 20vw;
   text-align: center;
-  padding: 0 40px;
   font-size: 1.5rem;
   line-height: 1.6em;
 
   ${mobile} {
     text-align: left;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 `
 
 const Header = styled.h1`
-  font-size: 2em;
-  padding: 10px 0 40px;
+  font-size: 5rem;
+  line-height: 0.8em;
+  padding-bottom: 30px;
+`
+
+const Text = styled.p`
+  font-size: 1.2em;
+  color: #3c3c3c;
+}
+`
+
+const Hero = styled.div`
+  padding-top: 40px;
 `
 
 const List = styled.div`
-  margin-top: 40px;
+  margin-top: 50px;
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -97,7 +112,8 @@ const ListItem = styled.div`
   margin: 15px;
   display: flex;
   align-items: center;
-  line-height: 1rem;
+  font-size: 1.2rem;
+  line-height: 1em;
 
   ${mobile} {
     margin: 10px 0;
