@@ -2,6 +2,9 @@ import React, { Suspense } from 'react'
 import styled from 'styled-components'
 import useFetch from 'fetch-suspense'
 import { BarLoader } from 'react-spinners'
+import { GoInfo } from 'react-icons/go'
+import { Tooltip } from 'react-tippy'
+import 'react-tippy/dist/tippy.css'
 
 import { ExternalLink } from './Links'
 
@@ -19,7 +22,21 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      return <h4>{this.state.message}</h4>
+      return (
+        <Tooltip
+          title={this.state.message}
+          position="bottom"
+          arrow={true}
+          animation="shift"
+          duration="200">
+          <Container>
+            <Cell>
+              <GoInfo />
+              <Name>Error</Name>
+            </Cell>
+          </Container>
+        </Tooltip>
+      )
     }
     return this.props.children
   }
