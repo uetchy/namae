@@ -1,4 +1,5 @@
 const fetch = require('isomorphic-unfetch')
+const { send, sendError } = require('../util/http')
 
 async function getAvailability(name) {
   const response = await fetch(
@@ -16,8 +17,8 @@ module.exports = async (req, res) => {
 
   try {
     const availability = await getAvailability(name)
-    res.json({ availability })
+    send(res, availability)
   } catch (err) {
-    res.status(400).json({ error: err.message })
+    sendError(res, err)
   }
 }

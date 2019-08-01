@@ -16,10 +16,7 @@
   "routes": [
     {
       "src": "/availability/(?<provider>[^/]+)/(?<id>[^/]+)",
-      "dest": "/api/services/$provider.js?name=$id",
-      "headers": {
-        "Cache-Control": "maxage=0, s-maxage=3600"
-      }
+      "dest": "/api/services/$provider.js?name=$id"
     },
     {
       "src": "/(.*)",

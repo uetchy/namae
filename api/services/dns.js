@@ -1,4 +1,5 @@
 var dns = require('dns')
+const { send, sendError } = require('../util/http')
 
 function resolvePromise(hostname) {
   return new Promise((resolve, reject) => {
@@ -19,12 +20,11 @@ module.exports = async (req, res) => {
   try {
     const response = await resolvePromise(name)
     const availability = response && response.length > 0 ? false : true
-
-    res.json({ availability })
+    send(res, availability)
   } catch (err) {
     if (err.code === 'ENODATA' || err.code === 'ENOTFOUND') {
       return res.status(200).json({ availability: true })
     }
-    res.status(400).json({ error: err.message })
+    sendError(res, err)
   }
 }

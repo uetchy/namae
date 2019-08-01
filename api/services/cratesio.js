@@ -1,11 +1,5 @@
 const fetch = require('isomorphic-unfetch')
-
-async function getAvailability(name) {
-  const response = await fetch(
-    `https://crates.io/api/v1/crates/${encodeURIComponent(name)}`
-  )
-  return response.status !== 200
-}
+const { send, sendError } = require('../util/http')
 
 module.exports = async (req, res) => {
   const name = req.query.name
@@ -15,9 +9,12 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const availability = await getAvailability(name)
-    res.json({ availability })
+    const response = await fetch(
+      `https://crates.io/api/v1/crates/${encodeURIComponent(name)}`
+    )
+    const availability = response.status !== 200
+    send(res, availability)
   } catch (err) {
-    res.status(400).json({ error: err.message })
+    sendError(res, err)
   }
 }

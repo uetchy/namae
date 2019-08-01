@@ -1,4 +1,5 @@
 const npmName = require('npm-name')
+const { send, sendError } = require('../util/http')
 
 module.exports = async (req, res) => {
   const name = req.query.name
@@ -9,8 +10,8 @@ module.exports = async (req, res) => {
 
   try {
     const availability = await npmName(name)
-    res.json({ availability })
+    send(res, availability)
   } catch (err) {
-    res.status(400).json({ error: err.message })
+    sendError(res, err)
   }
 }
