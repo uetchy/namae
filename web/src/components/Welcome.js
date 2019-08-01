@@ -41,7 +41,7 @@ export default function Welcome() {
           <IoIosBeer /> Homebrew
         </ListItem>
         <ListItem>
-          <DiRust /> crates.io (Rust)
+          <DiRust /> crates.io
         </ListItem>
         <ListItem>
           <FaJsSquare /> js.org
