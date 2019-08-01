@@ -11,7 +11,7 @@ export default function Footer() {
         Made with{'  '}
         <span role="img" aria-label="coffee">
           🦀
-        </span>
+        </span>{' '}
         by{' '}
         <ExternalLink href="https://uechi.io">
           <Bold>Yasuaki Uechi</Bold>
@@ -36,8 +36,8 @@ const Container = styled.footer`
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 0.7rem;
   display: flex;
-  align-items: stretch;
   justify-content: center;
+  line-height: 1em;
 
   ${ExternalLink} {
     color: black;
@@ -48,7 +48,7 @@ const Container = styled.footer`
 const Links = styled.div`
   margin-left: 15px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
   ${ExternalLink} {
     margin-right: 5px;
