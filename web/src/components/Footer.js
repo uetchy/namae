@@ -13,7 +13,7 @@ export default function Footer() {
           🦀
         </span>{' '}
         by{' '}
-        <ExternalLink href="https://uechi.io">
+        <ExternalLink href="https://twitter.com/uetschy">
           <Bold>Yasuaki Uechi</Bold>
         </ExternalLink>
       </p>
@@ -21,7 +21,7 @@ export default function Footer() {
         <ExternalLink href="https://github.com/uetchy/namae">
           <FaGithubAlt />
         </ExternalLink>
-        <ExternalLink href="https://twitter.com/uetschy">
+        <ExternalLink href="https://twitter.com/intent/tweet?text=namae%20%E2%80%94%20name%20new%20project&url=https%3A%2F%2Fnamae.dev">
           <FaTwitter />
         </ExternalLink>
       </Links>
