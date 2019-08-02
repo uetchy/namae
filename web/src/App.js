@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 
 import Welcome from './components/Welcome'
@@ -23,20 +23,31 @@ import { isStandalone } from './util/pwa'
 
 export default function App() {
   const [query, setQuery] = useDeferredState(1000)
-
-  function onChange(e) {
-    setQuery(e.target.value)
-  }
+  const [inputValue, setInputValue] = useState('')
+  const inputRef = useRef()
 
   const queryGiven = query && query.length > 0
+
+  useEffect(() => {
+    setQuery(inputValue)
+  }, [inputValue, setQuery])
+
+  function onInputChange(e) {
+    setInputValue(e.target.value)
+  }
+
+  function onLogoClick(e) {
+    setInputValue('')
+    inputRef.current.focus()
+  }
 
   return (
     <>
       <GlobalStyle />
       <Header>
         <InputContainer>
-          <Logo>namæ</Logo>
-          <Input onChange={onChange} />
+          <Logo onClick={onLogoClick}>namæ</Logo>
+          <Input onChange={onInputChange} value={inputValue} ref={inputRef} />
         </InputContainer>
       </Header>
       <Content>
@@ -126,6 +137,7 @@ const Logo = styled.div`
   font-weight: bold;
   font-size: 20px;
   color: #4a90e2;
+  cursor: pointer;
 
   ${mobile} {
     font-size: 15px;
