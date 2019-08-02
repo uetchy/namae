@@ -76,6 +76,7 @@ const CardList = styled.div`
 `
 
 const ShowAlternativesButton = styled.div`
+  margin-top: 5px;
   display: inline-block;
   padding: 5px 0;
   border: none;
