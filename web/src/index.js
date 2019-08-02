@@ -9,4 +9,4 @@ ReactDOM.render(<App />, document.getElementById('root'))
 ReactGA.initialize('UA-28919359-15')
 ReactGA.pageview(window.location.pathname + window.location.search)
 
-serviceWorker.unregister()
+serviceWorker.register()
