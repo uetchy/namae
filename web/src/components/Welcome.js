@@ -11,6 +11,7 @@ import { FaJsSquare } from 'react-icons/fa'
 import { FaAws } from 'react-icons/fa'
 import { FaTwitter } from 'react-icons/fa'
 import { FaSlack } from 'react-icons/fa'
+import { FaGem } from 'react-icons/fa'
 
 import { mobile } from '../util/css'
 
@@ -38,10 +39,13 @@ export default function Welcome() {
           <FaPython /> PyPI
         </ListItem>
         <ListItem>
-          <IoIosBeer /> Homebrew
+          <FaGem /> RubyGems
         </ListItem>
         <ListItem>
           <DiRust /> crates.io
+        </ListItem>
+        <ListItem>
+          <IoIosBeer /> Homebrew
         </ListItem>
         <ListItem>
           <FaJsSquare /> js.org
