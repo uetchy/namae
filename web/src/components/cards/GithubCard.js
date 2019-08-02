@@ -15,8 +15,8 @@ export default function GithubCard({ name }) {
       alternativeList={[
         `${lowerCase}hq`,
         `${lowerCase}-team`,
-        `${capitalize(name)}Team`,
         `${lowerCase}-org`,
+        `${capitalize(name)}-js`,
       ]}>
       {(name) => (
         <DedicatedAvailability

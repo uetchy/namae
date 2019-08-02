@@ -1,9 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import { useDeferredState } from './hooks/state'
-import { mobile } from './util/css'
-import { isStandalone } from './util/pwa'
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
 import { Cards, CardContainer } from './components/Cards'
@@ -19,6 +16,10 @@ import S3Card from './components/cards/S3Card'
 import CratesioCard from './components/cards/CratesioCard'
 import RubyGemsCard from './components/cards/RubyGemsCard'
 import { EventReporter } from './components/Analytics'
+
+import { useDeferredState } from './hooks/state'
+import { mobile } from './util/css'
+import { isStandalone } from './util/pwa'
 
 export default function App() {
   const [query, setQuery] = useDeferredState(1000)

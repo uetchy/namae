@@ -14,7 +14,7 @@ export default function DomainCard({ name }) {
       alternativeList={[
         `${lowerCase}.dev`,
         `${lowerCase}.io`,
-        `${lowerCase}.build`,
+        `${lowerCase}.tools`,
         `get${lowerCase}.com`,
       ]}>
       {(name) => (

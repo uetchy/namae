@@ -42,7 +42,7 @@ export default function Welcome() {
           <FaGem /> RubyGems
         </ListItem>
         <ListItem>
-          <DiRust /> crates.io
+          <DiRust /> Rust
         </ListItem>
         <ListItem>
           <IoIosBeer /> Homebrew

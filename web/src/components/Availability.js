@@ -1,12 +1,11 @@
 import React, { Suspense } from 'react'
 import styled from 'styled-components'
 import useFetch from 'fetch-suspense'
-import { BarLoader } from 'react-spinners'
+import BarLoader from 'react-spinners/BarLoader'
 import { GoInfo } from 'react-icons/go'
 import { Tooltip } from 'react-tippy'
-import 'react-tippy/dist/tippy.css'
-
 import { ExternalLink } from './Links'
+import 'react-tippy/dist/tippy.css'
 
 class ErrorBoundary extends React.Component {
   constructor(props) {

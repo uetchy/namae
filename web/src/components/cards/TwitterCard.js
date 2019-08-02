@@ -15,6 +15,7 @@ export default function TwitterCard({ name }) {
         `${name.toLowerCase()}app`,
         `${name.toLowerCase()}-support`,
         `${capitalize(name)}Team`,
+        `${capitalize(name)}Official`,
       ]}>
       {(name) => (
         <DedicatedAvailability
