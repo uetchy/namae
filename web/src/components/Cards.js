@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { AvailabilityContainer } from './Availability'
 import { mobile } from '../util/css'
 
-export function Card({ title, nameList, alternativeList = [], children }) {
+export function Card({ title, nameList = [], alternativeList = [], children }) {
   const [revealAlternatives, setRevealAlternatives] = useState(false)
 
   function onClick() {
@@ -77,11 +77,10 @@ const CardList = styled.div`
 
 const ShowAlternativesButton = styled.div`
   display: inline-block;
-  margin-top: 10px;
   padding: 5px 0;
   border: none;
   border-bottom: 1px dashed black;
   cursor: pointer;
   font-family: monospace;
-  font-size: 1rem;
+  font-size: 0.8em;
 `

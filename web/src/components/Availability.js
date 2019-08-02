@@ -130,6 +130,30 @@ export function ExistentialAvailability({
   )
 }
 
+export function CustomAvailability({
+  name,
+  target,
+  link,
+  prefix = '',
+  suffix = '',
+  icon,
+  children,
+}) {
+  const response = useFetch(target, null, { metadata: true })
+  const availability = children(response)
+
+  return (
+    <Result
+      name={name}
+      availability={availability}
+      link={link}
+      prefix={prefix}
+      suffix={suffix}
+      icon={icon}
+    />
+  )
+}
+
 const Container = styled.div`
   min-height: 1em;
   display: flex;

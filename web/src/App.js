@@ -17,6 +17,7 @@ import JsOrgCard from './components/cards/JsOrgCard'
 import PypiCard from './components/cards/PypiCard'
 import S3Card from './components/cards/S3Card'
 import CratesioCard from './components/cards/CratesioCard'
+import RubyGemsCard from './components/cards/RubyGemsCard'
 import { EventReporter } from './components/Analytics'
 
 export default function App() {
@@ -47,6 +48,7 @@ export default function App() {
               <JsOrgCard name={query} />
               <PypiCard name={query} />
               <CratesioCard name={query} />
+              <RubyGemsCard name={query} />
               <HomebrewCard name={query} />
               <TwitterCard name={query} />
               <SlackCard name={query} />
@@ -88,7 +90,7 @@ body {
 `
 
 const Content = styled.div`
-  padding-top: 80px;
+  padding-top: 100px;
 
   ${mobile} {
     padding-top: 60px;
