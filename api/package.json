@@ -1,6 +1,9 @@
 {
   "name": "@namae/api",
   "version": "0.1.0",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
     "npm-name": "^5.5.0",

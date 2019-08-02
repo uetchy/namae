@@ -5,6 +5,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "now-build": "yarn build",
+    "now-dev": "BROWSER=false react-scripts start",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
@@ -19,6 +20,10 @@
     "react-spinners": "^0.5.13",
     "react-tippy": "^1.2.3",
     "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.0.0",
+    "@testing-library/react": "^8.0.7"
   },
   "browserslist": {
     "production": [
