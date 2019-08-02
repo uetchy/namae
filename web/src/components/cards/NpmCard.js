@@ -7,7 +7,11 @@ export default function NpmCard({ name }) {
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card title="npm" key={lowerCase} nameList={[lowerCase]}>
+    <Card
+      title="npm"
+      key={lowerCase}
+      nameList={[lowerCase]}
+      alternativeList={[`${lowerCase}-js`]}>
       {(name) => (
         <>
           <DedicatedAvailability
