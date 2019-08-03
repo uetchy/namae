@@ -34,7 +34,8 @@ export default function App() {
   const queryGiven = query && query.length > 0
 
   useEffect(() => {
-    setQuery(inputValue)
+    const modifiedValue = inputValue.replace(/[\s@\+!#$%^&*()\[\]]/g, '')
+    setQuery(modifiedValue)
   }, [inputValue, setQuery])
 
   useEffect(() => {

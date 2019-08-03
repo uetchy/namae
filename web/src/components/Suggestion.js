@@ -16,6 +16,8 @@ export default function Suggestion({ query, onSubmit }) {
     `${capital}Lab`,
     `${capital}Kit`,
     `Open${capital}`,
+    `${capital}box`,
+    `${lower}hub`,
   ]
     .sort(() => Math.random() - 0.5)
     .slice(0, 3)
