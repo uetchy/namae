@@ -15,17 +15,14 @@ function modifyWord(word) {
     (word) => `${capitalize(word)}box`,
     (word) => `Insta${lower(word)}`,
     (word) => `${capitalize(word)}Hub`,
-    (word) => `Semantic ${capitalize(word)}`,
     (word) => `Cloud${capitalize(word)}`,
-    (word) => `Deep${capitalize(word)}`,
+    (word) => `quick${lower(word)}`,
     (word) => `${capitalize(word)}gram`,
     (word) => `${capitalize(word)}base`,
     (word) => `${capitalize(word)}API`,
     (word) => `${capitalize(word)}note`,
     (word) => `In${capitalize(word)}`,
-    (word) => `Under${lower(word)}`,
     (word) => `Uni${lower(word)}`,
-    (word) => `${capitalize(word)}mind`,
   ]
   return modifiers[Math.floor(Math.random() * modifiers.length)](word)
 }
