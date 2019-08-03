@@ -44,6 +44,7 @@ const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: baseline;
   line-height: 1em;
 `
 
