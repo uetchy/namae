@@ -1,6 +1,6 @@
 {
   "title": "その名前、もう使われてる？",
-  "description": "namæ をつかって、思いついた「名前」が誰にも使われていないか調べましょう。",
+  "description": "namæ をつかって、思いついた「名前」が被っていないか調べよう。",
   "placeholder": "検索",
   "providers": {
     "domains": "ドメイン",
