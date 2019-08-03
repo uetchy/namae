@@ -9,10 +9,7 @@ export default function HomebrewCard({ name }) {
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card
-      title={t('providers.homebrew')}
-      key={lowerCase}
-      nameList={[lowerCase]}>
+    <Card title={t('providers.homebrew')} nameList={[lowerCase]}>
       {(name) => (
         <>
           <ExistentialAvailability

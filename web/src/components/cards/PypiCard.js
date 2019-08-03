@@ -11,7 +11,6 @@ export default function PypiCard({ name }) {
   return (
     <Card
       title={t('providers.pypi')}
-      key={name}
       nameList={[name]}
       alternativeList={[`Py${capitalize(name)}`]}>
       {(name) => (

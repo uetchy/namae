@@ -12,7 +12,6 @@ export default function GithubCard({ name }) {
   return (
     <Card
       title={t('providers.github')}
-      key={name}
       nameList={[name]}
       alternativeList={[
         `${lowerCase}hq`,

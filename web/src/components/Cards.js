@@ -16,11 +16,15 @@ export function Card({ title, nameList = [], alternativeList = [], children }) {
       <CardTitle>{title}</CardTitle>
       <CardList>
         {nameList.map((name) => (
-          <AvailabilityContainer>{children(name)}</AvailabilityContainer>
+          <AvailabilityContainer key={name}>
+            {children(name)}
+          </AvailabilityContainer>
         ))}
         {revealAlternatives &&
           alternativeList.map((name) => (
-            <AvailabilityContainer>{children(name)}</AvailabilityContainer>
+            <AvailabilityContainer key={name}>
+              {children(name)}
+            </AvailabilityContainer>
           ))}
         {alternativeList.length > 0 && !revealAlternatives ? (
           <ShowAlternativesButton onClick={onClick}>

@@ -9,7 +9,7 @@ export default function S3Card({ name }) {
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card title={t('providers.s3')} key={lowerCase} nameList={[lowerCase]}>
+    <Card title={t('providers.s3')} nameList={[lowerCase]}>
       {(name) => (
         <DedicatedAvailability
           name={name}

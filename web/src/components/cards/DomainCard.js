@@ -11,7 +11,6 @@ export default function DomainCard({ name }) {
   return (
     <Card
       title={t('providers.domains')}
-      key={lowerCase}
       nameList={[`${lowerCase}.com`, `${lowerCase}app.com`, `${lowerCase}.app`]}
       alternativeList={[
         `${lowerCase}.dev`,

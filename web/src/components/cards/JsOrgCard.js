@@ -9,7 +9,7 @@ export default function JsOrgCard({ name }) {
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card title={t('providers.jsorg')} key={lowerCase} nameList={[lowerCase]}>
+    <Card title={t('providers.jsorg')} nameList={[lowerCase]}>
       {(name) => (
         <DedicatedAvailability
           name={`${name}.js.org`}

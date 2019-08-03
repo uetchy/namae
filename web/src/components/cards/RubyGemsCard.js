@@ -10,7 +10,6 @@ export default function RubyGemsCard({ name }) {
   return (
     <Card
       title={t('providers.rubygems')}
-      key={name}
       nameList={[name]}
       alternativeList={[`${name.toLowerCase()}-rb`]}>
       {(name) => (

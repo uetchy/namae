@@ -11,7 +11,6 @@ export default function NpmCard({ name }) {
   return (
     <Card
       title={t('providers.npm')}
-      key={lowerCase}
       nameList={[lowerCase]}
       alternativeList={[`${lowerCase}-js`]}>
       {(name) => (

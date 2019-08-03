@@ -3,8 +3,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
-import Welcome from './components/Welcome'
-import Footer from './components/Footer'
 import { Cards, CardContainer } from './components/Cards'
 import GithubCard from './components/cards/GithubCard'
 import DomainCard from './components/cards/DomainCard'
@@ -18,15 +16,19 @@ import S3Card from './components/cards/S3Card'
 import CratesioCard from './components/cards/CratesioCard'
 import RubyGemsCard from './components/cards/RubyGemsCard'
 import { EventReporter } from './components/Analytics'
+import Welcome from './components/Welcome'
+import Footer from './components/Footer'
+import Suggestion from './components/Suggestion'
 
 import { useDeferredState } from './hooks/state'
 import { mobile } from './util/css'
 import { isStandalone } from './util/pwa'
 
 export default function App() {
-  const [query, setQuery] = useDeferredState(1000)
+  const [query, setQuery] = useDeferredState('', 1000)
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef()
+  const [suggested, setSuggested] = useState(false)
   const { t } = useTranslation()
 
   const queryGiven = query && query.length > 0
@@ -35,32 +37,53 @@ export default function App() {
     setQuery(inputValue)
   }, [inputValue, setQuery])
 
+  useEffect(() => {
+    if (query.length === 0) {
+      setSuggested(false)
+    }
+  }, [query])
+
+  // set input value
   function onInputChange(e) {
-    setInputValue(e.target.value)
+    const value = e.target.value
+    setInputValue(value)
   }
 
+  // clear input form and focus on it
   function onLogoClick(e) {
     setInputValue('')
     inputRef.current.focus()
   }
 
+  // invoke when user clicked one of the suggested items
+  function onSuggestionCompleted(name) {
+    setInputValue(name)
+    setSuggested(true)
+  }
+
   return (
     <>
       <GlobalStyle />
+
       <Helmet>
         <title>namaæ — {t('title')}</title>
       </Helmet>
+
       <Header>
         <InputContainer>
           <Logo onClick={onLogoClick}>namæ</Logo>
-          <Input
+          <InputView
             onChange={onInputChange}
             value={inputValue}
             ref={inputRef}
             placeholder={t('placeholder')}
           />
+          {queryGiven && !suggested ? (
+            <Suggestion onSubmit={onSuggestionCompleted} query={query} />
+          ) : null}
         </InputContainer>
       </Header>
+
       <Content>
         {queryGiven ? (
           <Cards>
@@ -155,7 +178,7 @@ const Logo = styled.div`
   }
 `
 
-const Input = styled.input.attrs({
+const InputView = styled.input.attrs({
   type: 'text',
   autocomplete: 'off',
   autocorrect: 'off',

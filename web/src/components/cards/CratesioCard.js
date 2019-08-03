@@ -9,7 +9,7 @@ export default function CratesioCard({ name }) {
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card title={t('providers.rust')} key={lowerCase} nameList={[lowerCase]}>
+    <Card title={t('providers.rust')} nameList={[lowerCase]}>
       {(name) => (
         <DedicatedAvailability
           name={name}

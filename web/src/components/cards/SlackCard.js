@@ -9,7 +9,7 @@ export default function SlackCard({ name }) {
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card title={t('providers.slack')} key={lowerCase} nameList={[lowerCase]}>
+    <Card title={t('providers.slack')} nameList={[lowerCase]}>
       {(name) => (
         <DedicatedAvailability
           name={name}

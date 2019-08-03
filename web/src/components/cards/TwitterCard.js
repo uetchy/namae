@@ -11,7 +11,6 @@ export default function TwitterCard({ name }) {
   return (
     <Card
       title={t('providers.twitter')}
-      key={name}
       nameList={[name]}
       alternativeList={[
         `${capitalize(name)}HQ`,
