@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FaTwitter, FaGithubAlt } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 import { ExternalLink } from './Links'
 
 export default function Footer() {
+  const { t } = useTranslation()
+
   return (
     <Contaienr>
       <Box>
@@ -22,7 +25,10 @@ export default function Footer() {
           <ExternalLink href="https://github.com/uetchy/namae">
             <FaGithubAlt />
           </ExternalLink>
-          <ExternalLink href="https://twitter.com/intent/tweet?text=namae%20%E2%80%94%20name%20new%20project&url=https%3A%2F%2Fnamae.dev">
+          <ExternalLink
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+              `namae — ${t('title')}`
+            )}&url=${encodeURIComponent('https://namae.dev')}`}>
             <FaTwitter />
           </ExternalLink>
         </Links>
