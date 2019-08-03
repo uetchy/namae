@@ -15,6 +15,7 @@ import PypiCard from './components/cards/PypiCard'
 import S3Card from './components/cards/S3Card'
 import CratesioCard from './components/cards/CratesioCard'
 import RubyGemsCard from './components/cards/RubyGemsCard'
+
 import { EventReporter } from './components/Analytics'
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
@@ -34,7 +35,7 @@ export default function App() {
   const queryGiven = query && query.length > 0
 
   useEffect(() => {
-    const modifiedValue = inputValue.replace(/[\s@\+!#$%^&*()\[\]]/g, '')
+    const modifiedValue = inputValue.replace(/[\s@+!#$%^&*()[\]]/g, '')
     setQuery(modifiedValue)
   }, [inputValue, setQuery])
 

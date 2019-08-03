@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { FaGithub } from 'react-icons/fa'
 import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
-import { capitalize } from '../../util/text'
 
 export default function GithubCard({ name }) {
   const { t } = useTranslation()
@@ -17,7 +16,7 @@ export default function GithubCard({ name }) {
         `${lowerCase}hq`,
         `${lowerCase}-team`,
         `${lowerCase}-org`,
-        `${capitalize(name)}-js`,
+        `${lowerCase}-js`,
       ]}>
       {(name) => (
         <DedicatedAvailability
