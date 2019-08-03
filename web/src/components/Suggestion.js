@@ -51,7 +51,7 @@ const Container = styled.div`
 const Title = styled.div`
   margin-top: 15px;
   border: 1px solid black;
-  padding: 1px 6px;
+  padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.6em;
 `
