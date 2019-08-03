@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import { Helmet } from 'react-helmet'
+import { useTranslation } from 'react-i18next'
 
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
@@ -25,6 +27,7 @@ export default function App() {
   const [query, setQuery] = useDeferredState(1000)
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef()
+  const { t } = useTranslation()
 
   const queryGiven = query && query.length > 0
 
@@ -44,10 +47,18 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
+      <Helmet>
+        <title>namaæ — {t('title')}</title>
+      </Helmet>
       <Header>
         <InputContainer>
           <Logo onClick={onLogoClick}>namæ</Logo>
-          <Input onChange={onInputChange} value={inputValue} ref={inputRef} />
+          <Input
+            onChange={onInputChange}
+            value={inputValue}
+            ref={inputRef}
+            placeholder={t('placeholder')}
+          />
         </InputContainer>
       </Header>
       <Content>
@@ -146,7 +157,6 @@ const Logo = styled.div`
 
 const Input = styled.input.attrs({
   type: 'text',
-  placeholder: 'search',
   autocomplete: 'off',
   autocorrect: 'off',
   autocapitalize: 'off',
@@ -158,6 +168,7 @@ const Input = styled.input.attrs({
   text-align: center;
   font-family: monospace;
   font-size: 5rem;
+  line-height: 1.2em;
 
   ${mobile} {
     font-size: 2rem;

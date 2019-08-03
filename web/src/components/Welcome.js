@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 import { FaMapSigns } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
@@ -16,48 +17,47 @@ import { FaGem } from 'react-icons/fa'
 import { mobile } from '../util/css'
 
 export default function Welcome() {
+  const { t } = useTranslation()
+
   return (
     <Container>
       <Hero>
-        <Header>name new project</Header>
-        <Text>
-          namæ saves your time searching around registries and checking if the
-          desired name is ready for use.
-        </Text>
+        <Header>{t('title')}</Header>
+        <Text>{t('description')}</Text>
       </Hero>
       <List>
         <ListItem>
-          <FaMapSigns /> Domains
+          <FaMapSigns /> {t('providers.domains')}
         </ListItem>
         <ListItem>
-          <FaGithub /> GitHub Organization
+          <FaGithub /> {t('providers.github')}
         </ListItem>
         <ListItem>
-          <FaNpm /> npm
+          <FaNpm /> {t('providers.npm')}
         </ListItem>
         <ListItem>
-          <FaPython /> PyPI
+          <FaPython /> {t('providers.pypi')}
         </ListItem>
         <ListItem>
-          <FaGem /> RubyGems
+          <FaGem /> {t('providers.rubygems')}
         </ListItem>
         <ListItem>
-          <DiRust /> Rust
+          <DiRust /> {t('providers.rust')}
         </ListItem>
         <ListItem>
-          <IoIosBeer /> Homebrew
+          <IoIosBeer /> {t('providers.homebrew')}
         </ListItem>
         <ListItem>
-          <FaJsSquare /> js.org
+          <FaJsSquare /> {t('providers.jsorg')}
         </ListItem>
         <ListItem>
-          <FaAws /> AWS S3 Bucket
+          <FaAws /> {t('providers.s3')}
         </ListItem>
         <ListItem>
-          <FaTwitter /> Twitter
+          <FaTwitter /> {t('providers.twitter')}
         </ListItem>
         <ListItem>
-          <FaSlack /> Slack
+          <FaSlack /> {t('providers.slack')}
         </ListItem>
       </List>
     </Container>
@@ -82,8 +82,12 @@ const Container = styled.div`
 
 const Header = styled.h1`
   font-size: 3.5em;
-  line-height: 0.8em;
+  line-height: 1em;
   padding-bottom: 30px;
+
+  ${mobile} {
+    font-size: 3em;
+  }
 `
 
 const Text = styled.p`

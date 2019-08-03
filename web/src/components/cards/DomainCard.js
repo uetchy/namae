@@ -1,14 +1,16 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaMapSigns } from 'react-icons/fa'
 import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 
 export default function DomainCard({ name }) {
+  const { t } = useTranslation()
   const lowerCase = name.toLowerCase()
 
   return (
     <Card
-      title="Domain"
+      title={t('providers.domains')}
       key={lowerCase}
       nameList={[`${lowerCase}.com`, `${lowerCase}app.com`, `${lowerCase}.app`]}
       alternativeList={[

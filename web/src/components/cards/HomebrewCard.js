@@ -1,13 +1,18 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { IoIosBeer } from 'react-icons/io'
 import { Card } from '../Cards'
 import { ExistentialAvailability } from '../Availability'
 
 export default function HomebrewCard({ name }) {
+  const { t } = useTranslation()
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card title="Homebrew" key={lowerCase} nameList={[lowerCase]}>
+    <Card
+      title={t('providers.homebrew')}
+      key={lowerCase}
+      nameList={[lowerCase]}>
       {(name) => (
         <>
           <ExistentialAvailability

@@ -1,0 +1,18 @@
+{
+  "title": "name new project",
+  "description": "namæ saves your time searching around registries and checking if the desired name is ready for use.",
+  "placeholder": "search",
+  "providers": {
+    "domains": "Domains",
+    "github": "Github Organization",
+    "npm": "npm",
+    "pypi": "PyPI",
+    "rubygems": "RubyGems",
+    "rust": "Rust",
+    "homebrew": "Homebrew",
+    "jsorg": "js.org",
+    "s3": "AWS S3",
+    "twitter": "Twitter",
+    "slack": "Slack"
+  }
+}

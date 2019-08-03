@@ -1,13 +1,16 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaPython } from 'react-icons/fa'
 import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 import { capitalize } from '../../util/text'
 
 export default function PypiCard({ name }) {
+  const { t } = useTranslation()
+
   return (
     <Card
-      title="PyPI"
+      title={t('providers.pypi')}
       key={name}
       nameList={[name]}
       alternativeList={[`Py${capitalize(name)}`]}>

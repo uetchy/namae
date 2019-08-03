@@ -1,14 +1,16 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaNpm } from 'react-icons/fa'
 import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 
 export default function NpmCard({ name }) {
+  const { t } = useTranslation()
   const lowerCase = name.toLowerCase()
 
   return (
     <Card
-      title="npm"
+      title={t('providers.npm')}
       key={lowerCase}
       nameList={[lowerCase]}
       alternativeList={[`${lowerCase}-js`]}>

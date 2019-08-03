@@ -1,13 +1,15 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaJsSquare } from 'react-icons/fa'
 import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 
 export default function JsOrgCard({ name }) {
+  const { t } = useTranslation()
   const lowerCase = name.toLowerCase()
 
   return (
-    <Card title="js.org" key={lowerCase} nameList={[lowerCase]}>
+    <Card title={t('providers.jsorg')} key={lowerCase} nameList={[lowerCase]}>
       {(name) => (
         <DedicatedAvailability
           name={`${name}.js.org`}

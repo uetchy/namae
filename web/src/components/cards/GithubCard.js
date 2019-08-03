@@ -1,15 +1,17 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaGithub } from 'react-icons/fa'
 import { Card } from '../Cards'
 import { DedicatedAvailability } from '../Availability'
 import { capitalize } from '../../util/text'
 
 export default function GithubCard({ name }) {
+  const { t } = useTranslation()
   const lowerCase = name.toLowerCase()
 
   return (
     <Card
-      title="GitHub Organization"
+      title={t('providers.github')}
       key={name}
       nameList={[name]}
       alternativeList={[
