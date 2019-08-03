@@ -4,26 +4,51 @@ import { useTranslation } from 'react-i18next'
 import fetch from 'isomorphic-unfetch'
 import { capitalize } from '../util/text'
 
+const modifiers = [
+  (word) => `${capitalize(word)}ify`,
+  (word) => `lib${lower(word)}`,
+  (word) => `Omni${capitalize(word)}`,
+  (word) => `${capitalize(word)}Lab`,
+  (word) => `${capitalize(word)}Kit`,
+  (word) => `Open${capitalize(word)}`,
+  (word) => `${capitalize(word)}box`,
+  (word) => `Insta${lower(word)}`,
+  (word) => `${capitalize(word)}Hub`,
+  (word) => `Cloud${capitalize(word)}`,
+  (word) => `quick${lower(word)}`,
+  (word) => `fast${lower(word)}`,
+  (word) => `super-${lower(word)}`,
+  (word) => `Hyper${capitalize(word)}`,
+  (word) => `${capitalize(word)}Go`,
+  (word) => `${lower(word)}-io`,
+  (word) => `Go${capitalize(word)}`,
+  (word) => `${capitalize(word)}X`,
+  (word) => `${capitalize(word)}time`,
+  (word) => `${capitalize(word)}flow`,
+  (word) => `${capitalize(word)}ful`,
+  (word) => `${capitalize(word)}ery`,
+  (word) => `${lower(word)}ly`,
+  (word) => `${capitalize(word)}Hunt`,
+  (word) => `${capitalize(word)}gram`,
+  (word) => `${capitalize(word)}base`,
+  (word) => `${capitalize(word)}API`,
+  (word) => `${capitalize(word)}note`,
+  (word) => `In${capitalize(word)}`,
+  (word) => `Uni${lower(word)}`,
+  (word) => `${capitalize(word)}`,
+]
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    const temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  return array
+}
+
 function modifyWord(word) {
-  const modifiers = [
-    (word) => `${capitalize(word)}ify`,
-    (word) => `lib${lower(word)}`,
-    (word) => `Omni${capitalize(word)}`,
-    (word) => `${capitalize(word)}Lab`,
-    (word) => `${capitalize(word)}Kit`,
-    (word) => `Open${capitalize(word)}`,
-    (word) => `${capitalize(word)}box`,
-    (word) => `Insta${lower(word)}`,
-    (word) => `${capitalize(word)}Hub`,
-    (word) => `Cloud${capitalize(word)}`,
-    (word) => `quick${lower(word)}`,
-    (word) => `${capitalize(word)}gram`,
-    (word) => `${capitalize(word)}base`,
-    (word) => `${capitalize(word)}API`,
-    (word) => `${capitalize(word)}note`,
-    (word) => `In${capitalize(word)}`,
-    (word) => `Uni${lower(word)}`,
-  ]
   return modifiers[Math.floor(Math.random() * modifiers.length)](word)
 }
 
@@ -46,10 +71,10 @@ async function findSynonyms(word, maximum = 10) {
     )
     let bestWords = [
       ...new Set(
-        synonyms
-          .filter((word) => !word.match(/[\s-]/))
-          .sort(() => Math.random() - 0.5)
-          .slice(0, maximum)
+        shuffleArray(synonyms.filter((word) => !word.match(/[\s-]/))).slice(
+          0,
+          maximum
+        )
       ),
     ]
     const deficit = maximum - bestWords.length
@@ -126,4 +151,5 @@ const Item = styled.div`
   cursor: pointer;
   font-weight: bold;
   font-family: monospace;
+  border-bottom: 1px dashed black;
 `
