@@ -6,13 +6,15 @@ import { FaMapSigns } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { FaNpm } from 'react-icons/fa'
 import { FaPython } from 'react-icons/fa'
-import { IoIosBeer } from 'react-icons/io'
+import { FaGem } from 'react-icons/fa'
 import { DiRust } from 'react-icons/di'
-import { FaJsSquare } from 'react-icons/fa'
-import { FaAws } from 'react-icons/fa'
+import { IoIosBeer } from 'react-icons/io'
+import { FaLinux } from 'react-icons/fa'
+import { FaAppStore } from 'react-icons/fa'
 import { FaTwitter } from 'react-icons/fa'
 import { FaSlack } from 'react-icons/fa'
-import { FaGem } from 'react-icons/fa'
+import { FaAws } from 'react-icons/fa'
+import { FaJsSquare } from 'react-icons/fa'
 
 import { mobile } from '../util/css'
 
@@ -48,16 +50,25 @@ export default function Welcome() {
           <IoIosBeer /> {t('providers.homebrew')}
         </ListItem>
         <ListItem>
-          <FaJsSquare /> {t('providers.jsorg')}
+          <FaLinux /> {t('providers.linux')}
         </ListItem>
         <ListItem>
-          <FaAws /> {t('providers.s3')}
+          <FaGithub /> {t('providers.githubSearch')}
+        </ListItem>
+        <ListItem>
+          <FaAppStore /> {t('providers.appStore')}
         </ListItem>
         <ListItem>
           <FaTwitter /> {t('providers.twitter')}
         </ListItem>
         <ListItem>
           <FaSlack /> {t('providers.slack')}
+        </ListItem>
+        <ListItem>
+          <FaAws /> {t('providers.s3')}
+        </ListItem>
+        <ListItem>
+          <FaJsSquare /> {t('providers.jsorg')}
         </ListItem>
       </List>
     </Container>

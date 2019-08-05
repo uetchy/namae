@@ -12,6 +12,7 @@ import CratesioCard from './components/cards/CratesioCard'
 import HomebrewCard from './components/cards/HomebrewCard'
 import LinuxCard from './components/cards/LinuxCard'
 import GithubSearchCard from './components/cards/GithubSearchCard'
+import AppStoreCard from './components/cards/AppStoreCard'
 import TwitterCard from './components/cards/TwitterCard'
 import SlackCard from './components/cards/SlackCard'
 import S3Card from './components/cards/S3Card'
@@ -100,6 +101,7 @@ export default function App() {
               <HomebrewCard name={query} />
               <LinuxCard name={query} />
               <GithubSearchCard query={query} />
+              <AppStoreCard query={query} />
               <TwitterCard name={query} />
               <SlackCard name={query} />
               <S3Card name={query} />

@@ -5,17 +5,18 @@
   "providers": {
     "domains": "Domains",
     "github": "Github Organization",
-    "githubSearch": "Github Repository",
     "npm": "npm",
     "pypi": "PyPI",
     "rubygems": "RubyGems",
     "rust": "Rust",
     "homebrew": "Homebrew",
-    "jsorg": "js.org",
-    "s3": "AWS S3",
+    "linux": "Linux",
+    "githubSearch": "Github Repository",
+    "appStore": "App Store",
     "twitter": "Twitter",
     "slack": "Slack",
-    "linux": "Linux"
+    "s3": "AWS S3",
+    "jsorg": "js.org"
   },
   "try": "How about"
 }
