@@ -13,7 +13,7 @@ function Search({ query }) {
   const repos = response.items
 
   return (
-    <div>
+    <>
       {repos.map((repo) => (
         <Result
           title={repo.full_name}
@@ -23,7 +23,7 @@ function Search({ query }) {
           key={repo.id}
         />
       ))}
-    </div>
+    </>
   )
 }
 

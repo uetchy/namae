@@ -4,9 +4,9 @@ import { FaNpm } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function NpmCard({ name }) {
+export default function NpmCard({ query }) {
   const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+  const lowerCase = query.toLowerCase()
 
   const names = [lowerCase]
   const moreNames = [`${lowerCase}-js`]

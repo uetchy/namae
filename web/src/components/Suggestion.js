@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import fetch from 'isomorphic-unfetch'
+
 import { capitalize } from '../util/text'
 
 const modifiers = [

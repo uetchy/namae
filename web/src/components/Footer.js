@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FaTwitter, FaGithubAlt } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
+import { FaTwitter, FaGithubAlt } from 'react-icons/fa'
 
 import { ExternalLink } from './Links'
 

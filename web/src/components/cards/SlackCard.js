@@ -4,9 +4,9 @@ import { FaSlack } from 'react-icons/fa'
 
 import { Card, DedicatedAvailability, Repeater } from '../Cards'
 
-export default function SlackCard({ name }) {
+export default function SlackCard({ query }) {
   const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+  const lowerCase = query.toLowerCase()
 
   const names = [lowerCase]
 

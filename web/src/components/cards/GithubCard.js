@@ -4,11 +4,11 @@ import { FaGithub } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function GithubCard({ name }) {
+export default function GithubCard({ query }) {
   const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+  const lowerCase = query.toLowerCase()
 
-  const names = [name]
+  const names = [query]
   const moreNames = [
     `${lowerCase}hq`,
     `${lowerCase}-team`,

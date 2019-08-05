@@ -28,10 +28,10 @@ import { mobile } from './util/css'
 import { isStandalone } from './util/pwa'
 
 export default function App() {
-  const [query, setQuery] = useDeferredState('', 1000)
+  const [query, setQuery] = useDeferredState(1000, '')
   const [inputValue, setInputValue] = useState('')
-  const inputRef = useRef()
   const [suggested, setSuggested] = useState(false)
+  const inputRef = useRef()
   const { t } = useTranslation()
 
   const queryGiven = query && query.length > 0
@@ -92,20 +92,20 @@ export default function App() {
         {queryGiven ? (
           <SearchResult>
             <Cards>
-              <DomainCard name={query} />
-              <GithubCard name={query} />
-              <NpmCard name={query} />
-              <PypiCard name={query} />
-              <RubyGemsCard name={query} />
-              <CratesioCard name={query} />
-              <HomebrewCard name={query} />
-              <LinuxCard name={query} />
+              <DomainCard query={query} />
+              <GithubCard query={query} />
+              <NpmCard query={query} />
+              <PypiCard query={query} />
+              <RubyGemsCard query={query} />
+              <CratesioCard query={query} />
+              <HomebrewCard query={query} />
+              <LinuxCard query={query} />
+              <TwitterCard query={query} />
+              <SlackCard query={query} />
+              <S3Card query={query} />
+              <JsOrgCard query={query} />
               <GithubSearchCard query={query} />
               <AppStoreCard query={query} />
-              <TwitterCard name={query} />
-              <SlackCard name={query} />
-              <S3Card name={query} />
-              <JsOrgCard name={query} />
             </Cards>
             <EventReporter query={query} />
           </SearchResult>

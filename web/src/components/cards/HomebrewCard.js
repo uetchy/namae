@@ -4,9 +4,9 @@ import { IoIosBeer } from 'react-icons/io'
 
 import { Card, Repeater, ExistentialAvailability } from '../Cards'
 
-export default function HomebrewCard({ name }) {
+export default function HomebrewCard({ query }) {
   const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+  const lowerCase = query.toLowerCase()
 
   const names = [lowerCase]
 

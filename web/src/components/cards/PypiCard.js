@@ -5,11 +5,11 @@ import { FaPython } from 'react-icons/fa'
 import { capitalize } from '../../util/text'
 import { Card, DedicatedAvailability, Repeater } from '../Cards'
 
-export default function PypiCard({ name }) {
+export default function PypiCard({ query }) {
   const { t } = useTranslation()
 
-  const names = [name]
-  const moreNames = [`Py${capitalize(name)}`]
+  const names = [query]
+  const moreNames = [`Py${capitalize(query)}`]
 
   return (
     <Card title={t('providers.pypi')}>

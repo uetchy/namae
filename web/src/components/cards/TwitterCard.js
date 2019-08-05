@@ -5,17 +5,19 @@ import { FaTwitter } from 'react-icons/fa'
 import { capitalize } from '../../util/text'
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function TwitterCard({ name }) {
+export default function TwitterCard({ query }) {
   const { t } = useTranslation()
+  const lowerCase = query.toLowerCase()
+  const capitalCase = capitalize(query)
 
-  const names = [name]
+  const names = [query]
   const moreNames = [
-    `${name.toLowerCase()}app`,
-    `hey${name.toLowerCase()}`,
-    `${capitalize(name)}Team`,
-    `${capitalize(name)}HQ`,
-    `${name.toLowerCase()}_official`,
-    `${name.toLowerCase()}-support`,
+    `${lowerCase}app`,
+    `hey${lowerCase}`,
+    `${capitalCase}Team`,
+    `${capitalCase}HQ`,
+    `${lowerCase}_official`,
+    `${lowerCase}-support`,
   ]
 
   return (

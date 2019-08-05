@@ -5,9 +5,9 @@ import { DiDebian } from 'react-icons/di'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function LinuxCard({ name }) {
+export default function LinuxCard({ query }) {
   const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+  const lowerCase = query.toLowerCase()
 
   const names = [lowerCase]
 

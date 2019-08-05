@@ -11,7 +11,7 @@ function Search({ query }) {
   const apps = response.result
 
   return (
-    <div>
+    <>
       {apps.map((app) => (
         <Result
           title={app.name}
@@ -21,7 +21,7 @@ function Search({ query }) {
           key={app.id}
         />
       ))}
-    </div>
+    </>
   )
 }
 

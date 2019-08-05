@@ -4,9 +4,9 @@ import { DiRust } from 'react-icons/di'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function CratesioCard({ name }) {
+export default function CratesioCard({ query }) {
   const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+  const lowerCase = query.toLowerCase()
 
   const names = [lowerCase]
 

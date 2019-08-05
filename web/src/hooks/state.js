@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function useDeferredState(initialValue = undefined, duration = 1000) {
+export function useDeferredState(duration = 1000, initialValue = undefined) {
   const [response, setResponse] = useState(initialValue)
   const [innerValue, setInnerValue] = useState(initialValue)
 

@@ -4,11 +4,11 @@ import { FaGem } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function RubyGemsCard({ name }) {
+export default function RubyGemsCard({ query }) {
   const { t } = useTranslation()
 
-  const names = [name]
-  const moreNames = [`${name.toLowerCase()}-rb`]
+  const names = [query]
+  const moreNames = [`${query.toLowerCase()}-rb`]
 
   return (
     <Card title={t('providers.rubygems')}>

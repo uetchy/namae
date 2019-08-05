@@ -4,16 +4,17 @@ import { FaMapSigns } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function DomainCard({ name }) {
+export default function DomainCard({ query }) {
   const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+  const lowerCase = query.toLowerCase()
 
-  const names = [`${lowerCase}.com`, `${lowerCase}app.com`, `${lowerCase}.app`]
+  const names = [`${lowerCase}.com`, `${lowerCase}.app`]
   const moreNames = [
+    `${lowerCase}app.com`,
+    `get${lowerCase}.com`,
     `${lowerCase}.dev`,
     `${lowerCase}.io`,
     `${lowerCase}.tools`,
-    `get${lowerCase}.com`,
   ]
 
   return (
