@@ -5,6 +5,7 @@
   "providers": {
     "domains": "Domains",
     "github": "Github Organization",
+    "githubSearch": "Github Repository",
     "npm": "npm",
     "pypi": "PyPI",
     "rubygems": "RubyGems",

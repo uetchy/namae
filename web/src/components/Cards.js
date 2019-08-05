@@ -10,8 +10,54 @@ import { Tooltip } from 'react-tippy'
 import { ExternalLink } from './Links'
 import 'react-tippy/dist/tippy.css'
 
+export function Card({ title, children }) {
+  return (
+    <CardContainer>
+      <CardTitle>{title}</CardTitle>
+      <CardContent>
+        <ErrorBoundary>
+          <Suspense
+            fallback={
+              <ResultContainer>
+                <BarLoader />
+              </ResultContainer>
+            }>
+            {children}
+          </Suspense>
+        </ErrorBoundary>
+      </CardContent>
+    </CardContainer>
+  )
+}
+
+export function Repeater({ items = [], moreItems = [], children }) {
+  const [revealAlternatives, setRevealAlternatives] = useState(false)
+
+  function onClick() {
+    setRevealAlternatives(true)
+  }
+
+  return (
+    <>
+      {items.map((name) => (
+        <CellError key={name}>{children(name)}</CellError>
+      ))}
+
+      {revealAlternatives
+        ? moreItems.map((name) => (
+            <CellError key={name}>{children(name)}</CellError>
+          ))
+        : null}
+      {moreItems.length > 0 && !revealAlternatives ? (
+        <Button onClick={onClick}>show more</Button>
+      ) : null}
+    </>
+  )
+}
+
 export function DedicatedAvailability({
   name,
+  message = '',
   service,
   link,
   prefix = '',
@@ -25,19 +71,21 @@ export function DedicatedAvailability({
   }
 
   return (
-    <AvailabilityResult
-      availability={response.availability}
-      name={name}
+    <Result
+      title={name}
+      message={message}
       link={link}
+      icon={icon}
+      color={response.availability ? 'green' : 'red'}
       prefix={prefix}
       suffix={suffix}
-      icon={icon}
     />
   )
 }
 
 export function ExistentialAvailability({
   name,
+  message = '',
   target,
   link,
   prefix = '',
@@ -53,59 +101,54 @@ export function ExistentialAvailability({
   const availability = response.status === 404
 
   return (
-    <AvailabilityResult
-      name={name}
-      availability={availability}
+    <Result
+      title={name}
+      message={message}
       link={link}
+      icon={icon}
+      color={availability ? 'green' : 'red'}
       prefix={prefix}
       suffix={suffix}
-      icon={icon}
     />
   )
 }
 
-export function CustomSearchCard({
+export const Result = ({
   title,
-  query,
+  message = '',
   link,
+  icon,
+  color = 'inherit',
   prefix = '',
   suffix = '',
-  icon,
-  children,
-}) {
-  return (
-    <CardContainer>
-      <CardTitle>{title}</CardTitle>
-      <CardList>
-        <ErrorHandler key={query}>{children(query)}</ErrorHandler>
-      </CardList>
-    </CardContainer>
+}) => {
+  const content = (
+    <>
+      {prefix}
+      {title}
+      {suffix}
+    </>
   )
-}
-
-export function Card({ title, nameList = [], alternativeList = [], children }) {
-  const [revealAlternatives, setRevealAlternatives] = useState(false)
-
-  function onClick() {
-    setRevealAlternatives(true)
-  }
-
   return (
-    <CardContainer>
-      <CardTitle>{title}</CardTitle>
-      <CardList>
-        {nameList.map((name) => (
-          <ErrorHandler key={name}>{children(name)}</ErrorHandler>
-        ))}
-        {revealAlternatives &&
-          alternativeList.map((name) => (
-            <ErrorHandler key={name}>{children(name)}</ErrorHandler>
-          ))}
-        {alternativeList.length > 0 && !revealAlternatives ? (
-          <Button onClick={onClick}>show more</Button>
-        ) : null}
-      </CardList>
-    </CardContainer>
+    <ResultContainer>
+      <Tooltip
+        title={message}
+        position="bottom"
+        arrow={true}
+        animation="shift"
+        duration="200">
+        <ResultItem color={color}>
+          {icon}
+          <ResultName>
+            {link ? (
+              <ExternalLink href={link}>{content}</ExternalLink>
+            ) : (
+              content
+            )}
+          </ResultName>
+        </ResultItem>
+      </Tooltip>
+    </ResultContainer>
   )
 }
 
@@ -141,7 +184,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-const ErrorHandler = ({ children }) => (
+const CellError = ({ children }) => (
   <ErrorBoundary>
     <Suspense
       fallback={
@@ -152,28 +195,6 @@ const ErrorHandler = ({ children }) => (
       {children}
     </Suspense>
   </ErrorBoundary>
-)
-
-const AvailabilityResult = ({
-  name,
-  availability,
-  link,
-  prefix = '',
-  suffix = '',
-  icon,
-}) => (
-  <ResultContainer>
-    <ResultItem color={availability ? 'green' : 'red'}>
-      {icon}
-      <ResultName>
-        <ExternalLink href={link}>
-          {prefix}
-          {name}
-          {suffix}
-        </ExternalLink>
-      </ResultName>
-    </ResultItem>
-  </ResultContainer>
 )
 
 const CardContainer = styled.div`
@@ -195,7 +216,7 @@ const CardTitle = styled.div`
   }
 `
 
-const CardList = styled.div`
+const CardContent = styled.div`
   border-radius: 2px;
 
   ${mobile} {

@@ -1,26 +1,38 @@
 import React from 'react'
+import useFetch from 'fetch-suspense'
 import { useTranslation } from 'react-i18next'
 import { FaGithub } from 'react-icons/fa'
-import fetch from 'isomorphic-unfetch'
-import { CustomSearchCard } from '../Cards'
 
-export default function GithubSearchCard({ name }) {
+import { Card, Result } from '../Cards'
+
+function Search({ query }) {
+  const searchQuery = encodeURIComponent(`${query} in:name`)
+  const response = useFetch(
+    `https://api.github.com/search/repositories?q=${searchQuery}&per_page=3`
+  )
+  const repos = response.items
+
+  return (
+    <div>
+      {repos.map((repo) => (
+        <Result
+          title={repo.full_name}
+          message={`Star: ${repo.stargazers_count}`}
+          link={repo.html_url}
+          icon={<FaGithub />}
+          key={repo.id}
+        />
+      ))}
+    </div>
+  )
+}
+
+export default function GithubSearchCard({ query }) {
   const { t } = useTranslation()
 
   return (
-    <CustomSearchCard
-      title={t('providers.githubSearch')}
-      query={name}
-      link={`https://github.com/search/${name}`}
-      prefix="github.com/"
-      icon={<FaGithub />}>
-      {async (query) => {
-        const response = await fetch(
-          `https://api.github.com/repos/search?q=${query}`
-        )
-        const data = await response.json()
-        console.log(data)
-      }}
-    </CustomSearchCard>
+    <Card title={t('providers.githubSearch')}>
+      <Search query={query} />
+    </Card>
   )
 }

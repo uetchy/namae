@@ -1,23 +1,27 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaJsSquare } from 'react-icons/fa'
-import { Card } from '../Cards'
-import { DedicatedAvailability } from '../Cards'
+
+import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
 export default function JsOrgCard({ name }) {
   const { t } = useTranslation()
   const lowerCase = name.toLowerCase()
 
+  const names = [lowerCase]
+
   return (
-    <Card title={t('providers.jsorg')} nameList={[lowerCase]}>
-      {(name) => (
-        <DedicatedAvailability
-          name={`${name}.js.org`}
-          service="dns"
-          link={`https://${name}.js.org`}
-          icon={<FaJsSquare />}
-        />
-      )}
+    <Card title={t('providers.jsorg')}>
+      <Repeater items={names}>
+        {(name) => (
+          <DedicatedAvailability
+            name={`${name}.js.org`}
+            service="dns"
+            link={`https://${name}.js.org`}
+            icon={<FaJsSquare />}
+          />
+        )}
+      </Repeater>
     </Card>
   )
 }

@@ -3,18 +3,19 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
-import GithubCard from './components/cards/GithubCard'
 import DomainCard from './components/cards/DomainCard'
+import GithubCard from './components/cards/GithubCard'
+import NpmCard from './components/cards/NpmCard'
+import PypiCard from './components/cards/PypiCard'
+import RubyGemsCard from './components/cards/RubyGemsCard'
+import CratesioCard from './components/cards/CratesioCard'
 import HomebrewCard from './components/cards/HomebrewCard'
+import LinuxCard from './components/cards/LinuxCard'
+import GithubSearchCard from './components/cards/GithubSearchCard'
 import TwitterCard from './components/cards/TwitterCard'
 import SlackCard from './components/cards/SlackCard'
-import NpmCard from './components/cards/NpmCard'
-import JsOrgCard from './components/cards/JsOrgCard'
-import PypiCard from './components/cards/PypiCard'
 import S3Card from './components/cards/S3Card'
-import CratesioCard from './components/cards/CratesioCard'
-import RubyGemsCard from './components/cards/RubyGemsCard'
-import LinuxCard from './components/cards/LinuxCard'
+import JsOrgCard from './components/cards/JsOrgCard'
 
 import { EventReporter } from './components/Analytics'
 import Welcome from './components/Welcome'
@@ -93,15 +94,16 @@ export default function App() {
               <DomainCard name={query} />
               <GithubCard name={query} />
               <NpmCard name={query} />
-              <JsOrgCard name={query} />
               <PypiCard name={query} />
-              <CratesioCard name={query} />
               <RubyGemsCard name={query} />
+              <CratesioCard name={query} />
               <HomebrewCard name={query} />
+              <LinuxCard name={query} />
+              <GithubSearchCard query={query} />
               <TwitterCard name={query} />
               <SlackCard name={query} />
               <S3Card name={query} />
-              <LinuxCard name={query} />
+              <JsOrgCard name={query} />
             </Cards>
             <EventReporter query={query} />
           </SearchResult>
