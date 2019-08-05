@@ -1,18 +1,18 @@
 const { send, sendError, fetch } = require('../util/http')
 
 module.exports = async (req, res) => {
-  const name = req.query.name
+  const { query } = req.query
 
-  if (!name) {
+  if (!query) {
     return sendError(res, new Error('no query given'))
   }
 
   try {
     const response = await fetch(
-      `https://${encodeURIComponent(name)}.slack.com`
+      `https://${encodeURIComponent(query)}.slack.com`
     )
     const availability = response.status !== 200
-    send(res, availability)
+    send(res, { availability })
   } catch (err) {
     if (err.code === 'ENOTFOUND') {
       send(res, true)

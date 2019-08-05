@@ -4,9 +4,9 @@ exports.fetch = (url, method = 'HEAD') => {
   return fetch(url, { method })
 }
 
-exports.send = (res, availability) => {
+exports.send = (res, obj) => {
   res.setHeader('Cache-Control', 'maxage=0, s-maxage=3600')
-  res.json({ availability })
+  res.json(obj)
 }
 
 exports.sendError = (res, error) => {

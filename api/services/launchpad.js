@@ -1,21 +1,21 @@
 const { send, sendError, fetch } = require('../util/http')
 
 module.exports = async (req, res) => {
-  const name = req.query.name
+  const { query } = req.query
 
-  if (!name) {
+  if (!query) {
     return sendError(res, new Error('no query given'))
   }
 
   try {
     const response = await fetch(
       `https://api.launchpad.net/devel/ubuntu/+source/${encodeURIComponent(
-        name
+        query
       )}`,
       'GET'
     )
     const availability = response.status !== 200
-    send(res, availability)
+    send(res, { availability })
   } catch (err) {
     sendError(res, err)
   }

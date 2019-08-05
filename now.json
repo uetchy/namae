@@ -15,8 +15,8 @@
   ],
   "routes": [
     {
-      "src": "/availability/(?<provider>[^/]+)/(?<id>[^/]+)",
-      "dest": "/api/services/$provider.js?name=$id"
+      "src": "/availability/(?<provider>[^/]+)/(?<query>[^/]+)",
+      "dest": "/api/services/$provider.js?query=$query"
     },
     {
       "src": "/(.*)",

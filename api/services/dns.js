@@ -11,16 +11,16 @@ function resolvePromise(hostname) {
 }
 
 module.exports = async (req, res) => {
-  const name = req.query.name
+  const { query } = req.query
 
-  if (!name) {
+  if (!query) {
     return sendError(res, new Error('no query given'))
   }
 
   try {
-    const response = await resolvePromise(name)
+    const response = await resolvePromise(query)
     const availability = response && response.length > 0 ? false : true
-    send(res, availability)
+    send(res, { availability })
   } catch (err) {
     if (err.code === 'ENODATA' || err.code === 'ENOTFOUND') {
       return res.status(200).json({ availability: true })

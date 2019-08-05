@@ -17,32 +17,40 @@ yarn start
 
 ## Add new provider
 
-Create `web/src/components/cards/<NewCard>.js` and paste following template into it:
+Create `web/src/components/cards/<NewCard>.js`. Here is the example card that checks if spcified repository on GitHub is available.
 
 ```jsx
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaGithub } from 'react-icons/fa'
 
-import { Card } from '../Card'
-import { ExistentialAvailability } from '../Cards'
-import { capitalize } from '../../util/text'
+import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function NewCard({ name }) {
+export default function GithubCard({ name }) {
+  const { t } = useTranslation()
+  const lowerCase = name.toLowerCase()
+
+  const names = [name]
+  const moreNames = [
+    `${lowerCase}hq`,
+    `${lowerCase}-team`,
+    `${lowerCase}-org`,
+    `${lowerCase}-js`,
+  ]
+
   return (
-    <Card
-      title="NewCard"
-      key={name}
-      nameList={[name, `${name}-team`]}
-      alternativeList={[`${capitalize(name)}HQ`]}>
-      {(name) => (
-        <ExistentialAvailability
-          name={name}
-          target={`https://api.newservice.com/items/${name}`}
-          link={`https://newservice.com/${name}`}
-          prefix="newservice.com/"
-          icon={<FaGithub />}
-        />
-      )}
+    <Card title={t('providers.github')}>
+      <Repeater items={names} moreItems={moreNames}>
+        {(name) => (
+          <DedicatedAvailability
+            name={name}
+            service="github"
+            link={`https://github.com/${name}`}
+            prefix="github.com/"
+            icon={<FaGithub />}
+          />
+        )}
+      </Repeater>
     </Card>
   )
 }
@@ -55,9 +63,8 @@ import NewCard from './components/cards/NewCard'
 ```
 
 ```patch
-<Cards>
-  <CardHeader>Result for {query}</CardHeader>
-  <CardContainer>
+<SearchResult>
+  <Cards>
     <GithubCard name={query} />
     <DomainCard name={query} />
     <TwitterCard name={query} />
@@ -69,8 +76,8 @@ import NewCard from './components/cards/NewCard'
     <SlackCard name={query} />
     <S3Card name={query} />
 +   <NewCard name={query} />
-  </CardContainer>
-</Cards>
+  </Cards>
+</SearchResult>
 ```
 
 ### ExistentialAvailability
