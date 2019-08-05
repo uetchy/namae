@@ -14,6 +14,7 @@ import PypiCard from './components/cards/PypiCard'
 import S3Card from './components/cards/S3Card'
 import CratesioCard from './components/cards/CratesioCard'
 import RubyGemsCard from './components/cards/RubyGemsCard'
+import LinuxCard from './components/cards/LinuxCard'
 
 import { EventReporter } from './components/Analytics'
 import Welcome from './components/Welcome'
@@ -100,6 +101,7 @@ export default function App() {
               <TwitterCard name={query} />
               <SlackCard name={query} />
               <S3Card name={query} />
+              <LinuxCard name={query} />
             </Cards>
             <EventReporter query={query} />
           </SearchResult>
