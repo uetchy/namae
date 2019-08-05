@@ -24,7 +24,7 @@ import React from 'react'
 import { FaGithub } from 'react-icons/fa'
 
 import { Card } from '../Card'
-import { ExistentialAvailability } from '../Availability'
+import { ExistentialAvailability } from '../Cards'
 import { capitalize } from '../../util/text'
 
 export default function NewCard({ name }) {

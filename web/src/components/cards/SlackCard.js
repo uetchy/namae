@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaSlack } from 'react-icons/fa'
 import { Card } from '../Cards'
-import { DedicatedAvailability } from '../Availability'
+import { DedicatedAvailability } from '../Cards'
 
 export default function SlackCard({ name }) {
   const { t } = useTranslation()

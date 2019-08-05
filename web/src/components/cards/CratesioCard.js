@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { DiRust } from 'react-icons/di'
 import { Card } from '../Cards'
-import { DedicatedAvailability } from '../Availability'
+import { DedicatedAvailability } from '../Cards'
 
 export default function CratesioCard({ name }) {
   const { t } = useTranslation()

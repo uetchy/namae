@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaPython } from 'react-icons/fa'
 import { Card } from '../Cards'
-import { DedicatedAvailability } from '../Availability'
+import { DedicatedAvailability } from '../Cards'
 import { capitalize } from '../../util/text'
 
 export default function PypiCard({ name }) {

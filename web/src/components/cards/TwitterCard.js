@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaTwitter } from 'react-icons/fa'
 import { Card } from '../Cards'
-import { DedicatedAvailability } from '../Availability'
+import { DedicatedAvailability } from '../Cards'
 import { capitalize } from '../../util/text'
 
 export default function TwitterCard({ name }) {
@@ -13,11 +13,12 @@ export default function TwitterCard({ name }) {
       title={t('providers.twitter')}
       nameList={[name]}
       alternativeList={[
-        `${capitalize(name)}HQ`,
         `${name.toLowerCase()}app`,
-        `${name.toLowerCase()}-support`,
+        `hey${name.toLowerCase()}`,
         `${capitalize(name)}Team`,
-        `${capitalize(name)}Official`,
+        `${capitalize(name)}HQ`,
+        `${name.toLowerCase()}_official`,
+        `${name.toLowerCase()}-support`,
       ]}>
       {(name) => (
         <DedicatedAvailability

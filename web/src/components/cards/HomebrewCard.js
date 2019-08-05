@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { IoIosBeer } from 'react-icons/io'
 import { Card } from '../Cards'
-import { ExistentialAvailability } from '../Availability'
+import { ExistentialAvailability } from '../Cards'
 
 export default function HomebrewCard({ name }) {
   const { t } = useTranslation()

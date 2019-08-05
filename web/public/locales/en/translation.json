@@ -13,7 +13,8 @@
     "jsorg": "js.org",
     "s3": "AWS S3",
     "twitter": "Twitter",
-    "slack": "Slack"
+    "slack": "Slack",
+    "linux": "Linux"
   },
   "try": "How about"
 }

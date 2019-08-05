@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
-import { Cards, CardContainer } from './components/Cards'
 import GithubCard from './components/cards/GithubCard'
 import DomainCard from './components/cards/DomainCard'
 import HomebrewCard from './components/cards/HomebrewCard'
@@ -88,8 +87,8 @@ export default function App() {
 
       <Content>
         {queryGiven ? (
-          <Cards>
-            <CardContainer>
+          <SearchResult>
+            <Cards>
               <DomainCard name={query} />
               <GithubCard name={query} />
               <NpmCard name={query} />
@@ -101,9 +100,9 @@ export default function App() {
               <TwitterCard name={query} />
               <SlackCard name={query} />
               <S3Card name={query} />
-            </CardContainer>
+            </Cards>
             <EventReporter query={query} />
-          </Cards>
+          </SearchResult>
         ) : !isStandalone() ? (
           <Welcome />
         ) : null}
@@ -197,5 +196,18 @@ const InputView = styled.input.attrs({
 
   ${mobile} {
     font-size: 2rem;
+  }
+`
+
+const SearchResult = styled.div``
+
+const Cards = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  ${mobile} {
+    flex-direction: column;
   }
 `

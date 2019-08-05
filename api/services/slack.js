@@ -1,32 +1,23 @@
-const fetch = require('isomorphic-unfetch')
-const { send, sendError } = require('../util/http')
-
-async function getAvailability(name) {
-  try {
-    const response = await fetch(
-      `https://${encodeURIComponent(name)}.slack.com`
-    )
-    return response.status !== 200
-  } catch (err) {
-    if (err.code === 'ENOTFOUND') {
-      return true
-    } else {
-      throw new Error(err.message)
-    }
-  }
-}
+const { send, sendError, fetch } = require('../util/http')
 
 module.exports = async (req, res) => {
   const name = req.query.name
 
   if (!name) {
-    return res.status(400).json({ error: 'no query given' })
+    return sendError(res, new Error('no query given'))
   }
 
   try {
-    const availability = await getAvailability(name)
+    const response = await fetch(
+      `https://${encodeURIComponent(name)}.slack.com`
+    )
+    const availability = response.status !== 200
     send(res, availability)
   } catch (err) {
-    sendError(res, err)
+    if (err.code === 'ENOTFOUND') {
+      send(res, true)
+    } else {
+      sendError(res, err)
+    }
   }
 }

@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
   const name = req.query.name
 
   if (!name) {
-    return res.status(400).json({ error: 'no query given' })
+    return sendError(res, new Error('no query given'))
   }
 
   try {

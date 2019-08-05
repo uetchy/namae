@@ -1,5 +1,4 @@
-const fetch = require('isomorphic-unfetch')
-const { send, sendError } = require('../util/http')
+const { send, sendError, fetch } = require('../util/http')
 
 module.exports = async (req, res) => {
   const name = req.query.name

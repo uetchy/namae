@@ -1,11 +1,10 @@
-const fetch = require('isomorphic-unfetch')
-const { send, sendError } = require('../util/http')
+const { send, sendError, fetch } = require('../util/http')
 
 module.exports = async (req, res) => {
   const name = req.query.name
 
   if (!name) {
-    return res.status(400).json({ error: 'no query given' })
+    return sendError(res, new Error('no query given'))
   }
 
   try {

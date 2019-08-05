@@ -1,12 +1,6 @@
-const fetch = require('isomorphic-unfetch')
-const { send, sendError } = require('../util/http')
+const { send, sendError, fetch } = require('../util/http')
 
-async function getAvailability(name) {
-  const response = await fetch(
-    `https://twitter.com/${encodeURIComponent(name)}`
-  )
-  return response.status !== 200
-}
+async function getAvailability(name) {}
 
 module.exports = async (req, res) => {
   const name = req.query.name
@@ -16,7 +10,10 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const availability = await getAvailability(name)
+    const response = await fetch(
+      `https://twitter.com/${encodeURIComponent(name)}`
+    )
+    const availability = response.status !== 200
     send(res, availability)
   } catch (err) {
     sendError(res, err)

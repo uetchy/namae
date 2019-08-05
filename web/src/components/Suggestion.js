@@ -28,6 +28,7 @@ const modifiers = [
   (word) => `${capitalize(word)}ful`,
   (word) => `${capitalize(word)}ery`,
   (word) => `${lower(word)}ly`,
+  (word) => `${lower(word)}joy`,
   (word) => `${capitalize(word)}Hunt`,
   (word) => `${capitalize(word)}gram`,
   (word) => `${capitalize(word)}base`,
