@@ -6,7 +6,7 @@ import { FaGoogle, FaInfoCircle } from 'react-icons/fa'
 import { Card, Result } from '../Cards'
 
 function Search({ query }) {
-  const term = `${query} app service -twitter -facebook -amazon -vimeo -linkedin -site:dictionary.cambridge.org -site:weblio.jp -site:appbank.net -いかがでした -キャンペーン`
+  const term = `intitle:"${query}" app -site:dictionary.cambridge.org -site:weblio.jp`
   const response = useFetch(`/availability/google/${encodeURIComponent(term)}`)
   const items = response.result
 

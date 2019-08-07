@@ -17,7 +17,6 @@ import S3Card from './components/cards/S3Card'
 import JsOrgCard from './components/cards/JsOrgCard'
 import GithubSearchCard from './components/cards/GithubSearchCard'
 import AppStoreCard from './components/cards/AppStoreCard'
-import GoogleCard from './components/cards/GoogleCard'
 
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
@@ -108,7 +107,6 @@ export default function App() {
             <Cards>
               <GithubSearchCard query={query} />
               <AppStoreCard query={query} />
-              <GoogleCard query={query} />
             </Cards>
           </SearchResult>
         ) : (

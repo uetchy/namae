@@ -14,7 +14,6 @@ import {
   FaSlack,
   FaAws,
   FaJsSquare,
-  FaGoogle,
 } from 'react-icons/fa'
 import { IoIosBeer } from 'react-icons/io'
 import { DiRust } from 'react-icons/di'
@@ -72,9 +71,6 @@ export default function Welcome() {
         </ListItem>
         <ListItem>
           <FaAppStore /> {t('providers.appStore')}
-        </ListItem>
-        <ListItem>
-          <FaGoogle /> {t('providers.google')}
         </ListItem>
       </List>
     </Container>
