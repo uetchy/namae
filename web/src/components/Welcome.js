@@ -2,19 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
-import { FaMapSigns } from 'react-icons/fa'
-import { FaGithub } from 'react-icons/fa'
-import { FaNpm } from 'react-icons/fa'
-import { FaPython } from 'react-icons/fa'
-import { FaGem } from 'react-icons/fa'
-import { DiRust } from 'react-icons/di'
+import {
+  FaMapSigns,
+  FaGithub,
+  FaNpm,
+  FaPython,
+  FaGem,
+  FaLinux,
+  FaAppStore,
+  FaTwitter,
+  FaSlack,
+  FaAws,
+  FaJsSquare,
+  FaGoogle,
+} from 'react-icons/fa'
 import { IoIosBeer } from 'react-icons/io'
-import { FaLinux } from 'react-icons/fa'
-import { FaAppStore } from 'react-icons/fa'
-import { FaTwitter } from 'react-icons/fa'
-import { FaSlack } from 'react-icons/fa'
-import { FaAws } from 'react-icons/fa'
-import { FaJsSquare } from 'react-icons/fa'
+import { DiRust } from 'react-icons/di'
 
 import { mobile } from '../util/css'
 
@@ -53,12 +56,6 @@ export default function Welcome() {
           <FaLinux /> {t('providers.linux')}
         </ListItem>
         <ListItem>
-          <FaGithub /> {t('providers.githubSearch')}
-        </ListItem>
-        <ListItem>
-          <FaAppStore /> {t('providers.appStore')}
-        </ListItem>
-        <ListItem>
           <FaTwitter /> {t('providers.twitter')}
         </ListItem>
         <ListItem>
@@ -69,6 +66,15 @@ export default function Welcome() {
         </ListItem>
         <ListItem>
           <FaJsSquare /> {t('providers.jsorg')}
+        </ListItem>
+        <ListItem>
+          <FaGithub /> {t('providers.githubSearch')}
+        </ListItem>
+        <ListItem>
+          <FaAppStore /> {t('providers.appStore')}
+        </ListItem>
+        <ListItem>
+          <FaGoogle /> {t('providers.google')}
         </ListItem>
       </List>
     </Container>
