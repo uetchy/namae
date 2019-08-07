@@ -11,12 +11,13 @@
     "rust": "Rust",
     "homebrew": "Homebrew",
     "linux": "Linux",
-    "githubSearch": "Github リポジトリ",
-    "appStore": "App Store",
     "twitter": "Twitter",
     "slack": "Slack",
     "s3": "AWS S3",
-    "jsorg": "js.org"
+    "jsorg": "js.org",
+    "githubSearch": "Github リポジトリ",
+    "appStore": "App Store",
+    "google": "Google 検索"
   },
   "countryCode": "jp",
   "try": "これはどう?"

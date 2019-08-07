@@ -11,12 +11,13 @@
     "rust": "Rust",
     "homebrew": "Homebrew",
     "linux": "Linux",
-    "githubSearch": "Github Repository",
-    "appStore": "App Store",
     "twitter": "Twitter",
     "slack": "Slack",
     "s3": "AWS S3",
-    "jsorg": "js.org"
+    "jsorg": "js.org",
+    "githubSearch": "Github Repository",
+    "appStore": "App Store",
+    "google": "Google Search"
   },
   "countryCode": "us",
   "try": "How about"

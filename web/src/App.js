@@ -11,12 +11,13 @@ import RubyGemsCard from './components/cards/RubyGemsCard'
 import CratesioCard from './components/cards/CratesioCard'
 import HomebrewCard from './components/cards/HomebrewCard'
 import LinuxCard from './components/cards/LinuxCard'
-import GithubSearchCard from './components/cards/GithubSearchCard'
-import AppStoreCard from './components/cards/AppStoreCard'
 import TwitterCard from './components/cards/TwitterCard'
 import SlackCard from './components/cards/SlackCard'
 import S3Card from './components/cards/S3Card'
 import JsOrgCard from './components/cards/JsOrgCard'
+import GithubSearchCard from './components/cards/GithubSearchCard'
+import AppStoreCard from './components/cards/AppStoreCard'
+import GoogleCard from './components/cards/GoogleCard'
 
 import { EventReporter } from './components/Analytics'
 import Welcome from './components/Welcome'
@@ -104,8 +105,11 @@ export default function App() {
               <SlackCard query={query} />
               <S3Card query={query} />
               <JsOrgCard query={query} />
+            </Cards>
+            <Cards>
               <GithubSearchCard query={query} />
               <AppStoreCard query={query} />
+              <GoogleCard query={query} />
             </Cards>
             <EventReporter query={query} />
           </SearchResult>
