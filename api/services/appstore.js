@@ -1,19 +1,19 @@
 const { send, sendError, fetch } = require('../util/http')
 
 module.exports = async (req, res) => {
-  const { query } = req.query
+  const { query, country } = req.query
 
   if (!query) {
     return res.status(400).json({ error: 'no query given' })
   }
 
   const term = encodeURIComponent(query)
-  const country = 'us'
+  // const country = 'us'
   const limit = 3
 
   try {
     const response = await fetch(
-      `https://itunes.apple.com/search?media=software&entity=software,iPadSoftware,macSoftware,softwareDeveloper&country=${country}&limit=${limit}&term=${term}`,
+      `https://itunes.apple.com/search?media=software&entity=software,iPadSoftware,macSoftware&country=${country}&limit=${limit}&term=${term}`,
       'GET'
     )
     const body = await response.json()

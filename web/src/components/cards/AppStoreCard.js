@@ -6,8 +6,11 @@ import { FaAppStore } from 'react-icons/fa'
 import { Card, Result } from '../Cards'
 
 function Search({ query }) {
+  const { t } = useTranslation()
   const term = encodeURIComponent(query)
-  const response = useFetch(`/availability/appstore/${term}`)
+  const response = useFetch(
+    `/availability/appstore/${term}?country=${t('countryCode')}`
+  )
   const apps = response.result
 
   return (
