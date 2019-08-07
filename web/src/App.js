@@ -19,7 +19,6 @@ import GithubSearchCard from './components/cards/GithubSearchCard'
 import AppStoreCard from './components/cards/AppStoreCard'
 import GoogleCard from './components/cards/GoogleCard'
 
-import { EventReporter } from './components/Analytics'
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
 import Suggestion from './components/Suggestion'
@@ -111,13 +110,13 @@ export default function App() {
               <AppStoreCard query={query} />
               <GoogleCard query={query} />
             </Cards>
-            <EventReporter query={query} />
           </SearchResult>
-        ) : !isStandalone() ? (
-          <Welcome />
-        ) : null}
-        {!isStandalone() ? <Footer /> : null}
+        ) : (
+          !isStandalone() && <Welcome />
+        )}
       </Content>
+
+      <Footer />
     </>
   )
 }

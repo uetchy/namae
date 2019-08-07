@@ -4,17 +4,9 @@
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
     "start": "now dev",
-    "test": "yarn workspaces run test"
+    "ship": "now"
   },
   "dependencies": {},
-  "devDependencies": {
-    "@types/node": "^12.6.9",
-    "typescript": "^3.5.3"
-  },
   "license": "MIT",
-  "private": true,
-  "workspaces": [
-    "api",
-    "web"
-  ]
+  "private": true
 }

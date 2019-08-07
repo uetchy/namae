@@ -2,7 +2,7 @@
   "name": "@namae/web",
   "version": "0.1.0",
   "scripts": {
-    "build": "react-scripts build",
+    "build": "NODE_ENV=production react-scripts build",
     "eject": "react-scripts eject",
     "now-build": "yarn build",
     "now-dev": "BROWSER=none react-scripts start",
@@ -30,7 +30,8 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.0.0",
-    "@testing-library/react": "^8.0.7"
+    "@testing-library/react": "^8.0.8",
+    "@types/node": "^12.7.0"
   },
   "browserslist": {
     "production": [
