@@ -67,8 +67,10 @@ export function Repeater({ items = [], moreItems = [], children }) {
 export function DedicatedAvailability({
   name,
   message = '',
+  messageIfTaken = undefined,
   service,
   link,
+  linkIfTaken = undefined,
   prefix = '',
   suffix = '',
   icon,
@@ -82,8 +84,8 @@ export function DedicatedAvailability({
   return (
     <Result
       title={name}
-      message={message}
-      link={link}
+      message={response.availability ? message : messageIfTaken || message}
+      link={response.availability ? link : linkIfTaken || link}
       icon={icon}
       color={response.availability ? COLORS.available : COLORS.unavailable}
       prefix={prefix}
@@ -95,8 +97,10 @@ export function DedicatedAvailability({
 export function ExistentialAvailability({
   name,
   message = '',
+  messageIfTaken = undefined,
   target,
   link,
+  linkIfTaken = undefined,
   prefix = '',
   suffix = '',
   icon,
@@ -112,8 +116,8 @@ export function ExistentialAvailability({
   return (
     <Result
       title={name}
-      message={message}
-      link={link}
+      message={availability ? message : messageIfTaken || message}
+      link={availability ? link : linkIfTaken || link}
       icon={icon}
       color={availability ? COLORS.available : COLORS.unavailable}
       prefix={prefix}

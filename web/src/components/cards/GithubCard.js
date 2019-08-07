@@ -23,7 +23,10 @@ export default function GithubCard({ query }) {
           <DedicatedAvailability
             name={name}
             service="github"
-            link={`https://github.com/${name}`}
+            message="Create GitHub Organization"
+            link="https://github.com/organizations/new"
+            messageIfTaken={`Go to github.com/${name}`}
+            linkIfTaken={`https://github.com/${name}`}
             prefix="github.com/"
             icon={<FaGithub />}
           />

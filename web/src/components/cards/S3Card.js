@@ -17,7 +17,10 @@ export default function S3Card({ query }) {
           <DedicatedAvailability
             name={name}
             service="s3"
-            link={`https://${name}.s3.amazonaws.com`}
+            message="Go to S3 console"
+            link="https://s3.console.aws.amazon.com"
+            messageIfTaken={`Go to ${name}.s3.amazonaws.com`}
+            linkIfTaken={`https://${name}.s3.amazonaws.com`}
             suffix=".s3.amazonaws.com"
             icon={<FaAws />}
           />

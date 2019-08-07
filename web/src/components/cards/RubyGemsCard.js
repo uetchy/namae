@@ -17,7 +17,10 @@ export default function RubyGemsCard({ query }) {
           <DedicatedAvailability
             name={name}
             service="rubygems"
-            link={`https://rubygems.org/gems/${name}`}
+            message="Read Publishing Guide"
+            link="https://guides.rubygems.org/publishing/"
+            messageIfTaken="Go to RubyGems"
+            linkIfTaken={`https://rubygems.org/gems/${name}`}
             icon={<FaGem />}
           />
         )}

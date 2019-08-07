@@ -18,7 +18,10 @@ export default function PypiCard({ query }) {
           <DedicatedAvailability
             name={name}
             service="pypi"
-            link={`https://pypi.org/project/${name}`}
+            message="Read Python Packaging User Guide"
+            link="https://packaging.python.org/"
+            messageIfTaken="Go to PyPI"
+            linkIfTaken={`https://pypi.org/project/${name}`}
             icon={<FaPython />}
           />
         )}

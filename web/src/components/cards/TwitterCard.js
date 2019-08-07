@@ -27,6 +27,7 @@ export default function TwitterCard({ query }) {
           <DedicatedAvailability
             name={name}
             service="twitter"
+            message="Go to Twitter"
             link={`https://twitter.com/${name}`}
             prefix="twitter.com/"
             icon={<FaTwitter />}

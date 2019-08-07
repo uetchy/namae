@@ -23,7 +23,7 @@ export default function DomainCard({ query }) {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            message="Go Domainr.com"
+            message="Go to Domainr.com"
             service="domain"
             link={`https://domainr.com/?q=${name}`}
             icon={<FaMapSigns />}

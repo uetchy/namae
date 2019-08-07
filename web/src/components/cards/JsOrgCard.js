@@ -17,7 +17,10 @@ export default function JsOrgCard({ query }) {
           <DedicatedAvailability
             name={`${name}.js.org`}
             service="dns"
-            link={`https://${name}.js.org`}
+            message="Go to js.org repository"
+            link="https://github.com/js-org/js.org"
+            messageIfTaken={`Go to ${name}.js.org`}
+            linkIfTaken={`https://${name}.js.org`}
             icon={<FaJsSquare />}
           />
         )}

@@ -17,7 +17,10 @@ export default function SlackCard({ query }) {
           <DedicatedAvailability
             name={name}
             service="slack"
-            link={`https://${name}.slack.com`}
+            message="Create Slack Team"
+            link="https://slack.com/create"
+            messageIfTaken={`Go to ${name}.slack.com`}
+            linkIfTaken={`https://${name}.slack.com`}
             suffix=".slack.com"
             icon={<FaSlack />}
           />

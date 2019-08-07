@@ -4,6 +4,8 @@ const googleIt = require('google-it')
 module.exports = async (req, res) => {
   const { query } = req.query
 
+  return send(res, { result: [] }) // DISABLE
+
   if (!query) {
     return res.status(400).json({ error: 'no query given' })
   }

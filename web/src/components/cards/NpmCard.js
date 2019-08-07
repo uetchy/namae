@@ -19,13 +19,19 @@ export default function NpmCard({ query }) {
             <DedicatedAvailability
               name={name}
               service="npm"
-              link={`https://www.npmjs.com/package/${name}`}
+              message="Read publishing guide"
+              link="https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry"
+              messageIfTaken={`See ${name}`}
+              linkIfTaken={`https://www.npmjs.com/package/${name}`}
               icon={<FaNpm />}
             />
             <DedicatedAvailability
               name={name}
               service="npm-org"
-              link={`https://www.npmjs.com/org/${name}`}
+              message="Create Org"
+              link="https://www.npmjs.com/org/create"
+              messageIfTaken={`See @${name}`}
+              linkIfTaken={`https://www.npmjs.com/org/${name}`}
               prefix="@"
               suffix=" (Organization)"
               icon={<FaNpm />}
