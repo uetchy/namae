@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import fetch from 'isomorphic-unfetch'
+import { TiArrowSync } from 'react-icons/ti'
 
 import { capitalize } from '../util/text'
+import { mobile } from '../util/css'
 
+const maximumCount = 3
 const modifiers = [
   (word) => `${capitalize(word)}ify`,
   (word) => `lib${lower(word)}`,
@@ -40,6 +43,10 @@ const modifiers = [
   (word) => `${capitalize(word)}`,
 ]
 
+function lower(word) {
+  return word.toLowerCase()
+}
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -50,15 +57,23 @@ function shuffleArray(array) {
   return array
 }
 
+function sampleFromArray(array, maximum) {
+  return shuffleArray(array).slice(0, maximum)
+}
+
 function modifyWord(word) {
   return modifiers[Math.floor(Math.random() * modifiers.length)](word)
 }
 
-function lower(word) {
-  return word.toLowerCase()
+function fillArray(array, filler, maximum) {
+  const deficit = maximum - array.length
+  if (deficit > 0) {
+    array = [...array, ...Array(deficit).fill(filler)]
+  }
+  return array
 }
 
-async function findSynonyms(word, maximum = 10) {
+async function findSynonyms(word) {
   try {
     const response = await fetch(
       `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=ss&ie=UTF-8&oe=UTF-8&dj=1&q=${encodeURIComponent(
@@ -66,59 +81,68 @@ async function findSynonyms(word, maximum = 10) {
       )}`
     )
     const json = await response.json()
-    const synonyms = json.synsets.reduce(
-      (sum, synset) =>
-        (sum = [...sum, ...synset.entry.map((e) => e.synonym[0])]),
-      []
-    )
-    let bestWords = [
+    const synonyms = [
       ...new Set(
-        shuffleArray(synonyms.filter((word) => !word.match(/[\s-]/))).slice(
-          0,
-          maximum
+        json.synsets.reduce(
+          (sum, synset) =>
+            (sum = [...sum, ...synset.entry.map((e) => e.synonym[0])]),
+          []
         )
       ),
-    ]
-    const deficit = maximum - bestWords.length
-    if (deficit > 0) {
-      bestWords = [...bestWords, ...Array(deficit).fill(word)]
-    }
-    return bestWords
+    ].filter((word) => !word.match(/[\s-]/))
+    return synonyms
   } catch (err) {
-    return Array(maximum).fill(word)
+    return []
   }
 }
 
 export default function Suggestion({ query, onSubmit }) {
   const { t } = useTranslation()
-  const [synonyms, setSynonyms] = useState([])
+  const synonymRef = useRef([])
+  const [bestWords, setBestWords] = useState([])
 
-  useEffect(() => {
-    const fn = async () => {
-      if (query && query.length > 0) {
-        const synonyms = (await findSynonyms(query, 3)).map((synonym) =>
-          modifyWord(synonym)
-        )
-        setSynonyms(synonyms)
-      }
-    }
-    fn()
-  }, [query])
+  function shuffle() {
+    const best = fillArray(
+      sampleFromArray(synonymRef.current, maximumCount),
+      query,
+      maximumCount
+    ).map((word) => modifyWord(word))
+    setBestWords(best)
+  }
 
   function applyQuery(name) {
     onSubmit(name)
   }
 
+  useEffect(() => {
+    const fn = async () => {
+      if (query && query.length > 0) {
+        const synonyms = await findSynonyms(query)
+        synonymRef.current = synonyms
+        const best = fillArray(
+          sampleFromArray(synonyms, maximumCount),
+          query,
+          maximumCount
+        ).map((word) => modifyWord(word))
+        setBestWords(best)
+      }
+    }
+    fn()
+  }, [query])
+
   return (
     <Container>
       <Title>{t('try')}</Title>
       <Items>
-        {synonyms &&
-          synonyms.map((name) => (
+        {bestWords &&
+          bestWords.map((name) => (
             <Item key={name} onClick={() => applyQuery(name)}>
               {name}
             </Item>
           ))}
+        <Icon>
+          <TiArrowSync onClick={shuffle} />
+        </Icon>
       </Items>
     </Container>
   )
@@ -127,31 +151,49 @@ export default function Suggestion({ query, onSubmit }) {
 const Container = styled.div`
   margin-bottom: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: baseline;
-  line-height: 1em;
 `
 
 const Title = styled.div`
   margin-top: 15px;
-  font-size: 0.6em;
+  padding: 5px 12px;
+  color: gray;
+  border: 1px solid gray;
+  border-radius: 2em;
 `
 
 const Items = styled.div`
-  margin-top: 15px;
-  margin-left: 8px;
+  margin-top: 2px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
+  ${mobile} {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const Item = styled.div`
-  margin-right: 10px;
+  margin-top: 8px;
+  margin-right: 14px;
   cursor: pointer;
   font-weight: bold;
   font-family: monospace;
   border-bottom: 1px dashed black;
+  color: black;
+
+  ${mobile} {
+    margin-right: 0;
+  }
+`
+
+const Icon = styled(Item)`
+  display: flex;
+  align-items: center;
+  border-bottom: none;
 `
