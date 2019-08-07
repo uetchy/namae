@@ -1,7 +1,7 @@
 import React from 'react'
 import useFetch from 'fetch-suspense'
 import { useTranslation } from 'react-i18next'
-import { FaAppStore } from 'react-icons/fa'
+import { FaAppStore, FaInfoCircle } from 'react-icons/fa'
 
 import { Card, Result } from '../Cards'
 
@@ -15,15 +15,19 @@ function Search({ query }) {
 
   return (
     <>
-      {apps.map((app) => (
-        <Result
-          title={app.name}
-          message={`Price: ${app.price}`}
-          link={app.viewURL}
-          icon={<FaAppStore />}
-          key={app.id}
-        />
-      ))}
+      {apps.length > 0 ? (
+        apps.map((app) => (
+          <Result
+            title={app.name}
+            message={`Price: ${app.price}`}
+            link={app.viewURL}
+            icon={<FaAppStore />}
+            key={app.id}
+          />
+        ))
+      ) : (
+        <Result title="No Result" icon={<FaInfoCircle />} />
+      )}
     </>
   )
 }

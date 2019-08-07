@@ -8,12 +8,12 @@ module.exports = async (req, res) => {
   }
 
   const term = encodeURIComponent(query)
-  // const country = 'us'
-  const limit = 3
+  const countryCode = country || 'us'
+  const limit = 10
 
   try {
     const response = await fetch(
-      `https://itunes.apple.com/search?media=software&entity=software,iPadSoftware,macSoftware&country=${country}&limit=${limit}&term=${term}`,
+      `https://itunes.apple.com/search?media=software&entity=software,iPadSoftware,macSoftware&country=${countryCode}&limit=${limit}&term=${term}`,
       'GET'
     )
     const body = await response.json()
