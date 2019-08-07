@@ -1,14 +1,19 @@
-import React, { useState, Suspense } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import styled from 'styled-components'
-
-import { mobile } from '../util/css'
-
 import useFetch from 'fetch-suspense'
+import { Tooltip } from 'react-tippy'
+import 'react-tippy/dist/tippy.css'
 import BarLoader from 'react-spinners/BarLoader'
 import { GoInfo } from 'react-icons/go'
-import { Tooltip } from 'react-tippy'
+
 import { ExternalLink } from './Links'
-import 'react-tippy/dist/tippy.css'
+import { mobile } from '../util/css'
+
+const COLORS = {
+  available: '#6e00ff',
+  unavailable: 'darkgrey',
+  error: '#ff388b',
+}
 
 export function Card({ title, children }) {
   return (
@@ -36,6 +41,10 @@ export function Repeater({ items = [], moreItems = [], children }) {
   function onClick() {
     setRevealAlternatives(true)
   }
+
+  useEffect(() => {
+    setRevealAlternatives(false)
+  }, [items, moreItems])
 
   return (
     <>
@@ -76,7 +85,7 @@ export function DedicatedAvailability({
       message={message}
       link={link}
       icon={icon}
-      color={response.availability ? 'green' : 'red'}
+      color={response.availability ? COLORS.available : COLORS.unavailable}
       prefix={prefix}
       suffix={suffix}
     />
@@ -106,7 +115,7 @@ export function ExistentialAvailability({
       message={message}
       link={link}
       icon={icon}
-      color={availability ? 'green' : 'red'}
+      color={availability ? COLORS.available : COLORS.unavailable}
       prefix={prefix}
       suffix={suffix}
     />
@@ -138,7 +147,7 @@ export const Result = ({
         animation="shift"
         duration="200">
         <ResultItem color={color}>
-          {icon}
+          <ResultIcon>{icon}</ResultIcon>
           <ResultName>
             {link ? (
               <ExternalLink href={link}>{content}</ExternalLink>
@@ -172,8 +181,10 @@ class ErrorBoundary extends React.Component {
           animation="shift"
           duration="200">
           <ResultContainer>
-            <ResultItem>
-              <GoInfo />
+            <ResultItem color={COLORS.error}>
+              <ResultIcon>
+                <GoInfo />
+              </ResultIcon>
               <ResultName>Error</ResultName>
             </ResultItem>
           </ResultContainer>
@@ -239,10 +250,13 @@ const Button = styled.div`
 `
 
 const ResultContainer = styled.div`
-  min-height: 1em;
   display: flex;
   align-items: center;
   margin-top: 8px;
+`
+
+const ResultIcon = styled.div`
+  width: 1em;
 `
 
 const ResultItem = styled.div`
@@ -255,6 +269,7 @@ const ResultItem = styled.div`
 
 const ResultName = styled.div`
   margin-left: 6px;
+  line-height: 1em;
   font-family: monospace;
   font-size: 1rem;
 
