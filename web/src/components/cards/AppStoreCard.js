@@ -18,7 +18,7 @@ function Search({ query }) {
       {apps.length > 0 ? (
         apps.map((app) => (
           <Result
-            title={app.name}
+            title={app.name.split(/[－–—\-:]/)[0]}
             message={`Price: ${app.price}`}
             link={app.viewURL}
             icon={<FaAppStore />}

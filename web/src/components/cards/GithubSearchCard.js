@@ -19,7 +19,7 @@ function Search({ query }) {
         repos.map((repo) => (
           <Result
             title={repo.full_name}
-            message={`Star: ${repo.stargazers_count}`}
+            message={`${repo.description} (🌟${repo.stargazers_count})`}
             link={repo.html_url}
             icon={<FaGithub />}
             key={repo.id}
