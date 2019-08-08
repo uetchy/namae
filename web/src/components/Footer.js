@@ -22,10 +22,13 @@ export default function Footer() {
           </ExternalLink>
         </p>
         <Links>
-          <ExternalLink href="https://github.com/uetchy/namae">
+          <ExternalLink
+            href="https://github.com/uetchy/namae"
+            aria-label="Go to GitHub repository">
             <FaGithubAlt />
           </ExternalLink>
           <ExternalLink
+            aria-label="Tweet this page"
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
               `namae — ${t('title')}`
             )}&url=${encodeURIComponent('https://namae.dev')}`}>

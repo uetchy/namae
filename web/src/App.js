@@ -80,6 +80,7 @@ export default function App() {
             value={inputValue}
             ref={inputRef}
             placeholder={t('placeholder')}
+            aria-label="search query"
           />
           {queryGiven && !suggested ? (
             <Suggestion onSubmit={onSuggestionCompleted} query={query} />
