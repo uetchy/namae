@@ -1,34 +1,19 @@
-import React, { Suspense } from 'react'
-import styled from 'styled-components'
+import React from 'react'
 import ReactDOM from 'react-dom'
-import BarLoader from 'react-spinners/BarLoader'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-
+import { FullScreenSuspense } from './util/suspense'
 import './i18n'
 
-const Fallback = () => (
-  <Container>
-    <BarLoader />
-  </Container>
-)
-
-const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
-ReactDOM.render(
-  <Suspense fallback={<Fallback />}>
+const Container = () => (
+  <FullScreenSuspense>
     <App />
-  </Suspense>,
-  document.getElementById('root')
+  </FullScreenSuspense>
 )
 
+ReactDOM.render(<Container />, document.getElementById('root'))
+
+// register Google Analytics
 if (process.env.NODE_ENV !== 'development') {
   import('react-ga').then((ReactGA) => {
     ReactGA.initialize('UA-28919359-15')
