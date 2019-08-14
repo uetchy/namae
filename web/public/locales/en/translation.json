@@ -1,6 +1,6 @@
 {
   "title": "name new project",
-  "description": "namæ saves your time searching around registries and checking if the desired name is ready for use.",
+  "description": "Check availability of your new app name candidates for major registries at once.",
   "placeholder": "search",
   "providers": {
     "domains": "Domains",
@@ -20,5 +20,5 @@
     "google": "Google Search"
   },
   "countryCode": "us",
-  "try": "How about this?"
+  "try": "Suggested Name"
 }
