@@ -1,5 +1,11 @@
-name: namae-web
-on: push
+name: Web App
+on:
+  push:
+    paths:
+      - web/*
+  pull_request:
+    paths:
+      - web/*
 jobs:
   test:
     name: Test
@@ -7,6 +13,5 @@ jobs:
     steps:
       - uses: actions/setup-node@master
       - uses: actions/checkout@master
-      - run: cd web
-      - run: yarn install
-      - run: yarn test
+      - run: yarn --cwd web install
+      - run: yarn --cwd web test

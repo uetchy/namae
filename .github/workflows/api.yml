@@ -1,15 +1,16 @@
-name: namae-api
+name: API
 on:
   push:
     paths:
       - api/*
-      - .github/**
+  pull_request:
+    paths:
+      - api/*
 jobs:
   test:
-    name: Test
+    name: Test Install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@master
       - uses: actions/checkout@master
-      - run: cd api
-      - run: yarn install
+      - run: yarn --cwd api install
