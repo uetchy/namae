@@ -8,7 +8,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node
-      - uses: actions/checkout
+      - uses: actions/setup-node@master
+      - uses: actions/checkout@master
       - run: cd api
       - run: yarn install
