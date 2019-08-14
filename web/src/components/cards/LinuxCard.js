@@ -20,14 +20,12 @@ export default function LinuxCard({ query }) {
               name={name}
               service="launchpad"
               link={`https://launchpad.net/ubuntu/+source/${name}`}
-              prefix="launchpad:"
               icon={<DiUbuntu />}
             />
             <DedicatedAvailability
               name={name}
               service="debian"
               link={`https://packages.debian.org/buster/${name}`}
-              prefix="debian:"
               icon={<DiDebian />}
             />
           </>
