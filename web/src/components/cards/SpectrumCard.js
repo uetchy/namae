@@ -1,0 +1,29 @@
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import { SpectrumIcon } from '../Icons'
+
+export default function SpectrumCard({ query }) {
+  const { t } = useTranslation()
+  const names = [query]
+
+  return (
+    <Card title={t('providers.spectrum')}>
+      <Repeater items={names}>
+        {(name) => (
+          <>
+            <DedicatedAvailability
+              name={name}
+              service="spectrum"
+              message="Create Community"
+              link="https://spectrum.chat/new/community"
+              messageIfTaken="See community in Spectrum"
+              linkIfTaken={`https://spectrum.chat/${name}`}
+              icon={<SpectrumIcon />}
+            />
+          </>
+        )}
+      </Repeater>
+    </Card>
+  )
+}

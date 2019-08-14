@@ -12,7 +12,11 @@ i18n
   .init({
     backend: {
       backends: [LocalStorageBackend, XHR],
-      backendOptions: [],
+      backendOptions: [
+        {
+          versions: { en: '1.1', ja: '1.1' },
+        },
+      ],
     },
     fallbackLng: 'en',
     debug: false,

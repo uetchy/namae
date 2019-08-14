@@ -17,6 +17,7 @@ import {
 } from 'react-icons/fa'
 import { IoIosBeer } from 'react-icons/io'
 import { DiRust } from 'react-icons/di'
+import { SpectrumIcon } from './Icons'
 
 import { mobile } from '../util/css'
 
@@ -56,6 +57,9 @@ export default function Welcome() {
         </ListItem>
         <ListItem>
           <FaTwitter /> {t('providers.twitter')}
+        </ListItem>
+        <ListItem>
+          <SpectrumIcon /> {t('providers.spectrum')}
         </ListItem>
         <ListItem>
           <FaSlack /> {t('providers.slack')}
