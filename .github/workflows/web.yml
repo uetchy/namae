@@ -1,9 +1,5 @@
 name: namae-web
-on:
-  push:
-    paths:
-      - web/*
-      - .github/**
+on: push
 jobs:
   test:
     name: Test
