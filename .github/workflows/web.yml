@@ -1,4 +1,4 @@
-name: Web App
+name: Web
 on:
   push:
     paths:
