@@ -8,9 +8,10 @@ on:
       - api/*
 jobs:
   test:
-    name: Test Install
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@master
       - uses: actions/checkout@master
       - run: yarn --cwd api install
+      - run: yarn --cwd api test

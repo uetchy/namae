@@ -10,5 +10,12 @@
     "npm-name": "^5.5.0",
     "whois-json": "^2.0.4"
   },
+  "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@types/jest": "^24.0.17",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "nock": "^10.0.6"
+  },
   "private": true
 }
