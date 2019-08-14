@@ -69,7 +69,7 @@ export default function App() {
       <GlobalStyle />
 
       <Helmet>
-        <title>namaæ — {t('title')}</title>
+        <title>namae — {t('title')}</title>
       </Helmet>
 
       <Header>
