@@ -23,7 +23,7 @@ import Welcome from './components/Welcome'
 import Footer from './components/Footer'
 import Suggestion from './components/Suggestion'
 
-import { useDeferredState } from './hooks/state'
+import { useDeferredState } from './util/hooks'
 import { mobile } from './util/css'
 import { isStandalone } from './util/pwa'
 
