@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - api/*
-      - .github/*
+      - .github/**
 jobs:
   test:
     name: Test
