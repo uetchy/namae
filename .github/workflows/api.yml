@@ -1,0 +1,16 @@
+name: API
+on:
+  push:
+    paths:
+      - api/*
+  pull_request:
+    paths:
+      - api/*
+jobs:
+  test:
+    name: Test Install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@master
+      - uses: actions/checkout@master
+      - run: yarn --cwd api install
