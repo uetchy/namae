@@ -1,0 +1,15 @@
+name: namae-web
+on:
+  push:
+    paths:
+      - web/*
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node
+      - uses: actions/checkout
+      - run: cd web
+      - run: yarn install
+      - run: yarn test
