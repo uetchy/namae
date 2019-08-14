@@ -117,7 +117,7 @@ const List = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: linear-gradient(180deg, #ec7951 0%, #f03054 100%);
+  background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%);
   color: white;
   border-radius: 4px;
   font-size: 1rem;
