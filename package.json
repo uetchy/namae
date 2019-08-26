@@ -8,7 +8,7 @@
     "start": "now dev"
   },
   "dependencies": {
-    "now": "^16.1.1"
+    "now": "^16.1.2"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

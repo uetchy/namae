@@ -26,7 +26,8 @@ export default function TwitterCard({ query }) {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            service="twitter"
+            query={`twitter.com/${name}`}
+            service="existence"
             message="Go to Twitter"
             link={`https://twitter.com/${name}`}
             prefix="twitter.com/"

@@ -1,13 +1,15 @@
-import provider from './github'
+import provider from './existence'
 import nock from 'nock'
 
 test('return false if name is taken', async () => {
-  const result = await mockProvider(provider, { query: 'uetchy' })
+  const result = await mockProvider(provider, { query: 'github.com/uetchy' })
   expect(result).toStrictEqual({ availability: false })
 })
 
 test('return true if name is not taken', async () => {
-  const result = await mockProvider(provider, { query: 'uetchyasdf' })
+  const result = await mockProvider(provider, {
+    query: 'github.com/uetchyasdf',
+  })
   expect(result).toStrictEqual({ availability: true })
 })
 

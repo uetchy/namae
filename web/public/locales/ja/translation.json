@@ -18,7 +18,9 @@
     "githubSearch": "Github リポジトリ",
     "appStore": "App Store",
     "google": "Google 検索",
-    "spectrum": "Spectrum"
+    "spectrum": "Spectrum",
+    "heroku": "Heroku",
+    "now": "ZEIT Now"
   },
   "countryCode": "jp",
   "try": "全自動名前考え機"

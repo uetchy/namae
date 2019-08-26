@@ -1,24 +1,25 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { DiRust } from 'react-icons/di'
+import { DiHeroku } from 'react-icons/di'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function CratesioCard({ query }) {
+export default function HerokuCard({ query }) {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
   const names = [lowerCase]
 
   return (
-    <Card title={t('providers.rust')}>
+    <Card title={t('providers.heroku')}>
       <Repeater items={names}>
         {(name) => (
           <DedicatedAvailability
-            name={name}
-            service="cratesio"
-            link={`https://crates.io/crates/${name}`}
-            icon={<DiRust />}
+            name={`${name}.herokuapp.com`}
+            service="existence"
+            message="Go to Heroku"
+            link={`https://${name}.herokuapp.com`}
+            icon={<DiHeroku />}
           />
         )}
       </Repeater>
