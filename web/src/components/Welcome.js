@@ -16,8 +16,8 @@ import {
   FaJsSquare,
 } from 'react-icons/fa'
 import { IoIosBeer } from 'react-icons/io'
-import { DiRust } from 'react-icons/di'
-import { SpectrumIcon } from './Icons'
+import { DiRust, DiHeroku } from 'react-icons/di'
+import { SpectrumIcon, NowIcon } from './Icons'
 
 import { mobile } from '../util/css'
 
@@ -63,6 +63,12 @@ export default function Welcome() {
         </ListItem>
         <ListItem>
           <FaSlack /> {t('providers.slack')}
+        </ListItem>
+        <ListItem>
+          <DiHeroku /> {t('providers.heroku')}
+        </ListItem>
+        <ListItem>
+          <NowIcon /> {t('providers.now')}
         </ListItem>
         <ListItem>
           <FaAws /> {t('providers.s3')}
