@@ -23,5 +23,6 @@
     "now": "ZEIT Now"
   },
   "countryCode": "us",
-  "try": "suggestions"
+  "try": "suggestions",
+  "showMore": "show more"
 }

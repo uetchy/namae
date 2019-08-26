@@ -5,6 +5,7 @@ import { Tooltip } from 'react-tippy'
 import 'react-tippy/dist/tippy.css'
 import BarLoader from 'react-spinners/BarLoader'
 import { GoInfo } from 'react-icons/go'
+import { useTranslation } from 'react-i18next'
 
 import { ExternalLink } from './Links'
 import { mobile } from '../util/css'
@@ -37,6 +38,7 @@ export function Card({ title, children }) {
 
 export function Repeater({ items = [], moreItems = [], children }) {
   const [revealAlternatives, setRevealAlternatives] = useState(false)
+  const { t } = useTranslation()
 
   function onClick() {
     setRevealAlternatives(true)
@@ -58,7 +60,7 @@ export function Repeater({ items = [], moreItems = [], children }) {
           ))
         : null}
       {moreItems.length > 0 && !revealAlternatives ? (
-        <Button onClick={onClick}>show more</Button>
+        <Button onClick={onClick}>{t('showMore')}</Button>
       ) : null}
     </>
   )
