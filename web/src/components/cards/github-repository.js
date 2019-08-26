@@ -22,7 +22,8 @@ export default function GithubCard({ query }) {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            service="github"
+            query={`github.com/${name}`}
+            service="existence"
             message="Create GitHub Organization"
             link="https://github.com/organizations/new"
             messageIfTaken={`Go to github.com/${name}`}

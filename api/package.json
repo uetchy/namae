@@ -5,16 +5,16 @@
     "test": "jest"
   },
   "dependencies": {
-    "google-it": "^1.2.0",
+    "google-it": "^1.2.1",
     "isomorphic-unfetch": "^3.0.0",
     "npm-name": "^5.5.0",
     "whois-json": "^2.0.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",
-    "@types/jest": "^24.0.17",
-    "babel-jest": "^24.8.0",
-    "jest": "^24.8.0",
+    "@types/jest": "^24.0.18",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
     "nock": "^10.0.6"
   },
   "private": true

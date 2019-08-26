@@ -16,7 +16,8 @@ export default function RubyGemsCard({ query }) {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            service="rubygems"
+            query={`rubygems.org/gems/${name}`}
+            service="existence"
             message="Read Publishing Guide"
             link="https://guides.rubygems.org/publishing/"
             messageIfTaken="Go to RubyGems"

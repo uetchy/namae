@@ -3,21 +3,23 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { useTranslation } from 'react-i18next'
 
-import DomainCard from './components/cards/DomainCard'
-import GithubCard from './components/cards/GithubCard'
-import NpmCard from './components/cards/NpmCard'
-import PypiCard from './components/cards/PypiCard'
-import RubyGemsCard from './components/cards/RubyGemsCard'
-import CratesioCard from './components/cards/CratesioCard'
-import HomebrewCard from './components/cards/HomebrewCard'
-import LinuxCard from './components/cards/LinuxCard'
-import TwitterCard from './components/cards/TwitterCard'
-import SpectrumCard from './components/cards/SpectrumCard'
-import SlackCard from './components/cards/SlackCard'
-import S3Card from './components/cards/S3Card'
-import JsOrgCard from './components/cards/JsOrgCard'
-import GithubSearchCard from './components/cards/GithubSearchCard'
-import AppStoreCard from './components/cards/AppStoreCard'
+import DomainCard from './components/cards/domains'
+import GithubCard from './components/cards/github-repository'
+import NpmCard from './components/cards/npm'
+import PypiCard from './components/cards/pypi'
+import RubyGemsCard from './components/cards/rubygems'
+import CratesioCard from './components/cards/cratesio'
+import HomebrewCard from './components/cards/homebrew'
+import LinuxCard from './components/cards/linux'
+import TwitterCard from './components/cards/twitter'
+import SpectrumCard from './components/cards/spectrum'
+import SlackCard from './components/cards/slack'
+import S3Card from './components/cards/s3'
+import JsOrgCard from './components/cards/jsorg'
+import GithubSearchCard from './components/cards/github-search'
+import AppStoreCard from './components/cards/appstore'
+import HerokuCard from './components/cards/heroku'
+import NowCard from './components/cards/now'
 
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
@@ -104,8 +106,10 @@ export default function App() {
               <TwitterCard query={query} />
               <SpectrumCard query={query} />
               <SlackCard query={query} />
-              <S3Card query={query} />
+              <HerokuCard query={query} />
+              <NowCard query={query} />
               <JsOrgCard query={query} />
+              <S3Card query={query} />
             </Cards>
             <Cards>
               <GithubSearchCard query={query} />

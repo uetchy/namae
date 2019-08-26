@@ -66,6 +66,7 @@ export function Repeater({ items = [], moreItems = [], children }) {
 
 export function DedicatedAvailability({
   name,
+  query = undefined,
   message = '',
   messageIfTaken = undefined,
   service,
@@ -75,7 +76,9 @@ export function DedicatedAvailability({
   suffix = '',
   icon,
 }) {
-  const response = useFetch(`/availability/${service}/${name}`)
+  const response = useFetch(
+    `/availability/${service}/${encodeURIComponent(query || name)}`
+  )
 
   if (response.error) {
     throw new Error(`${service}: ${response.error}`)

@@ -17,7 +17,8 @@ export default function PypiCard({ query }) {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            service="pypi"
+            query={`pypi.org/pypi/${name}/json`}
+            service="existence"
             message="Read Python Packaging User Guide"
             link="https://packaging.python.org/"
             messageIfTaken="Go to PyPI"

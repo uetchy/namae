@@ -16,7 +16,8 @@ export default function S3Card({ query }) {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            service="s3"
+            query={`${name}.s3.amazonaws.com`}
+            service="existence"
             message="Go to S3 console"
             link="https://s3.console.aws.amazon.com"
             messageIfTaken={`Go to ${name}.s3.amazonaws.com`}

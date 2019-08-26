@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
   const { query, country } = req.query
 
   if (!query) {
-    return res.status(400).json({ error: 'no query given' })
+    return sendError(res, new Error('no query given'))
   }
 
   const term = encodeURIComponent(query)

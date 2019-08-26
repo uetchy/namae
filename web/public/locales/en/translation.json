@@ -18,8 +18,10 @@
     "githubSearch": "Github Repository",
     "appStore": "App Store",
     "google": "Google Search",
-    "spectrum": "Spectrum"
+    "spectrum": "Spectrum",
+    "heroku": "Heroku",
+    "now": "ZEIT Now"
   },
   "countryCode": "us",
-  "try": "Suggested Name"
+  "try": "suggestions"
 }
