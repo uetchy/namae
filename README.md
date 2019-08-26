@@ -1,6 +1,7 @@
 # namae
 
-[![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/uetchy/namae)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/uetchy/namae)
+[![Actions Status](https://github.com/uetchy/namae/workflows/API/badge.svg)](https://github.com/uetchy/namae/actions)
+[![Actions Status](https://github.com/uetchy/namae/workflows/Web/badge.svg)](https://github.com/uetchy/namae/actions)
 
 > name new project.
 
