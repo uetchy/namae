@@ -1,10 +1,4 @@
-import nock from 'nock'
-
-nock.disableNetConnect()
-
-// nock.recorder.rec()
-
-global.mockProvider = async (provider, query) => {
+export async function mockProvider(provider: any, query: any) {
   const req = {
     query,
   }

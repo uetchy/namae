@@ -1,6 +1,6 @@
-const { send, sendError, fetch } = require('../util/http')
+import { send, sendError, fetch, NowRequest, NowResponse } from '../util/http'
 
-module.exports = async (req, res) => {
+export default async function handler(req: NowRequest, res: NowResponse) {
   const { query } = req.query
 
   if (!query) {
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     send(res, { availability })
   } catch (err) {
     if (err.code === 'ENOTFOUND') {
-      send(res, true)
+      send(res, { availability: true })
     } else {
       sendError(res, err)
     }

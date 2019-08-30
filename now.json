@@ -9,14 +9,14 @@
       "config": { "distDir": "build" }
     },
     {
-      "src": "/api/services/*.js",
-      "use": "@now/node"
+      "src": "/api/services/*.ts",
+      "use": "@now/node@canary"
     }
   ],
   "routes": [
     {
       "src": "/availability/(?<provider>[^/]+)/(?<query>[^/]+)",
-      "dest": "/api/services/$provider.js?query=$query"
+      "dest": "/api/services/$provider.ts?query=$query"
     },
     {
       "src": "/(.*)",

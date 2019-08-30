@@ -1,4 +1,7 @@
 module.exports = {
   automock: false,
-  setupFiles: ['./setupJest.js'],
+  setupFiles: ['./setupJest.ts'],
+  testEnvironment: 'node',
+  preset: 'ts-jest',
+  testPathIgnorePatterns: ['/dist/'],
 }
