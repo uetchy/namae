@@ -1,7 +1,7 @@
-var dns = require('dns')
-const { send, sendError } = require('../util/http')
+import dns from 'dns'
+import { send, sendError, NowRequest, NowResponse } from '../util/http'
 
-function resolvePromise(hostname) {
+function resolvePromise(hostname: string): Promise<string[]> {
   return new Promise((resolve, reject) => {
     dns.resolve4(hostname, function(err, addresses) {
       if (err) return reject(err)
@@ -10,7 +10,7 @@ function resolvePromise(hostname) {
   })
 }
 
-module.exports = async (req, res) => {
+export default async function handler(req: NowRequest, res: NowResponse) {
   const { query } = req.query
 
   if (!query) {

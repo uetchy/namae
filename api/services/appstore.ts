@@ -1,6 +1,22 @@
-const { send, sendError, fetch } = require('../util/http')
+import { send, sendError, fetch, NowRequest, NowResponse } from '../util/http'
 
-module.exports = async (req, res) => {
+interface App {
+  trackId: string
+  trackName: string
+  kind: string
+  version: string
+  price: string
+  trackViewUrl: string
+}
+
+interface AppStoreResponse {
+  results: App[]
+}
+
+export default async function handler(
+  req: NowRequest<{ query: string; country: string }>,
+  res: NowResponse
+) {
   const { query, country } = req.query
 
   if (!query) {
@@ -16,7 +32,7 @@ module.exports = async (req, res) => {
       `https://itunes.apple.com/search?media=software&entity=software,iPadSoftware,macSoftware&country=${countryCode}&limit=${limit}&term=${term}`,
       'GET'
     )
-    const body = await response.json()
+    const body: AppStoreResponse = await response.json()
     const apps = body.results.map((app) => ({
       id: app.trackId,
       name: app.trackName,

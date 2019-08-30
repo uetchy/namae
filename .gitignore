@@ -1,4 +1,5 @@
 .vscode
+/api/dist
 /web/build
 
 # Created by https://www.gitignore.io/api/node

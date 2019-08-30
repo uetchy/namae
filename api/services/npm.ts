@@ -1,7 +1,7 @@
-const npmName = require('npm-name')
-const { send, sendError } = require('../util/http')
+import npmName from 'npm-name'
+import { send, sendError, NowRequest, NowResponse } from '../util/http'
 
-module.exports = async (req, res) => {
+export default async function handler(req: NowRequest, res: NowResponse) {
   const { query } = req.query
 
   if (!query) {

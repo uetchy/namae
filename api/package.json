@@ -2,20 +2,26 @@
   "name": "@namae/api",
   "version": "0.1.0",
   "scripts": {
+    "build": "tsc",
+    "now-build": "tsc",
+    "start": "tsc -w",
     "test": "jest"
   },
   "dependencies": {
     "google-it": "^1.2.1",
     "isomorphic-unfetch": "^3.0.0",
     "npm-name": "^5.5.0",
+    "typescript": "^3.6.2",
     "whois-json": "^2.0.4"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.5.5",
     "@types/jest": "^24.0.18",
-    "babel-jest": "^24.9.0",
+    "@types/nock": "^10.0.3",
+    "@types/node": "^12.7.3",
+    "@types/node-fetch": "^2.5.0",
     "jest": "^24.9.0",
-    "nock": "^10.0.6"
+    "nock": "^10.0.6",
+    "ts-jest": "^24.0.2"
   },
   "private": true
 }
