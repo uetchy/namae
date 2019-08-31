@@ -14,6 +14,7 @@ import {
   FaSlack,
   FaAws,
   FaJsSquare,
+  FaBuilding,
 } from 'react-icons/fa'
 import { IoIosBeer } from 'react-icons/io'
 import { DiRust, DiHeroku } from 'react-icons/di'
@@ -81,6 +82,9 @@ export default function Welcome() {
         </ListItem>
         <ListItem>
           <FaAppStore /> {t('providers.appStore')}
+        </ListItem>
+        <ListItem>
+          <FaBuilding /> {t('providers.nta')}
         </ListItem>
       </List>
     </Container>

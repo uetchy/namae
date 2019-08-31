@@ -22,5 +22,8 @@
       "src": "/(.*)",
       "dest": "/web/$1"
     }
-  ]
+  ],
+  "env": {
+    "NTA_APPLICATION_ID": "@namae-nta-application-id"
+  }
 }
