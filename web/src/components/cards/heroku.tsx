@@ -4,7 +4,7 @@ import { DiHeroku } from 'react-icons/di'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function HerokuCard({ query }) {
+const HerokuCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -26,3 +26,5 @@ export default function HerokuCard({ query }) {
     </Card>
   )
 }
+
+export default HerokuCard

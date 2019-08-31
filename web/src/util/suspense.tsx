@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import styled from 'styled-components'
 import BarLoader from 'react-spinners/BarLoader'
 
-export function FullScreenSuspense({ children }) {
+export const FullScreenSuspense: React.FC = ({ children }) => {
   return <Suspense fallback={<Fallback />}>{children}</Suspense>
 }
 

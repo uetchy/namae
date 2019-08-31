@@ -7,8 +7,10 @@ import { TiArrowSync } from 'react-icons/ti'
 import { capitalize } from '../util/text'
 import { mobile } from '../util/css'
 
+type Modifier = (word: string) => string
+
 const maximumCount = 3
-const modifiers = [
+const modifiers: Modifier[] = [
   (word) => `${capitalize(word)}ify`,
   (word) => `lib${lower(word)}`,
   (word) => `Omni${capitalize(word)}`,
@@ -43,11 +45,11 @@ const modifiers = [
   (word) => `${capitalize(word)}`,
 ]
 
-function lower(word) {
+function lower(word: string) {
   return word.toLowerCase()
 }
 
-function shuffleArray(array) {
+function shuffleArray(array: any[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     const temp = array[i]
@@ -57,15 +59,15 @@ function shuffleArray(array) {
   return array
 }
 
-function sampleFromArray(array, maximum) {
+function sampleFromArray(array: any[], maximum: number) {
   return shuffleArray(array).slice(0, maximum)
 }
 
-function modifyWord(word) {
+function modifyWord(word: string) {
   return modifiers[Math.floor(Math.random() * modifiers.length)](word)
 }
 
-function fillArray(array, filler, maximum) {
+function fillArray(array: any[], filler: string, maximum: number) {
   const deficit = maximum - array.length
   if (deficit > 0) {
     array = [...array, ...Array(deficit).fill(filler)]
@@ -73,33 +75,37 @@ function fillArray(array, filler, maximum) {
   return array
 }
 
-async function findSynonyms(word) {
+async function findSynonyms(word: string) {
   try {
     const response = await fetch(
       `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=ss&ie=UTF-8&oe=UTF-8&dj=1&q=${encodeURIComponent(
         word
       )}`
     )
-    const json = await response.json()
-    const synonyms = [
-      ...new Set(
+    const json: {
+      synsets: Array<{ entry: Array<{ synonym: string[] }> }>
+    } = await response.json()
+    const synonyms = Array.from(
+      new Set<string>(
         json.synsets.reduce(
-          (sum, synset) =>
-            (sum = [...sum, ...synset.entry.map((e) => e.synonym[0])]),
-          []
+          (sum, synset) => [...sum, ...synset.entry.map((e) => e.synonym[0])],
+          [] as string[]
         )
-      ),
-    ].filter((word) => !word.match(/[\s-]/))
+      )
+    ).filter((word) => !word.match(/[\s-]/))
     return synonyms
   } catch (err) {
     return []
   }
 }
 
-export default function Suggestion({ query, onSubmit }) {
+const Suggestion: React.FC<{
+  query: string
+  onSubmit: (name: string) => void
+}> = ({ query, onSubmit }) => {
   const { t } = useTranslation()
-  const synonymRef = useRef([])
-  const [bestWords, setBestWords] = useState([])
+  const synonymRef = useRef<string[]>([])
+  const [bestWords, setBestWords] = useState<string[]>([])
 
   function shuffle() {
     const best = fillArray(
@@ -110,7 +116,7 @@ export default function Suggestion({ query, onSubmit }) {
     setBestWords(best)
   }
 
-  function applyQuery(name) {
+  function applyQuery(name: string) {
     onSubmit(name)
   }
 
@@ -147,6 +153,8 @@ export default function Suggestion({ query, onSubmit }) {
     </Container>
   )
 }
+
+export default Suggestion
 
 const Container = styled.div`
   margin-bottom: 10px;

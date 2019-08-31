@@ -4,7 +4,7 @@ import { FaJsSquare } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function JsOrgCard({ query }) {
+const JsOrgCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -28,3 +28,5 @@ export default function JsOrgCard({ query }) {
     </Card>
   )
 }
+
+export default JsOrgCard

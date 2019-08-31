@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 import { SpectrumIcon } from '../Icons'
 
-export default function SpectrumCard({ query }) {
+const SpectrumCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const names = [query]
 
@@ -27,3 +27,5 @@ export default function SpectrumCard({ query }) {
     </Card>
   )
 }
+
+export default SpectrumCard

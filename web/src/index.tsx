@@ -21,4 +21,4 @@ if (process.env.NODE_ENV !== 'development') {
   })
 }
 
-serviceWorker.register()
+serviceWorker.register({})

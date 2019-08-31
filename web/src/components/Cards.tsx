@@ -16,7 +16,7 @@ const COLORS = {
   error: '#ff388b',
 }
 
-export function Card({ title, children }) {
+export const Card: React.FC<{ title: string }> = ({ title, children }) => {
   return (
     <CardContainer>
       <CardTitle>{title}</CardTitle>
@@ -36,7 +36,11 @@ export function Card({ title, children }) {
   )
 }
 
-export function Repeater({ items = [], moreItems = [], children }) {
+export const Repeater: React.FC<{
+  items: string[]
+  moreItems?: string[]
+  children: (name: string) => React.ReactNode
+}> = ({ items = [], moreItems = [], children }) => {
   const [revealAlternatives, setRevealAlternatives] = useState(false)
   const { t } = useTranslation()
 
@@ -66,7 +70,23 @@ export function Repeater({ items = [], moreItems = [], children }) {
   )
 }
 
-export function DedicatedAvailability({
+interface Response {
+  error?: string
+  availability: boolean
+}
+
+export const DedicatedAvailability: React.FC<{
+  name: string
+  query?: string
+  message?: string
+  messageIfTaken?: string
+  service: string
+  link: string
+  linkIfTaken?: string
+  prefix?: string
+  suffix?: string
+  icon: React.ReactNode
+}> = ({
   name,
   query = undefined,
   message = '',
@@ -77,10 +97,10 @@ export function DedicatedAvailability({
   prefix = '',
   suffix = '',
   icon,
-}) {
+}) => {
   const response = useFetch(
     `/availability/${service}/${encodeURIComponent(query || name)}`
-  )
+  ) as Response
 
   if (response.error) {
     throw new Error(`${service}: ${response.error}`)
@@ -99,7 +119,17 @@ export function DedicatedAvailability({
   )
 }
 
-export function ExistentialAvailability({
+export const ExistentialAvailability: React.FC<{
+  name: string
+  target: string
+  message?: string
+  messageIfTaken?: string
+  link: string
+  linkIfTaken?: string
+  prefix?: string
+  suffix?: string
+  icon: React.ReactNode
+}> = ({
   name,
   message = '',
   messageIfTaken = undefined,
@@ -109,8 +139,8 @@ export function ExistentialAvailability({
   prefix = '',
   suffix = '',
   icon,
-}) {
-  const response = useFetch(target, null, { metadata: true })
+}) => {
+  const response = useFetch(target, undefined, { metadata: true })
 
   if (response.status !== 404 && response.status !== 200) {
     throw new Error(`${name}: ${response.status}`)
@@ -131,7 +161,15 @@ export function ExistentialAvailability({
   )
 }
 
-export const Result = ({
+export const Result: React.FC<{
+  title: string
+  message?: string
+  link?: string
+  icon: React.ReactNode
+  color?: string
+  prefix?: string
+  suffix?: string
+}> = ({
   title,
   message = '',
   link,
@@ -170,13 +208,16 @@ export const Result = ({
   )
 }
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+class ErrorBoundary extends React.Component<
+  {},
+  { hasError: boolean; message: string }
+> {
+  constructor(props: {}) {
     super(props)
-    this.state = { hasError: false }
+    this.state = { hasError: false, message: '' }
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: Error) {
     return { hasError: true, message: error.message }
   }
 
@@ -204,7 +245,7 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-const CellError = ({ children }) => (
+const CellError: React.FC = ({ children }) => (
   <ErrorBoundary>
     <Suspense
       fallback={

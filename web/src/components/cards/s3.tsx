@@ -4,7 +4,7 @@ import { FaAws } from 'react-icons/fa'
 
 import { Card, DedicatedAvailability, Repeater } from '../Cards'
 
-export default function S3Card({ query }) {
+const S3Card: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -30,3 +30,5 @@ export default function S3Card({ query }) {
     </Card>
   )
 }
+
+export default S3Card

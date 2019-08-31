@@ -5,13 +5,21 @@ import { FaGithub, FaInfoCircle } from 'react-icons/fa'
 
 import { Card, Result } from '../Cards'
 
-function Search({ query }) {
+const Search: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const searchQuery = encodeURIComponent(`${query} in:name`)
   const limit = 10
   const response = useFetch(
     `https://api.github.com/search/repositories?q=${searchQuery}&per_page=${limit}`
-  )
+  ) as {
+    items: Array<{
+      full_name: string
+      description: string
+      stargazers_count: number
+      html_url: string
+      id: string
+    }>
+  }
   const repos = response.items
 
   return (
@@ -35,7 +43,7 @@ function Search({ query }) {
   )
 }
 
-export default function GithubSearchCard({ query }) {
+const GithubSearchCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
 
   return (
@@ -44,3 +52,5 @@ export default function GithubSearchCard({ query }) {
     </Card>
   )
 }
+
+export default GithubSearchCard
