@@ -72,7 +72,6 @@ export default async function handler(
         modifiedSection: entry[3],
       }
     })
-    console.log(header)
 
     send(res, {
       meta: {
@@ -82,11 +81,13 @@ export default async function handler(
         pages: parseInt(header[3]),
       },
       result:
-        result.map((entry) => ({
-          name: entry.name,
-          phoneticName: entry.phoneticName,
-          englishName: entry.englishName,
-        })) || [],
+        result
+          .map((entry) => ({
+            name: entry.name,
+            phoneticName: entry.phoneticName,
+            englishName: entry.englishName,
+          }))
+          .slice(10) || [],
     })
   } catch (err) {
     sendError(res, err)
