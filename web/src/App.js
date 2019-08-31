@@ -20,6 +20,7 @@ import GithubSearchCard from './components/cards/github-search'
 import AppStoreCard from './components/cards/appstore'
 import HerokuCard from './components/cards/heroku'
 import NowCard from './components/cards/now'
+import NtaCard from './components/cards/nta'
 
 import Welcome from './components/Welcome'
 import Footer from './components/Footer'
@@ -34,7 +35,10 @@ export default function App() {
   const [inputValue, setInputValue] = useState('')
   const [suggested, setSuggested] = useState(false)
   const inputRef = useRef()
-  const { t } = useTranslation()
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation()
 
   const queryGiven = query && query.length > 0
 
@@ -114,6 +118,7 @@ export default function App() {
             <Cards>
               <GithubSearchCard query={query} />
               <AppStoreCard query={query} />
+              {language === 'ja' ? <NtaCard query={query} /> : null}
             </Cards>
           </SearchResult>
         ) : (

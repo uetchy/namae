@@ -20,9 +20,11 @@
     "google": "Google 検索",
     "spectrum": "Spectrum",
     "heroku": "Heroku",
-    "now": "ZEIT Now"
+    "now": "ZEIT Now",
+    "nta": "法人"
   },
   "countryCode": "jp",
   "try": "全自動名前考え機",
-  "showMore": "もっと見る"
+  "showMore": "もっと見る",
+  "noResult": "該当なし"
 }

@@ -6,6 +6,7 @@ import { FaGithub, FaInfoCircle } from 'react-icons/fa'
 import { Card, Result } from '../Cards'
 
 function Search({ query }) {
+  const { t } = useTranslation()
   const searchQuery = encodeURIComponent(`${query} in:name`)
   const limit = 10
   const response = useFetch(
@@ -28,7 +29,7 @@ function Search({ query }) {
           />
         ))
       ) : (
-        <Result title="No Result" icon={<FaInfoCircle />} />
+        <Result title={t('noResult')} icon={<FaInfoCircle />} />
       )}
     </>
   )

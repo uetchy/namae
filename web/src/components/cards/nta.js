@@ -1,28 +1,25 @@
 import React from 'react'
 import useFetch from 'fetch-suspense'
 import { useTranslation } from 'react-i18next'
-import { FaAppStore, FaInfoCircle } from 'react-icons/fa'
+import { FaBuilding, FaInfoCircle } from 'react-icons/fa'
 
 import { Card, Result } from '../Cards'
 
 function Search({ query }) {
   const { t } = useTranslation()
   const term = encodeURIComponent(query)
-  const response = useFetch(
-    `/availability/appstore/${term}?country=${t('countryCode')}`
-  )
+  const response = useFetch(`/availability/nta/${term}`)
   const apps = response.result
 
   return (
     <>
       {apps.length > 0 ? (
-        apps.map((app) => (
+        apps.map((app, i) => (
           <Result
-            title={app.name.split(/[－–—\-:]/)[0]}
-            message={`Price: ${app.price}`}
-            link={app.viewURL}
-            icon={<FaAppStore />}
-            key={app.id}
+            title={app.name}
+            message={`Phonetic: ${app.phoneticName}`}
+            icon={<FaBuilding />}
+            key={i}
           />
         ))
       ) : (
@@ -32,11 +29,11 @@ function Search({ query }) {
   )
 }
 
-export default function AppStoreCard({ query }) {
+export default function NtaCard({ query }) {
   const { t } = useTranslation()
 
   return (
-    <Card title={t('providers.appStore')}>
+    <Card title={t('providers.nta')}>
       <Search query={query} />
     </Card>
   )

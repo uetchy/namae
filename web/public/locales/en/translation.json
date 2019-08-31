@@ -20,9 +20,11 @@
     "google": "Google Search",
     "spectrum": "Spectrum",
     "heroku": "Heroku",
-    "now": "ZEIT Now"
+    "now": "ZEIT Now",
+    "nta": "Company (JP)"
   },
   "countryCode": "us",
   "try": "suggestions",
-  "showMore": "show more"
+  "showMore": "show more",
+  "noResult": "No Result"
 }
