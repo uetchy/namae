@@ -5,10 +5,12 @@ import { FaBuilding, FaInfoCircle } from 'react-icons/fa'
 
 import { Card, Result } from '../Cards'
 
-function Search({ query }) {
+const Search: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const term = encodeURIComponent(query)
-  const response = useFetch(`/availability/nta/${term}`)
+  const response = useFetch(`/availability/nta/${term}`) as {
+    result: Array<{ name: string; phoneticName: string }>
+  }
   const apps = response.result
 
   return (
@@ -29,7 +31,7 @@ function Search({ query }) {
   )
 }
 
-export default function NtaCard({ query }) {
+const NtaCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
 
   return (
@@ -38,3 +40,5 @@ export default function NtaCard({ query }) {
     </Card>
   )
 }
+
+export default NtaCard

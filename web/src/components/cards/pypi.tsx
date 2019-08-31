@@ -5,7 +5,7 @@ import { FaPython } from 'react-icons/fa'
 import { capitalize } from '../../util/text'
 import { Card, DedicatedAvailability, Repeater } from '../Cards'
 
-export default function PypiCard({ query }) {
+const PypiCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
 
   const names = [query]
@@ -30,3 +30,5 @@ export default function PypiCard({ query }) {
     </Card>
   )
 }
+
+export default PypiCard

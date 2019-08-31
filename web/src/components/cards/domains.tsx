@@ -4,7 +4,7 @@ import { FaMapSigns } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function DomainCard({ query }) {
+const DomainCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -33,3 +33,5 @@ export default function DomainCard({ query }) {
     </Card>
   )
 }
+
+export default DomainCard

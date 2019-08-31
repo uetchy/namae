@@ -4,7 +4,7 @@ import { FaNpm } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function NpmCard({ query }) {
+const NpmCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -42,3 +42,5 @@ export default function NpmCard({ query }) {
     </Card>
   )
 }
+
+export default NpmCard

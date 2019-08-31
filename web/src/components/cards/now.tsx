@@ -1,28 +1,30 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { DiRust } from 'react-icons/di'
+import { NowIcon } from '../Icons'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function CratesioCard({ query }) {
+const NowCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
   const names = [lowerCase]
 
   return (
-    <Card title={t('providers.rust')}>
+    <Card title={t('providers.now')}>
       <Repeater items={names}>
         {(name) => (
           <DedicatedAvailability
-            name={name}
-            query={`crates.io/api/v1/crates/${name}`}
+            name={`${name}.now.sh`}
             service="existence"
-            link={`https://crates.io/crates/${name}`}
-            icon={<DiRust />}
+            message="Go to Now"
+            link={`https://${name}.now.sh`}
+            icon={<NowIcon />}
           />
         )}
       </Repeater>
     </Card>
   )
 }
+
+export default NowCard

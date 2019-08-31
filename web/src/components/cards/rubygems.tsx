@@ -4,7 +4,7 @@ import { FaGem } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function RubyGemsCard({ query }) {
+const RubyGemsCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
 
   const names = [query]
@@ -29,3 +29,5 @@ export default function RubyGemsCard({ query }) {
     </Card>
   )
 }
+
+export default RubyGemsCard

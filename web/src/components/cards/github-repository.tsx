@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function GithubCard({ query }) {
+const GithubCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -36,3 +36,5 @@ export default function GithubCard({ query }) {
     </Card>
   )
 }
+
+export default GithubCard

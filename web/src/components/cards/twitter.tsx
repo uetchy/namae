@@ -5,7 +5,7 @@ import { FaTwitter } from 'react-icons/fa'
 import { capitalize } from '../../util/text'
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function TwitterCard({ query }) {
+const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
   const capitalCase = capitalize(query)
@@ -38,3 +38,5 @@ export default function TwitterCard({ query }) {
     </Card>
   )
 }
+
+export default TwitterCard

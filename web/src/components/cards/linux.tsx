@@ -5,7 +5,7 @@ import { DiDebian } from 'react-icons/di'
 
 import { Card, Repeater, DedicatedAvailability } from '../Cards'
 
-export default function LinuxCard({ query }) {
+const LinuxCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -34,3 +34,5 @@ export default function LinuxCard({ query }) {
     </Card>
   )
 }
+
+export default LinuxCard

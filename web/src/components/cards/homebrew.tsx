@@ -4,7 +4,7 @@ import { IoIosBeer } from 'react-icons/io'
 
 import { Card, Repeater, ExistentialAvailability } from '../Cards'
 
-export default function HomebrewCard({ query }) {
+const HomebrewCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const lowerCase = query.toLowerCase()
 
@@ -40,3 +40,5 @@ export default function HomebrewCard({ query }) {
     </Card>
   )
 }
+
+export default HomebrewCard

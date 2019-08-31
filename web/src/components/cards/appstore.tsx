@@ -5,12 +5,14 @@ import { FaAppStore, FaInfoCircle } from 'react-icons/fa'
 
 import { Card, Result } from '../Cards'
 
-function Search({ query }) {
+const Search: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
   const term = encodeURIComponent(query)
   const response = useFetch(
     `/availability/appstore/${term}?country=${t('countryCode')}`
-  )
+  ) as {
+    result: Array<{ name: string; viewURL: string; price: number; id: string }>
+  }
   const apps = response.result
 
   return (
@@ -32,7 +34,7 @@ function Search({ query }) {
   )
 }
 
-export default function AppStoreCard({ query }) {
+const AppStoreCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()
 
   return (
@@ -41,3 +43,5 @@ export default function AppStoreCard({ query }) {
     </Card>
   )
 }
+
+export default AppStoreCard

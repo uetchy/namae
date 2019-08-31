@@ -34,7 +34,7 @@ export default function App() {
   const [query, setQuery] = useDeferredState(1000, '')
   const [inputValue, setInputValue] = useState('')
   const [suggested, setSuggested] = useState(false)
-  const inputRef = useRef()
+  const inputRef = useRef<HTMLInputElement>(null)
   const {
     t,
     i18n: { language },
@@ -54,19 +54,19 @@ export default function App() {
   }, [query])
 
   // set input value
-  function onInputChange(e) {
-    const value = e.target.value
+  function onInputChange(e: React.FormEvent<HTMLInputElement>) {
+    const value = e.currentTarget.value
     setInputValue(value)
   }
 
   // clear input form and focus on it
-  function onLogoClick(e) {
+  function onLogoClick(e: React.MouseEvent<HTMLDivElement>) {
     setInputValue('')
-    inputRef.current.focus()
+    inputRef.current!.focus()
   }
 
   // invoke when user clicked one of the suggested items
-  function onSuggestionCompleted(name) {
+  function onSuggestionCompleted(name: string) {
     setInputValue(name)
     setSuggested(true)
   }
