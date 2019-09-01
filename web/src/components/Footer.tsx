@@ -9,7 +9,7 @@ export default function Footer() {
   const { t } = useTranslation()
 
   return (
-    <Contaienr>
+    <Container>
       <Box>
         <p>
           Made with{'  '}
@@ -49,11 +49,11 @@ export default function Footer() {
           </span>
         </a>
       </Box>
-    </Contaienr>
+    </Container>
   )
 }
 
-const Contaienr = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

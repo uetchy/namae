@@ -18,8 +18,8 @@ import {
 } from 'react-icons/fa'
 import { IoIosBeer } from 'react-icons/io'
 import { DiRust, DiHeroku } from 'react-icons/di'
-import { SpectrumIcon, NowIcon } from './Icons'
 
+import { SpectrumIcon, NowIcon } from './Icons'
 import { mobile } from '../util/css'
 
 export default function Welcome() {
