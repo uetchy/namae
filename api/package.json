@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "scripts": {
     "build": "tsc",
-    "now-build": "tsc",
     "start": "tsc -w",
     "test": "jest"
   },
