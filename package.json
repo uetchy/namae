@@ -5,7 +5,8 @@
   "scripts": {
     "postinstall": "yarn --cwd web && yarn --cwd api",
     "ship": "now",
-    "start": "now dev"
+    "start": "now dev",
+    "test": "CI=true yarn --cwd web test && yarn --cwd api test"
   },
   "dependencies": {
     "now": "^16.1.2"
