@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaNpm } from 'react-icons/fa'
 
-import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import { Card, Repeater, DedicatedAvailability } from './core'
 
 const NpmCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()

@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaGem } from 'react-icons/fa'
 
-import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import { Card, Repeater, DedicatedAvailability } from './core'
 
 const RubyGemsCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()

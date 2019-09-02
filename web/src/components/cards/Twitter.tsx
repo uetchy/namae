@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { FaTwitter } from 'react-icons/fa'
 
 import { capitalize } from '../../util/text'
-import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import { Card, Repeater, DedicatedAvailability } from './core'
 
 const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()

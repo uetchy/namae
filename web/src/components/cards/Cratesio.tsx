@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { DiRust } from 'react-icons/di'
 
-import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import { Card, Repeater, DedicatedAvailability } from './core'
 
 const CratesioCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()

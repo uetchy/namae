@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { FaPython } from 'react-icons/fa'
 
 import { capitalize } from '../../util/text'
-import { Card, DedicatedAvailability, Repeater } from '../Cards'
+import { Card, DedicatedAvailability, Repeater } from './core'
 
 const PypiCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()

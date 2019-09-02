@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaAws } from 'react-icons/fa'
 
-import { Card, DedicatedAvailability, Repeater } from '../Cards'
+import { Card, DedicatedAvailability, Repeater } from './core'
 
 const S3Card: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()

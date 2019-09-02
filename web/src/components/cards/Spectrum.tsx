@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import { Card, Repeater, DedicatedAvailability } from './core'
 import { SpectrumIcon } from '../Icons'
 
 const SpectrumCard: React.FC<{ query: string }> = ({ query }) => {

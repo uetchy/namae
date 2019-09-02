@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { DiHeroku } from 'react-icons/di'
 
-import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import { Card, Repeater, DedicatedAvailability } from './core'
 
 const HerokuCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation()

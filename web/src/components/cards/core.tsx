@@ -7,8 +7,8 @@ import BarLoader from 'react-spinners/BarLoader'
 import { GoInfo } from 'react-icons/go'
 import { useTranslation } from 'react-i18next'
 
-import { ExternalLink } from './Links'
-import { mobile } from '../util/css'
+import { mobile } from '../../util/css'
+import { ExternalLink } from '../Links'
 
 const COLORS = {
   available: '#6e00ff',
