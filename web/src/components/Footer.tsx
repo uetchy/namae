@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
-import { FaTwitter, FaGithubAlt } from 'react-icons/fa'
+import React from 'react';
+import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
+import {FaTwitter, FaGithubAlt} from 'react-icons/fa';
 
-import { ExternalLink } from './Links'
+import {ExternalLink} from './Links';
 
 export default function Footer() {
-  const { t } = useTranslation()
+  const {t} = useTranslation();
 
   return (
     <Container>
@@ -30,7 +30,7 @@ export default function Footer() {
           <ExternalLink
             aria-label="Tweet this page"
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-              `namae — ${t('title')}`
+              `namae — ${t('title')}`,
             )}&url=${encodeURIComponent('https://namae.dev')}`}>
             <FaTwitter />
           </ExternalLink>
@@ -50,7 +50,7 @@ export default function Footer() {
         </a>
       </Box>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -66,7 +66,7 @@ const Container = styled.div`
     color: black;
     text-decoration: none;
   }
-`
+`;
 
 const Box = styled.footer`
   margin-bottom: 10px;
@@ -74,7 +74,7 @@ const Box = styled.footer`
   flex-direction: row;
   justify-content: center;
   line-height: 1em;
-`
+`;
 
 const Links = styled.div`
   margin-left: 15px;
@@ -84,8 +84,8 @@ const Links = styled.div`
   ${ExternalLink} {
     margin-right: 5px;
   }
-`
+`;
 
 const Bold = styled.span`
   font-weight: bold;
-`
+`;

@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
+import React from 'react';
+import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
 
 import {
   FaMapSigns,
@@ -15,15 +15,15 @@ import {
   FaAws,
   FaJsSquare,
   FaBuilding,
-} from 'react-icons/fa'
-import { IoIosBeer } from 'react-icons/io'
-import { DiRust, DiHeroku } from 'react-icons/di'
+} from 'react-icons/fa';
+import {IoIosBeer} from 'react-icons/io';
+import {DiRust, DiHeroku} from 'react-icons/di';
 
-import { SpectrumIcon, NowIcon } from './Icons'
-import { mobile } from '../util/css'
+import {SpectrumIcon, NowIcon} from './Icons';
+import {mobile} from '../util/css';
 
 export default function Welcome() {
-  const { t } = useTranslation()
+  const {t} = useTranslation();
 
   return (
     <Container>
@@ -88,7 +88,7 @@ export default function Welcome() {
         </ListItem>
       </List>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -105,7 +105,7 @@ const Container = styled.div`
     padding-left: 40px;
     font-size: 1.2rem;
   }
-`
+`;
 
 const Header = styled.h1`
   font-size: 3.5em;
@@ -115,14 +115,14 @@ const Header = styled.h1`
   ${mobile} {
     font-size: 3em;
   }
-`
+`;
 
 const Text = styled.p`
   font-size: 1.2em;
   color: #3c3c3c;
-`
+`;
 
-const Hero = styled.div``
+const Hero = styled.div``;
 
 const List = styled.div`
   margin-top: 50px;
@@ -139,7 +139,7 @@ const List = styled.div`
   ${mobile} {
     flex-direction: column;
   }
-`
+`;
 
 const ListItem = styled.div`
   margin: 15px;
@@ -155,4 +155,4 @@ const ListItem = styled.div`
   svg {
     margin-right: 5px;
   }
-`
+`;

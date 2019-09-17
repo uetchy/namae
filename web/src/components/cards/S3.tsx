@@ -1,14 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaAws } from 'react-icons/fa'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {FaAws} from 'react-icons/fa';
 
-import { Card, DedicatedAvailability, Repeater } from './core'
+import {Card, DedicatedAvailability, Repeater} from './core';
 
-const S3Card: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+const S3Card: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase]
+  const names = [lowerCase];
 
   return (
     <Card title={t('providers.s3')}>
@@ -28,7 +28,7 @@ const S3Card: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default S3Card
+export default S3Card;

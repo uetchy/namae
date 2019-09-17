@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react'
-import styled from 'styled-components'
-import BarLoader from 'react-spinners/BarLoader'
+import React, {Suspense} from 'react';
+import styled from 'styled-components';
+import BarLoader from 'react-spinners/BarLoader';
 
-export const FullScreenSuspense: React.FC = ({ children }) => {
-  return <Suspense fallback={<Fallback />}>{children}</Suspense>
-}
+export const FullScreenSuspense: React.FC = ({children}) => {
+  return <Suspense fallback={<Fallback />}>{children}</Suspense>;
+};
 
 const Container = styled.div`
   width: 100vw;
@@ -13,10 +13,10 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Fallback = () => (
   <Container>
     <BarLoader />
   </Container>
-)
+);

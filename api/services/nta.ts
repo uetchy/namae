@@ -1,39 +1,39 @@
-import { send, sendError, fetch, NowRequest, NowResponse } from '../util/http'
+import {send, sendError, fetch, NowRequest, NowResponse} from '../util/http';
 
-const APPLICATION_ID = process.env.NTA_APPLICATION_ID
+const APPLICATION_ID = process.env.NTA_APPLICATION_ID;
 
 export default async function handler(
-  req: NowRequest<{ query: string; country: string }>,
-  res: NowResponse
+  req: NowRequest<{query: string; country: string}>,
+  res: NowResponse,
 ) {
-  const { query } = req.query
+  const {query} = req.query;
 
   if (!query) {
-    return sendError(res, new Error('no query given'))
+    return sendError(res, new Error('no query given'));
   }
 
   const encodedQuery = encodeURIComponent(
     query.replace(/[A-Za-z0-9]/g, (str) =>
-      String.fromCharCode(str.charCodeAt(0) + 0xfee0)
-    )
-  )
+      String.fromCharCode(str.charCodeAt(0) + 0xfee0),
+    ),
+  );
 
   try {
     const response = await fetch(
       `https://api.houjin-bangou.nta.go.jp/4/name?id=${APPLICATION_ID}&name=${encodedQuery}&mode=1&target=1&type=02`,
-      'GET'
-    )
-    const body: string[] = (await response.text()).split('\n').slice(0, -1)
-    const header = body.shift()!.split(',')
+      'GET',
+    );
+    const body: string[] = (await response.text()).split('\n').slice(0, -1);
+    const header = body.shift()!.split(',');
     const result = body.map((csv) => {
       const entry = csv.split(',').map((item) =>
         item
           .replace(/(^"|"$)/g, '')
           .replace(/[Ａ-Ｚａ-ｚ０-９]/g, (str) =>
-            String.fromCharCode(str.charCodeAt(0) - 0xfee0)
+            String.fromCharCode(str.charCodeAt(0) - 0xfee0),
           )
-          .replace(/　/g, ' ')
-      )
+          .replace(/　/g, ' '),
+      );
 
       return {
         index: entry[0],
@@ -70,8 +70,8 @@ export default async function handler(
         excluded: entry[29],
         processSection: entry[2],
         modifiedSection: entry[3],
-      }
-    })
+      };
+    });
 
     send(res, {
       meta: {
@@ -88,8 +88,8 @@ export default async function handler(
             englishName: entry.englishName,
           }))
           .slice(10) || [],
-    })
+    });
   } catch (err) {
-    sendError(res, err)
+    sendError(res, err);
   }
 }

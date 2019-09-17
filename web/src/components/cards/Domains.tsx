@@ -1,21 +1,21 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaMapSigns } from 'react-icons/fa'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {FaMapSigns} from 'react-icons/fa';
 
-import { Card, Repeater, DedicatedAvailability } from './core'
+import {Card, Repeater, DedicatedAvailability} from './core';
 
-const DomainCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+const DomainCard: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [`${lowerCase}.com`, `${lowerCase}.app`]
+  const names = [`${lowerCase}.com`, `${lowerCase}.app`];
   const moreNames = [
     `${lowerCase}app.com`,
     `get${lowerCase}.com`,
     `${lowerCase}.dev`,
     `${lowerCase}.io`,
     `${lowerCase}.tools`,
-  ]
+  ];
 
   return (
     <Card title={t('providers.domains')}>
@@ -31,7 +31,7 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default DomainCard
+export default DomainCard;

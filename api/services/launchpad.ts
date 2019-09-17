@@ -1,22 +1,22 @@
-import { send, sendError, fetch, NowRequest, NowResponse } from '../util/http'
+import {send, sendError, fetch, NowRequest, NowResponse} from '../util/http';
 
 export default async function handler(req: NowRequest, res: NowResponse) {
-  const { query } = req.query
+  const {query} = req.query;
 
   if (!query) {
-    return sendError(res, new Error('no query given'))
+    return sendError(res, new Error('no query given'));
   }
 
   try {
     const response = await fetch(
       `https://api.launchpad.net/devel/ubuntu/+source/${encodeURIComponent(
-        query
+        query,
       )}`,
-      'GET'
-    )
-    const availability = response.status !== 200
-    send(res, { availability })
+      'GET',
+    );
+    const availability = response.status !== 200;
+    send(res, {availability});
   } catch (err) {
-    sendError(res, err)
+    sendError(res, err);
   }
 }

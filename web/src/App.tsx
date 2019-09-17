@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
-import { Helmet } from 'react-helmet'
-import { useTranslation } from 'react-i18next'
+import React, {useState} from 'react';
+import styled, {createGlobalStyle} from 'styled-components';
+import {Helmet} from 'react-helmet';
+import {useTranslation} from 'react-i18next';
 
-import Welcome from './components/Welcome'
-import Form from './components/Form'
-import Cards from './components/cards'
-import Footer from './components/Footer'
+import Welcome from './components/Welcome';
+import Form from './components/Form';
+import Cards from './components/cards';
+import Footer from './components/Footer';
 
-import { mobile } from './util/css'
-import { isStandalone } from './util/pwa'
+import {mobile} from './util/css';
+import {isStandalone} from './util/pwa';
 
 export default function App() {
-  const [query, setQuery] = useState('')
-  const { t } = useTranslation()
+  const [query, setQuery] = useState('');
+  const {t} = useTranslation();
 
   function onQuery(query: string) {
-    setQuery(query)
+    setQuery(query);
   }
 
   return (
@@ -37,7 +37,7 @@ export default function App() {
       </Content>
       <Footer />
     </>
-  )
+  );
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -58,11 +58,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
+  
   ${mobile} {
     background: #f5f5f5;
   }
 }
-`
+`;
 
 const Content = styled.div`
   padding-top: 100px;
@@ -70,7 +71,7 @@ const Content = styled.div`
   ${mobile} {
     padding-top: 60px;
   }
-`
+`;
 
 const Header = styled.header`
   padding: 0 40px;
@@ -79,4 +80,4 @@ const Header = styled.header`
   ${mobile} {
     padding: 0 20px;
   }
-`
+`;

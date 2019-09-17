@@ -1,50 +1,50 @@
-import React, { useState, useRef, useEffect } from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
+import React, {useState, useRef, useEffect} from 'react';
+import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
 
-import { useDeferredState } from '../util/hooks'
-import { mobile } from '../util/css'
+import {useDeferredState} from '../util/hooks';
+import {mobile} from '../util/css';
 
-import Suggestion from './Suggestion'
+import Suggestion from './Suggestion';
 
-const Form: React.FC<{ onQuery: (query: string) => void }> = ({ onQuery }) => {
-  const [query, setQuery] = useDeferredState(800, '')
-  const [inputValue, setInputValue] = useState('')
-  const [suggested, setSuggested] = useState(false)
-  const inputRef = useRef<HTMLInputElement>(null)
-  const { t } = useTranslation()
+const Form: React.FC<{onQuery: (query: string) => void}> = ({onQuery}) => {
+  const [query, setQuery] = useDeferredState(800, '');
+  const [inputValue, setInputValue] = useState('');
+  const [suggested, setSuggested] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const {t} = useTranslation();
 
   // set input value
   function onInputChange(e: React.FormEvent<HTMLInputElement>) {
-    const value = e.currentTarget.value
-    setInputValue(value)
+    const value = e.currentTarget.value;
+    setInputValue(value);
   }
 
   // clear input form and focus on it
   function onLogoClick(e: React.MouseEvent<HTMLDivElement>) {
-    setInputValue('')
-    inputRef.current!.focus()
+    setInputValue('');
+    inputRef.current!.focus();
   }
 
   // invoke when user clicked one of the suggested items
   function onSuggestionCompleted(name: string) {
-    setInputValue(name)
-    setSuggested(true)
+    setInputValue(name);
+    setSuggested(true);
   }
 
-  const queryGiven = query && query.length > 0
+  const queryGiven = query && query.length > 0;
 
   useEffect(() => {
     if (query.length === 0) {
-      setSuggested(false)
+      setSuggested(false);
     }
-    onQuery(query)
-  }, [query, onQuery])
+    onQuery(query);
+  }, [query, onQuery]);
 
   useEffect(() => {
-    const modifiedValue = inputValue.replace(/[\s@+!#$%^&*()[\]]/g, '')
-    setQuery(modifiedValue)
-  }, [inputValue, setQuery])
+    const modifiedValue = inputValue.replace(/[\s@+!#$%^&*()[\]]/g, '');
+    setQuery(modifiedValue);
+  }, [inputValue, setQuery]);
 
   return (
     <InputContainer>
@@ -60,10 +60,10 @@ const Form: React.FC<{ onQuery: (query: string) => void }> = ({ onQuery }) => {
         <Suggestion onSubmit={onSuggestionCompleted} query={query} />
       ) : null}
     </InputContainer>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;
 
 const InputContainer = styled.div`
   transform: translateY(40px);
@@ -75,7 +75,7 @@ const InputContainer = styled.div`
   ${mobile} {
     transform: translateY(20px);
   }
-`
+`;
 
 const Logo = styled.div`
   margin-bottom: 5px;
@@ -89,7 +89,7 @@ const Logo = styled.div`
   ${mobile} {
     font-size: 15px;
   }
-`
+`;
 
 const InputView = styled.input.attrs({
   type: 'text',
@@ -109,4 +109,4 @@ const InputView = styled.input.attrs({
   ${mobile} {
     font-size: 2rem;
   }
-`
+`;

@@ -1,14 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaJsSquare } from 'react-icons/fa'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {FaJsSquare} from 'react-icons/fa';
 
-import { Card, Repeater, DedicatedAvailability } from './core'
+import {Card, Repeater, DedicatedAvailability} from './core';
 
-const JsOrgCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+const JsOrgCard: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase]
+  const names = [lowerCase];
 
   return (
     <Card title={t('providers.jsorg')}>
@@ -26,7 +26,7 @@ const JsOrgCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default JsOrgCard
+export default JsOrgCard;

@@ -1,20 +1,20 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaGithub } from 'react-icons/fa'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {FaGithub} from 'react-icons/fa';
 
-import { Card, Repeater, DedicatedAvailability } from './core'
+import {Card, Repeater, DedicatedAvailability} from './core';
 
-const GithubCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+const GithubCard: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [query]
+  const names = [query];
   const moreNames = [
     `${lowerCase}hq`,
     `${lowerCase}-team`,
     `${lowerCase}-org`,
     `${lowerCase}-js`,
-  ]
+  ];
 
   return (
     <Card title={t('providers.github')}>
@@ -34,7 +34,7 @@ const GithubCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default GithubCard
+export default GithubCard;

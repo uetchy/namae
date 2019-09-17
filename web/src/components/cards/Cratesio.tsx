@@ -1,14 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { DiRust } from 'react-icons/di'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {DiRust} from 'react-icons/di';
 
-import { Card, Repeater, DedicatedAvailability } from './core'
+import {Card, Repeater, DedicatedAvailability} from './core';
 
-const CratesioCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+const CratesioCard: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase]
+  const names = [lowerCase];
 
   return (
     <Card title={t('providers.rust')}>
@@ -24,7 +24,7 @@ const CratesioCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default CratesioCard
+export default CratesioCard;

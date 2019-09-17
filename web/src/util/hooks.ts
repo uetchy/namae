@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
 export function useDeferredState<T>(
   duration = 1000,
-  initialValue: T
+  initialValue: T,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  const [response, setResponse] = useState(initialValue)
-  const [innerValue, setInnerValue] = useState(initialValue)
+  const [response, setResponse] = useState(initialValue);
+  const [innerValue, setInnerValue] = useState(initialValue);
 
   useEffect(() => {
     const fn = setTimeout(() => {
-      setResponse(innerValue)
-    }, duration)
+      setResponse(innerValue);
+    }, duration);
 
     return () => {
-      clearTimeout(fn)
-    }
-  }, [duration, innerValue])
+      clearTimeout(fn);
+    };
+  }, [duration, innerValue]);
 
-  return [response, setInnerValue]
+  return [response, setInnerValue];
 }

@@ -1,16 +1,16 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaTwitter } from 'react-icons/fa'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {FaTwitter} from 'react-icons/fa';
 
-import { capitalize } from '../../util/text'
-import { Card, Repeater, DedicatedAvailability } from './core'
+import {capitalize} from '../../util/text';
+import {Card, Repeater, DedicatedAvailability} from './core';
 
-const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
-  const capitalCase = capitalize(query)
+const TwitterCard: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const lowerCase = query.toLowerCase();
+  const capitalCase = capitalize(query);
 
-  const names = [query]
+  const names = [query];
   const moreNames = [
     `${lowerCase}app`,
     `hey${lowerCase}`,
@@ -18,7 +18,7 @@ const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
     `${capitalCase}HQ`,
     `${lowerCase}_official`,
     `${lowerCase}-support`,
-  ]
+  ];
 
   return (
     <Card title={t('providers.twitter')}>
@@ -36,7 +36,7 @@ const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default TwitterCard
+export default TwitterCard;

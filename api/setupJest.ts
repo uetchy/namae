@@ -1,5 +1,5 @@
-import nock from 'nock'
+import nock from 'nock';
 
-nock.disableNetConnect()
+nock.disableNetConnect();
 
 // nock.recorder.rec()

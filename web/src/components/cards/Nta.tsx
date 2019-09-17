@@ -1,17 +1,17 @@
-import React from 'react'
-import useFetch from 'fetch-suspense'
-import { useTranslation } from 'react-i18next'
-import { FaBuilding, FaInfoCircle } from 'react-icons/fa'
+import React from 'react';
+import useFetch from 'fetch-suspense';
+import {useTranslation} from 'react-i18next';
+import {FaBuilding, FaInfoCircle} from 'react-icons/fa';
 
-import { Card, Result } from './core'
+import {Card, Result} from './core';
 
-const Search: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const term = encodeURIComponent(query)
+const Search: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const term = encodeURIComponent(query);
   const response = useFetch(`/availability/nta/${term}`) as {
-    result: Array<{ name: string; phoneticName: string }>
-  }
-  const apps = response.result
+    result: Array<{name: string; phoneticName: string}>;
+  };
+  const apps = response.result;
 
   return (
     <>
@@ -28,17 +28,17 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
         <Result title={t('noResult')} icon={<FaInfoCircle />} />
       )}
     </>
-  )
-}
+  );
+};
 
-const NtaCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
+const NtaCard: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
 
   return (
     <Card title={t('providers.nta')}>
       <Search query={query} />
     </Card>
-  )
-}
+  );
+};
 
-export default NtaCard
+export default NtaCard;

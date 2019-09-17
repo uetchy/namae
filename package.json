@@ -9,7 +9,7 @@
     "test": "CI=true yarn --cwd web test && yarn --cwd api test"
   },
   "dependencies": {
-    "now": "^16.1.2"
+    "now": "^16.2.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

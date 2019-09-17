@@ -1,14 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { IoIosBeer } from 'react-icons/io'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {IoIosBeer} from 'react-icons/io';
 
-import { Card, Repeater, ExistentialAvailability } from './core'
+import {Card, Repeater, ExistentialAvailability} from './core';
 
-const HomebrewCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+const HomebrewCard: React.FC<{query: string}> = ({query}) => {
+  const {t} = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase]
+  const names = [lowerCase];
 
   return (
     <Card title={t('providers.homebrew')}>
@@ -38,7 +38,7 @@ const HomebrewCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default HomebrewCard
+export default HomebrewCard;

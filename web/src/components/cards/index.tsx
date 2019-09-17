@@ -1,31 +1,31 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useTranslation } from 'react-i18next'
+import React from 'react';
+import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
 
-import { mobile } from '../../util/css'
-import DomainCard from './Domains'
-import GithubCard from './GitHubRepository'
-import NpmCard from './Npm'
-import PypiCard from './PyPI'
-import RubyGemsCard from './RubyGems'
-import CratesioCard from './Cratesio'
-import HomebrewCard from './Homebrew'
-import LinuxCard from './Linux'
-import TwitterCard from './Twitter'
-import SpectrumCard from './Spectrum'
-import SlackCard from './Slack'
-import S3Card from './S3'
-import JsOrgCard from './JsOrg'
-import GithubSearchCard from './GitHubSearch'
-import AppStoreCard from './AppStore'
-import HerokuCard from './Heroku'
-import NowCard from './Now'
-import NtaCard from './Nta'
+import {mobile} from '../../util/css';
+import DomainCard from './Domains';
+import GithubCard from './GitHubRepository';
+import NpmCard from './Npm';
+import PypiCard from './PyPI';
+import RubyGemsCard from './RubyGems';
+import CratesioCard from './Cratesio';
+import HomebrewCard from './Homebrew';
+import LinuxCard from './Linux';
+import TwitterCard from './Twitter';
+import SpectrumCard from './Spectrum';
+import SlackCard from './Slack';
+import S3Card from './S3';
+import JsOrgCard from './JsOrg';
+import GithubSearchCard from './GitHubSearch';
+import AppStoreCard from './AppStore';
+import HerokuCard from './Heroku';
+import NowCard from './Now';
+import NtaCard from './Nta';
 
-const Index: React.FC<{ query: string }> = ({ query }) => {
+const Index: React.FC<{query: string}> = ({query}) => {
   const {
-    i18n: { language },
-  } = useTranslation()
+    i18n: {language},
+  } = useTranslation();
 
   return (
     <>
@@ -52,10 +52,10 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         {language === 'ja' ? <NtaCard query={query} /> : null}
       </Cards>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 
 const Cards = styled.div`
   display: flex;
@@ -66,4 +66,4 @@ const Cards = styled.div`
   ${mobile} {
     flex-direction: column;
   }
-`
+`;
