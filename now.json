@@ -6,11 +6,11 @@
     {
       "src": "/web/package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "build" }
+      "config": {"distDir": "build"}
     },
     {
       "src": "/api/services/*.ts",
-      "use": "@now/node@canary"
+      "use": "@now/node"
     }
   ],
   "routes": [
@@ -20,7 +20,8 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/web/$1"
+      "dest": "/web/$1",
+      "headers": {"cache-control": "s-maxage=86400"}
     }
   ],
   "env": {
