@@ -6,6 +6,7 @@ import 'react-tippy/dist/tippy.css';
 import BarLoader from 'react-spinners/BarLoader';
 import {GoInfo} from 'react-icons/go';
 import {useTranslation} from 'react-i18next';
+import {sendError} from '../../util/analytics';
 
 import {mobile} from '../../util/css';
 import {ExternalLink} from '../Links';
@@ -21,16 +22,7 @@ export const Card: React.FC<{title: string}> = ({title, children}) => {
     <CardContainer>
       <CardTitle>{title}</CardTitle>
       <CardContent>
-        <ErrorBoundary>
-          <Suspense
-            fallback={
-              <ResultContainer>
-                <BarLoader />
-              </ResultContainer>
-            }>
-            {children}
-          </Suspense>
-        </ErrorBoundary>
+        <ErrorHandler>{children}</ErrorHandler>
       </CardContent>
     </CardContainer>
   );
@@ -55,12 +47,12 @@ export const Repeater: React.FC<{
   return (
     <>
       {items.map((name) => (
-        <CellError key={name}>{children(name)}</CellError>
+        <ErrorHandler key={name}>{children(name)}</ErrorHandler>
       ))}
 
       {revealAlternatives
         ? moreItems.map((name) => (
-            <CellError key={name}>{children(name)}</CellError>
+            <ErrorHandler key={name}>{children(name)}</ErrorHandler>
           ))
         : null}
       {moreItems.length > 0 && !revealAlternatives ? (
@@ -208,24 +200,37 @@ export const Result: React.FC<{
   );
 };
 
+// 1. getDerivedStateFromError
+// 2. render()
+// 3. componentDidCatch() send errorInfo to Sentry
+// 4. render(), now with eventId provided from Sentry
 class ErrorBoundary extends React.Component<
   {},
-  {hasError: boolean; message: string}
+  {hasError: boolean; message: string; eventId?: string}
 > {
   constructor(props: {}) {
     super(props);
-    this.state = {hasError: false, message: ''};
+    this.state = {hasError: false, message: '', eventId: undefined};
   }
 
+  // used in SSR
   static getDerivedStateFromError(error: Error) {
     return {hasError: true, message: error.message};
+  }
+
+  componentDidCatch(error: Error, errorInfo: any) {
+    sendError(error, errorInfo).then((eventId) => {
+      this.setState({eventId});
+    });
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <Tooltip
-          title={this.state.message}
+          title={`${this.state.message}${
+            this.state.eventId ? ` (${this.state.eventId})` : ''
+          }`}
           position="bottom"
           arrow={true}
           animation="shift"
@@ -245,7 +250,7 @@ class ErrorBoundary extends React.Component<
   }
 }
 
-const CellError: React.FC = ({children}) => (
+const ErrorHandler: React.FC = ({children}) => (
   <ErrorBoundary>
     <Suspense
       fallback={

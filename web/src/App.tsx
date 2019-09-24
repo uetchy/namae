@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import {Helmet} from 'react-helmet';
 import {useTranslation} from 'react-i18next';
+import {initGA, sendQueryStatistics} from './util/analytics';
 
 import Welcome from './components/Welcome';
 import Form from './components/Form';
@@ -15,8 +16,13 @@ export default function App() {
   const [query, setQuery] = useState('');
   const {t} = useTranslation();
 
+  useEffect(() => {
+    initGA();
+  }, []);
+
   function onQuery(query: string) {
     setQuery(query);
+    sendQueryStatistics(query.length);
   }
 
   return (
