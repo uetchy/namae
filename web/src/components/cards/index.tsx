@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {mobile} from '../../util/css';
 import DomainCard from './Domains';
 import GithubCard from './GitHubRepository';
+import GitLabCard from './GitLab';
 import NpmCard from './Npm';
 import PypiCard from './PyPI';
 import RubyGemsCard from './RubyGems';
@@ -21,6 +22,7 @@ import AppStoreCard from './AppStore';
 import HerokuCard from './Heroku';
 import NowCard from './Now';
 import NtaCard from './Nta';
+import NetlifyCard from './Netlify';
 
 const Index: React.FC<{query: string}> = ({query}) => {
   const {
@@ -32,6 +34,7 @@ const Index: React.FC<{query: string}> = ({query}) => {
       <Cards>
         <DomainCard query={query} />
         <GithubCard query={query} />
+        <GitLabCard query={query} />
         <NpmCard query={query} />
         <PypiCard query={query} />
         <RubyGemsCard query={query} />
@@ -43,6 +46,7 @@ const Index: React.FC<{query: string}> = ({query}) => {
         <SlackCard query={query} />
         <HerokuCard query={query} />
         <NowCard query={query} />
+        <NetlifyCard query={query} />
         <JsOrgCard query={query} />
         <S3Card query={query} />
       </Cards>

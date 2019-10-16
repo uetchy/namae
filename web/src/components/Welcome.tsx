@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {
   FaMapSigns,
   FaGithub,
+  FaGitlab,
   FaNpm,
   FaPython,
   FaGem,
@@ -19,7 +20,7 @@ import {
 import {IoIosBeer} from 'react-icons/io';
 import {DiRust, DiHeroku} from 'react-icons/di';
 
-import {SpectrumIcon, NowIcon} from './Icons';
+import {SpectrumIcon, NowIcon, NetlifyIcon} from './Icons';
 import {mobile} from '../util/css';
 
 export default function Welcome() {
@@ -37,6 +38,9 @@ export default function Welcome() {
         </ListItem>
         <ListItem>
           <FaGithub /> {t('providers.github')}
+        </ListItem>
+        <ListItem>
+          <FaGitlab /> {t('providers.gitlab')}
         </ListItem>
         <ListItem>
           <FaNpm /> {t('providers.npm')}
@@ -70,6 +74,9 @@ export default function Welcome() {
         </ListItem>
         <ListItem>
           <NowIcon /> {t('providers.now')}
+        </ListItem>
+        <ListItem>
+          <NetlifyIcon /> {t('providers.netlify')}
         </ListItem>
         <ListItem>
           <FaAws /> {t('providers.s3')}

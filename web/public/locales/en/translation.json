@@ -5,6 +5,7 @@
   "providers": {
     "domains": "Domains",
     "github": "Github Organization",
+    "gitlab": "GitLab",
     "npm": "npm",
     "pypi": "PyPI",
     "rubygems": "RubyGems",
@@ -21,6 +22,7 @@
     "spectrum": "Spectrum",
     "heroku": "Heroku",
     "now": "ZEIT Now",
+    "netlify": "Netlify",
     "nta": "Company (JP)"
   },
   "countryCode": "us",
