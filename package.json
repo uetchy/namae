@@ -1,7 +1,6 @@
 {
   "name": "namae",
   "description": "namae saves your time searching around registries and checking if the desired name is ready for use.",
-  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
     "dev": " yarn start",
     "postinstall": "yarn --cwd web && yarn --cwd api",
@@ -13,8 +12,16 @@
     "now": "^16.4.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "husky": "^3.0.9",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0"
   },
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "private": true
 }
