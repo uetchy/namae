@@ -15,3 +15,6 @@ jobs:
       - uses: actions/checkout@master
       - run: yarn --cwd api install
       - run: yarn --cwd api test
+      - run: cat ./api/coverage/lcov.info | npx codacy-coverage
+    env:
+      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}

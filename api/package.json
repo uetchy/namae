@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc",
     "start": "tsc -w",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "google-it": "^1.2.1",

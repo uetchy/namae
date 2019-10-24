@@ -7,7 +7,7 @@
     "now-build": "yarn build",
     "now-dev": "NODE_ENV=development BROWSER=none react-scripts start",
     "start": "NODE_ENV=development react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test --coverage"
   },
   "dependencies": {
     "@sentry/browser": "^5.6.3",
