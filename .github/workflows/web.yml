@@ -13,10 +13,9 @@ jobs:
     steps:
       - uses: actions/setup-node@master
       - uses: actions/checkout@master
-      - run: yarn global add codacy-coverage
       - run: yarn --cwd web install
       - run: yarn --cwd web test
-      - run: cat ./web/coverage/lcov.info | codacy-coverage
+      - run: cat ./web/coverage/lcov.info | npx codacy-coverage
         env:
           CI: true
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
