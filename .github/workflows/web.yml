@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: yarn --cwd web install
       - name: Test
-        run: CI=true yarn --cwd web test
+        run: yarn --cwd web test
         env:
           CI: true
       - name: Upload coverage
