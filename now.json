@@ -26,5 +26,8 @@
   ],
   "env": {
     "NTA_APPLICATION_ID": "@namae-nta-application-id"
+  },
+  "github": {
+    "silent": true
   }
 }
