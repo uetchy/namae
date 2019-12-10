@@ -12,7 +12,7 @@ export default async function handler(req: NowRequest, res: NowResponse) {
       query,
     )
   ) {
-    return sendError(res, new Error('invalid characters'));
+    return sendError(res, new Error('Invalid characters'));
   }
 
   try {
@@ -20,6 +20,10 @@ export default async function handler(req: NowRequest, res: NowResponse) {
     const availability = response.status === 404;
     send(res, {availability});
   } catch (err) {
+    console.log(err.code);
+    if (err.code === 'ENOTFOUND') {
+      return send(res, {availability: true});
+    }
     sendError(res, err);
   }
 }

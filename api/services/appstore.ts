@@ -20,7 +20,7 @@ export default async function handler(
   const {query, country} = req.query;
 
   if (!query) {
-    return sendError(res, new Error('no query given'));
+    return sendError(res, new Error('No query given'));
   }
 
   const term = encodeURIComponent(query);

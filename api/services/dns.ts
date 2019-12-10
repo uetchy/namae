@@ -14,7 +14,7 @@ export default async function handler(req: NowRequest, res: NowResponse) {
   const {query} = req.query;
 
   if (!query) {
-    return sendError(res, new Error('no query given'));
+    return sendError(res, new Error('No query given'));
   }
 
   try {
@@ -23,7 +23,7 @@ export default async function handler(req: NowRequest, res: NowResponse) {
     send(res, {availability});
   } catch (err) {
     if (err.code === 'ENODATA' || err.code === 'ENOTFOUND') {
-      return res.status(200).json({availability: true});
+      return send(res, {availability: true});
     }
     sendError(res, err);
   }
