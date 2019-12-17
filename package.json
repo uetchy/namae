@@ -17,7 +17,7 @@
     "pretty-quick": "^2.0.0"
   },
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
