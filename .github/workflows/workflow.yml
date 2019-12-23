@@ -1,11 +1,5 @@
-name: Web
-on:
-  push:
-    paths:
-      - web/*
-  pull_request:
-    paths:
-      - web/*
+name: Test
+on: [push, pull_request]
 jobs:
   test:
     name: Test
@@ -14,12 +8,12 @@ jobs:
       - uses: actions/setup-node@master
       - uses: actions/checkout@master
       - name: Install dependencies
-        run: yarn --cwd web install
+        run: yarn install
       - name: Test
-        run: yarn --cwd web test
-        env:
-          CI: true
+        run: yarn test
       - name: Upload coverage
-        run: cat ./web/coverage/lcov.info | npx codacy-coverage
+        run: |
+          cat ./api/coverage/lcov.info | yarn codacy-coverage
+          cat ./web/coverage/lcov.info | yarn codacy-coverage
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}

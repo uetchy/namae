@@ -3,25 +3,28 @@
   "description": "namae saves your time searching around registries and checking if the desired name is ready for use.",
   "scripts": {
     "dev": " yarn start",
-    "postinstall": "yarn --cwd web && yarn --cwd api",
-    "ship": "now",
     "start": "now dev",
-    "test": "CI=true yarn --cwd web test && yarn --cwd api test"
+    "test": "CI=true yarn workspaces run test"
   },
   "dependencies": {
     "now": "^16.7.0"
   },
   "devDependencies": {
+    "codacy-coverage": "^3.4.0",
     "husky": "^3.1.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   },
-  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
-  "license": "Apache-2.0",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "private": true
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
+  "license": "Apache-2.0",
+  "private": true,
+  "workspaces": [
+    "web",
+    "api"
+  ]
 }
