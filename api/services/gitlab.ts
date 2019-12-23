@@ -1,7 +1,10 @@
-import {send, sendError, fetch, NowRequest, NowResponse} from '../util/http';
+import {send, sendError, NowRequest, NowResponse} from '../util/http';
 import nodeFetch from 'node-fetch';
 
-export default async function handler(req: NowRequest, res: NowResponse) {
+export default async function handler(
+  req: NowRequest,
+  res: NowResponse,
+): Promise<void> {
   const {query} = req.query;
 
   if (!query) {

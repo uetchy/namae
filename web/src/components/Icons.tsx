@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SpectrumIcon = () => (
+export const SpectrumIcon: React.FC = () => (
   <svg
     width="1em"
     height="1em"
@@ -13,7 +13,7 @@ export const SpectrumIcon = () => (
   </svg>
 );
 
-export const NowIcon = () => (
+export const NowIcon: React.FC = () => (
   <svg
     width="1em"
     height="1em"
@@ -28,7 +28,7 @@ export const NowIcon = () => (
   </svg>
 );
 
-export const NetlifyIcon = () => (
+export const NetlifyIcon: React.FC = () => (
   <svg
     width="1em"
     height="1em"

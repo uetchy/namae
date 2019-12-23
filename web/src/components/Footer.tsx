@@ -5,7 +5,7 @@ import {FaTwitter, FaGithubAlt} from 'react-icons/fa';
 
 import {ExternalLink} from './Links';
 
-export default function Footer() {
+const Footer: React.FC = () => {
   const {t} = useTranslation();
 
   return (
@@ -51,7 +51,8 @@ export default function Footer() {
       </Box>
     </Container>
   );
-}
+};
+export default Footer;
 
 const Container = styled.div`
   display: flex;

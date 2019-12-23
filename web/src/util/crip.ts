@@ -1,10 +1,10 @@
 interface CrispWindow extends Window {
-  $crisp: any[];
+  $crisp: unknown[];
   CRISP_WEBSITE_ID: string;
 }
-declare var window: CrispWindow;
+declare let window: CrispWindow;
 
-export function initCrisp() {
+export function initCrisp(): void {
   window.$crisp = [];
   window.CRISP_WEBSITE_ID = '92b2e096-6892-47dc-bf4a-057bad52d82e';
   const s = document.createElement('script');

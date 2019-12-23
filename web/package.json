@@ -4,6 +4,7 @@
   "scripts": {
     "build": "NODE_ENV=production react-scripts build",
     "eject": "react-scripts eject",
+    "lint": "eslint . --ext .ts,.tsx --format visualstudio",
     "now-build": "yarn build",
     "now-dev": "NODE_ENV=development BROWSER=none react-scripts start",
     "start": "NODE_ENV=development react-scripts start",
@@ -30,7 +31,7 @@
     "react-spinners": "^0.6.1",
     "react-tippy": "^1.2.3",
     "styled-components": "^4.3.2",
-    "typescript": "3.5.3"
+    "typescript": "3.7.4"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.1.0",

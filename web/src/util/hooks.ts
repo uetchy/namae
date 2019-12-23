@@ -12,7 +12,7 @@ export function useDeferredState<T>(
       setResponse(innerValue);
     }, duration);
 
-    return () => {
+    return (): void => {
       clearTimeout(fn);
     };
   }, [duration, innerValue]);

@@ -9,47 +9,47 @@ import {mobile} from '../util/css';
 
 type Modifier = (word: string) => string;
 
-const maximumCount = 3;
-const modifiers: Modifier[] = [
-  (word) => `${capitalize(word)}ify`,
-  (word) => `lib${lower(word)}`,
-  (word) => `Omni${capitalize(word)}`,
-  (word) => `${capitalize(word)}Lab`,
-  (word) => `${capitalize(word)}Kit`,
-  (word) => `Open${capitalize(word)}`,
-  (word) => `${capitalize(word)}box`,
-  (word) => `Insta${lower(word)}`,
-  (word) => `${capitalize(word)}Hub`,
-  (word) => `Cloud${capitalize(word)}`,
-  (word) => `quick${lower(word)}`,
-  (word) => `fast${lower(word)}`,
-  (word) => `super-${lower(word)}`,
-  (word) => `Hyper${capitalize(word)}`,
-  (word) => `${capitalize(word)}Go`,
-  (word) => `${lower(word)}-io`,
-  (word) => `Go${capitalize(word)}`,
-  (word) => `${capitalize(word)}X`,
-  (word) => `${capitalize(word)}time`,
-  (word) => `${capitalize(word)}flow`,
-  (word) => `${capitalize(word)}ful`,
-  (word) => `${capitalize(word)}ery`,
-  (word) => `${lower(word)}ly`,
-  (word) => `${lower(word)}joy`,
-  (word) => `${capitalize(word)}Hunt`,
-  (word) => `${capitalize(word)}gram`,
-  (word) => `${capitalize(word)}base`,
-  (word) => `${capitalize(word)}API`,
-  (word) => `${capitalize(word)}note`,
-  (word) => `In${capitalize(word)}`,
-  (word) => `Uni${lower(word)}`,
-  (word) => `${capitalize(word)}`,
-];
-
-function lower(word: string) {
+function lower(word: string): string {
   return word.toLowerCase();
 }
 
-function shuffleArray(array: any[]) {
+const maximumCount = 3;
+const modifiers: Modifier[] = [
+  (word): string => `${capitalize(word)}ify`,
+  (word): string => `lib${lower(word)}`,
+  (word): string => `Omni${capitalize(word)}`,
+  (word): string => `${capitalize(word)}Lab`,
+  (word): string => `${capitalize(word)}Kit`,
+  (word): string => `Open${capitalize(word)}`,
+  (word): string => `${capitalize(word)}box`,
+  (word): string => `Insta${lower(word)}`,
+  (word): string => `${capitalize(word)}Hub`,
+  (word): string => `Cloud${capitalize(word)}`,
+  (word): string => `quick${lower(word)}`,
+  (word): string => `fast${lower(word)}`,
+  (word): string => `super-${lower(word)}`,
+  (word): string => `Hyper${capitalize(word)}`,
+  (word): string => `${capitalize(word)}Go`,
+  (word): string => `${lower(word)}-io`,
+  (word): string => `Go${capitalize(word)}`,
+  (word): string => `${capitalize(word)}X`,
+  (word): string => `${capitalize(word)}time`,
+  (word): string => `${capitalize(word)}flow`,
+  (word): string => `${capitalize(word)}ful`,
+  (word): string => `${capitalize(word)}ery`,
+  (word): string => `${lower(word)}ly`,
+  (word): string => `${lower(word)}joy`,
+  (word): string => `${capitalize(word)}Hunt`,
+  (word): string => `${capitalize(word)}gram`,
+  (word): string => `${capitalize(word)}base`,
+  (word): string => `${capitalize(word)}API`,
+  (word): string => `${capitalize(word)}note`,
+  (word): string => `In${capitalize(word)}`,
+  (word): string => `Uni${lower(word)}`,
+  (word): string => `${capitalize(word)}`,
+];
+
+function shuffleArray<T>(array: T[]): T[] {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
@@ -59,15 +59,15 @@ function shuffleArray(array: any[]) {
   return array;
 }
 
-function sampleFromArray(array: any[], maximum: number) {
+function sampleFromArray<T>(array: T[], maximum: number): T[] {
   return shuffleArray(array).slice(0, maximum);
 }
 
-function modifyWord(word: string) {
+function modifyWord(word: string): string {
   return modifiers[Math.floor(Math.random() * modifiers.length)](word);
 }
 
-function fillArray(array: any[], filler: string, maximum: number) {
+function fillArray<T>(array: T[], filler: string, maximum: number): T[] {
   const deficit = maximum - array.length;
   if (deficit > 0) {
     array = [...array, ...Array(deficit).fill(filler)];
@@ -75,7 +75,7 @@ function fillArray(array: any[], filler: string, maximum: number) {
   return array;
 }
 
-async function findSynonyms(word: string) {
+async function findSynonyms(word: string): Promise<string[]> {
   try {
     const response = await fetch(
       `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=ss&ie=UTF-8&oe=UTF-8&dj=1&q=${encodeURIComponent(
@@ -92,7 +92,7 @@ async function findSynonyms(word: string) {
           [] as string[],
         ),
       ),
-    ).filter((word) => !word.match(/[\s-]/));
+    ).filter((word) => !/[\s-]/.exec(word));
     return synonyms;
   } catch (err) {
     return [];
@@ -107,7 +107,7 @@ const Suggestion: React.FC<{
   const synonymRef = useRef<string[]>([]);
   const [bestWords, setBestWords] = useState<string[]>([]);
 
-  function shuffle() {
+  function shuffle(): void {
     const best = fillArray(
       sampleFromArray(synonymRef.current, maximumCount),
       query,
@@ -116,12 +116,12 @@ const Suggestion: React.FC<{
     setBestWords(best);
   }
 
-  function applyQuery(name: string) {
+  function applyQuery(name: string): void {
     onSubmit(name);
   }
 
   useEffect(() => {
-    const fn = async () => {
+    const fn = async (): Promise<void> => {
       if (query && query.length > 0) {
         const synonyms = await findSynonyms(query);
         synonymRef.current = synonyms;
@@ -142,7 +142,7 @@ const Suggestion: React.FC<{
       <Items>
         {bestWords &&
           bestWords.map((name) => (
-            <Item key={name} onClick={() => applyQuery(name)}>
+            <Item key={name} onClick={(): void => applyQuery(name)}>
               {name}
             </Item>
           ))}

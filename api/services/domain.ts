@@ -1,7 +1,10 @@
 import whois from 'whois-json';
 import {send, sendError, NowRequest, NowResponse} from '../util/http';
 
-export default async function handler(req: NowRequest, res: NowResponse) {
+export default async function handler(
+  req: NowRequest,
+  res: NowResponse,
+): Promise<void> {
   const {query} = req.query;
 
   if (!query) {

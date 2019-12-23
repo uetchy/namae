@@ -15,7 +15,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Fallback = () => (
+const Fallback: React.FC = () => (
   <Container>
     <BarLoader />
   </Container>

@@ -15,19 +15,19 @@ const Form: React.FC<{onQuery: (query: string) => void}> = ({onQuery}) => {
   const {t} = useTranslation();
 
   // set input value
-  function onInputChange(e: React.FormEvent<HTMLInputElement>) {
+  function onInputChange(e: React.FormEvent<HTMLInputElement>): void {
     const value = e.currentTarget.value;
     setInputValue(value);
   }
 
   // clear input form and focus on it
-  function onLogoClick(e: React.MouseEvent<HTMLDivElement>) {
+  function onLogoClick(): void {
     setInputValue('');
-    inputRef.current!.focus();
+    inputRef.current?.focus();
   }
 
   // invoke when user clicked one of the suggested items
-  function onSuggestionCompleted(name: string) {
+  function onSuggestionCompleted(name: string): void {
     setInputValue(name);
     setSuggested(true);
   }

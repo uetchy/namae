@@ -5,7 +5,7 @@ const APPLICATION_ID = process.env.NTA_APPLICATION_ID;
 export default async function handler(
   req: NowRequest<{query: string; country: string}>,
   res: NowResponse,
-) {
+): Promise<void> {
   const {query} = req.query;
 
   if (!query) {
@@ -24,6 +24,7 @@ export default async function handler(
       'GET',
     );
     const body: string[] = (await response.text()).split('\n').slice(0, -1);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const header = body.shift()!.split(',');
     const result = body.map((csv) => {
       const entry = csv.split(',').map((item) =>
@@ -32,6 +33,7 @@ export default async function handler(
           .replace(/[Ａ-Ｚａ-ｚ０-９]/g, (str) =>
             String.fromCharCode(str.charCodeAt(0) - 0xfee0),
           )
+          // eslint-disable-next-line no-irregular-whitespace
           .replace(/　/g, ' '),
       );
 

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "build": "tsc",
+    "lint": "eslint . --ext .ts,.tsx --format visualstudio --fix",
     "start": "tsc -w",
     "test": "jest --coverage"
   },

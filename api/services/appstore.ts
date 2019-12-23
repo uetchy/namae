@@ -16,7 +16,7 @@ interface AppStoreResponse {
 export default async function handler(
   req: NowRequest<{query: string; country: string}>,
   res: NowResponse,
-) {
+): Promise<void> {
   const {query, country} = req.query;
 
   if (!query) {

@@ -1,6 +1,9 @@
 import {send, sendError, fetch, NowRequest, NowResponse} from '../util/http';
 
-export default async function handler(req: NowRequest, res: NowResponse) {
+export default async function handler(
+  req: NowRequest,
+  res: NowResponse,
+): Promise<void> {
   const {query} = req.query;
 
   if (!query) {
@@ -8,7 +11,7 @@ export default async function handler(req: NowRequest, res: NowResponse) {
   }
 
   if (
-    !/^[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/.test(
+    !/^[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/.test(
       query,
     )
   ) {

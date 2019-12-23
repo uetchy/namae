@@ -23,7 +23,7 @@ import {DiRust, DiHeroku} from 'react-icons/di';
 import {SpectrumIcon, NowIcon, NetlifyIcon} from './Icons';
 import {mobile} from '../util/css';
 
-export default function Welcome() {
+const Welcome: React.FC = () => {
   const {t} = useTranslation();
 
   return (
@@ -96,7 +96,8 @@ export default function Welcome() {
       </List>
     </Container>
   );
-}
+};
+export default Welcome;
 
 const Container = styled.div`
   padding-bottom: 40px;

@@ -20,23 +20,23 @@ yarn start
 Create `web/src/components/cards/<NewCard>.js`. Here is the example card that checks if spcified repository on GitHub is available.
 
 ```jsx
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaGithub } from 'react-icons/fa'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {FaGithub} from 'react-icons/fa';
 
-import { Card, Repeater, DedicatedAvailability } from '../Cards'
+import {Card, Repeater, DedicatedAvailability} from '../Cards';
 
-export default function GithubCard({ name }) {
-  const { t } = useTranslation()
-  const lowerCase = name.toLowerCase()
+export default function GithubCard({name}) {
+  const {t} = useTranslation();
+  const lowerCase = name.toLowerCase();
 
-  const names = [name]
+  const names = [name];
   const moreNames = [
     `${lowerCase}hq`,
     `${lowerCase}-team`,
     `${lowerCase}-org`,
     `${lowerCase}-js`,
-  ]
+  ];
 
   return (
     <Card title={t('providers.github')}>
@@ -52,14 +52,14 @@ export default function GithubCard({ name }) {
         )}
       </Repeater>
     </Card>
-  )
+  );
 }
 ```
 
 and add the card to `/web/src/App.js`:
 
 ```jsx
-import NewCard from './components/cards/NewCard'
+import NewCard from './components/cards/NewCard';
 ```
 
 ```patch

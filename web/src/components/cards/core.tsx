@@ -231,6 +231,7 @@ class ErrorBoundary extends React.Component<
     return {hasError: true, message: error.message};
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   componentDidCatch(error: Error, errorInfo: any) {
     if (error instanceof APIError || error instanceof NotFoundError) {
       return;
