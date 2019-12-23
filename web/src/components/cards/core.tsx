@@ -67,6 +67,19 @@ interface Response {
   availability: boolean;
 }
 
+class APIError extends Error {
+  constructor(message?: string) {
+    super(message);
+    Object.setPrototypeOf(this, APIError.prototype);
+  }
+}
+class NotFoundError extends Error {
+  constructor(message?: string) {
+    super(message);
+    Object.setPrototypeOf(this, NotFoundError.prototype);
+  }
+}
+
 export const DedicatedAvailability: React.FC<{
   name: string;
   query?: string;
@@ -95,7 +108,7 @@ export const DedicatedAvailability: React.FC<{
   ) as Response;
 
   if (response.error) {
-    throw new Error(`${service}: ${response.error}`);
+    throw new APIError(`${service}: ${response.error}`);
   }
 
   return (
@@ -135,7 +148,7 @@ export const ExistentialAvailability: React.FC<{
   const response = useFetch(target, undefined, {metadata: true});
 
   if (response.status !== 404 && response.status !== 200) {
-    throw new Error(`${name}: ${response.status}`);
+    throw new NotFoundError(`${name}: ${response.status}`);
   }
 
   const availability = response.status === 404;
@@ -219,6 +232,9 @@ class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: any) {
+    if (error instanceof APIError || error instanceof NotFoundError) {
+      return;
+    }
     sendError(error, errorInfo).then((eventId) => {
       this.setState({eventId});
     });
