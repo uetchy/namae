@@ -9,12 +9,12 @@
     "test": "CI=true yarn --cwd web test && yarn --cwd api test"
   },
   "dependencies": {
-    "now": "^16.4.0"
+    "now": "^16.7.0"
   },
   "devDependencies": {
-    "husky": "^3.0.9",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^2.0.0"
+    "husky": "^3.1.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
   },
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "license": "Apache-2.0",
