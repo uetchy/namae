@@ -1,6 +1,7 @@
 {
   "name": "namae",
   "description": "namae saves your time searching around registries and checking if the desired name is ready for use.",
+  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
     "dev": " yarn start",
     "lint": "yarn workspaces run lint",
@@ -27,8 +28,10 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "license": "Apache-2.0",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "private": true,
   "workspaces": [
     "web",

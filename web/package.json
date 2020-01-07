@@ -55,6 +55,9 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
