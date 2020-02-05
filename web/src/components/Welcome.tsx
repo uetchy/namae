@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
+import {Link} from 'react-router-dom';
 
 import {
   FaMapSigns,
@@ -31,8 +32,28 @@ const Welcome: React.FC = () => {
       <Hero>
         <Header>{t('title')}</Header>
         <Text>{t('description')}</Text>
+        <ExampleQueries>
+          <h5>Try with these queries</h5>
+          <List>
+            <ListButton>
+              <Link to="/s/namae">namae</Link>
+            </ListButton>
+            <ListButton>
+              <Link to="/s/Tint">Tint</Link>
+            </ListButton>
+            <ListButton>
+              <Link to="/s/React">React</Link>
+            </ListButton>
+            <ListButton>
+              <Link to="/s/Spotify">Spotify</Link>
+            </ListButton>
+            <ListButton>
+              <Link to="/s/Rust">Rust</Link>
+            </ListButton>
+          </List>
+        </ExampleQueries>
       </Hero>
-      <List>
+      <ColorfulList>
         <ListItem>
           <FaMapSigns /> {t('providers.domains')}
         </ListItem>
@@ -93,7 +114,7 @@ const Welcome: React.FC = () => {
         <ListItem>
           <FaBuilding /> {t('providers.nta')}
         </ListItem>
-      </List>
+      </ColorfulList>
     </Container>
   );
 };
@@ -101,8 +122,6 @@ export default Welcome;
 
 const Container = styled.div`
   padding-bottom: 40px;
-  padding-right: 20vw;
-  padding-left: 20vw;
   text-align: center;
   font-size: 1.5rem;
   line-height: 1.6em;
@@ -132,21 +151,38 @@ const Text = styled.p`
 
 const Hero = styled.div``;
 
+const ExampleQueries = styled.div`
+  margin: 50px 0 50px;
+`;
+
 const List = styled.div`
-  margin-top: 50px;
-  padding: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%);
-  color: white;
-  border-radius: 4px;
+  font-size: 1rem;
+
+  ${mobile} {
+    justify-content: flex-start;
+  }
+`;
+
+const ColorfulList = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   font-size: 1rem;
 
   ${mobile} {
     flex-direction: column;
   }
+
+  padding: 20px;
+  margin-top: 50px;
+  color: white;
+  background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%);
 `;
 
 const ListItem = styled.div`
@@ -162,5 +198,24 @@ const ListItem = styled.div`
 
   svg {
     margin-right: 5px;
+  }
+`;
+
+const ListButton = styled.div`
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  line-height: 1em;
+
+  ${mobile} {
+    margin: 10px 10px 0 0;
+  }
+
+  a {
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
   }
 `;
