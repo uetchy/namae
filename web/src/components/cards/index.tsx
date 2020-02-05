@@ -23,6 +23,7 @@ import HerokuCard from './providers/Heroku';
 import NowCard from './providers/Now';
 import NtaCard from './providers/Nta';
 import NetlifyCard from './providers/Netlify';
+import OcamlCard from './providers/Ocaml';
 
 const Index: React.FC<{query: string}> = ({query}) => {
   const {
@@ -37,8 +38,9 @@ const Index: React.FC<{query: string}> = ({query}) => {
         <GitLabCard query={query} />
         <NpmCard query={query} />
         <PypiCard query={query} />
-        <RubyGemsCard query={query} />
         <CratesioCard query={query} />
+        <RubyGemsCard query={query} />
+        <OcamlCard query={query} />
         <HomebrewCard query={query} />
         <LinuxCard query={query} />
         <TwitterCard query={query} />

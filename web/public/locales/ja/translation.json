@@ -23,7 +23,8 @@
     "heroku": "Heroku",
     "now": "ZEIT Now",
     "netlify": "Netlify",
-    "nta": "法人"
+    "nta": "法人",
+    "ocaml": "OCaml"
   },
   "countryCode": "jp",
   "try": "全自動名前考え機",

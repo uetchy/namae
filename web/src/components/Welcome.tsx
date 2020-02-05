@@ -21,7 +21,7 @@ import {
 import {IoIosBeer} from 'react-icons/io';
 import {DiRust, DiHeroku} from 'react-icons/di';
 
-import {SpectrumIcon, NowIcon, NetlifyIcon} from './Icons';
+import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
 import {mobile} from '../util/css';
 
 const Welcome: React.FC = () => {
@@ -67,13 +67,16 @@ const Welcome: React.FC = () => {
           <FaNpm /> {t('providers.npm')}
         </ListItem>
         <ListItem>
+          <DiRust /> {t('providers.rust')}
+        </ListItem>
+        <ListItem>
           <FaPython /> {t('providers.pypi')}
         </ListItem>
         <ListItem>
           <FaGem /> {t('providers.rubygems')}
         </ListItem>
         <ListItem>
-          <DiRust /> {t('providers.rust')}
+          <OcamlIcon /> {t('providers.ocaml')}
         </ListItem>
         <ListItem>
           <IoIosBeer /> {t('providers.homebrew')}

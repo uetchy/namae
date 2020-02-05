@@ -23,7 +23,8 @@
     "heroku": "Heroku",
     "now": "ZEIT Now",
     "netlify": "Netlify",
-    "nta": "Company (JP)"
+    "nta": "Company (JP)",
+    "ocaml": "OCaml"
   },
   "countryCode": "us",
   "try": "suggestions",
