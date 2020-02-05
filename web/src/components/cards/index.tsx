@@ -1,28 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
-
 import {mobile} from '../../util/css';
-import DomainCard from './Domains';
-import GithubCard from './GitHubRepository';
-import GitLabCard from './GitLab';
-import NpmCard from './Npm';
-import PypiCard from './PyPI';
-import RubyGemsCard from './RubyGems';
-import CratesioCard from './Cratesio';
-import HomebrewCard from './Homebrew';
-import LinuxCard from './Linux';
-import TwitterCard from './Twitter';
-import SpectrumCard from './Spectrum';
-import SlackCard from './Slack';
-import S3Card from './S3';
-import JsOrgCard from './JsOrg';
-import GithubSearchCard from './GitHubSearch';
-import AppStoreCard from './AppStore';
-import HerokuCard from './Heroku';
-import NowCard from './Now';
-import NtaCard from './Nta';
-import NetlifyCard from './Netlify';
+
+import DomainCard from './providers/Domains';
+import GithubCard from './providers/GitHubRepository';
+import GitLabCard from './providers/GitLab';
+import NpmCard from './providers/Npm';
+import PypiCard from './providers/PyPI';
+import RubyGemsCard from './providers/RubyGems';
+import CratesioCard from './providers/Cratesio';
+import HomebrewCard from './providers/Homebrew';
+import LinuxCard from './providers/Linux';
+import TwitterCard from './providers/Twitter';
+import SpectrumCard from './providers/Spectrum';
+import SlackCard from './providers/Slack';
+import S3Card from './providers/S3';
+import JsOrgCard from './providers/JsOrg';
+import GithubSearchCard from './providers/GitHubSearch';
+import AppStoreCard from './providers/AppStore';
+import HerokuCard from './providers/Heroku';
+import NowCard from './providers/Now';
+import NtaCard from './providers/Nta';
+import NetlifyCard from './providers/Netlify';
 
 const Index: React.FC<{query: string}> = ({query}) => {
   const {

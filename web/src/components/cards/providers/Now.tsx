@@ -1,8 +1,8 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {NowIcon} from '../Icons';
+import {NowIcon} from '../../Icons';
 
-import {Card, Repeater, DedicatedAvailability} from './core';
+import {Card, Repeater, DedicatedAvailability} from '../core';
 
 const NowCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();

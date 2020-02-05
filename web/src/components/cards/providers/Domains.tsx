@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {FaMapSigns} from 'react-icons/fa';
 
-import {Card, Repeater, DedicatedAvailability} from './core';
+import {Card, Repeater, DedicatedAvailability} from '../core';
 
 const DomainCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();

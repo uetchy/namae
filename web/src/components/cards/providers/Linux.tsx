@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import {DiUbuntu} from 'react-icons/di';
 import {DiDebian} from 'react-icons/di';
 
-import {Card, Repeater, DedicatedAvailability} from './core';
+import {Card, Repeater, DedicatedAvailability} from '../core';
 
 const LinuxCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();
