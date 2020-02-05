@@ -19,6 +19,11 @@
       "dest": "/api/services/$provider.ts?query=$query"
     },
     {
+      "src": "/s/(.*)",
+      "dest": "/web/index.html",
+      "headers": {"cache-control": "s-maxage=86400"}
+    },
+    {
       "src": "/(.*)",
       "dest": "/web/$1",
       "headers": {"cache-control": "s-maxage=86400"}
