@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import {Helmet} from 'react-helmet';
 import {useTranslation} from 'react-i18next';
-import {sendQueryStatistics} from './util/analytics';
 
 import Welcome from './components/Welcome';
 import Form from './components/Form';
@@ -11,33 +10,55 @@ import Footer from './components/Footer';
 
 import {mobile} from './util/css';
 import {isStandalone} from './util/pwa';
+import {Switch, Route, useParams} from 'react-router-dom';
 
 export default function App() {
-  const [query, setQuery] = useState('');
-  const {t} = useTranslation();
-
-  function onQuery(query: string) {
-    setQuery(query);
-    sendQueryStatistics(query.length);
-  }
-
   return (
     <>
       <GlobalStyle />
+      <Switch>
+        <Route path="/s/:query">
+          <Search />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+      <Footer />
+    </>
+  );
+}
+
+function Search() {
+  const {query: currentQuery} = useParams<{query: string}>();
+
+  return (
+    <>
+      <Helmet>
+        <title>Search for &quot;{currentQuery}&quot; — namae</title>
+      </Helmet>
+      <Header>
+        <Form initialValue={currentQuery} />
+      </Header>
+      <Content>
+        <Cards query={currentQuery} />
+      </Content>
+    </>
+  );
+}
+
+function Home() {
+  const {t} = useTranslation();
+
+  return (
+    <>
       <Helmet>
         <title>namae — {t('title')}</title>
       </Helmet>
       <Header>
-        <Form onQuery={onQuery} />
+        <Form />
       </Header>
-      <Content>
-        {query !== '' ? (
-          <Cards query={query} />
-        ) : (
-          !isStandalone() && <Welcome />
-        )}
-      </Content>
-      <Footer />
+      <Content>{!isStandalone() && <Welcome />}</Content>
     </>
   );
 }

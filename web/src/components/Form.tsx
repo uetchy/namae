@@ -1,15 +1,19 @@
 import React, {useState, useRef, useEffect} from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
+import {Link, useHistory} from 'react-router-dom';
 
+import {sendQueryStatistics} from '../util/analytics';
 import {useDeferredState} from '../util/hooks';
 import {mobile} from '../util/css';
-
 import Suggestion from './Suggestion';
 
-const Form: React.FC<{onQuery: (query: string) => void}> = ({onQuery}) => {
+const Form: React.FC<{
+  initialValue?: string;
+}> = ({initialValue = ''}) => {
+  const history = useHistory();
   const [query, setQuery] = useDeferredState(800, '');
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(initialValue);
   const [suggested, setSuggested] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const {t} = useTranslation();
@@ -23,7 +27,8 @@ const Form: React.FC<{onQuery: (query: string) => void}> = ({onQuery}) => {
   // clear input form and focus on it
   function onLogoClick(): void {
     setInputValue('');
-    inputRef.current?.focus();
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    inputRef.current!.focus();
   }
 
   // invoke when user clicked one of the suggested items
@@ -35,11 +40,20 @@ const Form: React.FC<{onQuery: (query: string) => void}> = ({onQuery}) => {
   const queryGiven = query && query.length > 0;
 
   useEffect(() => {
+    function onQuery(query: string) {
+      if (!query || query === '') {
+        return;
+      }
+      sendQueryStatistics(query.length);
+      history.push(`/s/${query}`);
+    }
+
     if (query.length === 0) {
       setSuggested(false);
+    } else {
+      onQuery(query);
     }
-    onQuery(query);
-  }, [query, onQuery]);
+  }, [query, history]);
 
   useEffect(() => {
     const modifiedValue = inputValue.replace(/[\s@+!#$%^&*()[\]]/g, '');
@@ -48,7 +62,9 @@ const Form: React.FC<{onQuery: (query: string) => void}> = ({onQuery}) => {
 
   return (
     <InputContainer>
-      <Logo onClick={onLogoClick}>namæ</Logo>
+      <Logo onClick={onLogoClick}>
+        <Link to="/">namæ</Link>
+      </Logo>
       <InputView
         onChange={onInputChange}
         value={inputValue}
@@ -88,6 +104,14 @@ const Logo = styled.div`
 
   ${mobile} {
     font-size: 15px;
+  }
+
+  a:link,
+  a:hover,
+  a:active,
+  a:visited {
+    text-decoration: none;
+    color: #4a90e2;
   }
 `;
 
