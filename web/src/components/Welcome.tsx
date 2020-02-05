@@ -50,7 +50,7 @@ const Welcome: React.FC = () => {
         <Header>{t('title')}</Header>
         <Text>{t('description')}</Text>
         <ExampleQueries>
-          <h5>Try these queries</h5>
+          <h5>{t('exampleQueries')}</h5>
           <List>
             {queries.map((query) => (
               <ListButton key={query}>
@@ -229,5 +229,10 @@ const ListButton = styled.div`
     padding: 10px;
     border: 1px solid black;
     border-radius: 2px;
+
+    &:hover {
+      color: white;
+      background: black;
+    }
   }
 `;

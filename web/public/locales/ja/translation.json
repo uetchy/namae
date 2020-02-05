@@ -27,7 +27,8 @@
     "ocaml": "OCaml"
   },
   "countryCode": "jp",
-  "try": "全自動名前考え機",
+  "try": "これはどう？",
   "showMore": "もっと見る",
-  "noResult": "該当なし"
+  "noResult": "該当なし",
+  "exampleQueries": "これらのワードでお試しください"
 }

@@ -221,12 +221,14 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: 15px;
-  padding: 5px 14px;
+  margin-top: 20px;
+  padding: 3px 10px;
   color: gray;
   border: 1px solid gray;
   border-radius: 2em;
-  font-size: 0.6rem;
+  text-transform: uppercase;
+  font-size: 12px;
+  user-select: none;
 `;
 
 const Items = styled.div`

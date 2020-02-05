@@ -63,7 +63,7 @@ const Form: React.FC<{
   return (
     <InputContainer>
       <Logo onClick={onLogoClick}>
-        <Link to="/">namæ</Link>
+        <Link to="/">namae</Link>
       </Logo>
       <InputView
         onChange={onInputChange}
@@ -96,7 +96,7 @@ const InputContainer = styled.div`
 const Logo = styled.div`
   margin-bottom: 5px;
   text-align: center;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 20px;
   color: #4a90e2;
@@ -107,11 +107,15 @@ const Logo = styled.div`
   }
 
   a:link,
-  a:hover,
   a:active,
   a:visited {
     text-decoration: none;
     color: #4a90e2;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #0075ff;
   }
 `;
 
@@ -126,9 +130,15 @@ const InputView = styled.input.attrs({
   border: none;
   outline: none;
   text-align: center;
-  font-family: monospace;
+  font-family: 'Montserrat', monospace;
+  font-weight: 600;
   font-size: 5rem;
   line-height: 1.2em;
+  transition: opacity 100ms ease-out;
+
+  &:hover {
+    opacity: 0.9;
+  }
 
   ${mobile} {
     font-size: 2rem;

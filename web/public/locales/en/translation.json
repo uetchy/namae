@@ -27,7 +27,8 @@
     "ocaml": "OCaml"
   },
   "countryCode": "us",
-  "try": "suggestions",
+  "try": "How about this?",
   "showMore": "show more",
-  "noResult": "No Result"
+  "noResult": "No Result",
+  "exampleQueries": "Try these queries"
 }

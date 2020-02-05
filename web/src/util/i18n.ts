@@ -14,7 +14,7 @@ i18n
       backends: [LocalStorageBackend, XHR],
       backendOptions: [
         {
-          versions: {en: '1.7', ja: '1.7'},
+          versions: {en: '1.8', ja: '1.8'},
         },
       ],
     },
