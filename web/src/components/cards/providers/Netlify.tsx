@@ -1,8 +1,8 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {NetlifyIcon} from '../Icons';
+import {NetlifyIcon} from '../../Icons';
 
-import {Card, Repeater, DedicatedAvailability} from './core';
+import {Card, Repeater, DedicatedAvailability} from '../core';
 
 const NetlifyCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();

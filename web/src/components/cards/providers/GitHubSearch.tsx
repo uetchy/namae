@@ -3,7 +3,7 @@ import useFetch from 'fetch-suspense';
 import {useTranslation} from 'react-i18next';
 import {FaGithub, FaInfoCircle} from 'react-icons/fa';
 
-import {Card, Result} from './core';
+import {Card, Result} from '../core';
 
 const Search: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();

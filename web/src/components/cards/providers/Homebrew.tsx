@@ -2,7 +2,7 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {IoIosBeer} from 'react-icons/io';
 
-import {Card, Repeater, ExistentialAvailability} from './core';
+import {Card, Repeater, ExistentialAvailability} from '../core';
 
 const HomebrewCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();
