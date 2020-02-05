@@ -8,12 +8,12 @@ const GithubCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();
   const lowerCase = query.toLowerCase();
 
-  const names = [query];
+  const names = [query, `${lowerCase}-dev`];
   const moreNames = [
     `${lowerCase}hq`,
     `${lowerCase}-team`,
     `${lowerCase}-org`,
-    `${lowerCase}-js`,
+    `${lowerCase}js`,
   ];
 
   return (

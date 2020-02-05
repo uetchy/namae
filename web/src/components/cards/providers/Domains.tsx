@@ -8,11 +8,11 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();
   const lowerCase = query.toLowerCase();
 
-  const names = [`${lowerCase}.com`, `${lowerCase}.app`];
+  const names = [`${lowerCase}.com`, `${lowerCase}.app`, `${lowerCase}.dev`];
   const moreNames = [
     `${lowerCase}app.com`,
     `get${lowerCase}.com`,
-    `${lowerCase}.dev`,
+    `${lowerCase}.org`,
     `${lowerCase}.io`,
     `${lowerCase}.tools`,
   ];

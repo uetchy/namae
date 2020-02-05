@@ -10,14 +10,13 @@ const TwitterCard: React.FC<{query: string}> = ({query}) => {
   const lowerCase = query.toLowerCase();
   const capitalCase = capitalize(query);
 
-  const names = [query];
+  const names = [query, `${capitalCase}App`, `${lowerCase}hq`];
   const moreNames = [
-    `${lowerCase}app`,
     `hey${lowerCase}`,
     `${capitalCase}Team`,
-    `${capitalCase}HQ`,
-    `${lowerCase}_official`,
     `${lowerCase}-support`,
+    `${lowerCase}_org`,
+    `${capitalCase}JS`,
   ];
 
   return (
