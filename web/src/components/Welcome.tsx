@@ -22,10 +22,27 @@ import {IoIosBeer} from 'react-icons/io';
 import {DiRust, DiHeroku} from 'react-icons/di';
 
 import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
+import {shuffleArray} from '../util/array';
 import {mobile} from '../util/css';
+
+const QUERY_WORDS = [
+  'Name',
+  'Colorful',
+  'Ghost',
+  'Animate',
+  'Graph',
+  'Compile',
+  'Crop',
+  'Test',
+  'Cat',
+  'Machine',
+  'Craft',
+];
 
 const Welcome: React.FC = () => {
   const {t} = useTranslation();
+
+  const queries = shuffleArray(QUERY_WORDS).slice(0, 5);
 
   return (
     <Container>
@@ -35,21 +52,11 @@ const Welcome: React.FC = () => {
         <ExampleQueries>
           <h5>Try these queries</h5>
           <List>
-            <ListButton>
-              <Link to="/s/namae">namae</Link>
-            </ListButton>
-            <ListButton>
-              <Link to="/s/Tint">Tint</Link>
-            </ListButton>
-            <ListButton>
-              <Link to="/s/React">React</Link>
-            </ListButton>
-            <ListButton>
-              <Link to="/s/Spotify">Spotify</Link>
-            </ListButton>
-            <ListButton>
-              <Link to="/s/Rust">Rust</Link>
-            </ListButton>
+            {queries.map((query) => (
+              <ListButton key={query}>
+                <Link to={`/s/${query}`}>{query}</Link>
+              </ListButton>
+            ))}
           </List>
         </ExampleQueries>
       </Hero>

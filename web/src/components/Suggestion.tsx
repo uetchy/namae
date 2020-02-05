@@ -4,35 +4,17 @@ import {useTranslation} from 'react-i18next';
 import fetch from 'isomorphic-unfetch';
 import {TiArrowSync} from 'react-icons/ti';
 
-import {capitalize} from '../util/text';
+import {capitalize, stem, germanify, njoin, lower, upper} from '../util/text';
+import {sampleFromArray, fillArray} from '../util/array';
 import {mobile} from '../util/css';
 
 type Modifier = (word: string) => string;
-
-function upper(word: string): string {
-  return word.toUpperCase();
-}
-
-function lower(word: string): string {
-  return word.toLowerCase();
-}
-
-function stem(word: string): string {
-  return word.replace(/[aiueo]$/, '');
-}
-
-function germanify(word: string): string {
-  return word.replace('c', 'k').replace('C', 'K');
-}
-
-function njoin(lhs: string, rhs: string): string {
-  return lhs + rhs.replace(new RegExp(`^${lhs[-1]}`, 'i'), '');
-}
 
 const maximumCount = 3;
 const modifiers: Modifier[] = [
   (word): string => `${capitalize(germanify(word))}`,
   (word): string => `${capitalize(stem(word))}able`,
+  (word): string => `${capitalize(stem(word))}al`,
   (word): string => `${capitalize(stem(word))}el`,
   (word): string => `${capitalize(stem(word))}em`,
   (word): string => `${capitalize(stem(word))}en`,
@@ -40,13 +22,17 @@ const modifiers: Modifier[] = [
   (word): string => `${capitalize(stem(word))}ery`,
   (word): string => `${capitalize(stem(word))}ia`,
   (word): string => `${capitalize(stem(word))}ible`,
+  (word): string => `${capitalize(stem(word))}ics`,
   (word): string => `${capitalize(stem(word))}ifier`,
   (word): string => `${capitalize(stem(word))}ify`,
   (word): string => `${capitalize(stem(word))}ii`,
   (word): string => `${capitalize(stem(word))}ist`,
   (word): string => `${capitalize(stem(word))}in`,
   (word): string => `${capitalize(stem(word))}io`,
+  (word): string => `${capitalize(stem(word))}iverse`,
   (word): string => `${capitalize(stem(word))}ium`,
+  (word): string => `${capitalize(stem(word))}um`,
+  (word): string => `${capitalize(stem(word))}ory`,
   (word): string => njoin(capitalize(stem(word)), 'y'),
   (word): string => `${capitalize(word)}`,
   (word): string => `${capitalize(word)}AI`,
@@ -56,6 +42,7 @@ const modifiers: Modifier[] = [
   (word): string => `${capitalize(word)}Bot`,
   (word): string => `${capitalize(word)}butler`,
   (word): string => `${capitalize(word)}cast`,
+  (word): string => `${capitalize(word)}CDN`,
   (word): string => `${capitalize(word)}Club`,
   (word): string => `${capitalize(word)}DB`,
   (word): string => `${capitalize(word)}feed`,
@@ -96,7 +83,9 @@ const modifiers: Modifier[] = [
   (word): string => `Cloud${capitalize(word)}`,
   (word): string => `Co${lower(word)}`,
   (word): string => `Deep${capitalize(word)}`,
+  (word): string => `Easy${capitalize(word)}`,
   (word): string => `Fast${lower(word)}`,
+  (word): string => `Fusion${capitalize(word)}`,
   (word): string => `Git${capitalize(word)}`,
   (word): string => `Go${capitalize(word)}`,
   (word): string => `Hyper${capitalize(word)}`,
@@ -106,15 +95,19 @@ const modifiers: Modifier[] = [
   (word): string => `lib${lower(word)}`,
   (word): string => `Max${upper(word)}`,
   (word): string => `Micro${lower(word)}`,
+  (word): string => `Native${capitalize(word)}`,
   (word): string => `nano${lower(word)}`,
   (word): string => `No${upper(word)}`,
   (word): string => `Omni${capitalize(word)}`,
   (word): string => `One${capitalize(word)}`,
   (word): string => `Open${capitalize(word)}`,
+  (word): string => njoin('Octo', capitalize(word)),
   (word): string => `Pro${capitalize(word)}`,
   (word): string => `quick${lower(word)}`,
   (word): string => `Smart${capitalize(word)}`,
-  (word): string => `super-${lower(word)}`,
+  (word): string => `Snap${capitalize(word)}`,
+  (word): string => `Super${lower(word)}`,
+  (word): string => `Semantic${capitalize(word)}`,
   (word): string => `Up${lower(word)}`,
   (word): string => `Wunder${lower(germanify(word))}`,
   (word): string => `Zen${capitalize(word)}`,
@@ -126,30 +119,8 @@ const modifiers: Modifier[] = [
   (word): string => njoin(lower(word), 'joy'),
 ];
 
-function shuffleArray<T>(array: T[]): T[] {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
-}
-
-function sampleFromArray<T>(array: T[], maximum: number): T[] {
-  return shuffleArray(array).slice(0, maximum);
-}
-
 function modifyWord(word: string): string {
   return modifiers[Math.floor(Math.random() * modifiers.length)](word);
-}
-
-function fillArray<T>(array: T[], filler: string, maximum: number): T[] {
-  const deficit = maximum - array.length;
-  if (deficit > 0) {
-    array = [...array, ...Array(deficit).fill(filler)];
-  }
-  return array;
 }
 
 async function findSynonyms(word: string): Promise<string[]> {

@@ -6,3 +6,23 @@ export function capitalize(text: string): string {
 export function sanitize(text: string): string {
   return text.replace(/[\s@+!#$%^&*()[\]./<>{}]/g, '');
 }
+
+export function upper(word: string): string {
+  return word.toUpperCase();
+}
+
+export function lower(word: string): string {
+  return word.toLowerCase();
+}
+
+export function stem(word: string): string {
+  return word.replace(/[aiueo]$/, '');
+}
+
+export function germanify(word: string): string {
+  return word.replace('c', 'k').replace('C', 'K');
+}
+
+export function njoin(lhs: string, rhs: string): string {
+  return lhs + rhs.replace(new RegExp(`^${lhs[-1]}`, 'i'), '');
+}
