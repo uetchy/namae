@@ -5,6 +5,7 @@ import {Tooltip} from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
 import BarLoader from 'react-spinners/BarLoader';
 import {GoInfo} from 'react-icons/go';
+import {IoIosFlash} from 'react-icons/io';
 import {useTranslation} from 'react-i18next';
 import {sendError} from '../../util/analytics';
 
@@ -117,9 +118,9 @@ export const DedicatedAvailability: React.FC<{
       message={response.availability ? message : messageIfTaken || message}
       link={response.availability ? link : linkIfTaken || link}
       icon={icon}
-      color={response.availability ? COLORS.available : COLORS.unavailable}
       prefix={prefix}
       suffix={suffix}
+      availability={response.availability}
     />
   );
 };
@@ -159,9 +160,9 @@ export const ExistentialAvailability: React.FC<{
       message={availability ? message : messageIfTaken || message}
       link={availability ? link : linkIfTaken || link}
       icon={icon}
-      color={availability ? COLORS.available : COLORS.unavailable}
       prefix={prefix}
       suffix={suffix}
+      availability={availability}
     />
   );
 };
@@ -171,17 +172,17 @@ export const Result: React.FC<{
   message?: string;
   link?: string;
   icon: React.ReactNode;
-  color?: string;
   prefix?: string;
   suffix?: string;
+  availability?: boolean;
 }> = ({
   title,
   message = '',
   link,
   icon,
-  color = 'inherit',
   prefix = '',
   suffix = '',
+  availability,
 }) => {
   const content = (
     <>
@@ -190,6 +191,12 @@ export const Result: React.FC<{
       {suffix}
     </>
   );
+  const itemColor =
+    availability === undefined
+      ? 'inherit'
+      : availability
+      ? COLORS.available
+      : COLORS.unavailable;
   return (
     <ResultContainer>
       <Tooltip
@@ -198,7 +205,7 @@ export const Result: React.FC<{
         arrow={true}
         animation="shift"
         duration="200">
-        <ResultItem color={color}>
+        <ResultItem color={itemColor}>
           <ResultIcon>{icon}</ResultIcon>
           <ResultName>
             {link ? (
@@ -207,6 +214,7 @@ export const Result: React.FC<{
               content
             )}
           </ResultName>
+          {availability === true ? <IoIosFlash /> : null}
         </ResultItem>
       </Tooltip>
     </ResultContainer>
