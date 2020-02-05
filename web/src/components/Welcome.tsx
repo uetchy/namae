@@ -33,7 +33,7 @@ const Welcome: React.FC = () => {
         <Header>{t('title')}</Header>
         <Text>{t('description')}</Text>
         <ExampleQueries>
-          <h5>Try with these queries</h5>
+          <h5>Try these queries</h5>
           <List>
             <ListButton>
               <Link to="/s/namae">namae</Link>
@@ -155,7 +155,7 @@ const Text = styled.p`
 const Hero = styled.div``;
 
 const ExampleQueries = styled.div`
-  margin: 50px 0 50px;
+  margin: 30px 0 0;
 `;
 
 const List = styled.div`
@@ -171,32 +171,34 @@ const List = styled.div`
 `;
 
 const ColorfulList = styled.div`
+  margin-top: 100px;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  font-size: 1rem;
 
   ${mobile} {
     flex-direction: column;
+    margin-top: 50px;
+    padding: 20px;
   }
 
-  padding: 20px;
-  margin-top: 50px;
+  padding: 50px 20vw 50px 20vw;
   color: white;
   background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%);
 `;
 
 const ListItem = styled.div`
-  margin: 15px;
+  margin: 30px 15px;
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1em;
 
   ${mobile} {
     margin: 10px 0;
+    font-size: 1.2rem;
   }
 
   svg {

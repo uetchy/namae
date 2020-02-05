@@ -218,14 +218,14 @@ const Icon = styled(Item)`
   border-radius: 4px;
   font-size: 1.3rem;
   user-select: none;
-  background: #1066ff;
+  background: #5610ff;
   transition: background 0.1s ease-out;
 
   &:hover {
-    background: #3a79ea;
+    background: #723df3;
   }
 
   &:active {
-    background: #669dfd;
+    background: #a17ff5;
   }
 `;
