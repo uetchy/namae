@@ -121,9 +121,13 @@ const Suggestion: React.FC<{
   }
 
   useEffect(() => {
+    let isEffective = true;
     const fn = async (): Promise<void> => {
       if (query && query.length > 0) {
         const synonyms = await findSynonyms(query);
+        if (!isEffective) {
+          return;
+        }
         synonymRef.current = synonyms;
         const best = fillArray(
           sampleFromArray(synonyms, maximumCount),
@@ -134,6 +138,9 @@ const Suggestion: React.FC<{
       }
     };
     fn();
+    return () => {
+      isEffective = false;
+    };
   }, [query]);
 
   return (
@@ -141,15 +148,15 @@ const Suggestion: React.FC<{
       <Title>{t('try')}</Title>
       <Items>
         {bestWords &&
-          bestWords.map((name) => (
-            <Item key={name} onClick={(): void => applyQuery(name)}>
+          bestWords.map((name, i) => (
+            <Item key={name + i} onClick={(): void => applyQuery(name)}>
               {name}
             </Item>
           ))}
-        <Icon>
-          <TiArrowSync onClick={shuffle} />
-        </Icon>
       </Items>
+      <Icon>
+        <TiArrowSync onClick={shuffle} />
+      </Icon>
     </Container>
   );
 };

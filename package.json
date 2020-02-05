@@ -9,7 +9,7 @@
     "test": "CI=true yarn workspaces run test"
   },
   "dependencies": {
-    "now": "^16.7.0"
+    "typescript": "^3.7.5"
   },
   "devDependencies": {
     "@sentry/cli": "^1.49.0",
