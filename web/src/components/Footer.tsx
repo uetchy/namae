@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
-import {FaTwitter, FaGithubAlt} from 'react-icons/fa';
+import {FaTwitter, FaGithub, FaProductHunt} from 'react-icons/fa';
 
 import {ExternalLink} from './Links';
 
@@ -10,34 +10,7 @@ const Footer: React.FC = () => {
 
   return (
     <Container>
-      <Box>
-        <p>
-          Made with{'  '}
-          <span role="img" aria-label="coffee">
-            🦀
-          </span>{' '}
-          by{' '}
-          <ExternalLink href="https://twitter.com/uetschy">
-            <Bold>Yasuaki Uechi</Bold>
-          </ExternalLink>
-        </p>
-        <Links>
-          <ExternalLink
-            href="https://github.com/uetchy/namae"
-            aria-label="Go to GitHub repository">
-            <FaGithubAlt />
-          </ExternalLink>
-          <ExternalLink
-            aria-label="Tweet this page"
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-              `namae — ${t('title')}`,
-            )}&url=${encodeURIComponent('https://namae.dev')}`}>
-            <FaTwitter />
-          </ExternalLink>
-        </Links>
-      </Box>
-
-      <Box>
+      <LangBox>
         <a href="/?lng=en">
           <span role="img" aria-label="English">
             🇬🇧
@@ -48,7 +21,42 @@ const Footer: React.FC = () => {
             🇯🇵
           </span>
         </a>
+      </LangBox>
+
+      <Box>
+        <p>
+          Made with{'  '}
+          <span role="img" aria-label="coffee">
+            ☕️
+          </span>{' '}
+          by{' '}
+          <ExternalLink href="https://twitter.com/uetschy">
+            <Bold>Yasuaki Uechi</Bold>
+          </ExternalLink>
+        </p>
       </Box>
+
+      <ShareBox>
+        <Links>
+          <ExternalLink
+            aria-label="Tweet this page"
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+              `namae — ${t('title')}`,
+            )}&url=${encodeURIComponent('https://namae.dev')}`}>
+            <FaTwitter />
+          </ExternalLink>
+          <ExternalLink
+            href="https://www.producthunt.com/posts/namae"
+            aria-label="Go to ProductHunt page">
+            <FaProductHunt />
+          </ExternalLink>
+          <ExternalLink
+            href="https://github.com/uetchy/namae"
+            aria-label="Go to GitHub repository">
+            <FaGithub />
+          </ExternalLink>
+        </Links>
+      </ShareBox>
     </Container>
   );
 };
@@ -61,7 +69,6 @@ const Container = styled.div`
   margin: 40px 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 0.7rem;
 
   a {
     color: black;
@@ -75,10 +82,19 @@ const Box = styled.footer`
   flex-direction: row;
   justify-content: center;
   line-height: 1em;
+  font-size: 0.8rem;
+`;
+
+const LangBox = styled(Box)`
+  font-size: 2rem;
+  margin-bottom: 20px;
+`;
+
+const ShareBox = styled(Box)`
+  font-size: 1.5rem;
 `;
 
 const Links = styled.div`
-  margin-left: 15px;
   display: flex;
   align-items: center;
 
