@@ -2,6 +2,7 @@ import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import {Helmet} from 'react-helmet';
 import {useTranslation} from 'react-i18next';
+import {Switch, Route, useParams, Redirect} from 'react-router-dom';
 
 import Welcome from './components/Welcome';
 import Form from './components/Form';
@@ -10,18 +11,21 @@ import Footer from './components/Footer';
 
 import {mobile} from './util/css';
 import {isStandalone} from './util/pwa';
-import {Switch, Route, useParams} from 'react-router-dom';
+import {sanitize} from './util/text';
 
 export default function App() {
   return (
     <>
       <GlobalStyle />
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/s/:query">
           <Search />
         </Route>
-        <Route path="/">
-          <Home />
+        <Route path="*">
+          <Redirect to="/" />
         </Route>
       </Switch>
       <Footer />
@@ -30,7 +34,8 @@ export default function App() {
 }
 
 function Search() {
-  const {query: currentQuery} = useParams<{query: string}>();
+  const params = useParams<{query: string}>();
+  const currentQuery = sanitize(params.query);
 
   return (
     <>
