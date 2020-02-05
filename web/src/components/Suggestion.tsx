@@ -154,8 +154,8 @@ const Suggestion: React.FC<{
             </Item>
           ))}
       </Items>
-      <Icon>
-        <TiArrowSync onClick={shuffle} />
+      <Icon onClick={shuffle}>
+        <TiArrowSync />
       </Icon>
     </Container>
   );
@@ -174,10 +174,11 @@ const Container = styled.div`
 
 const Title = styled.div`
   margin-top: 15px;
-  padding: 5px 12px;
+  padding: 5px 14px;
   color: gray;
   border: 1px solid gray;
   border-radius: 2em;
+  font-size: 0.6rem;
 `;
 
 const Items = styled.div`
@@ -208,7 +209,23 @@ const Item = styled.div`
 `;
 
 const Icon = styled(Item)`
+  margin: 15px 0 0 0;
+  padding: 8px 9px;
   display: flex;
   align-items: center;
   border-bottom: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  user-select: none;
+  background: #1066ff;
+  transition: background 0.1s ease-out;
+
+  &:hover {
+    background: #3a79ea;
+  }
+
+  &:active {
+    background: #669dfd;
+  }
 `;
