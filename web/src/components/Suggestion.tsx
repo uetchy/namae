@@ -9,13 +9,45 @@ import {mobile} from '../util/css';
 
 type Modifier = (word: string) => string;
 
+function upper(word: string): string {
+  return word.toUpperCase();
+}
+
 function lower(word: string): string {
   return word.toLowerCase();
 }
 
+function stem(word: string): string {
+  return word.replace(/[aiueo]$/, '');
+}
+
+function germanify(word: string): string {
+  return word.replace('c', 'k').replace('C', 'K');
+}
+
+function njoin(lhs: string, rhs: string): string {
+  return lhs + rhs.replace(new RegExp(`^${lhs[-1]}`, 'i'), '');
+}
+
 const maximumCount = 3;
 const modifiers: Modifier[] = [
-  (word): string => `${capitalize(lower(word).replace('c', 'k'))}`,
+  (word): string => `${capitalize(germanify(word))}`,
+  (word): string => `${capitalize(stem(word))}able`,
+  (word): string => `${capitalize(stem(word))}el`,
+  (word): string => `${capitalize(stem(word))}em`,
+  (word): string => `${capitalize(stem(word))}en`,
+  (word): string => `${capitalize(stem(word))}er`,
+  (word): string => `${capitalize(stem(word))}ery`,
+  (word): string => `${capitalize(stem(word))}ia`,
+  (word): string => `${capitalize(stem(word))}ible`,
+  (word): string => `${capitalize(stem(word))}ifier`,
+  (word): string => `${capitalize(stem(word))}ify`,
+  (word): string => `${capitalize(stem(word))}ii`,
+  (word): string => `${capitalize(stem(word))}ist`,
+  (word): string => `${capitalize(stem(word))}in`,
+  (word): string => `${capitalize(stem(word))}io`,
+  (word): string => `${capitalize(stem(word))}ium`,
+  (word): string => njoin(capitalize(stem(word)), 'y'),
   (word): string => `${capitalize(word)}`,
   (word): string => `${capitalize(word)}AI`,
   (word): string => `${capitalize(word)}API`,
@@ -26,46 +58,37 @@ const modifiers: Modifier[] = [
   (word): string => `${capitalize(word)}cast`,
   (word): string => `${capitalize(word)}Club`,
   (word): string => `${capitalize(word)}DB`,
-  (word): string => `${capitalize(word)}er`,
-  (word): string => `${capitalize(word)}ery`,
   (word): string => `${capitalize(word)}feed`,
   (word): string => `${capitalize(word)}Finder`,
   (word): string => `${capitalize(word)}flow`,
   (word): string => `${capitalize(word)}form`,
-  (word): string => `${capitalize(word)}ful`,
+  (word): string => njoin(capitalize(word), 'ful'),
   (word): string => `${capitalize(word)}Go`,
   (word): string => `${capitalize(word)}gram`,
   (word): string => `${capitalize(word)}Hero`,
   (word): string => `${capitalize(word)}Hub`,
   (word): string => `${capitalize(word)}Hunt`,
-  (word): string => `${capitalize(word)}ia`,
-  (word): string => `${capitalize(word)}ifier`,
-  (word): string => `${capitalize(word)}ify`,
-  (word): string => `${capitalize(word)}io`,
   (word): string => `${capitalize(word)}It`,
-  (word): string => `${capitalize(word)}ium`,
   (word): string => `${capitalize(word)}Kit`,
   (word): string => `${capitalize(word)}Lab`,
-  (word): string => `${capitalize(word)}let`,
+  (word): string => njoin(capitalize(word), 'let'),
   (word): string => `${capitalize(word)}Link`,
   (word): string => `${capitalize(word)}list`,
   (word): string => `${capitalize(word)}mind`,
-  (word): string => `${capitalize(word)}note`,
+  (word): string => njoin(capitalize(word), 'note'),
   (word): string => `${capitalize(word)}Notes`,
   (word): string => `${capitalize(word)}Pod`,
   (word): string => `${capitalize(word)}Pro`,
   (word): string => `${capitalize(word)}Scan`,
-  (word): string => `${capitalize(word)}shot`,
-  (word): string => `${capitalize(word)}space`,
+  (word): string => njoin(capitalize(word), 'shot'),
+  (word): string => njoin(capitalize(word), 'space'),
   (word): string => `${capitalize(word)}Stack`,
   (word): string => `${capitalize(word)}Studio`,
-  (word): string => `${capitalize(word)}time`,
-  (word): string => `${capitalize(word)}way`,
+  (word): string => njoin(capitalize(word), 'time'),
+  (word): string => njoin(capitalize(word), 'way'),
   (word): string => `${capitalize(word)}x`,
-  (word): string => `${capitalize(word)}y`,
-  (word): string => `${lower(word)}-io`,
+  (word): string => `${lower(word)}-IO`,
   (word): string => `${lower(word)}check`,
-  (word): string => `${lower(word)}joy`,
   (word): string => `${lower(word)}lint`,
   (word): string => `${lower(word)}ly`,
   (word): string => `Air${capitalize(word)}`,
@@ -73,7 +96,7 @@ const modifiers: Modifier[] = [
   (word): string => `Cloud${capitalize(word)}`,
   (word): string => `Co${lower(word)}`,
   (word): string => `Deep${capitalize(word)}`,
-  (word): string => `fast${lower(word)}`,
+  (word): string => `Fast${lower(word)}`,
   (word): string => `Git${capitalize(word)}`,
   (word): string => `Go${capitalize(word)}`,
   (word): string => `Hyper${capitalize(word)}`,
@@ -81,14 +104,10 @@ const modifiers: Modifier[] = [
   (word): string => `Insta${lower(word)}`,
   (word): string => `Lead${lower(word)}`,
   (word): string => `lib${lower(word)}`,
-  (word): string => `Mani${lower(word)}`,
-  (word): string => `Many${lower(word)}`,
+  (word): string => `Max${upper(word)}`,
   (word): string => `Micro${lower(word)}`,
-  (word): string => `mini${lower(word)}`,
-  (word): string => `Mono${lower(word)}`,
   (word): string => `nano${lower(word)}`,
-  (word): string => `Next${lower(word)}`,
-  (word): string => `No${lower(word)}`,
+  (word): string => `No${upper(word)}`,
   (word): string => `Omni${capitalize(word)}`,
   (word): string => `One${capitalize(word)}`,
   (word): string => `Open${capitalize(word)}`,
@@ -96,10 +115,15 @@ const modifiers: Modifier[] = [
   (word): string => `quick${lower(word)}`,
   (word): string => `Smart${capitalize(word)}`,
   (word): string => `super-${lower(word)}`,
-  (word): string => `Uni${lower(word)}`,
   (word): string => `Up${lower(word)}`,
-  (word): string => `Wunder${lower(word)}`,
+  (word): string => `Wunder${lower(germanify(word))}`,
   (word): string => `Zen${capitalize(word)}`,
+  (word): string => njoin('Many', lower(word)),
+  (word): string => njoin('mini', lower(word)),
+  (word): string => njoin('Mono', lower(word)),
+  (word): string => njoin('Next', lower(word)),
+  (word): string => njoin('Uni', lower(word)),
+  (word): string => njoin(lower(word), 'joy'),
 ];
 
 function shuffleArray<T>(array: T[]): T[] {
