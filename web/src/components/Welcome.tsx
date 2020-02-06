@@ -157,6 +157,7 @@ const HeroTitle = styled.h1`
 const HeroText = styled.p`
   font-size: 1.2em;
   font-weight: 300;
+  line-height: 1.3em;
   color: #3c3c3c;
 `;
 
@@ -226,7 +227,7 @@ const ListItem = styled.div`
 `;
 
 const ListButton = styled.div`
-  margin: 10px;
+  margin: 10px 5px;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -241,6 +242,7 @@ const ListButton = styled.div`
     padding: 10px;
     border: 1px solid black;
     border-radius: 2px;
+    text-decoration: none;
 
     &:hover {
       color: white;
