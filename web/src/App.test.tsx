@@ -11,6 +11,8 @@ it('renders welcome message', async () => {
       </Router>
     </Suspense>,
   );
-  const text = await waitForElement(() => getByText('name new project'));
+  const text = await waitForElement(() =>
+    getByText('Grab a slick name for your new app'),
+  );
   expect(text).toBeTruthy();
 });
