@@ -109,6 +109,7 @@ const modifiers: Modifier[] = [
   (word): string => `Super${lower(word)}`,
   (word): string => `Semantic${capitalize(word)}`,
   (word): string => `Up${lower(word)}`,
+  (word): string => `Un${lower(word)}`,
   (word): string => `Wunder${lower(germanify(word))}`,
   (word): string => `Zen${capitalize(word)}`,
   (word): string => njoin('Many', lower(word)),
@@ -250,13 +251,13 @@ const Item = styled.div`
   cursor: pointer;
   font-weight: bold;
   font-family: monospace;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   border-bottom: 1px dashed black;
   color: black;
 
   ${mobile} {
     margin-right: 0;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 `;
 

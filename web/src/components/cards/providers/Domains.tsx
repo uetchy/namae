@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {FaMapSigns} from 'react-icons/fa';
+import {MdDomain} from 'react-icons/md';
 
 import {Card, Repeater, DedicatedAvailability} from '../core';
 
@@ -26,7 +26,7 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
             message="Go to Domainr.com"
             service="domain"
             link={`https://domainr.com/?q=${name}`}
-            icon={<FaMapSigns />}
+            icon={<MdDomain />}
           />
         )}
       </Repeater>

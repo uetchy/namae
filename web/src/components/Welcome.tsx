@@ -47,9 +47,9 @@ const Welcome: React.FC = () => {
   return (
     <Container>
       <Hero>
-        <Header>{t('title')}</Header>
-        <Text>{t('description')}</Text>
-        <ExampleQueries>
+        <HeroTitle>{t('title')}</HeroTitle>
+        <HeroText>{t('description')}</HeroText>
+        <ButtonContainer>
           <h5>{t('exampleQueries')}</h5>
           <List>
             {queries.map((query) => (
@@ -58,9 +58,9 @@ const Welcome: React.FC = () => {
               </ListButton>
             ))}
           </List>
-        </ExampleQueries>
+        </ButtonContainer>
       </Hero>
-      <ColorfulList>
+      <HighlightedList>
         <ListItem>
           <FaMapSigns /> {t('providers.domains')}
         </ListItem>
@@ -124,45 +124,55 @@ const Welcome: React.FC = () => {
         <ListItem>
           <FaBuilding /> {t('providers.nta')}
         </ListItem>
-      </ColorfulList>
+      </HighlightedList>
     </Container>
   );
 };
 export default Welcome;
 
 const Container = styled.div`
+  margin-top: 60px;
   padding-bottom: 40px;
   text-align: center;
   font-size: 1.5rem;
-  line-height: 1.6em;
 
   ${mobile} {
+    margin-top: 0px;
     text-align: left;
-    padding-right: 40px;
-    padding-left: 40px;
     font-size: 1.2rem;
   }
 `;
 
-const Header = styled.h1`
-  font-size: 3.5em;
-  line-height: 1em;
+const HeroTitle = styled.h1`
   padding-bottom: 30px;
+  line-height: 1em;
+  font-size: 4rem;
+  font-weight: 700;
 
   ${mobile} {
-    font-size: 3em;
+    font-size: 2.5em;
   }
 `;
 
-const Text = styled.p`
+const HeroText = styled.p`
   font-size: 1.2em;
+  font-weight: 300;
   color: #3c3c3c;
 `;
 
-const Hero = styled.div``;
+const Hero = styled.div`
+  margin-right: 20vw;
+  margin-left: 20vw;
 
-const ExampleQueries = styled.div`
-  margin: 30px 0 0;
+  ${mobile} {
+    margin: inherit;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  margin: 30px 0 0 0;
 `;
 
 const List = styled.div`
@@ -170,6 +180,7 @@ const List = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+
   font-size: 1rem;
 
   ${mobile} {
@@ -177,7 +188,7 @@ const List = styled.div`
   }
 `;
 
-const ColorfulList = styled.div`
+const HighlightedList = styled.div`
   margin-top: 100px;
   width: 100%;
   display: flex;
@@ -193,11 +204,12 @@ const ColorfulList = styled.div`
 
   padding: 50px 20vw 50px 20vw;
   color: white;
-  background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%);
+  /* background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%); */
+  background: #342d3e;
 `;
 
 const ListItem = styled.div`
-  margin: 30px 15px;
+  margin: 20px 25px;
   display: flex;
   align-items: center;
   font-size: 1.5rem;

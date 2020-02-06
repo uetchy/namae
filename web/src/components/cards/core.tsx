@@ -198,13 +198,13 @@ export const Result: React.FC<{
       ? COLORS.available
       : COLORS.unavailable;
   return (
-    <ResultContainer>
-      <Tooltip
-        title={message}
-        position="bottom"
-        arrow={true}
-        animation="shift"
-        duration="200">
+    <Tooltip
+      title={message}
+      position="bottom"
+      arrow={true}
+      animation="shift"
+      duration="200">
+      <ResultContainer>
         <ResultItem color={itemColor}>
           <ResultIcon>{icon}</ResultIcon>
           <ResultName>
@@ -214,10 +214,14 @@ export const Result: React.FC<{
               content
             )}
           </ResultName>
-          {availability === true ? <IoIosFlash /> : null}
+          {availability === true ? (
+            <AvailableIcon>
+              <IoIosFlash />{' '}
+            </AvailableIcon>
+          ) : null}
         </ResultItem>
-      </Tooltip>
-    </ResultContainer>
+      </ResultContainer>
+    </Tooltip>
   );
 };
 
@@ -290,6 +294,8 @@ const ErrorHandler: React.FC = ({children}) => (
 
 const CardContainer = styled.div`
   padding: 40px;
+  font-size: 1rem;
+  line-height: 1rem;
 
   ${mobile} {
     margin-bottom: 40px;
@@ -299,11 +305,14 @@ const CardContainer = styled.div`
 
 const CardTitle = styled.div`
   margin-bottom: 15px;
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: bold;
 
   ${mobile} {
-    padding-left: 20px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
   }
 `;
 
@@ -312,9 +321,10 @@ const CardContent = styled.div`
 
   ${mobile} {
     padding: 20px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
     background: white;
     border-radius: 0;
+    font-size: 1.2em;
   }
 `;
 
@@ -330,9 +340,7 @@ const Button = styled.div`
 `;
 
 const ResultContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
+  padding: 4px 0;
 `;
 
 const ResultIcon = styled.div`
@@ -349,12 +357,20 @@ const ResultItem = styled.div`
 
 const ResultName = styled.div`
   margin-left: 6px;
-  line-height: 1em;
   font-family: monospace;
-  font-size: 1rem;
 
   a {
     text-decoration: none;
     color: inherit;
   }
+`;
+
+const AvailableIcon = styled.div`
+  margin-top: 2px;
+  margin-left: 3px;
+  padding: 0;
+  width: 15px;
+  text-align: center;
+  font-size: 13px;
+  height: 15px;
 `;

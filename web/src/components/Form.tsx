@@ -82,14 +82,16 @@ const Form: React.FC<{
 export default Form;
 
 const InputContainer = styled.div`
+  padding: 30px;
   transform: translateY(40px);
-  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 10px 50px 0 #858efb;
   background: #ffffff;
-  box-shadow: 0 10px 20px 0 #c7dcf7;
-  border-radius: 20px;
 
   ${mobile} {
+    padding: 20px;
     transform: translateY(20px);
+    border-radius: 30px;
   }
 `;
 
@@ -97,7 +99,7 @@ const Logo = styled.div`
   margin-bottom: 5px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 20px;
   color: #4a90e2;
   cursor: pointer;
@@ -132,13 +134,7 @@ const InputView = styled.input.attrs({
   text-align: center;
   font-family: 'Montserrat', monospace;
   font-weight: 600;
-  font-size: 5rem;
-  line-height: 1.2em;
-  transition: opacity 100ms ease-out;
-
-  &:hover {
-    opacity: 0.9;
-  }
+  font-size: 6rem;
 
   ${mobile} {
     font-size: 2rem;
