@@ -222,18 +222,21 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: 20px;
-  padding: 3px 10px;
+  padding: 0 10px;
   color: gray;
   border: 1px solid gray;
   border-radius: 2em;
   text-transform: uppercase;
   font-size: 12px;
   user-select: none;
+
+  ${mobile} {
+    margin-top: 15px;
+  }
 `;
 
 const Items = styled.div`
-  margin-top: 2px;
+  margin: 5px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -246,12 +249,13 @@ const Items = styled.div`
 `;
 
 const Item = styled.div`
-  margin-top: 8px;
+  margin-top: 10px;
   margin-right: 14px;
   cursor: pointer;
   font-weight: bold;
   font-family: monospace;
   font-size: 1.5rem;
+  line-height: 1em;
   border-bottom: 1px dashed black;
   color: black;
 

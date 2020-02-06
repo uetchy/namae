@@ -131,7 +131,7 @@ const Welcome: React.FC = () => {
 export default Welcome;
 
 const Container = styled.div`
-  margin-top: 60px;
+  margin-top: 30px;
   padding-bottom: 40px;
   text-align: center;
   font-size: 1.5rem;
@@ -146,7 +146,7 @@ const Container = styled.div`
 const HeroTitle = styled.h1`
   padding-bottom: 30px;
   line-height: 1em;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 700;
 
   ${mobile} {
@@ -206,7 +206,7 @@ const HighlightedList = styled.div`
   padding: 50px 20vw 50px 20vw;
   color: white;
   /* background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%); */
-  background: #342d3e;
+  background: #632bec;
 `;
 
 const ListItem = styled.div`

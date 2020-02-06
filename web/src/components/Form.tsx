@@ -62,8 +62,8 @@ const Form: React.FC<{
 
   return (
     <InputContainer>
-      <Logo onClick={onLogoClick}>
-        <Link to="/">namae</Link>
+      <Logo to="/" onClick={onLogoClick}>
+        <LogoImage src="/logo.svg" />
       </Logo>
       <InputView
         onChange={onInputChange}
@@ -82,6 +82,9 @@ const Form: React.FC<{
 export default Form;
 
 const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 30px;
   transform: translateY(40px);
   border-radius: 50px;
@@ -95,29 +98,24 @@ const InputContainer = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  margin-bottom: 5px;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 20px;
-  color: #4a90e2;
+const Logo = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-top: 5px;
   cursor: pointer;
 
   ${mobile} {
     font-size: 15px;
   }
+`;
 
-  a:link,
-  a:active,
-  a:visited {
-    text-decoration: none;
-    color: #4a90e2;
-  }
+const LogoImage = styled.img`
+  width: 140px;
 
-  a:hover {
-    text-decoration: none;
-    color: #0075ff;
+  ${mobile} {
+    width: 90px;
   }
 `;
 
@@ -138,5 +136,9 @@ const InputView = styled.input.attrs({
 
   ${mobile} {
     font-size: 2rem;
+  }
+
+  ::placeholder {
+    color: #c8cdda;
   }
 `;
