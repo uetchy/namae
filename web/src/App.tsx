@@ -28,7 +28,7 @@ export default function App() {
           <Redirect to="/" />
         </Route>
       </Switch>
-      <Footer />
+      {!isStandalone() && <Footer />}
     </>
   );
 }
@@ -63,7 +63,9 @@ function Home() {
       <Header>
         <Form />
       </Header>
-      <Content>{!isStandalone() && <Welcome />}</Content>
+      <Content>
+        <Welcome />
+      </Content>
     </>
   );
 }
