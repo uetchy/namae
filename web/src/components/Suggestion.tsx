@@ -213,12 +213,17 @@ const Suggestion: React.FC<{
 export default Suggestion;
 
 const Container = styled.div`
+  margin-top: 20px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+
+  ${mobile} {
+    margin-top: 15px;
+  }
 `;
 
 const Title = styled.div`
@@ -229,10 +234,6 @@ const Title = styled.div`
   text-transform: uppercase;
   font-size: 12px;
   user-select: none;
-
-  ${mobile} {
-    margin-top: 15px;
-  }
 `;
 
 const Items = styled.div`
@@ -250,7 +251,7 @@ const Items = styled.div`
 
 const Item = styled.div`
   margin-top: 10px;
-  margin-right: 14px;
+  margin: 10px 12px 0;
   cursor: pointer;
   font-weight: bold;
   font-family: monospace;
@@ -260,7 +261,7 @@ const Item = styled.div`
   color: black;
 
   ${mobile} {
-    margin-right: 0;
+    margin: 10px 0 0;
     font-size: 1.3rem;
   }
 `;
