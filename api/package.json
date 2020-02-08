@@ -8,7 +8,7 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "isomorphic-unfetch": "^3.0.0",
+    "node-fetch": "^2.6.0",
     "npm-name": "^5.5.0",
     "whois-json": "^2.0.4"
   },

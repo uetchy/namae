@@ -552,7 +552,6 @@ export const zones = [
   'gcc',
   'gd',
   'gdn',
-  'ge',
   'gea',
   'gecompany',
   'ged',

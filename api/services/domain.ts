@@ -16,9 +16,6 @@ export default async function handler(
     const availability = response[0].data.domainName ? false : true;
     send(res, {availability});
   } catch (err) {
-    if (err.code === 'ENOTFOUND') {
-      return send(res, {availability: true});
-    }
     sendError(res, err);
   }
 }

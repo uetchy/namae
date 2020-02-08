@@ -1,4 +1,7 @@
-export async function mockProvider(provider: any, query: any) {
+export async function mockProvider(
+  provider: any,
+  query: unknown,
+): Promise<string> {
   const req = {
     query,
   };
