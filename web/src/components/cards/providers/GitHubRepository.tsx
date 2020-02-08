@@ -24,10 +24,8 @@ const GithubCard: React.FC<{query: string}> = ({query}) => {
             name={name}
             query={`github.com/${name}`}
             service="existence"
-            message="Create GitHub Organization"
-            link="https://github.com/organizations/new"
-            messageIfTaken={`Go to github.com/${name}`}
-            linkIfTaken={`https://github.com/${name}`}
+            message={`Go to github.com/${name}`}
+            link={`https://github.com/${name}`}
             prefix="github.com/"
             icon={<FaGithub />}
           />

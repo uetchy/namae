@@ -18,10 +18,8 @@ const S3Card: React.FC<{query: string}> = ({query}) => {
             name={name}
             query={`${name}.s3.amazonaws.com`}
             service="existence"
-            message="Go to S3 console"
-            link="https://s3.console.aws.amazon.com"
-            messageIfTaken={`Go to ${name}.s3.amazonaws.com`}
-            linkIfTaken={`https://${name}.s3.amazonaws.com`}
+            message={`Go to ${name}.s3.amazonaws.com`}
+            link={`https://${name}.s3.amazonaws.com`}
             suffix=".s3.amazonaws.com"
             icon={<FaAws />}
           />

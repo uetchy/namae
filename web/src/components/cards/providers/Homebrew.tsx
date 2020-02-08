@@ -18,19 +18,15 @@ const HomebrewCard: React.FC<{query: string}> = ({query}) => {
             <ExistentialAvailability
               name={name}
               target={`https://formulae.brew.sh/api/formula/${name}.json`}
-              message="Read Contribution Guide"
-              link="https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request"
-              messageIfTaken="Go to formula page"
-              linkIfTaken={`https://formulae.brew.sh/formula/${name}`}
+              message="Go to formula page"
+              link={`https://formulae.brew.sh/formula/${name}`}
               icon={<IoIosBeer />}
             />
             <ExistentialAvailability
               name={name}
               target={`https://formulae.brew.sh/api/cask/${name}.json`}
-              message="Read Contribution Guide"
-              link="https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request"
-              messageIfTaken="Go to formula page"
-              linkIfTaken={`https://formulae.brew.sh/cask/${name}`}
+              message="Go to formula page"
+              link={`https://formulae.brew.sh/cask/${name}`}
               suffix=" (Cask)"
               icon={<IoIosBeer />}
             />

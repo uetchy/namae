@@ -18,10 +18,8 @@ const RubyGemsCard: React.FC<{query: string}> = ({query}) => {
             name={name}
             query={`rubygems.org/gems/${name}`}
             service="existence"
-            message="Read Publishing Guide"
-            link="https://guides.rubygems.org/publishing/"
-            messageIfTaken="Go to RubyGems"
-            linkIfTaken={`https://rubygems.org/gems/${name}`}
+            message="Go to RubyGems"
+            link={`https://rubygems.org/gems/${name}`}
             icon={<FaGem />}
           />
         )}
