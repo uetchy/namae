@@ -10,9 +10,12 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
   const lowerCase = query.toLowerCase();
 
   const domainHackSuggestions = zones
-    .map((zone) => new RegExp(`${zone}$`).exec(query))
+    .map((zone) => new RegExp(`${zone}$`).exec(lowerCase))
     .filter((s): s is RegExpExecArray => s !== null)
-    .map((m) => query.substring(0, m.index) + '.' + query.substring(m.index));
+    .map(
+      (m) =>
+        lowerCase.substring(0, m.index) + '.' + lowerCase.substring(m.index),
+    );
 
   const names = [
     `${lowerCase}.com`,
