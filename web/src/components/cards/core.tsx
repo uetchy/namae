@@ -198,13 +198,13 @@ export const Result: React.FC<{
       ? COLORS.available
       : COLORS.unavailable;
   return (
-    <Tooltip
-      title={message}
-      position="bottom"
-      arrow={true}
-      animation="shift"
-      duration="200">
-      <ResultContainer>
+    <ResultContainer>
+      <Tooltip
+        title={message}
+        position="bottom"
+        arrow={true}
+        animation="shift"
+        duration="200">
         <ResultItem color={itemColor}>
           <ResultIcon>{icon}</ResultIcon>
           <ResultName>
@@ -220,8 +220,8 @@ export const Result: React.FC<{
             </AvailableIcon>
           ) : null}
         </ResultItem>
-      </ResultContainer>
-    </Tooltip>
+      </Tooltip>
+    </ResultContainer>
   );
 };
 
@@ -256,23 +256,23 @@ class ErrorBoundary extends React.Component<
   render() {
     if (this.state.hasError) {
       return (
-        <Tooltip
-          title={`${this.state.message}${
-            this.state.eventId ? ` (${this.state.eventId})` : ''
-          }`}
-          position="bottom"
-          arrow={true}
-          animation="shift"
-          duration="200">
-          <ResultContainer>
+        <ResultContainer>
+          <Tooltip
+            title={`${this.state.message}${
+              this.state.eventId ? ` (${this.state.eventId})` : ''
+            }`}
+            position="bottom"
+            arrow={true}
+            animation="shift"
+            duration="200">
             <ResultItem color={COLORS.error}>
               <ResultIcon>
                 <GoInfo />
               </ResultIcon>
               <ResultName>Error</ResultName>
             </ResultItem>
-          </ResultContainer>
-        </Tooltip>
+          </Tooltip>
+        </ResultContainer>
       );
     }
     return this.props.children;
@@ -340,6 +340,8 @@ const Button = styled.div`
 `;
 
 const ResultContainer = styled.div`
+  display: flex;
+  align-items: center;
   padding: 4px 0;
 `;
 
