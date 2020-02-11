@@ -7,6 +7,7 @@ import {TiArrowSync} from 'react-icons/ti';
 import {capitalize, stem, germanify, njoin, lower, upper} from '../util/text';
 import {sampleFromArray, fillArray} from '../util/array';
 import {mobile} from '../util/css';
+import {sanitize} from '../util/text';
 
 type Modifier = (word: string) => string;
 
@@ -141,7 +142,9 @@ async function findSynonyms(word: string): Promise<string[]> {
           [] as string[],
         ),
       ),
-    ).filter((word) => !/[\s-]/.exec(word));
+    )
+      .filter((word) => !/[\s-]/.exec(word))
+      .map((word) => sanitize(word));
     return synonyms;
   } catch (err) {
     return [];
