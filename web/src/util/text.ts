@@ -26,6 +26,12 @@ export function germanify(word: string): string {
   return word.replace('c', 'k').replace('C', 'K');
 }
 
-export function njoin(lhs: string, rhs: string): string {
-  return lhs + rhs.replace(new RegExp(`^${lhs[-1]}`, 'i'), '');
+export function njoin(
+  lhs: string,
+  rhs: string,
+  {elision = true}: {elision?: boolean} = {},
+): string {
+  return elision
+    ? lhs + rhs.replace(new RegExp(`^${lhs[-1]}`, 'i'), '')
+    : lhs + rhs;
 }

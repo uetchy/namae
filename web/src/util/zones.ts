@@ -1380,7 +1380,6 @@ export const zones = [
   'teva',
   'tf',
   'tg',
-  'th',
   'thai',
   'thd',
   'theater',
