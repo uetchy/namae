@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 import fetch from 'isomorphic-unfetch';
 import {TiArrowSync} from 'react-icons/ti';
+import {motion} from 'framer-motion';
 
 import {capitalize, stem, germanify, njoin, lower, upper} from '../util/text';
 import {sampleFromArray, fillArray} from '../util/array';
@@ -217,9 +218,9 @@ const Suggestion: React.FC<{
             </Item>
           ))}
       </Items>
-      <Icon onClick={shuffle}>
+      <Button onClick={shuffle}>
         <TiArrowSync />
-      </Icon>
+      </Button>
     </Container>
   );
 };
@@ -264,8 +265,7 @@ const Items = styled.div`
 `;
 
 const Item = styled.div`
-  margin-top: 10px;
-  margin: 10px 12px 0;
+  margin: 10px 10px 0;
   cursor: pointer;
   font-weight: bold;
   font-family: inherit;
@@ -280,9 +280,12 @@ const Item = styled.div`
   }
 `;
 
-const Icon = styled(Item)`
+const Button = styled(motion.div).attrs({
+  whileHover: {scale: 1.1},
+  whileTap: {scale: 0.9},
+})`
   margin: 15px 0 0 0;
-  padding: 8px 9px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
   border-bottom: none;
@@ -292,6 +295,7 @@ const Icon = styled(Item)`
   user-select: none;
   background: #5610ff;
   transition: background 0.1s ease-out;
+  cursor: pointer;
 
   &:hover {
     background: #723df3;
