@@ -3,23 +3,23 @@
   "description": "namae saves your time searching around registries and checking if the desired name is ready for use.",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
-    "dev": " yarn start",
+    "dev": "yarn start",
     "lint": "yarn workspaces run lint",
     "start": "now dev",
     "test": "CI=true yarn workspaces run test"
   },
   "dependencies": {
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.2"
   },
   "devDependencies": {
-    "@sentry/cli": "^1.49.0",
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
+    "@sentry/cli": "^1.51.0",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
     "codacy-coverage": "^3.4.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-react": "^7.17.0",
-    "husky": "^3.1.0",
+    "husky": "^4.2.3",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1"
   },
