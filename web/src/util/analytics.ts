@@ -1,13 +1,20 @@
 import ReactGA from 'react-ga';
 import * as Sentry from '@sentry/browser';
+import {createBrowserHistory} from 'history';
 
 const isProduction = process.env.NODE_ENV !== 'development';
 
-export function initGA(): void {
+export function initHistoryWithGA() {
+  const history = createBrowserHistory();
   if (isProduction) {
     ReactGA.initialize('UA-28919359-15');
     ReactGA.pageview(window.location.pathname + window.location.search);
+    history.listen((location) => {
+      ReactGA.set({page: location.pathname});
+      ReactGA.pageview(location.pathname);
+    });
   }
+  return history;
 }
 
 export function track({

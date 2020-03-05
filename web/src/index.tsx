@@ -1,21 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {FullScreenSuspense} from './util/suspense';
-import {initGA, initSentry} from './util/analytics';
+import {initHistoryWithGA, initSentry} from './util/analytics';
 import {initCrisp} from './util/crip';
 import './util/i18n';
 
-initGA();
 initSentry();
 initCrisp();
 
+const history = initHistoryWithGA();
+
 ReactDOM.render(
   <FullScreenSuspense>
-    <Router>
+    <Router history={history}>
       <App />
     </Router>
   </FullScreenSuspense>,
