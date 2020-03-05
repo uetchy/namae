@@ -4,24 +4,29 @@ import {useTranslation} from 'react-i18next';
 import {Link, useHistory} from 'react-router-dom';
 import {sanitize} from '../util/text';
 import {sendQueryEvent} from '../util/analytics';
-import {useDeferredState} from '../util/hooks';
-import {mobile} from '../util/css';
+import {mobile, slideUp} from '../util/css';
 import Suggestion from './Suggestion';
+import {useDeferredState} from '../util/hooks';
 
 const Form: React.FC<{
   initialValue?: string;
 }> = ({initialValue = ''}) => {
   const history = useHistory();
-  const [query, setQuery] = useDeferredState(800, '');
   const [inputValue, setInputValue] = useState(initialValue);
+  const [suggestionQuery, setSuggestionQuery] = useDeferredState(800, '');
+  const [isFocused, setFocus] = useState(false);
   const [suggested, setSuggested] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const {t} = useTranslation();
 
+  function search(query: string) {
+    sendQueryEvent(sanitize(query));
+    history.push(`/s/${query}`);
+  }
+
   // set input value
   function onInputChange(e: React.FormEvent<HTMLInputElement>): void {
-    const value = e.currentTarget.value;
-    setInputValue(value);
+    setInputValue(e.currentTarget.value);
   }
 
   // clear input form and focus on it
@@ -34,53 +39,56 @@ const Form: React.FC<{
   // invoke when user clicked one of the suggested items
   function onSuggestionCompleted(name: string): void {
     setInputValue(name);
+    search(name);
     setSuggested(true);
   }
 
-  const queryGiven = query && query.length > 0;
-
-  useEffect(() => {
-    function onQuery(query: string) {
-      if (!query || query === '') {
-        return;
-      }
-      sendQueryEvent(query);
-      history.push(`/s/${query}`);
+  function onSubmitQuery(e: React.FormEvent) {
+    e.preventDefault();
+    if (!inputValue || inputValue === '') {
+      return;
     }
-
-    if (query.length === 0) {
-      setSuggested(false);
-    } else {
-      onQuery(query);
-    }
-  }, [query, history]);
+    search(inputValue);
+  }
 
   useEffect(() => {
     const modifiedValue = sanitize(inputValue);
-    setQuery(modifiedValue);
-  }, [inputValue, setQuery]);
+    setSuggestionQuery(modifiedValue);
+  }, [inputValue, setSuggestionQuery]);
+
+  const queryGiven = suggestionQuery && suggestionQuery !== '';
 
   return (
     <InputContainer>
       <Logo to="/" onClick={onLogoClick}>
         <LogoImage src="/logo.svg" />
       </Logo>
-      <InputView
-        onChange={onInputChange}
-        value={inputValue}
-        ref={inputRef}
-        placeholder={t('placeholder')}
-        aria-label="search query"
-      />
+      <form onSubmit={onSubmitQuery}>
+        <InputView
+          onChange={onInputChange}
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
+          value={inputValue}
+          ref={inputRef}
+          placeholder={t('placeholder')}
+          aria-label="search form"
+        />
+        {isFocused && (
+          <Tips>
+            <span>
+              Press <kbd>Enter</kbd> to search
+            </span>
+          </Tips>
+        )}
+      </form>
       {queryGiven && !suggested ? (
-        <Suggestion onSubmit={onSuggestionCompleted} query={query} />
+        <Suggestion onSubmit={onSuggestionCompleted} query={suggestionQuery} />
       ) : null}
     </InputContainer>
   );
 };
 
 export default Form;
-
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -120,7 +128,8 @@ const LogoImage = styled.img`
 `;
 
 const InputView = styled.input.attrs({
-  type: 'text',
+  type: 'input',
+  name: 'search',
   autocomplete: 'off',
   autocorrect: 'off',
   autocapitalize: 'off',
@@ -140,5 +149,17 @@ const InputView = styled.input.attrs({
 
   ::placeholder {
     color: #c8cdda;
+  }
+`;
+
+const Tips = styled.div`
+  color: #ababab;
+  text-align: center;
+  overflow: hidden;
+
+  span {
+    display: block;
+    animation: ${slideUp} 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: both;
   }
 `;

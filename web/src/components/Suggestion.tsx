@@ -7,7 +7,7 @@ import {motion} from 'framer-motion';
 
 import {capitalize, stem, germanify, njoin, lower, upper} from '../util/text';
 import {sampleFromArray, fillArray} from '../util/array';
-import {mobile} from '../util/css';
+import {mobile, slideUp} from '../util/css';
 import {sanitize} from '../util/text';
 import {
   sendShuffleSuggestionEvent,
@@ -225,8 +225,11 @@ const Suggestion: React.FC<{
       <Items>
         {bestWords &&
           bestWords.map((name, i) => (
-            <Item key={name + i} onClick={(): void => applyQuery(name)}>
-              {name}
+            <Item
+              key={name + i}
+              onClick={(): void => applyQuery(name)}
+              delay={i + 1}>
+              <span>{name}</span>
             </Item>
           ))}
       </Items>
@@ -276,7 +279,7 @@ const Items = styled.div`
   }
 `;
 
-const Item = styled.div`
+const Item = styled.div<{delay: number}>`
   margin: 10px 10px 0;
   cursor: pointer;
   font-weight: bold;
@@ -285,6 +288,14 @@ const Item = styled.div`
   line-height: 1em;
   border-bottom: 1px dashed black;
   color: black;
+  overflow: hidden;
+
+  span {
+    display: block;
+    animation: ${slideUp} 0.6s ${(props) => `${props.delay * 0.1}s`}
+      cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: both;
+  }
 
   ${mobile} {
     margin: 10px 0 0;
