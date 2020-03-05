@@ -7,7 +7,7 @@ import BarLoader from 'react-spinners/BarLoader';
 import {GoInfo} from 'react-icons/go';
 import {IoIosFlash} from 'react-icons/io';
 import {useTranslation} from 'react-i18next';
-import {sendError} from '../../util/analytics';
+import {sendError, sendExpandEvent} from '../../util/analytics';
 
 import {mobile} from '../../util/css';
 import {ExternalLink} from '../Links';
@@ -38,6 +38,7 @@ export const Repeater: React.FC<{
   const {t} = useTranslation();
 
   function onClick() {
+    sendExpandEvent();
     setRevealAlternatives(true);
   }
 

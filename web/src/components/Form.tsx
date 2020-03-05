@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 import {Link, useHistory} from 'react-router-dom';
 import {sanitize} from '../util/text';
-import {sendQueryStatistics} from '../util/analytics';
+import {sendQueryEvent} from '../util/analytics';
 import {useDeferredState} from '../util/hooks';
 import {mobile} from '../util/css';
 import Suggestion from './Suggestion';
@@ -44,7 +44,7 @@ const Form: React.FC<{
       if (!query || query === '') {
         return;
       }
-      sendQueryStatistics(query.length);
+      sendQueryEvent(query);
       history.push(`/s/${query}`);
     }
 

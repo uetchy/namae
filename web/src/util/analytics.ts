@@ -10,14 +10,45 @@ export function initGA(): void {
   }
 }
 
-export function sendQueryStatistics(queryLength: number): void {
+export function track({
+  category,
+  action,
+  label = undefined,
+  value = undefined,
+}: {
+  category: string;
+  action: string;
+  label?: string;
+  value?: number;
+}) {
   if (isProduction) {
     ReactGA.event({
-      category: 'Search',
-      action: 'New search invoked',
-      value: queryLength,
+      category,
+      action,
+      label,
+      value,
     });
   }
+}
+
+export function sendQueryEvent(query: string): void {
+  track({category: 'Search', action: 'search', label: query});
+}
+
+export function sendExampleQueryEvent(query: string): void {
+  track({category: 'Search', action: 'tryExampleQuery', label: query});
+}
+
+export function sendExpandEvent(): void {
+  track({category: 'Result', action: 'expand'});
+}
+
+export function sendAcceptSuggestionEvent(): void {
+  track({category: 'Suggestion', action: 'accept'});
+}
+
+export function sendShuffleSuggestionEvent(): void {
+  track({category: 'Suggestion', action: 'shuffle'});
 }
 
 export function initSentry(): void {

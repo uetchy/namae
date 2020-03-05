@@ -33,25 +33,6 @@ export default function App() {
   );
 }
 
-function Search() {
-  const params = useParams<{query: string}>();
-  const currentQuery = sanitize(params.query);
-
-  return (
-    <>
-      <Helmet>
-        <title>Search for &quot;{currentQuery}&quot; — namae</title>
-      </Helmet>
-      <Header>
-        <Form initialValue={currentQuery} />
-      </Header>
-      <Content>
-        <Cards query={currentQuery} />
-      </Content>
-    </>
-  );
-}
-
 function Home() {
   const {t} = useTranslation();
 
@@ -65,6 +46,25 @@ function Home() {
       </Header>
       <Content>
         <Welcome />
+      </Content>
+    </>
+  );
+}
+
+function Search() {
+  const {query} = useParams<{query: string}>();
+  const currentQuery = sanitize(query);
+
+  return (
+    <>
+      <Helmet>
+        <title>Search for &quot;{currentQuery}&quot; — namae</title>
+      </Helmet>
+      <Header>
+        <Form initialValue={currentQuery} />
+      </Header>
+      <Content>
+        <Cards query={currentQuery} />
       </Content>
     </>
   );

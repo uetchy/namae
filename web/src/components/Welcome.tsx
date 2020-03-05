@@ -24,6 +24,7 @@ import {DiRust, DiHeroku} from 'react-icons/di';
 import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
 import {shuffleArray} from '../util/array';
 import {mobile} from '../util/css';
+import {sendExampleQueryEvent} from '../util/analytics';
 
 const QUERY_WORDS = [
   'Name',
@@ -54,7 +55,11 @@ const Welcome: React.FC = () => {
           <List>
             {queries.map((query) => (
               <ListButton key={query}>
-                <Link to={`/s/${query}`}>{query}</Link>
+                <Link
+                  to={`/s/${query}`}
+                  onClick={() => sendExampleQueryEvent(query)}>
+                  {query}
+                </Link>
               </ListButton>
             ))}
           </List>

@@ -9,6 +9,10 @@ import {capitalize, stem, germanify, njoin, lower, upper} from '../util/text';
 import {sampleFromArray, fillArray} from '../util/array';
 import {mobile} from '../util/css';
 import {sanitize} from '../util/text';
+import {
+  sendShuffleSuggestionEvent,
+  sendAcceptSuggestionEvent,
+} from '../util/analytics';
 
 type Modifier = (word: string) => string;
 
@@ -22,6 +26,7 @@ const modifiers: Modifier[] = [
   (word): string => njoin('Co', lower(word), {elision: false}),
   (word): string => njoin('Deep', capitalize(word), {elision: false}),
   (word): string => njoin('Easy', capitalize(word), {elision: false}),
+  (word): string => njoin('En', lower(word), {elision: false}),
   (word): string => njoin('Fast', lower(word), {elision: false}),
   (word): string => njoin('Fire', lower(word), {elision: false}),
   (word): string => njoin('Fusion', capitalize(word), {elision: false}),
@@ -98,6 +103,7 @@ const modifiers: Modifier[] = [
   (word): string => njoin(capitalize(word), 'Club', {elision: false}),
   (word): string => njoin(capitalize(word), 'DB', {elision: false}),
   (word): string => njoin(capitalize(word), 'Express', {elision: false}),
+  (word): string => njoin(capitalize(word), 'en'),
   (word): string => njoin(capitalize(word), 'feed', {elision: false}),
   (word): string => njoin(capitalize(word), 'Finder', {elision: false}),
   (word): string => njoin(capitalize(word), 'flow', {elision: false}),
@@ -186,7 +192,13 @@ const Suggestion: React.FC<{
   }
 
   function applyQuery(name: string): void {
+    sendAcceptSuggestionEvent();
     onSubmit(name);
+  }
+
+  function onShuffleButtonClicked() {
+    sendShuffleSuggestionEvent();
+    shuffle();
   }
 
   useEffect(() => {
@@ -218,7 +230,7 @@ const Suggestion: React.FC<{
             </Item>
           ))}
       </Items>
-      <Button onClick={shuffle}>
+      <Button onClick={onShuffleButtonClicked}>
         <TiArrowSync />
       </Button>
     </Container>
