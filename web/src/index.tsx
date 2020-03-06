@@ -23,4 +23,12 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-serviceWorker.register({});
+serviceWorker.register({
+  onUpdate: (registration) => {
+    console.log('New version available! Ready to update?');
+    if (registration && registration.waiting) {
+      registration.waiting.postMessage({type: 'SKIP_WAITING'});
+    }
+    window.location.reload();
+  },
+});
