@@ -22,28 +22,11 @@ import {IoIosBeer} from 'react-icons/io';
 import {DiRust, DiHeroku} from 'react-icons/di';
 
 import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
-import {shuffleArray} from '../util/array';
 import {mobile} from '../util/css';
 import {sendExampleQueryEvent} from '../util/analytics';
 
-const QUERY_WORDS = [
-  'Name',
-  'Colorful',
-  'Ghost',
-  'Animate',
-  'Graph',
-  'Compile',
-  'Crop',
-  'Test',
-  'Cat',
-  'Machine',
-  'Craft',
-];
-
 const Welcome: React.FC = () => {
   const {t} = useTranslation();
-
-  const queries = shuffleArray(QUERY_WORDS).slice(0, 5);
 
   return (
     <Container>
@@ -51,17 +34,14 @@ const Welcome: React.FC = () => {
         <HeroTitle>{t('title')}</HeroTitle>
         <HeroText>{t('description')}</HeroText>
         <ButtonContainer>
-          <h5>{t('exampleQueries')}</h5>
           <List>
-            {queries.map((query) => (
-              <ListButton key={query}>
-                <Link
-                  to={`/s/${query}`}
-                  onClick={() => sendExampleQueryEvent(query)}>
-                  {query}
-                </Link>
-              </ListButton>
-            ))}
+            <ListButton>
+              <Link
+                to="/s/namae"
+                onClick={() => sendExampleQueryEvent('namae')}>
+                {t('gettingStarted')}
+              </Link>
+            </ListButton>
           </List>
         </ButtonContainer>
       </Hero>
@@ -161,7 +141,7 @@ const HeroTitle = styled.h1`
 
 const HeroText = styled.p`
   font-size: 1.2em;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.3em;
   color: #3c3c3c;
 `;
@@ -178,7 +158,7 @@ const Hero = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  margin: 30px 0 0 0;
+  margin: 10px 0 0 0;
 `;
 
 const List = styled.div`
@@ -244,7 +224,7 @@ const ListButton = styled.div`
 
   a {
     color: black;
-    padding: 10px;
+    padding: 12px 25px;
     border: 1px solid black;
     border-radius: 2px;
     text-decoration: none;

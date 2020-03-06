@@ -1,6 +1,6 @@
 {
-  "title": "その名前、もう使われてる？",
-  "description": "あなたの新しいアプリやライブラリにつける「名前」が被っていないか調べましょう。",
+  "title": "唯一無二の名前を見つけましょう",
+  "description": "namae は、あなたのアプリやライブラリにつける最適な名前を見つけるお手伝いをします。",
   "placeholder": "検索",
   "providers": {
     "domains": "ドメイン",
@@ -30,5 +30,6 @@
   "try": "これはどう？",
   "showMore": "もっと見る",
   "noResult": "該当なし",
-  "exampleQueries": "これらのワードでお試しください"
+  "gettingStarted": "試してみる",
+  "pressEnterToSearch": "エンターキーで検索"
 }

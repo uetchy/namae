@@ -30,5 +30,6 @@
   "try": "How about this?",
   "showMore": "show more",
   "noResult": "No Result",
-  "exampleQueries": "Try these queries"
+  "gettingStarted": "Getting Started",
+  "pressEnterToSearch": "Press Enter to search"
 }

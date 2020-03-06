@@ -75,9 +75,7 @@ const Form: React.FC<{
         />
         {isFocused && (
           <Tips>
-            <span>
-              Press <kbd>Enter</kbd> to search
-            </span>
+            <span>{t('pressEnterToSearch')}</span>
           </Tips>
         )}
       </form>

@@ -5,6 +5,8 @@ import XHR from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import {initReactI18next} from 'react-i18next';
 
+const TRANSLATION_VERSION = '1.11';
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -14,7 +16,7 @@ i18n
       backends: [LocalStorageBackend, XHR],
       backendOptions: [
         {
-          versions: {en: '1.10', ja: '1.10'},
+          versions: {en: TRANSLATION_VERSION, ja: TRANSLATION_VERSION},
         },
       ],
     },

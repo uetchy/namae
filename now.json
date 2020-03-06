@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "namae",
   "alias": "namae.dev",
   "builds": [
     {
