@@ -7,10 +7,10 @@ import BarLoader from 'react-spinners/BarLoader';
 import {GoInfo} from 'react-icons/go';
 import {IoIosFlash} from 'react-icons/io';
 import {useTranslation} from 'react-i18next';
-import {sendError, sendExpandEvent} from '../../util/analytics';
+import {OutboundLink} from 'react-ga';
 
+import {sendError, sendExpandEvent} from '../../util/analytics';
 import {mobile} from '../../util/css';
-import {ExternalLink} from '../Links';
 
 const COLORS = {
   available: '#6e00ff',
@@ -210,7 +210,12 @@ export const Result: React.FC<{
           <ResultIcon>{icon}</ResultIcon>
           <ResultName>
             {link ? (
-              <ExternalLink href={link}>{content}</ExternalLink>
+              <OutboundLink
+                to={link}
+                eventLabel={link.split('/')[2]}
+                target="_blank">
+                {content}
+              </OutboundLink>
             ) : (
               content
             )}

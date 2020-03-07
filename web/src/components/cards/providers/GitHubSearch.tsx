@@ -20,7 +20,7 @@ const Search: React.FC<{query: string}> = ({query}) => {
       id: string;
     }>;
   };
-  const repos = response.items;
+  const repos = response.items || [];
 
   return (
     <>

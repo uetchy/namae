@@ -10,14 +10,13 @@ export function initHistoryWithGA() {
     ReactGA.initialize('UA-28919359-15');
     ReactGA.pageview(window.location.pathname + window.location.search);
     history.listen((location) => {
-      ReactGA.set({page: location.pathname});
-      ReactGA.pageview(location.pathname);
+      ReactGA.pageview(location.pathname + location.search);
     });
   }
   return history;
 }
 
-export function track({
+export function trackEvent({
   category,
   action,
   label = undefined,
@@ -39,23 +38,23 @@ export function track({
 }
 
 export function sendQueryEvent(query: string): void {
-  track({category: 'Search', action: 'search', label: query});
+  trackEvent({category: 'Search', action: 'search', label: query});
 }
 
 export function sendExampleQueryEvent(query: string): void {
-  track({category: 'Search', action: 'tryExampleQuery', label: query});
+  trackEvent({category: 'Search', action: 'tryExampleQuery', label: query});
 }
 
 export function sendExpandEvent(): void {
-  track({category: 'Result', action: 'expand'});
+  trackEvent({category: 'Result', action: 'expand'});
 }
 
 export function sendAcceptSuggestionEvent(): void {
-  track({category: 'Suggestion', action: 'accept'});
+  trackEvent({category: 'Suggestion', action: 'accept'});
 }
 
 export function sendShuffleSuggestionEvent(): void {
-  track({category: 'Suggestion', action: 'shuffle'});
+  trackEvent({category: 'Suggestion', action: 'shuffle'});
 }
 
 export function initSentry(): void {
