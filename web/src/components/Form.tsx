@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {Link, useHistory} from 'react-router-dom';
 import {sanitize} from '../util/text';
 import {sendQueryEvent} from '../util/analytics';
-import {mobile, slideUp} from '../util/css';
+import {mobile} from '../util/css';
 import Suggestion from './Suggestion';
 import {useDeferredState} from '../util/hooks';
 
@@ -14,7 +14,6 @@ const Form: React.FC<{
   const history = useHistory();
   const [inputValue, setInputValue] = useState(initialValue);
   const [suggestionQuery, setSuggestionQuery] = useDeferredState(800, '');
-  const [isFocused, setFocus] = useState(false);
   const [suggested, setSuggested] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const {t} = useTranslation();
@@ -66,18 +65,12 @@ const Form: React.FC<{
       <form onSubmit={onSubmitQuery}>
         <InputView
           onChange={onInputChange}
-          onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
+          onBlur={onSubmitQuery}
           value={inputValue}
           ref={inputRef}
           placeholder={t('placeholder')}
           aria-label="search form"
         />
-        {isFocused && (
-          <Tips>
-            <span>{t('pressEnterToSearch')}</span>
-          </Tips>
-        )}
       </form>
       {queryGiven && !suggested ? (
         <Suggestion onSubmit={onSuggestionCompleted} query={suggestionQuery} />
@@ -126,8 +119,7 @@ const LogoImage = styled.img`
 `;
 
 const InputView = styled.input.attrs({
-  type: 'input',
-  name: 'search',
+  type: 'search',
   autocomplete: 'off',
   autocorrect: 'off',
   autocapitalize: 'off',
@@ -140,6 +132,7 @@ const InputView = styled.input.attrs({
   font-family: 'Montserrat', monospace;
   font-weight: 600;
   font-size: 6rem;
+  appearance: none;
 
   ${mobile} {
     font-size: 2rem;
@@ -147,17 +140,5 @@ const InputView = styled.input.attrs({
 
   ::placeholder {
     color: #c8cdda;
-  }
-`;
-
-const Tips = styled.div`
-  color: #ababab;
-  text-align: center;
-  overflow: hidden;
-
-  span {
-    display: block;
-    animation: ${slideUp} 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-    animation-fill-mode: both;
   }
 `;
