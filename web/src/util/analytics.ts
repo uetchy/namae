@@ -38,7 +38,7 @@ export function trackEvent({
 }
 
 export function sendQueryEvent(query: string): void {
-  trackEvent({category: 'Search', action: 'Search New Word', label: query});
+  trackEvent({category: 'Search', action: 'Invoke New Search', label: query});
 }
 
 export function sendGettingStartedEvent(): void {

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 import {FaTwitter, FaGithub, FaProductHunt} from 'react-icons/fa';
-
-import {ExternalLink} from './Links';
+import {OutboundLink} from 'react-ga';
 
 const Footer: React.FC = () => {
   const {t} = useTranslation();
@@ -30,31 +29,41 @@ const Footer: React.FC = () => {
             ☕️
           </span>{' '}
           by{' '}
-          <ExternalLink href="https://twitter.com/uetschy">
+          <OutboundLink
+            to="https://twitter.com/uetschy"
+            eventLabel="Author Page"
+            aria-label="Author page"
+            target="_blank">
             <Bold>Yasuaki Uechi</Bold>
-          </ExternalLink>
+          </OutboundLink>
         </p>
       </Box>
 
       <ShareBox>
         <Links>
-          <ExternalLink
-            aria-label="Tweet this page"
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          <OutboundLink
+            to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
               `namae — ${t('title')}`,
-            )}&url=${encodeURIComponent('https://namae.dev')}`}>
+            )}&url=${encodeURIComponent('https://namae.dev')}`}
+            eventLabel="Tweet"
+            aria-label="Tweet this page"
+            target="_blank">
             <FaTwitter />
-          </ExternalLink>
-          <ExternalLink
-            href="https://www.producthunt.com/posts/namae"
-            aria-label="Go to ProductHunt page">
+          </OutboundLink>
+          <OutboundLink
+            to="https://www.producthunt.com/posts/namae"
+            eventLabel="ProductHunt"
+            aria-label="Go to ProductHunt page"
+            target="_blank">
             <FaProductHunt />
-          </ExternalLink>
-          <ExternalLink
-            href="https://github.com/uetchy/namae"
-            aria-label="Go to GitHub repository">
+          </OutboundLink>
+          <OutboundLink
+            to="https://github.com/uetchy/namae"
+            eventLabel="GitHub Repo"
+            aria-label="Go to GitHub repository"
+            target="_blank">
             <FaGithub />
-          </ExternalLink>
+          </OutboundLink>
         </Links>
       </ShareBox>
     </Container>
@@ -98,8 +107,8 @@ const Links = styled.div`
   display: flex;
   align-items: center;
 
-  ${ExternalLink} {
-    margin-right: 5px;
+  a {
+    margin: 0 3px;
   }
 `;
 
