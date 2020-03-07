@@ -23,7 +23,7 @@ import {DiRust, DiHeroku} from 'react-icons/di';
 
 import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
 import {mobile} from '../util/css';
-import {sendExampleQueryEvent} from '../util/analytics';
+import {sendGettingStartedEvent} from '../util/analytics';
 
 const Welcome: React.FC = () => {
   const {t} = useTranslation();
@@ -36,9 +36,7 @@ const Welcome: React.FC = () => {
         <ButtonContainer>
           <List>
             <ListButton>
-              <Link
-                to="/s/namae"
-                onClick={() => sendExampleQueryEvent('namae')}>
+              <Link to="/s/namae" onClick={() => sendGettingStartedEvent()}>
                 {t('gettingStarted')}
               </Link>
             </ListButton>

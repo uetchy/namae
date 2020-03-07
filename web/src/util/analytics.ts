@@ -38,23 +38,23 @@ export function trackEvent({
 }
 
 export function sendQueryEvent(query: string): void {
-  trackEvent({category: 'Search', action: 'search', label: query});
+  trackEvent({category: 'Search', action: 'Search New Word', label: query});
 }
 
-export function sendExampleQueryEvent(query: string): void {
-  trackEvent({category: 'Search', action: 'tryExampleQuery', label: query});
+export function sendGettingStartedEvent(): void {
+  trackEvent({category: 'Search', action: 'Getting Started'});
 }
 
 export function sendExpandEvent(): void {
-  trackEvent({category: 'Result', action: 'expand'});
+  trackEvent({category: 'Result', action: 'Expand Card'});
 }
 
 export function sendAcceptSuggestionEvent(): void {
-  trackEvent({category: 'Suggestion', action: 'accept'});
+  trackEvent({category: 'Suggestion', action: 'Accept'});
 }
 
 export function sendShuffleSuggestionEvent(): void {
-  trackEvent({category: 'Suggestion', action: 'shuffle'});
+  trackEvent({category: 'Suggestion', action: 'Shuffle'});
 }
 
 export function initSentry(): void {
