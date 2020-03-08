@@ -292,9 +292,8 @@ const Item = styled.div<{delay: number}>`
 
   span {
     display: block;
-    animation: ${slideUp} 0.6s ${(props) => `${props.delay * 0.1}s`}
-      cubic-bezier(0.19, 1, 0.22, 1);
-    animation-fill-mode: both;
+    animation: 0.6s cubic-bezier(0.19, 1, 0.22, 1)
+      ${(props) => `${props.delay * 0.1}s`} 1 normal both running ${slideUp};
   }
 
   ${mobile} {

@@ -7,6 +7,6 @@ from {
   transform: translateY(150%) skewY(10deg);
 }
 to {
-  transform: translateY(0);
+  transform: translateY(0) skewY(0);
 }
 `;
