@@ -135,6 +135,7 @@ const modifiers: Modifier[] = [
   (word): string => njoin(capitalize(word), 'space'),
   (word): string => njoin(capitalize(word), 'Stack', {elision: false}),
   (word): string => njoin(capitalize(word), 'Studio', {elision: false}),
+  (word): string => njoin(capitalize(word), 'Sensei', {elision: false}),
   (word): string => njoin(capitalize(word), 'time'),
   (word): string => njoin(capitalize(word), 'way'),
   (word): string => njoin(capitalize(word), 'x', {elision: false}),
@@ -228,7 +229,8 @@ const Suggestion: React.FC<{
             <Item
               key={name + i}
               onClick={(): void => applyQuery(name)}
-              delay={i + 1}>
+              delay={i + 1}
+            >
               <span>{name}</span>
             </Item>
           ))}
