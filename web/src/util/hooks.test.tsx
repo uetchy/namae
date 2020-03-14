@@ -1,6 +1,7 @@
 import React from 'react';
-import {render, waitForDomChange} from '@testing-library/react';
+import {render, waitFor} from '@testing-library/react';
 import {useDeferredState} from './hooks';
+import 'mutationobserver-shim';
 
 const App: React.FC = () => {
   const [value, setValue] = useDeferredState(500, 0);
@@ -13,8 +14,9 @@ const App: React.FC = () => {
 };
 
 it('provoke state flow after certain time passed', async () => {
-  const {container, getByTestId} = render(<App />);
+  const {getByTestId} = render(<App />);
   expect(getByTestId('root').textContent).toBe('0');
-  await waitForDomChange({container});
-  expect(getByTestId('root').textContent).toBe('3');
+  await waitFor(() => {
+    expect(getByTestId('root').textContent).toBe('3');
+  });
 });

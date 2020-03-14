@@ -13,10 +13,10 @@
     "whois-json": "^2.0.4"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.3",
-    "@types/node": "^13.7.4",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^13.9.1",
     "@types/node-fetch": "^2.5.5",
-    "jest": "^24.9.0",
+    "jest": "24.9.0",
     "nock": "^12.0.2",
     "ts-jest": "^25.2.1"
   },
