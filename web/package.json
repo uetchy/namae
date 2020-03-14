@@ -21,7 +21,7 @@
     "i18next-xhr-backend": "^3.1.2",
     "isomorphic-unfetch": "^3.0.0",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
+    "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-ga": "^2.7.0",
     "react-helmet": "^5.2.1",
