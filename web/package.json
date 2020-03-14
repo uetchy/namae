@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^5.12.4",
-    "fetch-suspense": "^1.2.0",
+    "fetch-suspense": "^1.2.2",
     "framer-motion": "^1.8.4",
     "i18next": ">=19.3.1",
     "i18next-browser-languagedetector": "^4.0.2",
