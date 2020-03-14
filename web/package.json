@@ -23,7 +23,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.13.0",
-    "react-ga": "^2.6.0",
+    "react-ga": "^2.7.0",
     "react-helmet": "^5.2.1",
     "react-i18next": "11.3.3",
     "react-icons": "^3.9.0",
