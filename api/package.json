@@ -17,7 +17,7 @@
     "@types/node": "^13.7.4",
     "@types/node-fetch": "^2.5.0",
     "jest": "^24.9.0",
-    "nock": "^12.0.1",
+    "nock": "^12.0.2",
     "ts-jest": "^25.2.1"
   },
   "engines": {
