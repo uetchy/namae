@@ -14,7 +14,7 @@
     "@sentry/browser": "^5.14.2",
     "fetch-suspense": "^1.2.2",
     "framer-motion": "^1.9.1",
-    "i18next": ">=19.3.2",
+    "i18next": ">=19.3.3",
     "i18next-browser-languagedetector": "^4.0.2",
     "i18next-chained-backend": "^2.0.1",
     "i18next-localstorage-backend": "^3.1.1",
