@@ -12,6 +12,7 @@ import RubyGemsCard from './providers/RubyGems';
 import CratesioCard from './providers/Cratesio';
 import HomebrewCard from './providers/Homebrew';
 import LinuxCard from './providers/Linux';
+import InstagramCard from './providers/Instagram';
 import TwitterCard from './providers/Twitter';
 import SpectrumCard from './providers/Spectrum';
 import SlackCard from './providers/Slack';
@@ -43,6 +44,7 @@ const Index: React.FC<{query: string}> = ({query}) => {
         <OcamlCard query={query} />
         <HomebrewCard query={query} />
         <LinuxCard query={query} />
+        <InstagramCard query={query} />
         <TwitterCard query={query} />
         <SpectrumCard query={query} />
         <SlackCard query={query} />
