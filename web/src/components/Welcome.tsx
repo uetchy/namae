@@ -76,10 +76,10 @@ const Welcome: React.FC = () => {
           <FaLinux /> {t('providers.linux')}
         </ListItem>
         <ListItem>
-          <FaInstagram /> {t('providers.instagram')}
+          <FaTwitter /> {t('providers.twitter')}
         </ListItem>
         <ListItem>
-          <FaTwitter /> {t('providers.twitter')}
+          <FaInstagram /> {t('providers.instagram')}
         </ListItem>
         <ListItem>
           <SpectrumIcon /> {t('providers.spectrum')}
