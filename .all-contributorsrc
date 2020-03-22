@@ -1,0 +1,33 @@
+{
+  "projectName": "namae",
+  "projectOwner": "uetchy",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "uetchy",
+      "name": "Yasuaki Uechi",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/431808?v=4",
+      "profile": "https://uechi.io",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "flawyte",
+      "name": "Mickaël Allonneau",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1585006?v=4",
+      "profile": "https://github.com/flawyte",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

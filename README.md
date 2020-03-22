@@ -14,3 +14,24 @@ namae saves your time searching around registries and checking if the desired na
 PRs welcome!
 
 See [Contribution Guide](./CONTRIBUTING.md) for the detailed instruction.
+
+### Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://uechi.io"><img src="https://avatars0.githubusercontent.com/u/431808?v=4" width="100px;" alt=""/><br /><sub><b>Yasuaki Uechi</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=uetchy" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/flawyte"><img src="https://avatars3.githubusercontent.com/u/1585006?v=4" width="100px;" alt=""/><br /><sub><b>Mickaël Allonneau</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=flawyte" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
