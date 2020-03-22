@@ -12,6 +12,7 @@ import {
   FaGem,
   FaLinux,
   FaAppStore,
+  FaInstagram,
   FaTwitter,
   FaSlack,
   FaAws,
@@ -76,6 +77,9 @@ const Welcome: React.FC = () => {
         </ListItem>
         <ListItem>
           <FaTwitter /> {t('providers.twitter')}
+        </ListItem>
+        <ListItem>
+          <FaInstagram /> {t('providers.instagram')}
         </ListItem>
         <ListItem>
           <SpectrumIcon /> {t('providers.spectrum')}
