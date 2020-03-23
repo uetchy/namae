@@ -45,7 +45,7 @@
     "@types/styled-components": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "i18next-node-fs-backend": "^2.1.3",
