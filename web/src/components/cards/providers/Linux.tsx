@@ -19,12 +19,14 @@ const LinuxCard: React.FC<{query: string}> = ({query}) => {
             <DedicatedAvailability
               name={name}
               service="launchpad"
+              message="Go to Launchpad"
               link={`https://launchpad.net/ubuntu/+source/${name}`}
               icon={<DiUbuntu />}
             />
             <DedicatedAvailability
               name={name}
               service="debian"
+              message="Go to debian.org"
               link={`https://packages.debian.org/buster/${name}`}
               icon={<DiDebian />}
             />

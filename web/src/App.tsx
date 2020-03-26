@@ -8,18 +8,18 @@ import {IoIosRocket, IoIosFlash} from 'react-icons/io';
 import Welcome from './components/Welcome';
 import Form from './components/Form';
 import Cards from './components/cards';
+import Footer from './components/Footer';
 import {
   ResultItem,
   ResultIcon,
   ResultName,
-  COLORS,
+  COLORS as ResultColor,
   AvailableIcon,
 } from './components/cards/core';
-import Footer from './components/Footer';
-
 import {mobile} from './util/css';
 import {isStandalone} from './util/pwa';
 import {sanitize} from './util/text';
+import {useStoreState} from './store';
 
 export default function App() {
   return (
@@ -74,7 +74,8 @@ function Search() {
       </Header>
       <Content>
         <Legend>
-          <ResultItem color={COLORS.available}>
+          <Stat />
+          <ResultItem color={ResultColor.available}>
             <ResultIcon>
               <IoIosRocket />
             </ResultIcon>
@@ -83,7 +84,7 @@ function Search() {
               <IoIosFlash />
             </AvailableIcon>
           </ResultItem>
-          <ResultItem color={COLORS.unavailable}>
+          <ResultItem color={ResultColor.unavailable}>
             <ResultIcon>
               <IoIosRocket />
             </ResultIcon>
@@ -94,6 +95,24 @@ function Search() {
       </Content>
     </>
   );
+}
+
+function Stat() {
+  const totalCount = useStoreState((state) => state.stats.totalCount);
+  const availableCount = useStoreState((state) => state.stats.availableCount);
+  const {t} = useTranslation();
+
+  const uniqueness = ((n) => {
+    if (n > 0.7 && n <= 1.0) {
+      return t('uniqueness.high');
+    } else if (n > 0.4 && n <= 0.7) {
+      return t('uniqueness.moderate');
+    } else {
+      return t('uniqueness.low');
+    }
+  })(availableCount / totalCount);
+
+  return <UniquenessIndicator>{uniqueness}</UniquenessIndicator>;
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -150,12 +169,18 @@ const Legend = styled.div`
   background-color: #f6f6fa;
 
   ${mobile} {
+    flex-direction: column;
+    align-items: center;
     margin-top: -80px;
     padding: 70px 0 30px;
     background-color: none;
   }
 
-  ${ResultItem} {
+  > * {
     margin: 0 10px 0;
   }
+`;
+
+const UniquenessIndicator = styled.div`
+  color: #7b7b7b;
 `;

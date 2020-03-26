@@ -27,6 +27,11 @@
     "nta": "Company (JP)",
     "ocaml": "OCaml"
   },
+  "uniqueness": {
+    "high": "Pretty unique",
+    "moderate": "Moderately unique",
+    "low": "Not so unique"
+  },
   "countryCode": "us",
   "try": "How about this?",
   "showMore": "show more",
