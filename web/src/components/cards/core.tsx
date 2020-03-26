@@ -117,6 +117,7 @@ export const DedicatedAvailability: React.FC<{
 
   useEffect(() => {
     increaseCounter(response.availability);
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -164,6 +165,7 @@ export const ExistentialAvailability: React.FC<{
 
   useEffect(() => {
     increaseCounter(availability);
+    // eslint-disable-next-line
   }, []);
 
   return (

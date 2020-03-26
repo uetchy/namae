@@ -19,3 +19,7 @@ export function fillArray<T>(array: T[], filler: string, maximum: number): T[] {
   }
   return array;
 }
+
+export function compose<T>(arg: T, ...fn: ((arg: T) => T)[]): T {
+  return fn.reduce((arg, f) => f(arg), arg);
+}

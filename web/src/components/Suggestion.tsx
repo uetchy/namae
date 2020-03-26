@@ -218,6 +218,7 @@ const Suggestion: React.FC<{
     return () => {
       isEffective = false;
     };
+    // eslint-disable-next-line
   }, [query]);
 
   return (
