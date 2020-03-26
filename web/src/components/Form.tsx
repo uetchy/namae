@@ -62,14 +62,13 @@ const Form: React.FC<{
       <Logo to="/" onClick={onLogoClick}>
         <LogoImage src="/logo.svg" />
       </Logo>
-      <form onSubmit={onSubmitQuery}>
+      <form onSubmit={onSubmitQuery} action="/s" role="search">
         <InputView
           onChange={onInputChange}
-          onBlur={onSubmitQuery}
           value={inputValue}
           ref={inputRef}
           placeholder={t('placeholder')}
-          aria-label="search form"
+          aria-label="Search"
         />
       </form>
       {queryGiven && !suggested ? (
