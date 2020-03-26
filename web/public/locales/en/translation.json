@@ -32,5 +32,7 @@
   "showMore": "show more",
   "noResult": "No Result",
   "gettingStarted": "Getting Started",
-  "pressEnterToSearch": "Press Enter to search"
+  "pressEnterToSearch": "Press Enter to search",
+  "available": "Available",
+  "unavailable": "Unavailable"
 }
