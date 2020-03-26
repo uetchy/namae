@@ -12,7 +12,7 @@ import {OutboundLink} from 'react-ga';
 import {sendError, sendExpandEvent} from '../../util/analytics';
 import {mobile} from '../../util/css';
 
-const COLORS = {
+export const COLORS = {
   available: '#6e00ff',
   unavailable: 'darkgrey',
   error: '#ff388b',
@@ -205,7 +205,8 @@ export const Result: React.FC<{
         position="bottom"
         arrow={true}
         animation="shift"
-        duration="200">
+        duration="200"
+      >
         <ResultItem color={itemColor}>
           <ResultIcon>{icon}</ResultIcon>
           <ResultName>
@@ -213,7 +214,8 @@ export const Result: React.FC<{
               <OutboundLink
                 to={link}
                 eventLabel={link.split('/')[2]}
-                target="_blank">
+                target="_blank"
+              >
                 {content}
               </OutboundLink>
             ) : (
@@ -270,7 +272,8 @@ class ErrorBoundary extends React.Component<
             position="bottom"
             arrow={true}
             animation="shift"
-            duration="200">
+            duration="200"
+          >
             <ResultItem color={COLORS.error}>
               <ResultIcon>
                 <GoInfo />
@@ -292,7 +295,8 @@ const ErrorHandler: React.FC = ({children}) => (
         <ResultContainer>
           <BarLoader />
         </ResultContainer>
-      }>
+      }
+    >
       {children}
     </Suspense>
   </ErrorBoundary>
@@ -351,11 +355,11 @@ const ResultContainer = styled.div`
   padding: 4px 0;
 `;
 
-const ResultIcon = styled.div`
+export const ResultIcon = styled.div`
   width: 1em;
 `;
 
-const ResultItem = styled.div`
+export const ResultItem = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -363,7 +367,7 @@ const ResultItem = styled.div`
   color: ${({color}) => color};
 `;
 
-const ResultName = styled.div`
+export const ResultName = styled.div`
   margin-left: 6px;
   font-family: monospace;
 
@@ -373,7 +377,7 @@ const ResultName = styled.div`
   }
 `;
 
-const AvailableIcon = styled.div`
+export const AvailableIcon = styled.div`
   margin-top: 2px;
   margin-left: 3px;
   padding: 0;
