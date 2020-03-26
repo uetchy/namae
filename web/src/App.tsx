@@ -141,7 +141,7 @@ const Header = styled.header`
 
 const Legend = styled.div`
   margin-top: -100px;
-  padding: 80px 0 30px;
+  padding: 100px 0 30px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -151,7 +151,7 @@ const Legend = styled.div`
 
   ${mobile} {
     margin-top: -80px;
-    padding: 60px 0 30px;
+    padding: 70px 0 30px;
     background-color: none;
   }
 
