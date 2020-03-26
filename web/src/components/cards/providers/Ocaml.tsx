@@ -18,6 +18,7 @@ const OcamlCard: React.FC<{query: string}> = ({query}) => {
             name={name}
             query={`opam.ocaml.org/packages/${name}/`}
             service="existence"
+            message="Go to opam"
             link={`https://opam.ocaml.org/packages/${name}/`}
             icon={<OcamlIcon />}
           />

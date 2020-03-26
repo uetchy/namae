@@ -27,6 +27,11 @@
     "nta": "法人",
     "ocaml": "OCaml"
   },
+  "uniqueness": {
+    "high": "とてもユニーク",
+    "moderate": "そこそこユニーク",
+    "low": "あまりユニークではない"
+  },
   "countryCode": "jp",
   "try": "これはどう？",
   "showMore": "もっと見る",

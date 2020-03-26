@@ -19,6 +19,7 @@ const CratesioCard: React.FC<{query: string}> = ({query}) => {
             query={`crates.io/api/v1/crates/${name}`}
             service="existence"
             link={`https://crates.io/crates/${name}`}
+            message="Go to crates.io"
             icon={<DiRust />}
           />
         )}

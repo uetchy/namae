@@ -1,8 +1,8 @@
 import React, {useState, useEffect, Suspense} from 'react';
 import styled from 'styled-components';
 import useFetch from 'fetch-suspense';
-import {Tooltip} from 'react-tippy';
-import 'react-tippy/dist/tippy.css';
+import Tooltip from 'rc-tooltip';
+import 'rc-tooltip/assets/bootstrap.css';
 import BarLoader from 'react-spinners/BarLoader';
 import {GoInfo} from 'react-icons/go';
 import {IoIosFlash} from 'react-icons/io';
@@ -11,6 +11,7 @@ import {OutboundLink} from 'react-ga';
 
 import {sendError, sendExpandEvent} from '../../util/analytics';
 import {mobile} from '../../util/css';
+import {useStoreActions} from '../../store';
 
 export const COLORS = {
   available: '#6e00ff',
@@ -105,6 +106,7 @@ export const DedicatedAvailability: React.FC<{
   suffix = '',
   icon,
 }) => {
+  const increaseCounter = useStoreActions((actions) => actions.stats.add);
   const response = useFetch(
     `/availability/${service}/${encodeURIComponent(query || name)}`,
   ) as Response;
@@ -112,6 +114,10 @@ export const DedicatedAvailability: React.FC<{
   if (response.error) {
     throw new APIError(`${service}: ${response.error}`);
   }
+
+  useEffect(() => {
+    increaseCounter(response.availability);
+  }, []);
 
   return (
     <Result
@@ -147,6 +153,7 @@ export const ExistentialAvailability: React.FC<{
   suffix = '',
   icon,
 }) => {
+  const increaseCounter = useStoreActions((actions) => actions.stats.add);
   const response = useFetch(target, undefined, {metadata: true});
 
   if (response.status !== 404 && response.status !== 200) {
@@ -154,6 +161,10 @@ export const ExistentialAvailability: React.FC<{
   }
 
   const availability = response.status === 404;
+
+  useEffect(() => {
+    increaseCounter(availability);
+  }, []);
 
   return (
     <Result
@@ -200,13 +211,7 @@ export const Result: React.FC<{
       : COLORS.unavailable;
   return (
     <ResultContainer>
-      <Tooltip
-        title={message}
-        position="bottom"
-        arrow={true}
-        animation="shift"
-        duration="200"
-      >
+      <Tooltip overlay={message} placement="top" trigger={['hover']}>
         <ResultItem color={itemColor}>
           <ResultIcon>{icon}</ResultIcon>
           <ResultName>
@@ -266,13 +271,11 @@ class ErrorBoundary extends React.Component<
       return (
         <ResultContainer>
           <Tooltip
-            title={`${this.state.message}${
+            overlay={`${this.state.message}${
               this.state.eventId ? ` (${this.state.eventId})` : ''
             }`}
-            position="bottom"
-            arrow={true}
-            animation="shift"
-            duration="200"
+            placement="top"
+            trigger={['hover']}
           >
             <ResultItem color={COLORS.error}>
               <ResultIcon>
