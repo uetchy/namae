@@ -72,50 +72,29 @@ function Search() {
       <Header>
         <Form initialValue={currentQuery} />
       </Header>
-      <Legend>
-        <ResultItem color={COLORS.available}>
-          <ResultIcon>
-            <IoIosRocket />
-          </ResultIcon>
-          <ResultName>{t('available')}</ResultName>
-          <AvailableIcon>
-            <IoIosFlash />
-          </AvailableIcon>
-        </ResultItem>
-        <ResultItem color={COLORS.unavailable}>
-          <ResultIcon>
-            <IoIosRocket />
-          </ResultIcon>
-          <ResultName>{t('unavailable')}</ResultName>
-        </ResultItem>
-      </Legend>
       <Content>
+        <Legend>
+          <ResultItem color={COLORS.available}>
+            <ResultIcon>
+              <IoIosRocket />
+            </ResultIcon>
+            <ResultName>{t('available')}</ResultName>
+            <AvailableIcon>
+              <IoIosFlash />
+            </AvailableIcon>
+          </ResultItem>
+          <ResultItem color={COLORS.unavailable}>
+            <ResultIcon>
+              <IoIosRocket />
+            </ResultIcon>
+            <ResultName>{t('unavailable')}</ResultName>
+          </ResultItem>
+        </Legend>
         <Cards query={currentQuery} />
       </Content>
     </>
   );
 }
-
-const Legend = styled.div`
-  padding: 80px 0 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  user-select: none;
-  cursor: default;
-  background-color: #f6f6fa;
-
-  ${mobile} {
-    padding: 60px 0 20px;
-    align-items: center;
-    flex-direction: column;
-    background-color: none;
-  }
-
-  ${ResultItem} {
-    margin: 0 20px 0;
-  }
-`;
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -144,10 +123,10 @@ body {
 `;
 
 const Content = styled.div`
-  /* padding-top: 100px; */
+  padding-top: 100px;
 
   ${mobile} {
-    /* padding-top: 60px; */
+    padding-top: 60px;
   }
 `;
 
@@ -157,5 +136,26 @@ const Header = styled.header`
 
   ${mobile} {
     padding: 0 20px;
+  }
+`;
+
+const Legend = styled.div`
+  margin-top: -100px;
+  padding: 80px 0 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  user-select: none;
+  cursor: default;
+  background-color: #f6f6fa;
+
+  ${mobile} {
+    margin-top: -80px;
+    padding: 60px 0 30px;
+    background-color: none;
+  }
+
+  ${ResultItem} {
+    margin: 0 10px 0;
   }
 `;
