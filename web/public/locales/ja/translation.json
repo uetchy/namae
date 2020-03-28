@@ -1,7 +1,7 @@
 {
-  "title": "唯一無二の名前を見つけましょう",
-  "description": "namae は、あなたのアプリやライブラリにつける最適な名前を見つけるお手伝いをします。",
-  "placeholder": "検索",
+  "title": "唯一無二の名前を見つける",
+  "description": "namae はあなたのアプリやライブラリに素敵な名前をつけるお手伝いをします。",
+  "placeholder": "調べる",
   "providers": {
     "domains": "ドメイン",
     "github": "Github Organization",
@@ -34,10 +34,10 @@
   },
   "countryCode": "jp",
   "try": "これはどう？",
-  "showMore": "もっと見る",
+  "showMore": "さらに表示",
   "noResult": "該当なし",
-  "gettingStarted": "試してみる",
+  "gettingStarted": "はじめる",
   "pressEnterToSearch": "エンターキーで検索",
-  "available": "取得可能",
-  "unavailable": "取得済み"
+  "available": "取得できます",
+  "unavailable": "取得できません"
 }
