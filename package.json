@@ -33,8 +33,15 @@
     "node": ">=10.0.0"
   },
   "private": true,
-  "workspaces": [
-    "web",
-    "api"
-  ]
+  "workspaces": {
+    "packages": [
+      "web",
+      "api"
+    ],
+    "nohoist": [
+      "**/babel**",
+      "**/eslint**",
+      "**/jest"
+    ]
+  }
 }
