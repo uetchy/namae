@@ -119,6 +119,7 @@ const LogoImage = styled.img`
 
 const InputView = styled.input.attrs({
   type: 'search',
+  enterkeyhint: 'search',
   autocomplete: 'off',
   autocorrect: 'off',
   autocapitalize: 'off',

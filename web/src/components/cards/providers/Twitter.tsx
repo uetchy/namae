@@ -16,6 +16,7 @@ const TwitterCard: React.FC<{query: string}> = ({query}) => {
     `${capitalCase}Team`,
     `${lowerCase}-support`,
     `${lowerCase}_org`,
+    `${lowerCase}-app`,
     `${capitalCase}JS`,
   ];
 
