@@ -8,8 +8,8 @@ const NpmCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();
   const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase];
-  const moreNames = [`${lowerCase}-js`];
+  const names = [lowerCase, `${lowerCase}-js`];
+  const moreNames = [`${lowerCase}js`];
 
   return (
     <Card title={t('providers.npm')}>

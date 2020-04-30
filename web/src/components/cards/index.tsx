@@ -36,22 +36,22 @@ const Index: React.FC<{query: string}> = ({query}) => {
       <Cards>
         <DomainCard query={query} />
         <GithubCard query={query} />
-        <GitLabCard query={query} />
+        <TwitterCard query={query} />
         <NpmCard query={query} />
+        <HomebrewCard query={query} />
+        <GitLabCard query={query} />
         <PypiCard query={query} />
         <CratesioCard query={query} />
         <RubyGemsCard query={query} />
-        <OcamlCard query={query} />
-        <HomebrewCard query={query} />
         <LinuxCard query={query} />
-        <TwitterCard query={query} />
-        <InstagramCard query={query} />
-        <SpectrumCard query={query} />
-        <SlackCard query={query} />
-        <HerokuCard query={query} />
+        <OcamlCard query={query} />
         <NowCard query={query} />
+        <HerokuCard query={query} />
         <NetlifyCard query={query} />
         <JsOrgCard query={query} />
+        <SlackCard query={query} />
+        <InstagramCard query={query} />
+        <SpectrumCard query={query} />
         <S3Card query={query} />
       </Cards>
       <Cards>

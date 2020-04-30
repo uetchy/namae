@@ -102,7 +102,8 @@ function Stat() {
   const availableCount = useStoreState((state) => state.stats.availableCount);
   const {t} = useTranslation();
 
-  const uniqueness = ((n) => {
+  const uniqueness = availableCount / totalCount;
+  const uniquenessText = ((n) => {
     if (n > 0.7 && n <= 1.0) {
       return t('uniqueness.high');
     } else if (n > 0.4 && n <= 0.7) {
@@ -110,9 +111,13 @@ function Stat() {
     } else {
       return t('uniqueness.low');
     }
-  })(availableCount / totalCount);
+  })(uniqueness);
 
-  return <UniquenessIndicator>{uniqueness}</UniquenessIndicator>;
+  return (
+    <UniquenessIndicator>
+      {uniquenessText} ({uniqueness.toFixed(2)})
+    </UniquenessIndicator>
+  );
 }
 
 const GlobalStyle = createGlobalStyle`

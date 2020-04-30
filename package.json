@@ -12,15 +12,15 @@
     "typescript": "^3.8.3"
   },
   "devDependencies": {
-    "@sentry/cli": "^1.52.1",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
+    "@sentry/cli": "^1.52.3",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
     "codacy-coverage": "^3.4.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.19.0",
-    "husky": "^4.2.3",
-    "prettier": "^2.0.2",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   },
   "husky": {

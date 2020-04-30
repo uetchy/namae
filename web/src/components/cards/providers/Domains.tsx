@@ -23,12 +23,12 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
     `${lowerCase}.com`,
     `${lowerCase}app.com`,
     `${lowerCase}.app`,
+    `${lowerCase}.dev`,
+    `${lowerCase}.org`,
     `${lowerCase}.io`,
     ...domainHackSuggestions,
   ];
   const moreNames = [
-    `${lowerCase}.dev`,
-    `${lowerCase}.org`,
     `${lowerCase}.sh`,
     `${lowerCase}.tools`,
     `${lowerCase}.design`,
