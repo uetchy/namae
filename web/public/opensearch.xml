@@ -1,0 +1,9 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+                       xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>namae</ShortName>
+  <Description>Inter-platform name availability checker</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">[https://namae.dev/favicon.ico]</Image>
+  <Url type="text/html" template="https://namae.dev/s/{searchTerms}"></Url>
+  <moz:SearchForm>https://namae.dev</moz:SearchForm>
+</OpenSearchDescription>

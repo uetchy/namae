@@ -25,6 +25,14 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
+      <Helmet>
+        <link
+          rel="search"
+          type="application/opensearchdescription+xml"
+          title="namae"
+          href="/opensearch.xml"
+        />
+      </Helmet>
       <Switch>
         <Route exact path="/">
           <Home />
