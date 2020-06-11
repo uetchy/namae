@@ -7,16 +7,20 @@ import {Card, Repeater, DedicatedAvailability} from '../core';
 
 const TwitterCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();
-  const lowerCase = query.toLowerCase();
-  const capitalCase = capitalize(query);
 
-  const names = [query, `${capitalCase}App`, `${lowerCase}hq`];
+  const sanitizedQuery = query
+    .replace(/[^0-9a-zA-Z_-]/g, '')
+    .replace(/-/g, '_');
+  const lowerCase = sanitizedQuery.toLowerCase();
+  const capitalCase = capitalize(sanitizedQuery);
+
+  const names = [sanitizedQuery, `${capitalCase}App`, `${lowerCase}hq`];
   const moreNames = [
     `hey${lowerCase}`,
     `${capitalCase}Team`,
-    `${lowerCase}-support`,
+    `${lowerCase}_support`,
     `${lowerCase}_org`,
-    `${lowerCase}-app`,
+    `${lowerCase}_app`,
     `${capitalCase}JS`,
   ];
 
@@ -26,11 +30,10 @@ const TwitterCard: React.FC<{query: string}> = ({query}) => {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            query={`twitter.com/${name}`}
-            service="existence"
+            query={name}
+            service="twitter"
             message="Go to Twitter"
             link={`https://twitter.com/${name}`}
-            prefix="twitter.com/"
             icon={<FaTwitter />}
           />
         )}
