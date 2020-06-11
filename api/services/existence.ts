@@ -1,3 +1,4 @@
+import isURL from 'validator/lib/isURL';
 import {send, sendError, fetch, NowRequest, NowResponse} from '../util/http';
 
 export default async function handler(
@@ -10,12 +11,8 @@ export default async function handler(
     return sendError(res, new Error('no query given'));
   }
 
-  if (
-    !/^[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)$/.test(
-      query,
-    )
-  ) {
-    return sendError(res, new Error('Invalid characters'));
+  if (!isURL(query)) {
+    return sendError(res, new Error('Invalid URL: ' + query));
   }
 
   try {

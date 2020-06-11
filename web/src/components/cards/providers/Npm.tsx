@@ -19,8 +19,8 @@ const NpmCard: React.FC<{query: string}> = ({query}) => {
             <DedicatedAvailability
               name={name}
               service="npm"
-              message="Read publishing guide"
-              link="https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry"
+              message={`See ${name}`}
+              link={`https://www.npmjs.com/package/${name}`}
               messageIfTaken={`See ${name}`}
               linkIfTaken={`https://www.npmjs.com/package/${name}`}
               icon={<FaNpm />}

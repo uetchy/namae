@@ -21,7 +21,7 @@ import JsOrgCard from './providers/JsOrg';
 import GithubSearchCard from './providers/GitHubSearch';
 import AppStoreCard from './providers/AppStore';
 import HerokuCard from './providers/Heroku';
-import NowCard from './providers/Now';
+import VercelCard from './providers/Vercel';
 import NtaCard from './providers/Nta';
 import NetlifyCard from './providers/Netlify';
 import OcamlCard from './providers/Ocaml';
@@ -45,7 +45,7 @@ const Index: React.FC<{query: string}> = ({query}) => {
         <RubyGemsCard query={query} />
         <LinuxCard query={query} />
         <OcamlCard query={query} />
-        <NowCard query={query} />
+        <VercelCard query={query} />
         <HerokuCard query={query} />
         <NetlifyCard query={query} />
         <JsOrgCard query={query} />

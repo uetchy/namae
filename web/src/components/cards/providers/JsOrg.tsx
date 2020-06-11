@@ -6,7 +6,11 @@ import {Card, Repeater, DedicatedAvailability} from '../core';
 
 const JsOrgCard: React.FC<{query: string}> = ({query}) => {
   const {t} = useTranslation();
-  const lowerCase = query.toLowerCase();
+
+  const sanitizedQuery = query
+    .replace(/[^0-9a-zA-Z_-]/g, '')
+    .replace(/_/g, '-');
+  const lowerCase = sanitizedQuery.toLowerCase();
 
   const names = [lowerCase];
 
