@@ -14,7 +14,7 @@
     "whois-json": "^2.0.4"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^26.0.0",
     "@types/node": "^14.0.1",
     "@types/node-fetch": "^2.5.5",
     "@types/validator": "^13.0.0",
