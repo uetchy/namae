@@ -20,7 +20,7 @@ import {
   FaBuilding,
 } from 'react-icons/fa';
 import {IoIosBeer} from 'react-icons/io';
-import {DiRust, DiHeroku} from 'react-icons/di';
+import {DiRust, DiHeroku, DiFirebase} from 'react-icons/di';
 
 import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
 import {mobile} from '../util/css';
@@ -98,6 +98,9 @@ const Welcome: React.FC = () => {
         </ListItem>
         <ListItem>
           <FaAws /> {t('providers.s3')}
+        </ListItem>
+        <ListItem>
+          <DiFirebase /> {t('providers.firebase')}
         </ListItem>
         <ListItem>
           <FaJsSquare /> {t('providers.jsorg')}

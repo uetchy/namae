@@ -25,7 +25,8 @@
     "now": "Vercel",
     "netlify": "Netlify",
     "nta": "法人",
-    "ocaml": "OCaml"
+    "ocaml": "OCaml",
+    "firebase": "Firebase"
   },
   "uniqueness": {
     "high": "とてもユニーク",

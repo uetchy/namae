@@ -25,6 +25,7 @@ import VercelCard from './providers/Vercel';
 import NtaCard from './providers/Nta';
 import NetlifyCard from './providers/Netlify';
 import OcamlCard from './providers/Ocaml';
+import FirebaseCard from './providers/Firebase';
 
 const Index: React.FC<{query: string}> = ({query}) => {
   const {
@@ -53,6 +54,7 @@ const Index: React.FC<{query: string}> = ({query}) => {
         <InstagramCard query={query} />
         <SpectrumCard query={query} />
         <S3Card query={query} />
+        <FirebaseCard query={query} />
       </Cards>
       <Cards>
         <GithubSearchCard query={query} />

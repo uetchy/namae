@@ -1,7 +1,7 @@
 import nock from 'nock';
 import {mockProvider} from '../util/testHelpers';
 
-import provider from './existence';
+import provider from '../services/existence';
 
 test('return false if name is taken', async () => {
   const result = await mockProvider(provider, {query: 'github.com/uetchy'});
