@@ -1,0 +1,10 @@
+/build
+/tests
+/.dependabot
+/.envrc
+/.env
+/.github
+/.vscode
+coverage
+*.md
+*.log

@@ -13,7 +13,6 @@ jobs:
         run: yarn test
       - name: Upload coverage
         run: |
-          cat ./api/coverage/lcov.info | yarn codacy-coverage
-          cat ./web/coverage/lcov.info | yarn codacy-coverage
+          cat ./coverage/lcov.info | yarn codacy-coverage
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}

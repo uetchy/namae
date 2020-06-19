@@ -3,25 +3,64 @@
   "description": "namae saves your time searching around registries and checking if the desired name is ready for use.",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
-    "dev": "yarn start",
-    "lint": "yarn workspaces run lint",
-    "start": "now dev",
-    "test": "CI=true yarn workspaces run test"
+    "build": "NODE_ENV=production react-scripts build",
+    "dev": "BROWSER=none react-scripts start",
+    "eject": "react-scripts eject",
+    "test": "jest --coverage && CI=true react-scripts test --coverage"
   },
   "dependencies": {
-    "typescript": "^3.8.3"
+    "@sentry/browser": "^5.15.5",
+    "easy-peasy": "^3.3.0",
+    "fetch-suspense": "^1.2.2",
+    "framer-motion": "^1.10.3",
+    "i18next": ">=19.4.4",
+    "i18next-browser-languagedetector": "^4.1.1",
+    "i18next-chained-backend": "^2.0.1",
+    "i18next-localstorage-backend": "^3.1.1",
+    "i18next-xhr-backend": "^3.2.2",
+    "isomorphic-unfetch": "^3.0.0",
+    "node-fetch": "^2.6.0",
+    "npm-name": "^6.0.0",
+    "prop-types": "^15.7.2",
+    "rc-tooltip": "^4.0.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^3.0.0",
+    "react-helmet": "^6.0.0",
+    "react-i18next": "11.5.1",
+    "react-icons": "^3.10.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-spinners": "^0.8.1",
+    "styled-components": "^5.1.0",
+    "validator": "^13.1.0",
+    "whois-json": "^2.0.4"
   },
   "devDependencies": {
+    "@now/build-utils": "^2.4.0",
     "@sentry/cli": "^1.52.3",
-    "@typescript-eslint/eslint-plugin": "^2.30.0",
-    "@typescript-eslint/parser": "^2.30.0",
+    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/react": "^10.0.2",
+    "@types/i18next-node-fs-backend": "^2.1.0",
+    "@types/jest": "24.9.0",
+    "@types/node": "^14.0.1",
+    "@types/node-fetch": "^2.5.5",
+    "@types/react-helmet": "^6.0.0",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/styled-components": "^5.0.1",
+    "@types/validator": "^13.0.0",
+    "@vercel/node": "^1.7.1",
     "codacy-coverage": "^3.4.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-react": "^7.19.0",
-    "husky": "^4.2.5",
+    "husky": "^4.2.3",
+    "i18next-node-fs-backend": "^2.1.3",
+    "jest": "24.9.0",
+    "mutationobserver-shim": "^0.3.5",
+    "nock": "^12.0.3",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "ts-jest": "26.1.0",
+    "typescript": "^3.9.5"
   },
   "husky": {
     "hooks": {
@@ -29,19 +68,23 @@
     }
   },
   "license": "Apache-2.0",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "engines": {
     "node": ">=10.0.0"
   },
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "web",
-      "api"
-    ],
-    "nohoist": [
-      "**/babel**",
-      "**/eslint**",
-      "**/jest"
-    ]
-  }
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "private": true
 }

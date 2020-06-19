@@ -2,22 +2,22 @@
 
 ## Setup environment
 
-Install `now` for development server:
+Install `vercel` for development server:
 
 ```
-yarn global add now
+npm i -g vercel
 ```
 
 then install deps and fire up dev server.
 
 ```
 yarn install
-yarn start
+vc dev
 ```
 
 ## Add new provider
 
-Create `web/src/components/cards/<NewCard>.js`. Here is the example card that checks if spcified repository on GitHub is available.
+Create `src/components/cards/<NewCard>.js`. Here is the example card that checks if spcified repository on GitHub is available.
 
 ```jsx
 import React from 'react';
@@ -56,7 +56,7 @@ export default function GithubCard({name}) {
 }
 ```
 
-and add the card to `/web/src/App.js`:
+and add the card to `src/App.js`:
 
 ```jsx
 import NewCard from './components/cards/NewCard';

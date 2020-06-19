@@ -1,7 +1,0 @@
-/web/build
-/web/coverage
-/api/coverage
-/.envrc
-/.env
-/.github
-/.vscode
