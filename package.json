@@ -6,7 +6,9 @@
     "build": "NODE_ENV=production react-scripts build",
     "dev": "BROWSER=none react-scripts start",
     "eject": "react-scripts eject",
-    "test": "jest --coverage && CI=true react-scripts test --coverage"
+    "test": "jest --coverage && CI=true react-scripts test --coverage",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@sentry/browser": "^5.15.5",
@@ -35,7 +37,8 @@
     "react-spinners": "^0.8.1",
     "styled-components": "^5.1.0",
     "validator": "^13.1.0",
-    "whois-json": "^2.0.4"
+    "whois-json": "^2.0.4",
+    "snyk": "^1.345.1"
   },
   "devDependencies": {
     "@now/build-utils": "^2.4.0",
@@ -86,5 +89,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "private": true
+  "private": true,
+  "snyk": true
 }
