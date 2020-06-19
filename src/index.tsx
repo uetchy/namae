@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import {Router} from 'react-router-dom';
 import {StoreProvider} from 'easy-peasy';
 import {createBrowserHistory} from 'history';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -29,16 +31,26 @@ ReactDOM.render(
         <App />
       </Router>
     </FullScreenSuspense>
+    <ToastContainer />
   </StoreProvider>,
   document.getElementById('root'),
 );
 
 serviceWorker.register({
   onUpdate: (registration) => {
-    console.log('New version available! Ready to update?');
+    console.log('Update available');
+
+    toast.dark('New version available! Click here to update.', {
+      onClose: () => {
+        window.location.reload();
+      },
+      position: 'top-right',
+      autoClose: false,
+      closeButton: false,
+      closeOnClick: true,
+    });
     if (registration && registration.waiting) {
       registration.waiting.postMessage({type: 'SKIP_WAITING'});
     }
-    window.location.reload();
   },
 });
