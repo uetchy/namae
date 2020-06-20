@@ -31,7 +31,8 @@
   "uniqueness": {
     "high": "Pretty unique",
     "moderate": "Moderately unique",
-    "low": "Not so unique"
+    "low": "Typical",
+    "description": "UNIQ shows how unique the name is (0 to 100)"
   },
   "countryCode": "us",
   "try": "How about this?",

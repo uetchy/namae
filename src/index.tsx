@@ -4,7 +4,9 @@ import {Router} from 'react-router-dom';
 import {StoreProvider} from 'easy-peasy';
 import {createBrowserHistory} from 'history';
 import {ToastContainer, toast} from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
+import 'rc-tooltip/assets/bootstrap.css';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';

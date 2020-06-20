@@ -129,7 +129,7 @@ const InputView = styled.input.attrs({
   border: none;
   outline: none;
   text-align: center;
-  font-family: 'Montserrat', monospace;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 6rem;
   appearance: none;

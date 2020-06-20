@@ -26,6 +26,32 @@ import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
 import {mobile} from '../util/css';
 import {sendGettingStartedEvent} from '../util/analytics';
 
+const supportedProviders: Record<string, React.ReactNode> = {
+  domains: <FaMapSigns />,
+  github: <FaGithub />,
+  gitlab: <FaGitlab />,
+  npm: <FaNpm />,
+  rust: <DiRust />,
+  pypi: <FaPython />,
+  rubygems: <FaGem />,
+  ocaml: <OcamlIcon />,
+  homebrew: <IoIosBeer />,
+  linux: <FaLinux />,
+  twitter: <FaTwitter />,
+  instagram: <FaInstagram />,
+  spectrum: <SpectrumIcon />,
+  slack: <FaSlack />,
+  heroku: <DiHeroku />,
+  now: <NowIcon />,
+  netlify: <NetlifyIcon />,
+  s3: <FaAws />,
+  firebase: <DiFirebase />,
+  jsorg: <FaJsSquare />,
+  githubSearch: <FaGithub />,
+  appStore: <FaAppStore />,
+  nta: <FaBuilding />,
+};
+
 const Welcome: React.FC = () => {
   const {t} = useTranslation();
 
@@ -45,75 +71,11 @@ const Welcome: React.FC = () => {
         </ButtonContainer>
       </Hero>
       <HighlightedList>
-        <ListItem>
-          <FaMapSigns /> {t('providers.domains')}
-        </ListItem>
-        <ListItem>
-          <FaGithub /> {t('providers.github')}
-        </ListItem>
-        <ListItem>
-          <FaGitlab /> {t('providers.gitlab')}
-        </ListItem>
-        <ListItem>
-          <FaNpm /> {t('providers.npm')}
-        </ListItem>
-        <ListItem>
-          <DiRust /> {t('providers.rust')}
-        </ListItem>
-        <ListItem>
-          <FaPython /> {t('providers.pypi')}
-        </ListItem>
-        <ListItem>
-          <FaGem /> {t('providers.rubygems')}
-        </ListItem>
-        <ListItem>
-          <OcamlIcon /> {t('providers.ocaml')}
-        </ListItem>
-        <ListItem>
-          <IoIosBeer /> {t('providers.homebrew')}
-        </ListItem>
-        <ListItem>
-          <FaLinux /> {t('providers.linux')}
-        </ListItem>
-        <ListItem>
-          <FaTwitter /> {t('providers.twitter')}
-        </ListItem>
-        <ListItem>
-          <FaInstagram /> {t('providers.instagram')}
-        </ListItem>
-        <ListItem>
-          <SpectrumIcon /> {t('providers.spectrum')}
-        </ListItem>
-        <ListItem>
-          <FaSlack /> {t('providers.slack')}
-        </ListItem>
-        <ListItem>
-          <DiHeroku /> {t('providers.heroku')}
-        </ListItem>
-        <ListItem>
-          <NowIcon /> {t('providers.now')}
-        </ListItem>
-        <ListItem>
-          <NetlifyIcon /> {t('providers.netlify')}
-        </ListItem>
-        <ListItem>
-          <FaAws /> {t('providers.s3')}
-        </ListItem>
-        <ListItem>
-          <DiFirebase /> {t('providers.firebase')}
-        </ListItem>
-        <ListItem>
-          <FaJsSquare /> {t('providers.jsorg')}
-        </ListItem>
-        <ListItem>
-          <FaGithub /> {t('providers.githubSearch')}
-        </ListItem>
-        <ListItem>
-          <FaAppStore /> {t('providers.appStore')}
-        </ListItem>
-        <ListItem>
-          <FaBuilding /> {t('providers.nta')}
-        </ListItem>
+        {Object.keys(supportedProviders).map((key) => (
+          <ListItem key={key}>
+            {supportedProviders[key]} {t(`providers.${key}`)}
+          </ListItem>
+        ))}
       </HighlightedList>
     </Container>
   );

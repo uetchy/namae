@@ -285,11 +285,11 @@ const Items = styled.div`
 
 const Item = styled.div<{delay: number}>`
   margin: 10px 10px 0;
+  padding-bottom: 5px;
   cursor: pointer;
-  font-weight: bold;
-  font-family: inherit;
-  font-size: 1.5rem;
-  line-height: 1em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
   border-bottom: 1px dashed black;
   color: black;
   overflow: hidden;

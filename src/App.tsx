@@ -4,6 +4,7 @@ import {Helmet} from 'react-helmet';
 import {useTranslation} from 'react-i18next';
 import {Switch, Route, useParams, Redirect} from 'react-router-dom';
 import {IoIosRocket, IoIosFlash} from 'react-icons/io';
+import Tooltip from 'rc-tooltip';
 
 import Welcome from './components/Welcome';
 import Form from './components/Form';
@@ -110,7 +111,7 @@ function Stat() {
   const availableCount = useStoreState((state) => state.stats.availableCount);
   const {t} = useTranslation();
 
-  const uniqueness = availableCount / totalCount;
+  const uniqueness = availableCount !== 0 ? availableCount / totalCount : 0.0;
   const uniquenessText = ((n) => {
     if (n > 0.7 && n <= 1.0) {
       return t('uniqueness.high');
@@ -123,7 +124,15 @@ function Stat() {
 
   return (
     <UniquenessIndicator>
-      {uniquenessText} ({uniqueness.toFixed(2)})
+      <Tooltip
+        overlay={t('uniqueness.description')}
+        placement="top"
+        trigger={['hover']}
+      >
+        <span>
+          {uniquenessText} ({(uniqueness * 100).toFixed(1)} UNIQ)
+        </span>
+      </Tooltip>
     </UniquenessIndicator>
   );
 }

@@ -29,9 +29,10 @@
     "firebase": "Firebase"
   },
   "uniqueness": {
-    "high": "とてもユニーク",
+    "high": "超ユニーク",
     "moderate": "そこそこユニーク",
-    "low": "あまりユニークではない"
+    "low": "普通",
+    "description": "UNIQ は名前がどれくらいユニークかを示しています（0から100）"
   },
   "countryCode": "jp",
   "try": "これはどう？",

@@ -5,7 +5,7 @@ import XHR from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import {initReactI18next} from 'react-i18next';
 
-const TRANSLATION_VERSION = '1.16';
+const TRANSLATION_VERSION = '1.17';
 
 i18n
   .use(Backend)

@@ -2,7 +2,6 @@ import React, {useState, useEffect, Suspense} from 'react';
 import styled from 'styled-components';
 import useFetch from 'fetch-suspense';
 import Tooltip from 'rc-tooltip';
-import 'rc-tooltip/assets/bootstrap.css';
 import BarLoader from 'react-spinners/BarLoader';
 import {GoInfo} from 'react-icons/go';
 import {IoIosFlash} from 'react-icons/io';
