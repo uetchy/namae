@@ -63,7 +63,7 @@ const Welcome: React.FC = () => {
         <ButtonContainer>
           <List>
             <ListButton>
-              <Link to="/s/awesome" onClick={() => sendGettingStartedEvent()}>
+              <Link to="/s/Tooth" onClick={() => sendGettingStartedEvent()}>
                 {t('gettingStarted')}
               </Link>
             </ListButton>
