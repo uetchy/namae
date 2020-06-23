@@ -9,7 +9,7 @@
     "test": "jest --coverage && CI=true react-scripts test --coverage"
   },
   "dependencies": {
-    "@sentry/browser": "^5.15.5",
+    "@sentry/browser": "^5.17.0",
     "easy-peasy": "^3.3.0",
     "fetch-suspense": "^1.2.2",
     "framer-motion": "^1.10.3",
