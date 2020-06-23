@@ -27,7 +27,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "3x",
+      "name": "Example",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/18331588?v=4",
+      "profile": "https://github.com/3x",
+      "contributions": [
+        "code"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
