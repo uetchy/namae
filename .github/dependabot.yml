@@ -1,13 +1,7 @@
 version: 2
 updates:
 - package-ecosystem: npm
-  directory: "/api"
-  schedule:
-    interval: weekly
-    time: "20:00"
-  open-pull-requests-limit: 10
-- package-ecosystem: npm
-  directory: "/web"
+  directory: "/"
   schedule:
     interval: weekly
     time: "20:00"
