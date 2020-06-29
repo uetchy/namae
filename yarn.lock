@@ -10097,10 +10097,10 @@ react-spinners@^0.9.0:
   dependencies:
     "@emotion/core" "^10.0.15"
 
-react-toastify@^6.0.5:
-  version "6.0.5"
-  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.0.5.tgz#6435b2bf6a298863bc71342dcc88e8283cdb4630"
-  integrity sha512-1YXSb6Jr478c1TJEyVpxLHFvtmeXGMvdpZc0fke/7lK+MoLBC+NFgB74bq+C2SZe6LdK+K1voEURJoY88WqWvA==
+react-toastify@^6.0.6:
+  version "6.0.6"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-6.0.6.tgz#7409ef8e89d12492308a8e561317031b5d90615e"
+  integrity sha512-NdHiMhj76Z877kZlXuelVfJONslvpmDTL95FVAoBy2kkU75hiqR5+pu1GdJZfRWPhen9ecdb58d3HmefaJ06Yw==
   dependencies:
     classnames "^2.2.6"
     prop-types "^15.7.2"
