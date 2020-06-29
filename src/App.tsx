@@ -1,26 +1,25 @@
-import React from 'react';
-import styled, {createGlobalStyle} from 'styled-components';
-import {Helmet} from 'react-helmet';
-import {useTranslation} from 'react-i18next';
-import {Switch, Route, useParams, Redirect} from 'react-router-dom';
-import {IoIosRocket, IoIosFlash} from 'react-icons/io';
 import Tooltip from 'rc-tooltip';
-
-import Welcome from './components/Welcome';
-import Form from './components/Form';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+import { IoIosFlash, IoIosRocket } from 'react-icons/io';
+import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components';
 import Cards from './components/cards';
-import Footer from './components/Footer';
 import {
-  ResultItem,
-  ResultIcon,
-  ResultName,
-  COLORS as ResultColor,
   AvailableIcon,
+  COLORS as ResultColor,
+  ResultIcon,
+  ResultItem,
+  ResultName,
 } from './components/cards/core';
-import {mobile} from './util/css';
-import {isStandalone} from './util/pwa';
-import {sanitize} from './util/text';
-import {useStoreState} from './store';
+import Footer from './components/Footer';
+import Form from './components/Form';
+import Welcome from './components/Welcome';
+import { useStoreState } from './store';
+import { mobile } from './util/css';
+import { isStandalone } from './util/pwa';
+import { sanitize } from './util/text';
 
 export default function App() {
   return (
@@ -51,7 +50,7 @@ export default function App() {
 }
 
 function Home() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -69,9 +68,9 @@ function Home() {
 }
 
 function Search() {
-  const {query} = useParams<{query: string}>();
+  const { query } = useParams<{ query: string }>();
   const currentQuery = sanitize(query);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -109,7 +108,7 @@ function Search() {
 function Stat() {
   const totalCount = useStoreState((state) => state.stats.totalCount);
   const availableCount = useStoreState((state) => state.stats.availableCount);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const uniqueness = availableCount !== 0 ? availableCount / totalCount : 0.0;
   const uniquenessText = ((n) => {
@@ -127,8 +126,7 @@ function Stat() {
       <Tooltip
         overlay={t('uniqueness.description')}
         placement="top"
-        trigger={['hover']}
-      >
+        trigger={['hover']}>
         <span>
           {uniquenessText} ({(uniqueness * 100).toFixed(1)} UNIQ)
         </span>

@@ -1,21 +1,19 @@
+import { StoreProvider } from 'easy-peasy';
+import { createBrowserHistory } from 'history';
+import 'rc-tooltip/assets/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router} from 'react-router-dom';
-import {StoreProvider} from 'easy-peasy';
-import {createBrowserHistory} from 'history';
-import {ToastContainer, toast} from 'react-toastify';
-
+import { Router } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import 'rc-tooltip/assets/bootstrap.css';
-
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {FullScreenSuspense} from './util/suspense';
-import {wrapHistoryWithGA, initSentry} from './util/analytics';
-import {initCrisp} from './util/crip';
-import {compose} from './util/array';
-import {store, wrapHistoryWithStoreHandler} from './store';
+import { store, wrapHistoryWithStoreHandler } from './store';
+import { initSentry, wrapHistoryWithGA } from './util/analytics';
+import { compose } from './util/array';
+import { initCrisp } from './util/crip';
 import './util/i18n';
+import { FullScreenSuspense } from './util/suspense';
 
 initSentry();
 initCrisp();
@@ -52,7 +50,7 @@ serviceWorker.register({
       closeOnClick: true,
     });
     if (registration && registration.waiting) {
-      registration.waiting.postMessage({type: 'SKIP_WAITING'});
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
   },
 });

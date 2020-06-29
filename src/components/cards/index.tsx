@@ -1,35 +1,34 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import {useTranslation} from 'react-i18next';
-import {mobile} from '../../util/css';
-
+import { mobile } from '../../util/css';
+import AppStoreCard from './providers/AppStore';
+import CratesioCard from './providers/Cratesio';
 import DomainCard from './providers/Domains';
+import FirebaseCard from './providers/Firebase';
 import GithubCard from './providers/GitHubRepository';
+import GithubSearchCard from './providers/GitHubSearch';
 import GitLabCard from './providers/GitLab';
+import HerokuCard from './providers/Heroku';
+import HomebrewCard from './providers/Homebrew';
+import InstagramCard from './providers/Instagram';
+import JsOrgCard from './providers/JsOrg';
+import LinuxCard from './providers/Linux';
+import NetlifyCard from './providers/Netlify';
 import NpmCard from './providers/Npm';
+import NtaCard from './providers/Nta';
+import OcamlCard from './providers/Ocaml';
 import PypiCard from './providers/PyPI';
 import RubyGemsCard from './providers/RubyGems';
-import CratesioCard from './providers/Cratesio';
-import HomebrewCard from './providers/Homebrew';
-import LinuxCard from './providers/Linux';
-import TwitterCard from './providers/Twitter';
-import InstagramCard from './providers/Instagram';
-import SpectrumCard from './providers/Spectrum';
-import SlackCard from './providers/Slack';
 import S3Card from './providers/S3';
-import JsOrgCard from './providers/JsOrg';
-import GithubSearchCard from './providers/GitHubSearch';
-import AppStoreCard from './providers/AppStore';
-import HerokuCard from './providers/Heroku';
+import SlackCard from './providers/Slack';
+import SpectrumCard from './providers/Spectrum';
+import TwitterCard from './providers/Twitter';
 import VercelCard from './providers/Vercel';
-import NtaCard from './providers/Nta';
-import NetlifyCard from './providers/Netlify';
-import OcamlCard from './providers/Ocaml';
-import FirebaseCard from './providers/Firebase';
 
-const Index: React.FC<{query: string}> = ({query}) => {
+const Index: React.FC<{ query: string }> = ({ query }) => {
   const {
-    i18n: {language},
+    i18n: { language },
   } = useTranslation();
 
   return (

@@ -1,16 +1,15 @@
-import React, {useState, useEffect, Suspense} from 'react';
-import styled from 'styled-components';
 import useFetch from 'fetch-suspense';
 import Tooltip from 'rc-tooltip';
+import React, { Suspense, useEffect, useState } from 'react';
+import { OutboundLink } from 'react-ga';
+import { useTranslation } from 'react-i18next';
+import { GoInfo } from 'react-icons/go';
+import { IoIosFlash } from 'react-icons/io';
 import BarLoader from 'react-spinners/BarLoader';
-import {GoInfo} from 'react-icons/go';
-import {IoIosFlash} from 'react-icons/io';
-import {useTranslation} from 'react-i18next';
-import {OutboundLink} from 'react-ga';
-
-import {sendError, sendExpandEvent} from '../../util/analytics';
-import {mobile} from '../../util/css';
-import {useStoreActions} from '../../store';
+import styled from 'styled-components';
+import { useStoreActions } from '../../store';
+import { sendError, sendExpandEvent } from '../../util/analytics';
+import { mobile } from '../../util/css';
 
 export const COLORS = {
   available: '#6e00ff',
@@ -18,7 +17,7 @@ export const COLORS = {
   error: '#ff388b',
 };
 
-export const Card: React.FC<{title: string}> = ({title, children}) => {
+export const Card: React.FC<{ title: string }> = ({ title, children }) => {
   return (
     <CardContainer>
       <CardTitle>{title}</CardTitle>
@@ -33,9 +32,9 @@ export const Repeater: React.FC<{
   items: string[];
   moreItems?: string[];
   children: (name: string) => React.ReactNode;
-}> = ({items = [], moreItems = [], children}) => {
+}> = ({ items = [], moreItems = [], children }) => {
   const [revealAlternatives, setRevealAlternatives] = useState(false);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   function onClick() {
     sendExpandEvent();
@@ -154,7 +153,7 @@ export const ExistentialAvailability: React.FC<{
   icon,
 }) => {
   const increaseCounter = useStoreActions((actions) => actions.stats.add);
-  const response = useFetch(target, undefined, {metadata: true});
+  const response = useFetch(target, undefined, { metadata: true });
 
   if (response.status !== 404 && response.status !== 200) {
     throw new NotFoundError(`${name}: ${response.status}`);
@@ -220,8 +219,7 @@ export const Result: React.FC<{
               <OutboundLink
                 to={link}
                 eventLabel={link.split('/')[2]}
-                target="_blank"
-              >
+                target="_blank">
                 {content}
               </OutboundLink>
             ) : (
@@ -245,16 +243,16 @@ export const Result: React.FC<{
 // 4. render(), now with eventId provided from Sentry
 class ErrorBoundary extends React.Component<
   {},
-  {hasError: boolean; message: string; eventId?: string}
+  { hasError: boolean; message: string; eventId?: string }
 > {
   constructor(props: {}) {
     super(props);
-    this.state = {hasError: false, message: '', eventId: undefined};
+    this.state = { hasError: false, message: '', eventId: undefined };
   }
 
   // used in SSR
   static getDerivedStateFromError(error: Error) {
-    return {hasError: true, message: error.message};
+    return { hasError: true, message: error.message };
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -263,7 +261,7 @@ class ErrorBoundary extends React.Component<
       return;
     }
     sendError(error, errorInfo).then((eventId) => {
-      this.setState({eventId});
+      this.setState({ eventId });
     });
   }
 
@@ -276,8 +274,7 @@ class ErrorBoundary extends React.Component<
               this.state.eventId ? ` (${this.state.eventId})` : ''
             }`}
             placement="top"
-            trigger={['hover']}
-          >
+            trigger={['hover']}>
             <ResultItem color={COLORS.error}>
               <ResultIcon>
                 <GoInfo />
@@ -292,15 +289,14 @@ class ErrorBoundary extends React.Component<
   }
 }
 
-const ErrorHandler: React.FC = ({children}) => (
+const ErrorHandler: React.FC = ({ children }) => (
   <ErrorBoundary>
     <Suspense
       fallback={
         <ResultContainer>
           <BarLoader />
         </ResultContainer>
-      }
-    >
+      }>
       {children}
     </Suspense>
   </ErrorBoundary>
@@ -368,7 +364,7 @@ export const ResultItem = styled.div`
   flex-direction: row;
   align-items: flex-start;
   word-break: break-all;
-  color: ${({color}) => color};
+  color: ${({ color }) => color};
 `;
 
 export const ResultName = styled.div`
