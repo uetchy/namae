@@ -1,11 +1,11 @@
 import React from 'react';
+import { OutboundLink } from 'react-ga';
+import { useTranslation } from 'react-i18next';
+import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa';
 import styled from 'styled-components';
-import {useTranslation} from 'react-i18next';
-import {FaTwitter, FaGithub, FaProductHunt} from 'react-icons/fa';
-import {OutboundLink} from 'react-ga';
 
 const Footer: React.FC = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -30,11 +30,10 @@ const Footer: React.FC = () => {
           </span>{' '}
           by{' '}
           <OutboundLink
-            to="https://twitter.com/uetschy"
+            to="https://twitter.com/uechz"
             eventLabel="Author Page"
             aria-label="Author page"
-            target="_blank"
-          >
+            target="_blank">
             <Bold>Yasuaki Uechi</Bold>
           </OutboundLink>
         </p>
@@ -48,24 +47,21 @@ const Footer: React.FC = () => {
             )}&url=${encodeURIComponent('https://namae.dev')}`}
             eventLabel="Tweet"
             aria-label="Tweet this page"
-            target="_blank"
-          >
+            target="_blank">
             <FaTwitter />
           </OutboundLink>
           <OutboundLink
             to="https://www.producthunt.com/posts/namae"
             eventLabel="ProductHunt"
             aria-label="Go to ProductHunt page"
-            target="_blank"
-          >
+            target="_blank">
             <FaProductHunt />
           </OutboundLink>
           <OutboundLink
             to="https://github.com/uetchy/namae"
             eventLabel="GitHub Repo"
             aria-label="Go to GitHub repository"
-            target="_blank"
-          >
+            target="_blank">
             <FaGithub />
           </OutboundLink>
         </Links>
