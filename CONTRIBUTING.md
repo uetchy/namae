@@ -17,17 +17,17 @@ vc dev
 
 ## Add new provider
 
-Create `src/components/cards/<NewCard>.js`. Here is the example card that checks if spcified repository on GitHub is available.
+Create `src/components/cards/providers/<NewCard>.tsx`. Here is the example card that checks if specified repository on GitHub is available.
 
 ```jsx
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {FaGithub} from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+import { FaGithub } from 'react-icons/fa';
 
-import {Card, Repeater, DedicatedAvailability} from '../Cards';
+import { Card, Repeater, DedicatedAvailability } from '../core';
 
-export default function GithubCard({name}) {
-  const {t} = useTranslation();
+const GithubCard: React.FC<{ query: string }> = ({ name }) => {
+  const { t } = useTranslation();
   const lowerCase = name.toLowerCase();
 
   const names = [name];
@@ -44,7 +44,7 @@ export default function GithubCard({name}) {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            service="github"
+            service="github" // route to http://namae.dev/api/services/github/<query> which is /api/services/github/[query].ts in the source
             link={`https://github.com/${name}`}
             prefix="github.com/"
             icon={<FaGithub />}
@@ -53,17 +53,17 @@ export default function GithubCard({name}) {
       </Repeater>
     </Card>
   );
-}
+};
 ```
 
-and add the card to `src/App.js`:
+and add the card to `src/components/cards/index.tsx`:
 
 ```jsx
-import NewCard from './components/cards/NewCard';
+import NewCard from './providers/NewCard';
 ```
 
 ```patch
-<SearchResult>
+<>
   <Cards>
     <GithubCard name={query} />
     <DomainCard name={query} />
@@ -77,7 +77,7 @@ import NewCard from './components/cards/NewCard';
     <S3Card name={query} />
 +   <NewCard name={query} />
   </Cards>
-</SearchResult>
+</>
 ```
 
 ### ExistentialAvailability
