@@ -1,5 +1,5 @@
-import nodeFetch, {Response} from 'node-fetch';
-import {NowResponse} from '@vercel/node';
+import { NowResponse } from '@vercel/node';
+import nodeFetch, { Response } from 'node-fetch';
 
 export type HttpMethod =
   | 'GET'
@@ -15,7 +15,7 @@ export function fetch(
   url: string,
   method: HttpMethod = 'HEAD',
 ): Promise<Response> {
-  return nodeFetch(url, {method: method});
+  return nodeFetch(url, { method: method });
 }
 
 export function send(res: NowResponse, data: object): void {
@@ -24,5 +24,5 @@ export function send(res: NowResponse, data: object): void {
 }
 
 export function sendError(res: NowResponse, error: Error): void {
-  res.status(400).json({error: error.message});
+  res.status(400).json({ error: error.message });
 }

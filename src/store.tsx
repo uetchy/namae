@@ -1,5 +1,5 @@
-import {History} from 'history';
-import {action, createTypedHooks, Action, createStore} from 'easy-peasy';
+import { action, Action, createStore, createTypedHooks } from 'easy-peasy';
+import { History } from 'history';
 
 interface StatsModel {
   availableCount: number;

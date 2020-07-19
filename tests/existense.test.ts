@@ -1,22 +1,21 @@
 import nock from 'nock';
-import {mockProvider} from '../util/testHelpers';
-
 import provider from '../api/services/existence/[query]';
+import { mockProvider } from '../util/testHelpers';
 
 test('return false if name is taken', async () => {
-  const result = await mockProvider(provider, {query: 'github.com/uetchy'});
-  expect(result).toStrictEqual({availability: false});
+  const result = await mockProvider(provider, { query: 'github.com/uetchy' });
+  expect(result).toStrictEqual({ availability: false });
 });
 
 test('return true if name is not taken', async () => {
   const result = await mockProvider(provider, {
     query: 'github.com/uetchyasdf',
   });
-  expect(result).toStrictEqual({availability: true});
+  expect(result).toStrictEqual({ availability: true });
 });
 
 beforeEach(() => {
-  nock('https://github.com:443', {encodedQueryParams: true})
+  nock('https://github.com:443', { encodedQueryParams: true })
     .head('/uetchyasdf')
     .reply(404, [], {
       Date: 'Wed, 14 Aug 2019 10:52:54 GMT',
@@ -46,7 +45,7 @@ beforeEach(() => {
       'Content-Encoding': 'gzip',
       'X-GitHub-Request-Id': 'BA06:51D6:125A0F:1A9B4A:5D53E806',
     });
-  nock('https://github.com:443', {encodedQueryParams: true})
+  nock('https://github.com:443', { encodedQueryParams: true })
     .head('/uetchy')
     .reply(200, [], {
       Date: 'Wed, 14 Aug 2019 10:43:09 GMT',

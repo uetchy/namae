@@ -1,6 +1,5 @@
 /build
 /tests
-/.dependabot
 /.envrc
 /.env
 /.github

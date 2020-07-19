@@ -1,11 +1,11 @@
-import {send, sendError, fetch} from '../../../util/http';
-import {NowRequest, NowResponse} from '@vercel/node';
+import { NowRequest, NowResponse } from '@vercel/node';
+import { fetch, send, sendError } from '../../../util/http';
 
 export default async function handler(
   req: NowRequest,
   res: NowResponse,
 ): Promise<void> {
-  const {query} = req.query;
+  const { query } = req.query;
 
   if (!query || typeof query !== 'string') {
     return sendError(res, new Error('No query given'));
@@ -21,7 +21,7 @@ export default async function handler(
       'GET',
     ).then((res) => res.json());
     const availability = response.valid;
-    send(res, {availability});
+    send(res, { availability });
   } catch (err) {
     sendError(res, err);
   }
