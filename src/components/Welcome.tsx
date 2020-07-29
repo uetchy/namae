@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useTranslation} from 'react-i18next';
-import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import {
   FaMapSigns,
@@ -19,12 +19,12 @@ import {
   FaJsSquare,
   FaBuilding,
 } from 'react-icons/fa';
-import {IoIosBeer} from 'react-icons/io';
-import {DiRust, DiHeroku, DiFirebase} from 'react-icons/di';
+import { IoIosBeer } from 'react-icons/io';
+import { DiRust, DiHeroku, DiFirebase } from 'react-icons/di';
 
-import {SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon} from './Icons';
-import {mobile} from '../util/css';
-import {sendGettingStartedEvent} from '../util/analytics';
+import { SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon } from './Icons';
+import { mobile } from '../util/css';
+import { sendGettingStartedEvent } from '../util/analytics';
 
 const supportedProviders: Record<string, React.ReactNode> = {
   domains: <FaMapSigns />,
@@ -53,7 +53,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
 };
 
 const Welcome: React.FC = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -63,8 +63,8 @@ const Welcome: React.FC = () => {
         <ButtonContainer>
           <List>
             <ListButton>
-              <Link to="/s/Tooth" onClick={() => sendGettingStartedEvent()}>
-                {t('gettingStarted')}
+              <Link to="/s/namae" onClick={() => sendGettingStartedEvent()}>
+                {t('gettingStartedWithExample')}
               </Link>
             </ListButton>
           </List>
