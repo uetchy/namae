@@ -37,7 +37,7 @@ const Form: React.FC<{
 
   function onSubmitQuery(e: React.FormEvent) {
     e.preventDefault();
-    (e.target as HTMLFormElement).blur();
+    inputRef.current!.blur();
     if (!inputValue || inputValue === '') {
       return;
     }
