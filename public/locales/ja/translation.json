@@ -1,6 +1,6 @@
 {
   "title": "唯一無二の名前を見つける",
-  "description": "namae はあなたのアプリやライブラリに素敵な名前をつけるお手伝いをします。",
+  "description": "namae はあなたのアプリ、ライブラリ、組織に素敵な名前をつけるお手伝いをします。",
   "placeholder": "調べる",
   "providers": {
     "domains": "ドメイン",
@@ -39,6 +39,7 @@
   "showMore": "さらに表示",
   "noResult": "該当なし",
   "gettingStarted": "はじめる",
+  "gettingStartedWithExample": "namae を調べる",
   "pressEnterToSearch": "エンターキーで検索",
   "available": "取得できます",
   "unavailable": "取得できません"
