@@ -1,22 +1,22 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import {useTranslation} from 'react-i18next';
-import {Link, useHistory} from 'react-router-dom';
-import {sanitize} from '../util/text';
-import {sendQueryEvent} from '../util/analytics';
-import {mobile} from '../util/css';
+import { useTranslation } from 'react-i18next';
+import { Link, useHistory } from 'react-router-dom';
+import { sanitize } from '../util/text';
+import { sendQueryEvent } from '../util/analytics';
+import { mobile } from '../util/css';
 import Suggestion from './Suggestion';
-import {useDeferredState} from '../util/hooks';
+import { useDeferredState } from '../util/hooks';
 
 const Form: React.FC<{
   initialValue?: string;
-}> = ({initialValue = ''}) => {
+}> = ({ initialValue = '' }) => {
   const history = useHistory();
   const [inputValue, setInputValue] = useState(initialValue);
   const [suggestionQuery, setSuggestionQuery] = useDeferredState(800, '');
   const [suggested, setSuggested] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   function search(query: string) {
     sendQueryEvent(sanitize(query));
@@ -28,13 +28,6 @@ const Form: React.FC<{
     setInputValue(e.currentTarget.value);
   }
 
-  // clear input form and focus on it
-  function onLogoClick(): void {
-    setInputValue('');
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    inputRef.current!.focus();
-  }
-
   // invoke when user clicked one of the suggested items
   function onSuggestionCompleted(name: string): void {
     setInputValue(name);
@@ -44,6 +37,7 @@ const Form: React.FC<{
 
   function onSubmitQuery(e: React.FormEvent) {
     e.preventDefault();
+    (e.target as HTMLFormElement).blur();
     if (!inputValue || inputValue === '') {
       return;
     }
@@ -59,9 +53,11 @@ const Form: React.FC<{
 
   return (
     <InputContainer>
-      <Logo to="/" onClick={onLogoClick}>
-        <LogoImage src="/logo.svg" />
-      </Logo>
+      <InputHeader>
+        <Logo to="/">
+          <LogoImage src="/logo.svg" />
+        </Logo>
+      </InputHeader>
       <form onSubmit={onSubmitQuery} action="/s" role="search">
         <InputView
           onChange={onInputChange}
@@ -79,6 +75,7 @@ const Form: React.FC<{
 };
 
 export default Form;
+
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -96,12 +93,15 @@ const InputContainer = styled.div`
   }
 `;
 
-const Logo = styled(Link)`
+const InputHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 12px;
-  margin-top: 5px;
+  justify-content: center;
+  margin: 12px 0 5px 0;
+`;
+
+const Logo = styled(Link)`
   cursor: pointer;
 
   ${mobile} {

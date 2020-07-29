@@ -1,14 +1,14 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import fetch from 'isomorphic-unfetch';
-import {TiArrowSync} from 'react-icons/ti';
-import {motion} from 'framer-motion';
+import { TiArrowSync } from 'react-icons/ti';
+import { motion } from 'framer-motion';
 
-import {capitalize, stem, germanify, njoin, lower, upper} from '../util/text';
-import {sampleFromArray, fillArray} from '../util/array';
-import {mobile, slideUp} from '../util/css';
-import {sanitize} from '../util/text';
+import { capitalize, stem, germanify, njoin, lower, upper } from '../util/text';
+import { sampleFromArray, fillArray } from '../util/array';
+import { mobile, slideUp } from '../util/css';
+import { sanitize } from '../util/text';
 import {
   sendShuffleSuggestionEvent,
   sendAcceptSuggestionEvent,
@@ -20,130 +20,130 @@ const maximumCount = 3;
 const modifiers: Modifier[] = [
   (word): string => `${capitalize(germanify(word))}`,
   (word): string => `${capitalize(word)}`,
-  (word): string => njoin('Air', capitalize(word), {elision: false}),
-  (word): string => njoin('All', capitalize(word), {elision: false}),
-  (word): string => njoin('Cloud', capitalize(word), {elision: false}),
-  (word): string => njoin('Co', lower(word), {elision: false}),
-  (word): string => njoin('Deep', capitalize(word), {elision: false}),
-  (word): string => njoin('Easy', capitalize(word), {elision: false}),
-  (word): string => njoin('En', lower(word), {elision: false}),
-  (word): string => njoin('Fast', lower(word), {elision: false}),
-  (word): string => njoin('Fire', lower(word), {elision: false}),
-  (word): string => njoin('Fusion', capitalize(word), {elision: false}),
-  (word): string => njoin('Git', capitalize(word), {elision: false}),
-  (word): string => njoin('Go', capitalize(word), {elision: false}),
-  (word): string => njoin('Hyper', capitalize(word), {elision: false}),
-  (word): string => njoin('In', capitalize(word), {elision: false}),
+  (word): string => njoin('Air', capitalize(word), { elision: false }),
+  (word): string => njoin('All', capitalize(word), { elision: false }),
+  (word): string => njoin('Cloud', capitalize(word), { elision: false }),
+  (word): string => njoin('Co', lower(word), { elision: false }),
+  (word): string => njoin('Deep', capitalize(word), { elision: false }),
+  (word): string => njoin('Easy', capitalize(word), { elision: false }),
+  (word): string => njoin('En', lower(word), { elision: false }),
+  (word): string => njoin('Fast', lower(word), { elision: false }),
+  (word): string => njoin('Fire', lower(word), { elision: false }),
+  (word): string => njoin('Fusion', capitalize(word), { elision: false }),
+  (word): string => njoin('Git', capitalize(word), { elision: false }),
+  (word): string => njoin('Go', capitalize(word), { elision: false }),
+  (word): string => njoin('Hyper', capitalize(word), { elision: false }),
+  (word): string => njoin('In', capitalize(word), { elision: false }),
   (word): string => njoin('Infini', lower(word)),
-  (word): string => njoin('Insta', lower(word), {elision: false}),
+  (word): string => njoin('Insta', lower(word), { elision: false }),
   (word): string => njoin('i', capitalize(word)),
-  (word): string => njoin('Lead', lower(word), {elision: false}),
+  (word): string => njoin('Lead', lower(word), { elision: false }),
   (word): string => njoin('Less', lower(word)),
-  (word): string => njoin('lib', lower(word), {elision: false}),
+  (word): string => njoin('lib', lower(word), { elision: false }),
   (word): string => njoin('Many', lower(word)),
-  (word): string => njoin('Max', upper(word), {elision: false}),
-  (word): string => njoin('Micro', lower(word), {elision: false}),
+  (word): string => njoin('Max', upper(word), { elision: false }),
+  (word): string => njoin('Micro', lower(word), { elision: false }),
   (word): string => njoin('mini', lower(word)),
   (word): string => njoin('Mono', lower(word)),
   (word): string => njoin('Meta', lower(word)),
-  (word): string => njoin('nano', lower(word), {elision: false}),
-  (word): string => njoin('Native', capitalize(word), {elision: false}),
+  (word): string => njoin('nano', lower(word), { elision: false }),
+  (word): string => njoin('Native', capitalize(word), { elision: false }),
   (word): string => njoin('Next', lower(word)),
-  (word): string => njoin('No', upper(word), {elision: false}),
+  (word): string => njoin('No', upper(word), { elision: false }),
   (word): string => njoin('Octo', capitalize(word)),
-  (word): string => njoin('Omni', capitalize(word), {elision: false}),
-  (word): string => njoin('One', capitalize(word), {elision: false}),
-  (word): string => njoin('Open', capitalize(word), {elision: false}),
-  (word): string => njoin('Pro', capitalize(word), {elision: false}),
-  (word): string => njoin('quick', lower(word), {elision: false}),
-  (word): string => njoin('Semantic', capitalize(word), {elision: false}),
-  (word): string => njoin('Smart', capitalize(word), {elision: false}),
-  (word): string => njoin('Snap', capitalize(word), {elision: false}),
-  (word): string => njoin('Super', lower(word), {elision: false}),
+  (word): string => njoin('Omni', capitalize(word), { elision: false }),
+  (word): string => njoin('One', capitalize(word), { elision: false }),
+  (word): string => njoin('Open', capitalize(word), { elision: false }),
+  (word): string => njoin('Pro', capitalize(word), { elision: false }),
+  (word): string => njoin('quick', lower(word), { elision: false }),
+  (word): string => njoin('Semantic', capitalize(word), { elision: false }),
+  (word): string => njoin('Smart', capitalize(word), { elision: false }),
+  (word): string => njoin('Snap', capitalize(word), { elision: false }),
+  (word): string => njoin('Super', lower(word), { elision: false }),
   (word): string => njoin('Ultra', lower(word)),
-  (word): string => njoin('Un', lower(word), {elision: false}),
+  (word): string => njoin('Un', lower(word), { elision: false }),
   (word): string => njoin('Uni', lower(word)),
-  (word): string => njoin('unified-', lower(word), {elision: false}),
-  (word): string => njoin('Up', lower(word), {elision: false}),
-  (word): string => njoin('Wunder', lower(germanify(word)), {elision: false}),
-  (word): string => njoin('Zen', capitalize(word), {elision: false}),
-  (word): string => njoin('Zero', capitalize(word), {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'able', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'al', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'el', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'em', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'en', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'er', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ery', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ia', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ible', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ics', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ifier', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ify', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ii', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'in', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'io', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ist', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ity', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ium', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'iverse', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'ory', {elision: false}),
-  (word): string => njoin(capitalize(stem(word)), 'um', {elision: false}),
+  (word): string => njoin('unified-', lower(word), { elision: false }),
+  (word): string => njoin('Up', lower(word), { elision: false }),
+  (word): string => njoin('Wunder', lower(germanify(word)), { elision: false }),
+  (word): string => njoin('Zen', capitalize(word), { elision: false }),
+  (word): string => njoin('Zero', capitalize(word), { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'able', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'al', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'el', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'em', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'en', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'er', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ery', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ia', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ible', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ics', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ifier', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ify', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ii', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'in', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'io', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ist', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ity', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ium', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'iverse', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'ory', { elision: false }),
+  (word): string => njoin(capitalize(stem(word)), 'um', { elision: false }),
   (word): string => njoin(capitalize(stem(word)), 'y'),
-  (word): string => njoin(capitalize(word), 'AI', {elision: false}),
-  (word): string => njoin(capitalize(word), 'API', {elision: false}),
+  (word): string => njoin(capitalize(word), 'AI', { elision: false }),
+  (word): string => njoin(capitalize(word), 'API', { elision: false }),
   (word): string => njoin(capitalize(word), 'App'),
-  (word): string => njoin(capitalize(word), 'base', {elision: false}),
-  (word): string => njoin(capitalize(word), 'book', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Bot', {elision: false}),
-  (word): string => njoin(capitalize(word), 'butler', {elision: false}),
-  (word): string => njoin(capitalize(word), 'byte', {elision: false}),
-  (word): string => njoin(capitalize(word), 'cast', {elision: false}),
-  (word): string => njoin(capitalize(word), 'CDN', {elision: false}),
-  (word): string => njoin(capitalize(word), 'CI', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Club', {elision: false}),
-  (word): string => njoin(capitalize(word), 'DB', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Express', {elision: false}),
+  (word): string => njoin(capitalize(word), 'base', { elision: false }),
+  (word): string => njoin(capitalize(word), 'book', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Bot', { elision: false }),
+  (word): string => njoin(capitalize(word), 'butler', { elision: false }),
+  (word): string => njoin(capitalize(word), 'byte', { elision: false }),
+  (word): string => njoin(capitalize(word), 'cast', { elision: false }),
+  (word): string => njoin(capitalize(word), 'CDN', { elision: false }),
+  (word): string => njoin(capitalize(word), 'CI', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Club', { elision: false }),
+  (word): string => njoin(capitalize(word), 'DB', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Express', { elision: false }),
   (word): string => njoin(capitalize(word), 'en'),
-  (word): string => njoin(capitalize(word), 'feed', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Finder', {elision: false}),
-  (word): string => njoin(capitalize(word), 'flow', {elision: false}),
-  (word): string => njoin(capitalize(word), 'form', {elision: false}),
+  (word): string => njoin(capitalize(word), 'feed', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Finder', { elision: false }),
+  (word): string => njoin(capitalize(word), 'flow', { elision: false }),
+  (word): string => njoin(capitalize(word), 'form', { elision: false }),
   (word): string => njoin(capitalize(word), 'ful'),
-  (word): string => njoin(capitalize(word), 'Go', {elision: false}),
-  (word): string => njoin(capitalize(word), 'gram', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Hero', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Hub', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Hunt', {elision: false}),
-  (word): string => njoin(capitalize(word), 'IO', {elision: false}),
-  (word): string => njoin(capitalize(word), 'It', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Kit', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Lab', {elision: false}),
+  (word): string => njoin(capitalize(word), 'Go', { elision: false }),
+  (word): string => njoin(capitalize(word), 'gram', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Hero', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Hub', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Hunt', { elision: false }),
+  (word): string => njoin(capitalize(word), 'IO', { elision: false }),
+  (word): string => njoin(capitalize(word), 'It', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Kit', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Lab', { elision: false }),
   (word): string => njoin(capitalize(word), 'let'),
   (word): string => njoin(capitalize(word), 'less'),
-  (word): string => njoin(capitalize(word), 'Link', {elision: false}),
-  (word): string => njoin(capitalize(word), 'list', {elision: false}),
-  (word): string => njoin(capitalize(word), 'list', {elision: false}),
-  (word): string => njoin(capitalize(word), 'lit', {elision: false}),
-  (word): string => njoin(capitalize(word), 'mind', {elision: false}),
-  (word): string => njoin(capitalize(word), 'ML', {elision: false}),
-  (word): string => njoin(capitalize(word), 'note', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Notes', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Pod', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Pro', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Scan', {elision: false}),
+  (word): string => njoin(capitalize(word), 'Link', { elision: false }),
+  (word): string => njoin(capitalize(word), 'list', { elision: false }),
+  (word): string => njoin(capitalize(word), 'list', { elision: false }),
+  (word): string => njoin(capitalize(word), 'lit', { elision: false }),
+  (word): string => njoin(capitalize(word), 'mind', { elision: false }),
+  (word): string => njoin(capitalize(word), 'ML', { elision: false }),
+  (word): string => njoin(capitalize(word), 'note', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Notes', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Pod', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Pro', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Scan', { elision: false }),
   (word): string => njoin(capitalize(word), 'shot'),
   (word): string => njoin(capitalize(word), 'space'),
-  (word): string => njoin(capitalize(word), 'Stack', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Studio', {elision: false}),
-  (word): string => njoin(capitalize(word), 'Sensei', {elision: false}),
+  (word): string => njoin(capitalize(word), 'Stack', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Studio', { elision: false }),
+  (word): string => njoin(capitalize(word), 'Sensei', { elision: false }),
   (word): string => njoin(capitalize(word), 'time'),
   (word): string => njoin(capitalize(word), 'way'),
-  (word): string => njoin(capitalize(word), 'x', {elision: false}),
-  (word): string => njoin(capitalize(word), 'check', {elision: false}),
+  (word): string => njoin(capitalize(word), 'x', { elision: false }),
+  (word): string => njoin(capitalize(word), 'check', { elision: false }),
   (word): string => njoin(capitalize(word), 'joy'),
-  (word): string => njoin(lower(word), 'lint', {elision: false}),
-  (word): string => njoin(lower(word), 'ly', {elision: false}),
+  (word): string => njoin(lower(word), 'lint', { elision: false }),
+  (word): string => njoin(lower(word), 'ly', { elision: false }),
 ];
 
 function modifyWord(word: string): string {
@@ -158,7 +158,7 @@ async function findSynonyms(word: string): Promise<string[]> {
       )}`,
     );
     const json: {
-      synsets: Array<{entry: Array<{synonym: string[]}>}>;
+      synsets: Array<{ entry: Array<{ synonym: string[] }> }>;
     } = await response.json();
     const synonyms = Array.from(
       new Set<string>(
@@ -179,8 +179,8 @@ async function findSynonyms(word: string): Promise<string[]> {
 const Suggestion: React.FC<{
   query: string;
   onSubmit: (name: string) => void;
-}> = ({query, onSubmit}) => {
-  const {t} = useTranslation();
+}> = ({ query, onSubmit }) => {
+  const { t } = useTranslation();
   const synonymRef = useRef<string[]>([]);
   const [bestWords, setBestWords] = useState<string[]>([]);
 
@@ -283,7 +283,7 @@ const Items = styled.div`
   }
 `;
 
-const Item = styled.div<{delay: number}>`
+const Item = styled.div<{ delay: number }>`
   margin: 10px 10px 0;
   padding-bottom: 5px;
   cursor: pointer;
@@ -301,14 +301,15 @@ const Item = styled.div<{delay: number}>`
   }
 
   ${mobile} {
-    margin: 10px 0 0;
-    font-size: 1.3rem;
+    margin: 5px 0 0;
+    padding-bottom: 0;
+    font-size: 1rem;
   }
 `;
 
 const Button = styled(motion.div).attrs({
-  whileHover: {scale: 1.1},
-  whileTap: {scale: 0.9},
+  whileHover: { scale: 1.1 },
+  whileTap: { scale: 0.9 },
 })`
   margin: 15px 0 0 0;
   padding: 8px 12px;
