@@ -57,7 +57,7 @@ const Welcome: React.FC = () => {
 
   return (
     <Container>
-      <Hero>
+      <Section>
         <HeroTitle>{t('title')}</HeroTitle>
         <HeroText>{t('description')}</HeroText>
         <ButtonContainer>
@@ -69,21 +69,25 @@ const Welcome: React.FC = () => {
             </ListButton>
           </List>
         </ButtonContainer>
-      </Hero>
-      <HighlightedList>
+      </Section>
+      <HighlightSection>
         {Object.keys(supportedProviders).map((key) => (
           <ListItem key={key}>
             {supportedProviders[key]} {t(`providers.${key}`)}
           </ListItem>
         ))}
-      </HighlightedList>
+      </HighlightSection>
+      <Section>
+        <Title>Integrations</Title>
+        <blockquote>Soon</blockquote>
+      </Section>
     </Container>
   );
 };
+
 export default Welcome;
 
 const Container = styled.div`
-  margin-top: 30px;
   padding-bottom: 40px;
   text-align: center;
   font-size: 1.5rem;
@@ -91,13 +95,38 @@ const Container = styled.div`
   ${mobile} {
     margin-top: 0px;
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 `;
 
-const HeroTitle = styled.h1`
-  padding-bottom: 30px;
-  line-height: 1em;
+const Section = styled.div`
+  padding: 100px 20vw;
+
+  ${mobile} {
+    padding: 60px 40px;
+  }
+`;
+
+const HighlightSection = styled.div`
+  padding: 100px 20vw;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  ${mobile} {
+    flex-direction: column;
+    padding: 40px 40px 60px;
+  }
+
+  color: white;
+  /* background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%); */
+  background: #632bec;
+`;
+
+const Title = styled.h1`
+  line-height: 1.6em;
   font-size: 5rem;
   font-weight: 700;
 
@@ -106,22 +135,16 @@ const HeroTitle = styled.h1`
   }
 `;
 
+const HeroTitle = styled(Title)`
+  padding-bottom: 30px;
+  line-height: 1em;
+`;
+
 const HeroText = styled.p`
   font-size: 1.2em;
   font-weight: 400;
   line-height: 1.3em;
   color: #3c3c3c;
-`;
-
-const Hero = styled.div`
-  margin-right: 20vw;
-  margin-left: 20vw;
-
-  ${mobile} {
-    margin: inherit;
-    padding-right: 20px;
-    padding-left: 20px;
-  }
 `;
 
 const ButtonContainer = styled.div`
@@ -139,26 +162,6 @@ const List = styled.div`
   ${mobile} {
     justify-content: flex-start;
   }
-`;
-
-const HighlightedList = styled.div`
-  margin-top: 100px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  ${mobile} {
-    flex-direction: column;
-    margin-top: 50px;
-    padding: 20px;
-  }
-
-  padding: 50px 20vw 50px 20vw;
-  color: white;
-  /* background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%); */
-  background: #632bec;
 `;
 
 const ListItem = styled.div`

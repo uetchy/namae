@@ -219,7 +219,8 @@ export const Result: React.FC<{
               <OutboundLink
                 to={link}
                 eventLabel={link.split('/')[2]}
-                target="_blank">
+                target="_blank"
+              >
                 {content}
               </OutboundLink>
             ) : (
@@ -274,7 +275,8 @@ class ErrorBoundary extends React.Component<
               this.state.eventId ? ` (${this.state.eventId})` : ''
             }`}
             placement="top"
-            trigger={['hover']}>
+            trigger={['hover']}
+          >
             <ResultItem color={COLORS.error}>
               <ResultIcon>
                 <GoInfo />
@@ -296,7 +298,8 @@ const ErrorHandler: React.FC = ({ children }) => (
         <ResultContainer>
           <BarLoader />
         </ResultContainer>
-      }>
+      }
+    >
       {children}
     </Suspense>
   </ErrorBoundary>
