@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Content, Header } from '../theme';
 import Form from '../components/Form';
 import Welcome from '../components/Welcome';
-
 export default function Home() {
   const { t } = useTranslation();
 

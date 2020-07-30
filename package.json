@@ -35,6 +35,7 @@
     "react-spinners": "^0.9.0",
     "react-toastify": "^6.0.8",
     "styled-components": "^5.1.1",
+    "swr": "^0.2.3",
     "validator": "^13.1.0",
     "whois-json": "^2.0.4"
   },

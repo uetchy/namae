@@ -5,7 +5,8 @@ import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa';
 import { GoHeart } from 'react-icons/go';
 import styled from 'styled-components';
 import { Section } from '../theme';
-import { mobile } from '../util/css';
+import { mobile, tablet } from '../util/css';
+import Contributors from '../components/Contributors';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -64,6 +65,10 @@ const Footer: React.FC = () => {
             </OutboundLink>
           </li>
         </ul>
+        <Box>
+          <Subtitle>Contributors</Subtitle>
+          <Contributors />
+        </Box>
       </Pane>
 
       <Pane>
@@ -153,7 +158,7 @@ const Container = styled(Section)`
     }
   }
 
-  ${mobile} {
+  ${tablet} {
     flex-direction: column;
   }
 `;
@@ -161,13 +166,21 @@ const Container = styled(Section)`
 const Pane = styled.div`
   font-size: 1rem;
 
-  ${mobile} {
+  ${tablet} {
     margin-bottom: 50px;
   }
 `;
 
+const Box = styled.div`
+  margin: 15px 0;
+`;
+
 const Title = styled.h3`
   margin-bottom: 15px;
+`;
+
+const Subtitle = styled.h4`
+  margin-bottom: 12px;
 `;
 
 const LangBox = styled.div`

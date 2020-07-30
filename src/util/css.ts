@@ -1,6 +1,7 @@
-import {keyframes} from 'styled-components';
+import { keyframes } from 'styled-components';
 
 export const mobile = '@media screen and (max-width: 800px)';
+export const tablet = '@media screen and (max-width: 1200px)';
 
 export const slideUp = keyframes`
 from {
