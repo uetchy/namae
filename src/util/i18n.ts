@@ -5,7 +5,7 @@ import XHR from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-const TRANSLATION_VERSION = '1.18';
+const TRANSLATION_VERSION = '1.19';
 
 i18n
   .use(Backend)
@@ -16,7 +16,11 @@ i18n
       backends: [LocalStorageBackend, XHR],
       backendOptions: [
         {
-          versions: { en: TRANSLATION_VERSION, ja: TRANSLATION_VERSION },
+          versions: {
+            en: TRANSLATION_VERSION,
+            ja: TRANSLATION_VERSION,
+            'zh-Hans': TRANSLATION_VERSION,
+          },
         },
       ],
     },
