@@ -4,7 +4,7 @@
   "placeholder": "search",
   "providers": {
     "domains": "Domains",
-    "github": "Github Organization",
+    "github": "GitHub Organization",
     "gitlab": "GitLab",
     "npm": "npm",
     "pypi": "PyPI",
@@ -17,7 +17,7 @@
     "slack": "Slack",
     "s3": "AWS S3",
     "jsorg": "js.org",
-    "githubSearch": "Github Repository",
+    "githubSearch": "GitHub Repository",
     "appStore": "App Store",
     "google": "Google Search",
     "spectrum": "Spectrum",

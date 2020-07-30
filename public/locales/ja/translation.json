@@ -4,7 +4,7 @@
   "placeholder": "調べる",
   "providers": {
     "domains": "ドメイン",
-    "github": "Github Organization",
+    "github": "GitHub Organization",
     "gitlab": "GitLab",
     "npm": "npm",
     "pypi": "PyPI",
@@ -17,7 +17,7 @@
     "slack": "Slack",
     "s3": "AWS S3",
     "jsorg": "js.org",
-    "githubSearch": "Github リポジトリ",
+    "githubSearch": "GitHub リポジトリ",
     "appStore": "App Store",
     "google": "Google 検索",
     "spectrum": "Spectrum",

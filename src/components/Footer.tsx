@@ -5,7 +5,7 @@ import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa';
 import { GoHeart } from 'react-icons/go';
 import styled from 'styled-components';
 import { Section } from '../theme';
-import { mobile, tablet } from '../util/css';
+import { tablet } from '../util/css';
 import Contributors from '../components/Contributors';
 
 const Footer: React.FC = () => {
@@ -25,6 +25,11 @@ const Footer: React.FC = () => {
             <a href="/?lng=ja">
               <span role="img" aria-label="Japanese">
                 🇯🇵
+              </span>
+            </a>
+            <a href="/?lng=zh-Hans">
+              <span role="img" aria-label="Simplified Chinese">
+                🇨🇳
               </span>
             </a>
           </Links>
@@ -183,19 +188,6 @@ const Subtitle = styled.h4`
   margin-bottom: 12px;
 `;
 
-const LangBox = styled.div`
-  line-height: 1em;
-  font-size: 2rem;
-`;
-
-const ShareBox = styled.div`
-  margin-top: 15px;
-  line-height: 1em;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-`;
-
 const Links = styled.div`
   display: flex;
   align-items: center;
@@ -205,6 +197,24 @@ const Links = styled.div`
   }
 `;
 
+const LangBox = styled.div`
+  line-height: 1em;
+  font-size: 2rem;
+
+  ${Links} {
+    a {
+      margin-right: 5px;
+    }
+  }
+`;
+
+const ShareBox = styled.div`
+  margin-top: 15px;
+  line-height: 1em;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+`;
 const Bold = styled.span`
   font-weight: bold;
 `;
