@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 export function useDeferredState<T>(
   duration = 1000,
@@ -18,4 +19,17 @@ export function useDeferredState<T>(
   }, [duration, innerValue]);
 
   return [response, setInnerValue];
+}
+
+export function useOpenSearch(xmlPath: string) {
+  return () => (
+    <Helmet>
+      <link
+        rel="search"
+        type="application/opensearchdescription+xml"
+        title="namae"
+        href={xmlPath}
+      />
+    </Helmet>
+  );
 }
