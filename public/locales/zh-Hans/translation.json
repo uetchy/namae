@@ -1,6 +1,6 @@
 {
-  "title": "为你的新应用取个好听的名字",
-  "description": "namae可以帮助您给您的应用程序、图书馆或组织起一个好名字。",
+  "title": "为您的新应用取个好听的名字",
+  "description": "namae可让您给您的应用程序、Web服务或组织起一个好名字。",
   "placeholder": "检验",
   "providers": {
     "domains": "域名",
