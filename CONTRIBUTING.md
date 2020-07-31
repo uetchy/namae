@@ -1,6 +1,6 @@
 # Contribution Guide
 
-## Setup environment
+## Setup
 
 Install `vercel` for development server:
 
@@ -15,11 +15,11 @@ yarn install
 vc dev
 ```
 
-## Add new provider
+## Adding new provider
 
 Create `src/components/cards/providers/<NewCard>.tsx`. Here is the example card that checks if specified repository on GitHub is available.
 
-```jsx
+```tsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGithub } from 'react-icons/fa';
@@ -89,3 +89,46 @@ For example, `<ExistentialAvailability target="https://formulae.brew.sh/api/form
 
 `DedicatedAvailability` is for interacting with defined API endpoint to check availability.
 For example, `<DedicatedAvailability service="<service>" />` will send a request to `https://namae.dev/availability/<service>/<query>` which is routed to `/api/services/<service>.js` in the repo.
+
+## Adding new language
+
+Suppose we'll add a support for Esperanto.
+
+```bash
+cd public/locales
+cp -r en eo
+# edit eo/translation.json
+```
+
+then edit `src/util/i18n.ts`:
+
+```patch
+- const TRANSLATION_VERSION = '2';
++ const TRANSLATION_VERSION = '3';
+
+i18n
+  .use(Backend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    backend: {
+      backends: [LocalStorageBackend, XHR],
+      backendOptions: [
+        {
+          versions: {
+            en: TRANSLATION_VERSION,
+            ja: TRANSLATION_VERSION,
+            'zh-Hans': TRANSLATION_VERSION,
+            'zh-Hant': TRANSLATION_VERSION,
++           eo: TRANSLATION_VERSION,
+          },
+        },
+      ],
+    },
+    fallbackLng: 'en',
+    debug: false,
+    interpolation: {
+      escapeValue: false, // not needed for react as it escapes by default
+    },
+  });
+```
