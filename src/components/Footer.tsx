@@ -38,6 +38,9 @@ const Languages = () => {
         <li>
           <a href="/?lng=zh-Hant">繁體中文</a>
         </li>
+        <li>
+          <a href="/?lng=de">Deutsch</a>
+        </li>
       </ul>
     </Pane>
   );

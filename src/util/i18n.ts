@@ -21,6 +21,7 @@ i18n
             ja: TRANSLATION_VERSION,
             'zh-Hans': TRANSLATION_VERSION,
             'zh-Hant': TRANSLATION_VERSION,
+            de: TRANSLATION_VERSION,
           },
         },
       ],
