@@ -42,5 +42,11 @@
   "gettingStartedWithExample": "试试 namae",
   "pressEnterToSearch": "按Enter键搜索",
   "available": "可获得",
-  "unavailable": "不可获得"
+  "unavailable": "不可获得",
+  "language": "语言",
+  "community": "社区",
+  "about": "关于",
+  "contributors": "贡献者",
+  "issues": "问题",
+  "blog": "博客"
 }

@@ -42,5 +42,11 @@
   "gettingStartedWithExample": "namae を調べる",
   "pressEnterToSearch": "エンターキーで検索",
   "available": "取得できます",
-  "unavailable": "取得できません"
+  "unavailable": "取得できません",
+  "language": "言語",
+  "community": "コミュニティ",
+  "about": "概要",
+  "contributors": "貢献者",
+  "issues": "Issues",
+  "blog": "ブログ"
 }
