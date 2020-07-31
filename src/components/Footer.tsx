@@ -36,7 +36,7 @@ const Languages = () => {
           <a href="/?lng=zh-Hans">简体中文</a>
         </li>
         <li>
-          <a href="/?lng=zh-Hant">繁体中文</a>
+          <a href="/?lng=zh-Hant">繁體中文</a>
         </li>
       </ul>
     </Pane>
