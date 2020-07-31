@@ -18,6 +18,7 @@ i18n
         {
           versions: {
             en: TRANSLATION_VERSION,
+            de: TRANSLATION_VERSION,
             ja: TRANSLATION_VERSION,
             'zh-Hans': TRANSLATION_VERSION,
             'zh-Hant': TRANSLATION_VERSION,

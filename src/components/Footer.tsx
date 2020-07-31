@@ -30,6 +30,9 @@ const Languages = () => {
           <a href="/?lng=en">English</a>
         </li>
         <li>
+          <a href="/?lng=de">Deutsch</a>
+        </li>
+        <li>
           <a href="/?lng=ja">日本語</a>
         </li>
         <li>
