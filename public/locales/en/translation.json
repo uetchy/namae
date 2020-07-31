@@ -42,5 +42,11 @@
   "gettingStartedWithExample": "Try with namae",
   "pressEnterToSearch": "Press Enter to search",
   "available": "Available",
-  "unavailable": "Unavailable"
+  "unavailable": "Unavailable",
+  "language": "Language",
+  "community": "Community",
+  "about": "About",
+  "contributors": "Contributors",
+  "issues": "Issues",
+  "blog": "Blog Article"
 }
