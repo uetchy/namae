@@ -4,7 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/0b8abd28e8c04affb2aac6d907ffa149)](https://www.codacy.com/manual/uetchy/namae?utm_source=github.com&utm_medium=referral&utm_content=uetchy/namae&utm_campaign=Badge_Coverage)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0b8abd28e8c04affb2aac6d907ffa149)](https://www.codacy.com/manual/uetchy/namae?utm_source=github.com&utm_medium=referral&utm_content=uetchy/namae&utm_campaign=Badge_Grade)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/uetchy/namae.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/uetchy/namae/alerts/)
-![hatena bookmark](https://badgen.net/https/hatebu-badge.glitch.me/https://namae.dev)
+![hatena bookmark](https://badge.now.sh/hatena/b/namae.dev)
 
 > name new project.
 
@@ -35,6 +35,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
