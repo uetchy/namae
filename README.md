@@ -29,6 +29,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/flawyte"><img src="https://avatars3.githubusercontent.com/u/1585006?v=4" width="100px;" alt=""/><br /><sub><b>Mickaël Allonneau</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=flawyte" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/3x"><img src="https://avatars1.githubusercontent.com/u/18331588?v=4" width="100px;" alt=""/><br /><sub><b>Example</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=3x" title="Code">💻</a></td>
     <td align="center"><a href="https://scrapbox.io/rustacean/"><img src="https://avatars2.githubusercontent.com/u/21212032?v=4" width="100px;" alt=""/><br /><sub><b>NixieSquid</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=nixiesquid" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.zeprof2coding.me"><img src="https://avatars3.githubusercontent.com/u/32982428?v=4" width="100px;" alt=""/><br /><sub><b>Arnaud Lier</b></sub></a><br /><a href="#translation-ZeProf2Code" title="Translation">🌍</a></td>
   </tr>
 </table>
 
