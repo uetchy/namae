@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
-import fetch from 'isomorphic-unfetch';
-import { TiArrowSync } from 'react-icons/ti';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react'
+import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
+import fetch from 'isomorphic-unfetch'
+import { TiArrowSync } from 'react-icons/ti'
+import { motion } from 'framer-motion'
 
-import { capitalize, stem, germanify, njoin, lower, upper } from '../util/text';
-import { sampleFromArray, fillArray } from '../util/array';
-import { mobile, slideUp } from '../util/css';
-import { sanitize } from '../util/text';
+import { capitalize, stem, germanify, njoin, lower, upper } from '../util/text'
+import { sampleFromArray, fillArray } from '../util/array'
+import { mobile, slideUp } from '../util/css'
+import { sanitize } from '../util/text'
 import {
   sendShuffleSuggestionEvent,
   sendAcceptSuggestionEvent,
-} from '../util/analytics';
+} from '../util/analytics'
 
-type Modifier = (word: string) => string;
+type Modifier = (word: string) => string
 
-const maximumCount = 3;
+const maximumCount = 3
 const modifiers: Modifier[] = [
   (word): string => `${capitalize(germanify(word))}`,
   (word): string => `${capitalize(word)}`,
@@ -144,83 +144,83 @@ const modifiers: Modifier[] = [
   (word): string => njoin(capitalize(word), 'joy'),
   (word): string => njoin(lower(word), 'lint', { elision: false }),
   (word): string => njoin(lower(word), 'ly', { elision: false }),
-];
+]
 
 function modifyWord(word: string): string {
-  return modifiers[Math.floor(Math.random() * modifiers.length)](word);
+  return modifiers[Math.floor(Math.random() * modifiers.length)](word)
 }
 
 async function findSynonyms(word: string): Promise<string[]> {
   try {
     const response = await fetch(
       `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=ss&ie=UTF-8&oe=UTF-8&dj=1&q=${encodeURIComponent(
-        word,
-      )}`,
-    );
+        word
+      )}`
+    )
     const json: {
-      synsets: Array<{ entry: Array<{ synonym: string[] }> }>;
-    } = await response.json();
+      synsets: Array<{ entry: Array<{ synonym: string[] }> }>
+    } = await response.json()
     const synonyms = Array.from(
       new Set<string>(
         json.synsets.reduce(
           (sum, synset) => [...sum, ...synset.entry.map((e) => e.synonym[0])],
-          [] as string[],
-        ),
-      ),
+          [] as string[]
+        )
+      )
     )
       .filter((word) => !/[\s-]/.exec(word))
-      .map((word) => sanitize(word));
-    return synonyms;
+      .map((word) => sanitize(word))
+    return synonyms
   } catch (err) {
-    return [];
+    return []
   }
 }
 
 const Suggestion: React.FC<{
-  query: string;
-  onSubmit: (name: string) => void;
+  query: string
+  onSubmit: (name: string) => void
 }> = ({ query, onSubmit }) => {
-  const { t } = useTranslation();
-  const synonymRef = useRef<string[]>([]);
-  const [bestWords, setBestWords] = useState<string[]>([]);
+  const { t } = useTranslation()
+  const synonymRef = useRef<string[]>([])
+  const [bestWords, setBestWords] = useState<string[]>([])
 
   function shuffle(): void {
     const best = fillArray(
       sampleFromArray(synonymRef.current, maximumCount),
       query,
-      maximumCount,
-    ).map((word) => modifyWord(word));
-    setBestWords(best);
+      maximumCount
+    ).map((word) => modifyWord(word))
+    setBestWords(best)
   }
 
   function applyQuery(name: string): void {
-    sendAcceptSuggestionEvent();
-    onSubmit(name);
+    sendAcceptSuggestionEvent()
+    onSubmit(name)
   }
 
   function onShuffleButtonClicked() {
-    sendShuffleSuggestionEvent();
-    shuffle();
+    sendShuffleSuggestionEvent()
+    shuffle()
   }
 
   useEffect(() => {
-    let isEffective = true;
+    let isEffective = true
     const fn = async (): Promise<void> => {
       if (query && query.length > 0) {
-        const synonyms = await findSynonyms(query);
+        const synonyms = await findSynonyms(query)
         if (!isEffective) {
-          return;
+          return
         }
-        synonymRef.current = [query, ...synonyms];
-        shuffle();
+        synonymRef.current = [query, ...synonyms]
+        shuffle()
       }
-    };
-    fn();
+    }
+    fn()
     return () => {
-      isEffective = false;
-    };
+      isEffective = false
+    }
     // eslint-disable-next-line
-  }, [query]);
+  }, [query])
 
   return (
     <Container>
@@ -241,10 +241,10 @@ const Suggestion: React.FC<{
         <TiArrowSync />
       </Button>
     </Container>
-  );
-};
+  )
+}
 
-export default Suggestion;
+export default Suggestion
 
 const Container = styled.div`
   margin-top: 20px;
@@ -258,7 +258,7 @@ const Container = styled.div`
   ${mobile} {
     margin-top: 15px;
   }
-`;
+`
 
 const Title = styled.div`
   padding: 0 10px;
@@ -268,7 +268,7 @@ const Title = styled.div`
   text-transform: uppercase;
   font-size: 12px;
   user-select: none;
-`;
+`
 
 const Items = styled.div`
   margin: 5px 0;
@@ -281,7 +281,7 @@ const Items = styled.div`
     flex-direction: column;
     align-items: center;
   }
-`;
+`
 
 const Item = styled.div<{ delay: number }>`
   margin: 10px 10px 0;
@@ -305,7 +305,7 @@ const Item = styled.div<{ delay: number }>`
     padding-bottom: 0;
     font-size: 1rem;
   }
-`;
+`
 
 const Button = styled(motion.div).attrs({
   whileHover: { scale: 1.1 },
@@ -331,4 +331,4 @@ const Button = styled(motion.div).attrs({
   &:active {
     background: #a17ff5;
   }
-`;
+`

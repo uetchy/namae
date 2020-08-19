@@ -1,14 +1,14 @@
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {FaGem} from 'react-icons/fa';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { FaGem } from 'react-icons/fa'
 
-import {Card, Repeater, DedicatedAvailability} from '../core';
+import { Card, Repeater, DedicatedAvailability } from '../core'
 
-const RubyGemsCard: React.FC<{query: string}> = ({query}) => {
-  const {t} = useTranslation();
+const RubyGemsCard: React.FC<{ query: string }> = ({ query }) => {
+  const { t } = useTranslation()
 
-  const names = [query];
-  const moreNames = [`${query.toLowerCase()}-rb`];
+  const names = [query]
+  const moreNames = [`${query.toLowerCase()}-rb`]
 
   return (
     <Card title={t('providers.rubygems')}>
@@ -25,7 +25,7 @@ const RubyGemsCard: React.FC<{query: string}> = ({query}) => {
         )}
       </Repeater>
     </Card>
-  );
-};
+  )
+}
 
-export default RubyGemsCard;
+export default RubyGemsCard

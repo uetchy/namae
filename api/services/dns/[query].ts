@@ -1,34 +1,34 @@
-import dns from 'dns';
-import {send, sendError} from '../../../util/http';
-import {NowRequest, NowResponse} from '@vercel/node';
+import dns from 'dns'
+import { send, sendError } from '../../../util/http'
+import { NowRequest, NowResponse } from '@vercel/node'
 
 function resolvePromise(hostname: string): Promise<string[]> {
   return new Promise((resolve, reject) => {
     dns.resolve4(hostname, function (err, addresses) {
-      if (err) return reject(err);
-      resolve(addresses);
-    });
-  });
+      if (err) return reject(err)
+      resolve(addresses)
+    })
+  })
 }
 
 export default async function handler(
   req: NowRequest,
-  res: NowResponse,
+  res: NowResponse
 ): Promise<void> {
-  const {query} = req.query;
+  const { query } = req.query
 
   if (!query || typeof query !== 'string') {
-    return sendError(res, new Error('No query given'));
+    return sendError(res, new Error('No query given'))
   }
 
   try {
-    const response = await resolvePromise(query);
-    const availability = response && response.length > 0 ? false : true;
-    send(res, {availability});
+    const response = await resolvePromise(query)
+    const availability = response && response.length > 0 ? false : true
+    send(res, { availability })
   } catch (err) {
     if (err.code === 'ENODATA' || err.code === 'ENOTFOUND') {
-      return send(res, {availability: true});
+      return send(res, { availability: true })
     }
-    sendError(res, err);
+    sendError(res, err)
   }
 }

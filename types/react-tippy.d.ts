@@ -1,1 +1,1 @@
-declare module 'react-tippy';
+declare module 'react-tippy'

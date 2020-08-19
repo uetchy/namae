@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 import {
   FaMapSigns,
@@ -18,13 +18,13 @@ import {
   FaAws,
   FaJsSquare,
   FaBuilding,
-} from 'react-icons/fa';
-import { IoIosBeer } from 'react-icons/io';
-import { DiRust, DiHeroku, DiFirebase } from 'react-icons/di';
+} from 'react-icons/fa'
+import { IoIosBeer } from 'react-icons/io'
+import { DiRust, DiHeroku, DiFirebase } from 'react-icons/di'
 
-import { SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon } from './Icons';
-import { mobile } from '../util/css';
-import { sendGettingStartedEvent } from '../util/analytics';
+import { SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon } from './Icons'
+import { mobile } from '../util/css'
+import { sendGettingStartedEvent } from '../util/analytics'
 
 const supportedProviders: Record<string, React.ReactNode> = {
   domains: <FaMapSigns />,
@@ -50,10 +50,10 @@ const supportedProviders: Record<string, React.ReactNode> = {
   githubSearch: <FaGithub />,
   appStore: <FaAppStore />,
   nta: <FaBuilding />,
-};
+}
 
 const Welcome: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Container>
@@ -82,10 +82,10 @@ const Welcome: React.FC = () => {
         <blockquote>Soon</blockquote>
       </Section>
     </Container>
-  );
-};
+  )
+}
 
-export default Welcome;
+export default Welcome
 
 const Container = styled.div`
   padding-bottom: 40px;
@@ -97,7 +97,7 @@ const Container = styled.div`
     text-align: left;
     font-size: 1.1rem;
   }
-`;
+`
 
 const Section = styled.div`
   padding: 100px 20vw;
@@ -105,7 +105,7 @@ const Section = styled.div`
   ${mobile} {
     padding: 60px 40px;
   }
-`;
+`
 
 const HighlightSection = styled.div`
   padding: 100px 20vw;
@@ -123,7 +123,7 @@ const HighlightSection = styled.div`
   color: white;
   /* background-image: linear-gradient(180deg, #a57bf3 0%, #4364e1 100%); */
   background: #632bec;
-`;
+`
 
 const Title = styled.h1`
   line-height: 1.6em;
@@ -133,23 +133,23 @@ const Title = styled.h1`
   ${mobile} {
     font-size: 2.5em;
   }
-`;
+`
 
 const HeroTitle = styled(Title)`
   padding-bottom: 30px;
   line-height: 1em;
-`;
+`
 
 const HeroText = styled.p`
   font-size: 1.2em;
   font-weight: 400;
   line-height: 1.3em;
   color: #3c3c3c;
-`;
+`
 
 const ButtonContainer = styled.div`
   margin: 10px 0 0 0;
-`;
+`
 
 const List = styled.div`
   display: flex;
@@ -162,7 +162,7 @@ const List = styled.div`
   ${mobile} {
     justify-content: flex-start;
   }
-`;
+`
 
 const ListItem = styled.div`
   margin: 20px 25px;
@@ -179,7 +179,7 @@ const ListItem = styled.div`
   svg {
     margin-right: 5px;
   }
-`;
+`
 
 const ListButton = styled.div`
   margin: 10px 5px;
@@ -204,4 +204,4 @@ const ListButton = styled.div`
       background: black;
     }
   }
-`;
+`

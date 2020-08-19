@@ -1,12 +1,12 @@
-import React from 'react';
-import { OutboundLink } from 'react-ga';
-import { useTranslation } from 'react-i18next';
-import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa';
-import { GoHeart } from 'react-icons/go';
-import styled from 'styled-components';
-import { Section } from '../theme';
-import { tablet } from '../util/css';
-import Contributors from '../components/Contributors';
+import React from 'react'
+import { OutboundLink } from 'react-ga'
+import { useTranslation } from 'react-i18next'
+import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa'
+import { GoHeart } from 'react-icons/go'
+import styled from 'styled-components'
+import { Section } from '../theme'
+import { tablet } from '../util/css'
+import Contributors from '../components/Contributors'
 
 const Footer: React.FC = () => {
   return (
@@ -15,12 +15,12 @@ const Footer: React.FC = () => {
       <Community />
       <About />
     </Container>
-  );
-};
-export default Footer;
+  )
+}
+export default Footer
 
 const Languages = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Pane>
@@ -46,11 +46,11 @@ const Languages = () => {
         </li>
       </ul>
     </Pane>
-  );
-};
+  )
+}
 
 const Community = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Pane>
@@ -92,11 +92,11 @@ const Community = () => {
         <Contributors />
       </Box>
     </Pane>
-  );
-};
+  )
+}
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Pane>
@@ -120,7 +120,7 @@ const About = () => {
         <Links>
           <OutboundLink
             to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-              `namae — ${t('title')}`,
+              `namae — ${t('title')}`
             )}&url=${encodeURIComponent('https://namae.dev')}`}
             eventLabel="Tweet"
             aria-label="Tweet this page"
@@ -158,8 +158,8 @@ const About = () => {
         </Links>
       </ShareBox>
     </Pane>
-  );
-};
+  )
+}
 
 const Container = styled(Section)`
   --text: #bdbdbd;
@@ -187,7 +187,7 @@ const Container = styled(Section)`
   ${tablet} {
     flex-direction: column;
   }
-`;
+`
 
 const Pane = styled.div`
   font-size: 1rem;
@@ -195,19 +195,19 @@ const Pane = styled.div`
   ${tablet} {
     margin-bottom: 50px;
   }
-`;
+`
 
 const Box = styled.div`
   margin: 15px 0;
-`;
+`
 
 const Title = styled.h3`
   margin-bottom: 15px;
-`;
+`
 
 const Subtitle = styled.h4`
   margin-bottom: 12px;
-`;
+`
 
 const Links = styled.div`
   display: flex;
@@ -216,7 +216,7 @@ const Links = styled.div`
   a {
     margin-right: 10px;
   }
-`;
+`
 
 const ShareBox = styled.div`
   margin-top: 15px;
@@ -224,10 +224,10 @@ const ShareBox = styled.div`
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-`;
+`
 const Bold = styled.span`
   font-weight: bold;
-`;
+`
 
 const SponsorBadge = styled.div`
   padding: 5px 13px 5px 10px;
@@ -252,4 +252,4 @@ const SponsorBadge = styled.div`
     color: rgb(236, 69, 171);
     margin-right: 5px;
   }
-`;
+`

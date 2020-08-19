@@ -1,18 +1,16 @@
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {NowIcon} from '../../Icons';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { NowIcon } from '../../Icons'
 
-import {Card, Repeater, DedicatedAvailability} from '../core';
+import { Card, Repeater, DedicatedAvailability } from '../core'
 
-const VercelCard: React.FC<{query: string}> = ({query}) => {
-  const {t} = useTranslation();
+const VercelCard: React.FC<{ query: string }> = ({ query }) => {
+  const { t } = useTranslation()
 
-  const sanitizedQuery = query
-    .replace(/[^0-9a-zA-Z_-]/g, '')
-    .replace(/_/g, '-');
-  const lowerCase = sanitizedQuery.toLowerCase();
+  const sanitizedQuery = query.replace(/[^0-9a-zA-Z_-]/g, '').replace(/_/g, '-')
+  const lowerCase = sanitizedQuery.toLowerCase()
 
-  const names = [lowerCase];
+  const names = [lowerCase]
 
   return (
     <Card title={t('providers.now')}>
@@ -39,7 +37,7 @@ const VercelCard: React.FC<{query: string}> = ({query}) => {
         )}
       </Repeater>
     </Card>
-  );
-};
+  )
+}
 
-export default VercelCard;
+export default VercelCard

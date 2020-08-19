@@ -1,1 +1,1 @@
-declare module 'whois-json';
+declare module 'whois-json'

@@ -1,42 +1,42 @@
-import {send, sendError, fetch} from '../../../util/http';
-import {NowRequest, NowResponse} from '@vercel/node';
+import { send, sendError, fetch } from '../../../util/http'
+import { NowRequest, NowResponse } from '@vercel/node'
 
-const APPLICATION_ID = process.env.NTA_APPLICATION_ID;
+const APPLICATION_ID = process.env.NTA_APPLICATION_ID
 
 export default async function handler(
   req: NowRequest,
-  res: NowResponse,
+  res: NowResponse
 ): Promise<void> {
-  const {query} = req.query;
+  const { query } = req.query
 
   if (!query || typeof query !== 'string') {
-    return sendError(res, new Error('No query given'));
+    return sendError(res, new Error('No query given'))
   }
 
   const encodedQuery = encodeURIComponent(
     query.replace(/[A-Za-z0-9]/g, (str) =>
-      String.fromCharCode(str.charCodeAt(0) + 0xfee0),
-    ),
-  );
+      String.fromCharCode(str.charCodeAt(0) + 0xfee0)
+    )
+  )
 
   try {
     const response = await fetch(
       `https://api.houjin-bangou.nta.go.jp/4/name?id=${APPLICATION_ID}&name=${encodedQuery}&mode=1&target=1&type=02`,
-      'GET',
-    );
-    const body: string[] = (await response.text()).split('\n').slice(0, -1);
+      'GET'
+    )
+    const body: string[] = (await response.text()).split('\n').slice(0, -1)
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const header = body.shift()!.split(',');
+    const header = body.shift()!.split(',')
     const result = body.map((csv) => {
       const entry = csv.split(',').map((item) =>
         item
           .replace(/(^"|"$)/g, '')
           .replace(/[Ａ-Ｚａ-ｚ０-９]/g, (str) =>
-            String.fromCharCode(str.charCodeAt(0) - 0xfee0),
+            String.fromCharCode(str.charCodeAt(0) - 0xfee0)
           )
           // eslint-disable-next-line no-irregular-whitespace
-          .replace(/　/g, ' '),
-      );
+          .replace(/　/g, ' ')
+      )
 
       return {
         index: entry[0],
@@ -73,8 +73,8 @@ export default async function handler(
         excluded: entry[29],
         processSection: entry[2],
         modifiedSection: entry[3],
-      };
-    });
+      }
+    })
 
     send(res, {
       meta: {
@@ -91,8 +91,8 @@ export default async function handler(
             englishName: entry.englishName,
           }))
           .slice(10) || [],
-    });
+    })
   } catch (err) {
-    sendError(res, err);
+    sendError(res, err)
   }
 }

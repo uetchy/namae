@@ -1,17 +1,15 @@
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {MdDomain} from 'react-icons/md';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { MdDomain } from 'react-icons/md'
 
-import {Card, Repeater, DedicatedAvailability} from '../core';
-import {zones} from '../../../util/zones';
+import { Card, Repeater, DedicatedAvailability } from '../core'
+import { zones } from '../../../util/zones'
 
-const DomainCard: React.FC<{query: string}> = ({query}) => {
-  const {t} = useTranslation();
+const DomainCard: React.FC<{ query: string }> = ({ query }) => {
+  const { t } = useTranslation()
 
-  const sanitizedQuery = query
-    .replace(/[^0-9a-zA-Z_-]/g, '')
-    .replace(/_/g, '-');
-  const lowerCase = sanitizedQuery.toLowerCase();
+  const sanitizedQuery = query.replace(/[^0-9a-zA-Z_-]/g, '').replace(/_/g, '-')
+  const lowerCase = sanitizedQuery.toLowerCase()
 
   const domainHackSuggestions = zones
     .map((zone) => new RegExp(`${zone}$`).exec(lowerCase.slice(1)))
@@ -20,8 +18,8 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
       (m) =>
         lowerCase.substring(0, m.index + 1) +
         '.' +
-        lowerCase.substring(m.index + 1),
-    );
+        lowerCase.substring(m.index + 1)
+    )
 
   const names = [
     `${lowerCase}.com`,
@@ -31,7 +29,7 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
     `${lowerCase}.org`,
     `${lowerCase}.io`,
     ...domainHackSuggestions,
-  ];
+  ]
   const moreNames = [
     `${lowerCase}.sh`,
     `${lowerCase}.tools`,
@@ -44,7 +42,7 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
     `${lowerCase}.info`,
     `${lowerCase}.biz`,
     `${lowerCase}.website`,
-  ];
+  ]
 
   return (
     <Card title={t('providers.domains')}>
@@ -60,7 +58,7 @@ const DomainCard: React.FC<{query: string}> = ({query}) => {
         )}
       </Repeater>
     </Card>
-  );
-};
+  )
+}
 
-export default DomainCard;
+export default DomainCard
