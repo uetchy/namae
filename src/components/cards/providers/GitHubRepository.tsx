@@ -4,12 +4,17 @@ import {FaGithub} from 'react-icons/fa';
 
 import {Card, Repeater, DedicatedAvailability} from '../core';
 
-const GithubCard: React.FC<{query: string}> = ({query}) => {
+const GithubCard: React.FC<{ query: string }> = ({ query }) => {
   const {t} = useTranslation();
   const lowerCase = query.toLowerCase();
 
-  const names = [query, `${lowerCase}-dev`, `${lowerCase}-team`];
-  const moreNames = [`${lowerCase}hq`, `${lowerCase}-org`, `${lowerCase}js`];
+  const names = [query, `${lowerCase}-dev`, `${lowerCase}-org`]
+  const moreNames = [
+    `${lowerCase}hq`,
+    `${lowerCase}-team`,
+    `${lowerCase}js`,
+    `${lowerCase}-rs`,
+  ]
 
   return (
     <Card title={t('providers.github')}>
