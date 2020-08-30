@@ -1,14 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { OcamlIcon } from '../../Icons'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { OcamlIcon } from '../../Icons';
 
-import { Card, Repeater, DedicatedAvailability } from '../core'
+import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const OcamlCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+  const { t } = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase]
+  const names = [lowerCase];
 
   return (
     <Card title={t('providers.ocaml')}>
@@ -25,7 +25,7 @@ const OcamlCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default OcamlCard
+export default OcamlCard;

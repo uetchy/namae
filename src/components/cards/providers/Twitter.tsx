@@ -1,18 +1,20 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaTwitter } from 'react-icons/fa'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaTwitter } from 'react-icons/fa';
 
-import { capitalize } from '../../../util/text'
-import { Card, Repeater, DedicatedAvailability } from '../core'
+import { capitalize } from '../../../util/text';
+import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const sanitizedQuery = query.replace(/[^0-9a-zA-Z_-]/g, '').replace(/-/g, '_')
-  const lowerCase = sanitizedQuery.toLowerCase()
-  const capitalCase = capitalize(sanitizedQuery)
+  const sanitizedQuery = query
+    .replace(/[^0-9a-zA-Z_-]/g, '')
+    .replace(/-/g, '_');
+  const lowerCase = sanitizedQuery.toLowerCase();
+  const capitalCase = capitalize(sanitizedQuery);
 
-  const names = [sanitizedQuery, `${capitalCase}App`, `${lowerCase}hq`]
+  const names = [sanitizedQuery, `${capitalCase}App`, `${lowerCase}hq`];
   const moreNames = [
     `hey${lowerCase}`,
     `${capitalCase}Team`,
@@ -20,7 +22,7 @@ const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
     `${lowerCase}_org`,
     `${lowerCase}_app`,
     `${capitalCase}JS`,
-  ]
+  ];
 
   return (
     <Card title={t('providers.twitter')}>
@@ -37,7 +39,7 @@ const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default TwitterCard
+export default TwitterCard;

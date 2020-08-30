@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components'
-import { mobile } from '../util/css'
+import styled, { createGlobalStyle } from 'styled-components';
+import { mobile } from '../util/css';
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -25,7 +25,7 @@ body {
     background: #f5f5f5;
   }
 }
-`
+`;
 
 export const Content = styled.div`
   padding-top: 100px;
@@ -33,7 +33,7 @@ export const Content = styled.div`
   ${mobile} {
     padding-top: 60px;
   }
-`
+`;
 
 export const Header = styled.header`
   padding: 0 40px;
@@ -42,7 +42,7 @@ export const Header = styled.header`
   ${mobile} {
     padding: 0 20px;
   }
-`
+`;
 
 export const Section = styled.div`
   padding: 100px 20vw;
@@ -50,4 +50,4 @@ export const Section = styled.div`
   ${mobile} {
     padding: 60px 40px;
   }
-`
+`;

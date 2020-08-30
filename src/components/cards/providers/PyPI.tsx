@@ -1,15 +1,15 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaPython } from 'react-icons/fa'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaPython } from 'react-icons/fa';
 
-import { capitalize } from '../../../util/text'
-import { Card, DedicatedAvailability, Repeater } from '../core'
+import { capitalize } from '../../../util/text';
+import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const PypiCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const names = [query]
-  const moreNames = [`Py${capitalize(query)}`]
+  const names = [query];
+  const moreNames = [`Py${capitalize(query)}`];
 
   return (
     <Card title={t('providers.pypi')}>
@@ -28,7 +28,7 @@ const PypiCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default PypiCard
+export default PypiCard;
