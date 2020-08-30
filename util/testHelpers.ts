@@ -1,6 +1,6 @@
 export async function mockProvider(
   provider: any,
-  query: unknown,
+  query: unknown
 ): Promise<string> {
   const req = {
     query,

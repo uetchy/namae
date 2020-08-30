@@ -1,28 +1,28 @@
-import Tooltip from 'rc-tooltip'
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { useTranslation } from 'react-i18next'
-import { IoIosFlash, IoIosRocket } from 'react-icons/io'
-import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
-import Cards from '../components/cards'
+import Tooltip from 'rc-tooltip';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+import { IoIosFlash, IoIosRocket } from 'react-icons/io';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import Cards from '../components/cards';
 import {
   AvailableIcon,
   COLORS as ResultColor,
   ResultIcon,
   ResultItem,
   ResultName,
-} from '../components/cards/core'
-import Form from '../components/Form'
-import { useStoreState } from '../store'
-import { Content, Header } from '../theme'
-import { mobile } from '../util/css'
-import { sanitize } from '../util/text'
+} from '../components/cards/core';
+import Form from '../components/Form';
+import { useStoreState } from '../store';
+import { Content, Header } from '../theme';
+import { mobile } from '../util/css';
+import { sanitize } from '../util/text';
 
 export default function Search() {
-  const { query } = useParams<{ query: string }>()
-  const currentQuery = sanitize(query)
-  const { t } = useTranslation()
+  const { query } = useParams<{ query: string }>();
+  const currentQuery = sanitize(query);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -54,24 +54,24 @@ export default function Search() {
         <Cards query={currentQuery} />
       </Content>
     </>
-  )
+  );
 }
 
 function Stat() {
-  const totalCount = useStoreState((state) => state.stats.totalCount)
-  const availableCount = useStoreState((state) => state.stats.availableCount)
-  const { t } = useTranslation()
+  const totalCount = useStoreState((state) => state.stats.totalCount);
+  const availableCount = useStoreState((state) => state.stats.availableCount);
+  const { t } = useTranslation();
 
-  const uniqueness = availableCount !== 0 ? availableCount / totalCount : 0.0
+  const uniqueness = availableCount !== 0 ? availableCount / totalCount : 0.0;
   const uniquenessText = ((n) => {
     if (n > 0.7 && n <= 1.0) {
-      return t('uniqueness.high')
+      return t('uniqueness.high');
     } else if (n > 0.4 && n <= 0.7) {
-      return t('uniqueness.moderate')
+      return t('uniqueness.moderate');
     } else {
-      return t('uniqueness.low')
+      return t('uniqueness.low');
     }
-  })(uniqueness)
+  })(uniqueness);
 
   return (
     <UniquenessIndicator>
@@ -85,7 +85,7 @@ function Stat() {
         </span>
       </Tooltip>
     </UniquenessIndicator>
-  )
+  );
 }
 
 export const Legend = styled.div`
@@ -109,8 +109,8 @@ export const Legend = styled.div`
   > * {
     margin: 0 10px 0;
   }
-`
+`;
 
 export const UniquenessIndicator = styled.div`
   color: #7b7b7b;
-`
+`;

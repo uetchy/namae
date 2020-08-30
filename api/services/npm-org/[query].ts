@@ -1,24 +1,24 @@
-import npmName from 'npm-name'
-import { send, sendError } from '../../../util/http'
-import { NowRequest, NowResponse } from '@vercel/node'
+import npmName from 'npm-name';
+import { send, sendError } from '../../../util/http';
+import { NowRequest, NowResponse } from '@vercel/node';
 
 export default async function handler(
   req: NowRequest,
   res: NowResponse
 ): Promise<void> {
-  const { query } = req.query
+  const { query } = req.query;
 
   if (!query || typeof query !== 'string') {
-    return sendError(res, new Error('No query given'))
+    return sendError(res, new Error('No query given'));
   }
 
   try {
-    const availability = await npmName(`@${query}`)
-    send(res, { availability })
+    const availability = await npmName(`@${query}`);
+    send(res, { availability });
   } catch (err) {
     if (err.code === 'ENOTFOUND') {
-      return send(res, { availability: true })
+      return send(res, { availability: true });
     }
-    sendError(res, err)
+    sendError(res, err);
   }
 }

@@ -1,11 +1,11 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { Card, Repeater, DedicatedAvailability } from '../core'
-import { SpectrumIcon } from '../../Icons'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Card, Repeater, DedicatedAvailability } from '../core';
+import { SpectrumIcon } from '../../Icons';
 
 const SpectrumCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const names = [query]
+  const { t } = useTranslation();
+  const names = [query];
 
   return (
     <Card title={t('providers.spectrum')}>
@@ -25,7 +25,7 @@ const SpectrumCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default SpectrumCard
+export default SpectrumCard;

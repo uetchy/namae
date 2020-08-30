@@ -1,16 +1,18 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { NetlifyIcon } from '../../Icons'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { NetlifyIcon } from '../../Icons';
 
-import { Card, Repeater, DedicatedAvailability } from '../core'
+import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const NetlifyCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const sanitizedQuery = query.replace(/[^0-9a-zA-Z_-]/g, '').replace(/_/g, '-')
-  const lowerCase = sanitizedQuery.toLowerCase()
+  const sanitizedQuery = query
+    .replace(/[^0-9a-zA-Z_-]/g, '')
+    .replace(/_/g, '-');
+  const lowerCase = sanitizedQuery.toLowerCase();
 
-  const names = [lowerCase]
+  const names = [lowerCase];
 
   return (
     <Card title={t('providers.netlify')}>
@@ -26,7 +28,7 @@ const NetlifyCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default NetlifyCard
+export default NetlifyCard;

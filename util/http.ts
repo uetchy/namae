@@ -13,7 +13,7 @@ export type HttpMethod =
 
 export function fetch(
   url: string,
-  method: HttpMethod = 'HEAD',
+  method: HttpMethod = 'HEAD'
 ): Promise<Response> {
   return nodeFetch(url, { method: method });
 }

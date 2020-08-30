@@ -1,18 +1,18 @@
-import nock from 'nock'
-import provider from '../api/services/existence/[query]'
-import { mockProvider } from '../util/testHelpers'
+import nock from 'nock';
+import provider from '../api/services/existence/[query]';
+import { mockProvider } from '../util/testHelpers';
 
 test('return false if name is taken', async () => {
-  const result = await mockProvider(provider, { query: 'github.com/uetchy' })
-  expect(result).toStrictEqual({ availability: false })
-})
+  const result = await mockProvider(provider, { query: 'github.com/uetchy' });
+  expect(result).toStrictEqual({ availability: false });
+});
 
 test('return true if name is not taken', async () => {
   const result = await mockProvider(provider, {
     query: 'github.com/uetchyasdf',
-  })
-  expect(result).toStrictEqual({ availability: true })
-})
+  });
+  expect(result).toStrictEqual({ availability: true });
+});
 
 beforeEach(() => {
   nock('https://github.com:443', { encodedQueryParams: true })
@@ -44,7 +44,7 @@ beforeEach(() => {
         "default-src 'none'; base-uri 'self'; connect-src 'self'; form-action 'self'; img-src 'self' data:; script-src,'self'; style-src 'unsafe-inline'",
       'Content-Encoding': 'gzip',
       'X-GitHub-Request-Id': 'BA06:51D6:125A0F:1A9B4A:5D53E806',
-    })
+    });
   nock('https://github.com:443', { encodedQueryParams: true })
     .head('/uetchy')
     .reply(200, [], {
@@ -76,5 +76,5 @@ beforeEach(() => {
         "default-src 'none'; base-uri 'self'; block-all-mixed-content; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com www.google-analytics.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com wss://live.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src 'self'; media-src 'none'; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com",
       'Content-Encoding': 'gzip',
       'X-GitHub-Request-Id': 'A922:19B1:AD411:FB69F:5D53E5BC',
-    })
-})
+    });
+});

@@ -1,15 +1,15 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { FaNpm } from 'react-icons/fa'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { FaNpm } from 'react-icons/fa';
 
-import { Card, Repeater, DedicatedAvailability } from '../core'
+import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const NpmCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+  const { t } = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase, `${lowerCase}-js`]
-  const moreNames = [`${lowerCase}js`]
+  const names = [lowerCase, `${lowerCase}-js`];
+  const moreNames = [`${lowerCase}js`];
 
   return (
     <Card title={t('providers.npm')}>
@@ -40,7 +40,7 @@ const NpmCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default NpmCard
+export default NpmCard;

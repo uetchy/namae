@@ -1,12 +1,12 @@
 // this adds jest-dom's custom assertions
-import '@testing-library/jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect';
 
 // i18next
-import { join } from 'path'
-import i18n from 'i18next'
-import Backend from 'i18next-node-fs-backend'
-import LanguageDetector from 'i18next-browser-languagedetector'
-import { initReactI18next } from 'react-i18next'
+import { join } from 'path';
+import i18n from 'i18next';
+import Backend from 'i18next-node-fs-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next } from 'react-i18next';
 
 i18n
   .use(Backend)
@@ -23,4 +23,4 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-  })
+  });

@@ -1,15 +1,15 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { DiUbuntu } from 'react-icons/di'
-import { DiDebian } from 'react-icons/di'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { DiUbuntu } from 'react-icons/di';
+import { DiDebian } from 'react-icons/di';
 
-import { Card, Repeater, DedicatedAvailability } from '../core'
+import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const LinuxCard: React.FC<{ query: string }> = ({ query }) => {
-  const { t } = useTranslation()
-  const lowerCase = query.toLowerCase()
+  const { t } = useTranslation();
+  const lowerCase = query.toLowerCase();
 
-  const names = [lowerCase]
+  const names = [lowerCase];
 
   return (
     <Card title={t('providers.linux')}>
@@ -34,7 +34,7 @@ const LinuxCard: React.FC<{ query: string }> = ({ query }) => {
         )}
       </Repeater>
     </Card>
-  )
-}
+  );
+};
 
-export default LinuxCard
+export default LinuxCard;
