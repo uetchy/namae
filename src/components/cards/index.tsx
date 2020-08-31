@@ -18,6 +18,7 @@ import NetlifyCard from './providers/Netlify';
 import NpmCard from './providers/Npm';
 import NtaCard from './providers/Nta';
 import OcamlCard from './providers/Ocaml';
+import PlayStoreCard from './providers/PlayStore';
 import PypiCard from './providers/PyPI';
 import RubyGemsCard from './providers/RubyGems';
 import S3Card from './providers/S3';
@@ -58,6 +59,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
       <Cards>
         <GithubSearchCard query={query} />
         <AppStoreCard query={query} />
+        <PlayStoreCard query={query} />
         {language === 'ja' ? <NtaCard query={query} /> : null}
       </Cards>
     </>
