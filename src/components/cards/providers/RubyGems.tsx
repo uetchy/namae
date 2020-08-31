@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGem } from 'react-icons/fa';
-
-import { Card, Repeater, DedicatedAvailability } from '../core';
+import { SiRubygems } from 'react-icons/si';
+import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const RubyGemsCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
@@ -20,7 +19,7 @@ const RubyGemsCard: React.FC<{ query: string }> = ({ query }) => {
             service="existence"
             message="Go to RubyGems"
             link={`https://rubygems.org/gems/${name}`}
-            icon={<FaGem />}
+            icon={<SiRubygems />}
           />
         )}
       </Repeater>

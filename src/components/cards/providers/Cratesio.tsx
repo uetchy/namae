@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DiRust } from 'react-icons/di';
+import { SiRust } from 'react-icons/si';
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const CratesioCard: React.FC<{ query: string }> = ({ query }) => {
@@ -19,7 +19,7 @@ const CratesioCard: React.FC<{ query: string }> = ({ query }) => {
             service="existence"
             link={`https://crates.io/crates/${name}`}
             message="Go to crates.io"
-            icon={<DiRust />}
+            icon={<SiRust />}
           />
         )}
       </Repeater>
