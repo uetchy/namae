@@ -1,8 +1,8 @@
-import React from 'react';
 import useFetch from 'fetch-suspense';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaBuilding, FaInfoCircle } from 'react-icons/fa';
-
+import { FaInfoCircle } from 'react-icons/fa';
+import { RiBuilding2Fill } from 'react-icons/ri';
 import { Card, Result } from '../core';
 
 const Search: React.FC<{ query: string }> = ({ query }) => {
@@ -21,7 +21,7 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
           <Result
             title={app.name}
             message={`Phonetic: ${app.phoneticName}`}
-            icon={<FaBuilding />}
+            icon={<RiBuilding2Fill />}
             key={i}
           />
         ))

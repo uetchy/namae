@@ -1,39 +1,36 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-
+import { DiHeroku } from 'react-icons/di';
 import {
-  FaMapSigns,
-  FaGithub,
-  FaGitlab,
-  FaNpm,
-  FaPython,
-  FaGem,
-  FaLinux,
-  FaAppStore,
-  FaInstagram,
-  FaTwitter,
-  FaSlack,
   FaAws,
+  FaGithub,
+  FaGithubAlt,
+  FaGitlab,
+  FaInstagram,
   FaJsSquare,
-  FaBuilding,
+  FaLinux,
+  FaPython,
+  FaSlack,
+  FaTwitter,
 } from 'react-icons/fa';
-import { IoIosBeer } from 'react-icons/io';
-import { DiRust, DiHeroku, DiFirebase } from 'react-icons/di';
-
-import { SpectrumIcon, NowIcon, NetlifyIcon, OcamlIcon } from './Icons';
-import { mobile } from '../util/css';
+import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
+import { MdDomain } from 'react-icons/md';
+import { RiBuilding2Fill, RiNpmjsFill } from 'react-icons/ri';
+import { SiAppstore, SiFirebase, SiRubygems, SiRust } from 'react-icons/si';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { sendGettingStartedEvent } from '../util/analytics';
+import { mobile } from '../util/css';
+import { NetlifyIcon, NowIcon, OcamlIcon, SpectrumIcon } from './Icons';
 
 const supportedProviders: Record<string, React.ReactNode> = {
-  domains: <FaMapSigns />,
+  domains: <MdDomain />,
   github: <FaGithub />,
   gitlab: <FaGitlab />,
-  npm: <FaNpm />,
-  rust: <DiRust />,
+  npm: <RiNpmjsFill />,
+  rust: <SiRust />,
   pypi: <FaPython />,
-  rubygems: <FaGem />,
+  rubygems: <SiRubygems />,
   ocaml: <OcamlIcon />,
   homebrew: <IoIosBeer />,
   linux: <FaLinux />,
@@ -45,11 +42,12 @@ const supportedProviders: Record<string, React.ReactNode> = {
   now: <NowIcon />,
   netlify: <NetlifyIcon />,
   s3: <FaAws />,
-  firebase: <DiFirebase />,
+  firebase: <SiFirebase />,
   jsorg: <FaJsSquare />,
-  githubSearch: <FaGithub />,
-  appStore: <FaAppStore />,
-  nta: <FaBuilding />,
+  githubSearch: <FaGithubAlt />,
+  appStore: <SiAppstore />,
+  playStore: <IoMdAppstore />,
+  nta: <RiBuilding2Fill />,
 };
 
 const Welcome: React.FC = () => {
