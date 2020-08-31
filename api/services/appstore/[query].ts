@@ -42,7 +42,7 @@ export default async function handler(
       price: app.price,
       viewURL: app.trackViewUrl,
     }));
-    send(res, { result: apps || [] });
+    send(res, { result: apps });
   } catch (err) {
     sendError(res, err);
   }
