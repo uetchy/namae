@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DiFirebase } from 'react-icons/di';
-
-import { Card, Repeater, DedicatedAvailability } from '../core';
+import { SiFirebase } from 'react-icons/si';
+import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const FirebaseCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
@@ -24,7 +23,7 @@ const FirebaseCard: React.FC<{ query: string }> = ({ query }) => {
             service="existence"
             message="Go to Firebase"
             link={`https://${name}.firebaseio.com/`}
-            icon={<DiFirebase />}
+            icon={<SiFirebase />}
           />
         )}
       </Repeater>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaNpm } from 'react-icons/fa';
-
-import { Card, Repeater, DedicatedAvailability } from '../core';
+import { RiNpmjsFill, RiNpmjsLine } from 'react-icons/ri';
+import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const NpmCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
@@ -23,7 +22,7 @@ const NpmCard: React.FC<{ query: string }> = ({ query }) => {
               link={`https://www.npmjs.com/package/${name}`}
               messageIfTaken={`See ${name}`}
               linkIfTaken={`https://www.npmjs.com/package/${name}`}
-              icon={<FaNpm />}
+              icon={<RiNpmjsFill />}
             />
             <DedicatedAvailability
               name={name}
@@ -34,7 +33,7 @@ const NpmCard: React.FC<{ query: string }> = ({ query }) => {
               linkIfTaken={`https://www.npmjs.com/org/${name}`}
               prefix="@"
               suffix=" (Organization)"
-              icon={<FaNpm />}
+              icon={<RiNpmjsLine />}
             />
           </>
         )}

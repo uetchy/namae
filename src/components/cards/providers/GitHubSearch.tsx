@@ -1,7 +1,7 @@
 import React from 'react';
 import useFetch from 'fetch-suspense';
 import { useTranslation } from 'react-i18next';
-import { FaGithub, FaInfoCircle } from 'react-icons/fa';
+import { FaGithubAlt, FaInfoCircle } from 'react-icons/fa';
 
 import { Card, Result } from '../core';
 
@@ -32,7 +32,7 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
               repo.stargazers_count
             })`}
             link={repo.html_url}
-            icon={<FaGithub />}
+            icon={<FaGithubAlt />}
             key={repo.id}
           />
         ))
