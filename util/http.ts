@@ -15,7 +15,9 @@ export function fetch(
   url: string,
   method: HttpMethod = 'HEAD'
 ): Promise<Response> {
-  return nodeFetch(url, { method: method });
+  return nodeFetch(url, {
+    method: method,
+  });
 }
 
 export function send(res: NowResponse, data: object): void {
