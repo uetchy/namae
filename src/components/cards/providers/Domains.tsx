@@ -39,6 +39,7 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
     `${lowerCase}.tools`,
     `${lowerCase}.build`,
     `${lowerCase}.run`,
+    `${lowerCase}.ai`,
     `${lowerCase}.design`,
     `${lowerCase}.directory`,
     `${lowerCase}.guru`,
