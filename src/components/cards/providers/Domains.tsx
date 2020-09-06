@@ -25,25 +25,29 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
 
   const names = [
     `${lowerCase}.com`,
-    `${lowerCase}app.com`,
+    `${lowerCase}.org`,
     `${lowerCase}.app`,
     `${lowerCase}.dev`,
-    `${lowerCase}.org`,
     `${lowerCase}.io`,
+    `${lowerCase}.sh`,
     ...domainHackSuggestions,
   ];
   const moreNames = [
-    `${lowerCase}.sh`,
+    `${lowerCase}app.com`,
+    `get${lowerCase}.com`,
+    `${lowerCase}.co`,
     `${lowerCase}.tools`,
-    `${lowerCase}.design`,
     `${lowerCase}.build`,
     `${lowerCase}.run`,
-    `get${lowerCase}.com`,
+    `${lowerCase}.design`,
+    `${lowerCase}.directory`,
+    `${lowerCase}.guru`,
+    `${lowerCase}.ninja`,
     `${lowerCase}.net`,
-    `${lowerCase}.eu`,
     `${lowerCase}.info`,
     `${lowerCase}.biz`,
     `${lowerCase}.website`,
+    `${lowerCase}.eu`,
   ];
 
   return (
