@@ -1,13 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { SiRubygems } from 'react-icons/si';
+import { normalize } from '../../../util/text';
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const RubyGemsCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-
-  const names = [query];
-  const moreNames = [`${query.toLowerCase()}-rb`];
+  const normalizedQuery = normalize(query);
+  const lowerCase = normalizedQuery.toLowerCase();
+  const names = [normalizedQuery];
+  const moreNames = [`${lowerCase}-rb`];
 
   return (
     <Card title={t('providers.rubygems')}>

@@ -7,7 +7,6 @@ export default async function handler(
   res: NowResponse
 ): Promise<void> {
   const { query } = req.query;
-  console.log(query);
 
   if (!query || typeof query !== 'string') {
     return sendError(res, new Error('No query given'));
@@ -15,7 +14,7 @@ export default async function handler(
 
   try {
     const response = await fetch(
-      `https://domainr.p.rapidapi.com/v2/status?domain=${encodeURIComponent(
+      `https://domainr.p.rapidapi.com/v2/search?query=${encodeURIComponent(
         query
       )}`,
       {
@@ -24,23 +23,7 @@ export default async function handler(
         },
       }
     ).then((res) => res.json());
-    if (!response.status) {
-      throw new Error('Internal Server Error');
-    }
-    const availability = response.status.map((stat) => ({
-      query: stat.domain,
-      availability: stat.summary === 'inactive',
-    }));
-    if (availability.length === 0) {
-      return send(res, { availability: [] });
-    }
-    // NOTE: for backward compatibility
-    send(res, {
-      availability:
-        response.status.length > 1
-          ? availability
-          : availability[0].availability,
-    });
+    send(res, response);
   } catch (err) {
     sendError(res, err);
   }

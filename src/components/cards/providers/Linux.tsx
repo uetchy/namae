@@ -1,11 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { SiDebian, SiUbuntu } from 'react-icons/si';
+import { normalize } from '../../../util/text';
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const LinuxCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const lowerCase = query.toLowerCase();
+  const normalizedQuery = normalize(query);
+  const lowerCase = normalizedQuery.toLowerCase();
 
   const names = [lowerCase];
 

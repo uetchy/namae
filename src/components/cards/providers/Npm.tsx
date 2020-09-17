@@ -1,11 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { RiNpmjsFill, RiNpmjsLine } from 'react-icons/ri';
+import { normalize } from '../../../util/text';
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const NpmCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const lowerCase = query.toLowerCase();
+  const normalizedQuery = normalize(query, {
+    allowUnderscore: false,
+  });
+  const lowerCase = normalizedQuery.toLowerCase();
 
   const names = [lowerCase, `${lowerCase}-js`];
   const moreNames = [`${lowerCase}js`];

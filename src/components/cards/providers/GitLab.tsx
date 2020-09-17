@@ -1,12 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGitlab } from 'react-icons/fa';
+import { normalize } from '../../../util/text';
 
 import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const GitLabCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const lowerCase = query.toLowerCase();
+  const normalizedQuery = normalize(query, {
+    allowUnderscore: false,
+  });
+  const lowerCase = normalizedQuery.toLowerCase();
 
   const names = [lowerCase];
 

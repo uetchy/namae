@@ -2,19 +2,17 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaTwitter } from 'react-icons/fa';
 
-import { capitalize } from '../../../util/text';
+import { capitalize, normalize } from '../../../util/text';
 import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
 
-  const sanitizedQuery = query
-    .replace(/[^0-9a-zA-Z_-]/g, '')
-    .replace(/-/g, '_');
-  const lowerCase = sanitizedQuery.toLowerCase();
-  const capitalCase = capitalize(sanitizedQuery);
+  const normalizedQuery = normalize(query, { allowHyphens: false });
+  const lowerCase = normalizedQuery.toLowerCase();
+  const capitalCase = capitalize(normalizedQuery);
 
-  const names = [sanitizedQuery, `${capitalCase}App`, `${lowerCase}hq`];
+  const names = [normalizedQuery, `${capitalCase}App`, `${lowerCase}hq`];
   const moreNames = [
     `hey${lowerCase}`,
     `${capitalCase}Team`,

@@ -1,6 +1,6 @@
-import { send, sendError } from '../../../util/http';
 import { NowRequest, NowResponse } from '@vercel/node';
-import nodeFetch from 'isomorphic-unfetch';
+import nodeFetch from 'cross-fetch';
+import { send, sendError } from '../../../util/http';
 
 export default async function handler(
   req: NowRequest,

@@ -28,11 +28,24 @@ export const Card: React.FC<{ title: string }> = ({ title, children }) => {
   );
 };
 
-export const Repeater: React.FC<{
+export interface CommonRepeaterProps {
   items: string[];
   moreItems?: string[];
+}
+
+export interface MultiShotRepeaterProps extends CommonRepeaterProps {
+  singleShot?: false;
   children: (name: string) => React.ReactNode;
-}> = ({ items = [], moreItems = [], children }) => {
+}
+
+export interface SingleShotRepeaterProps extends CommonRepeaterProps {
+  singleShot: true;
+  children: (name: string[]) => React.ReactNode;
+}
+
+export type RepeaterProps = MultiShotRepeaterProps | SingleShotRepeaterProps;
+
+export const Repeater: React.FC<RepeaterProps> = (props) => {
   const [revealAlternatives, setRevealAlternatives] = useState(false);
   const { t } = useTranslation();
 
@@ -43,19 +56,29 @@ export const Repeater: React.FC<{
 
   useEffect(() => {
     setRevealAlternatives(false);
-  }, [items, moreItems]);
+  }, [props.items, props.moreItems]);
+
+  const { items, moreItems = [] } = props;
 
   return (
     <>
-      {items.map((name) => (
-        <ErrorHandler key={name}>{children(name)}</ErrorHandler>
-      ))}
+      {props.singleShot === true ? (
+        <ErrorHandler>{props.children(items)}</ErrorHandler>
+      ) : (
+        items.map((name) => (
+          <ErrorHandler key={name}>{props.children(name)}</ErrorHandler>
+        ))
+      )}
 
-      {revealAlternatives
-        ? moreItems.map((name) => (
-            <ErrorHandler key={name}>{children(name)}</ErrorHandler>
+      {revealAlternatives ? (
+        props.singleShot ? (
+          <ErrorHandler>{props.children(moreItems)}</ErrorHandler>
+        ) : (
+          moreItems.map((name) => (
+            <ErrorHandler key={name}>{props.children(name)}</ErrorHandler>
           ))
-        : null}
+        )
+      ) : null}
       {moreItems.length > 0 && !revealAlternatives ? (
         <Button onClick={onClick}>{t('showMore')}</Button>
       ) : null}

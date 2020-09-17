@@ -1,16 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaSlack } from 'react-icons/fa';
+import { normalize } from '../../../util/text';
 
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const SlackCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
 
-  const sanitizedQuery = query
-    .replace(/[^0-9a-zA-Z_-]/g, '')
-    .replace(/_/g, '-');
-  const lowerCase = sanitizedQuery.toLowerCase();
+  const normalizedQuery = normalize(query, { allowUnderscore: false });
+  const lowerCase = normalizedQuery.toLowerCase();
 
   const names = [lowerCase];
 

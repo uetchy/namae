@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sentry/browser": "^5.21.1",
+    "cross-fetch": "^3.0.6",
     "easy-peasy": "^3.3.1",
     "fetch-suspense": "^1.2.2",
     "framer-motion": "^2.5.1",
@@ -18,9 +19,7 @@
     "i18next-chained-backend": "^2.0.1",
     "i18next-localstorage-backend": "^3.1.1",
     "i18next-xhr-backend": "^3.2.2",
-    "isomorphic-unfetch": "^3.0.0",
     "npm-name": "^6.0.1",
-    "prop-types": "^15.7.2",
     "rc-tooltip": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -34,9 +33,8 @@
     "react-spinners": "^0.9.0",
     "react-toastify": "^6.0.8",
     "styled-components": "^5.1.1",
-    "swr": "^0.3.0",
-    "validator": "^13.1.0",
-    "whois-json": "^2.0.4"
+    "swr": "^0.3.2",
+    "validator": "^13.1.0"
   },
   "devDependencies": {
     "@sentry/cli": "^1.55.1",

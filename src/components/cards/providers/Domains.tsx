@@ -1,17 +1,35 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdDomain } from 'react-icons/md';
-
-import { Card, Repeater, DedicatedAvailability } from '../core';
 import { zones } from '../../../util/zones';
+import { Card, DedicatedAvailability, Repeater } from '../core';
+import useSWR from 'swr';
+import fetch from 'cross-fetch';
+import { normalize } from '../../../util/text';
+
+export interface DomainrResponse {
+  results: {
+    domain: string;
+    host: string;
+    subdomain: string;
+    zone: string;
+    path: string;
+    registerURL: string;
+  }[];
+}
+
+function fetcher(url: string) {
+  return fetch(url, {}).then((res) => res.json());
+}
 
 const DomainCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
 
-  const sanitizedQuery = query
-    .replace(/[^0-9a-zA-Z_-]/g, '')
-    .replace(/_/g, '-');
-  const lowerCase = sanitizedQuery.toLowerCase();
+  const normalizedQuery = normalize(query, {
+    alphanumeric: false,
+    allowUnderscore: false,
+  });
+  const lowerCase = normalizedQuery.toLowerCase();
 
   const domainHackSuggestions = zones
     .map((zone) => new RegExp(`${zone}$`).exec(lowerCase.slice(1)))
@@ -23,40 +41,63 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
         lowerCase.substring(m.index + 1)
     );
 
-  const names = [
-    `${lowerCase}.com`,
-    `${lowerCase}.org`,
-    `${lowerCase}.app`,
-    `${lowerCase}.dev`,
-    `${lowerCase}.io`,
-    `${lowerCase}.sh`,
-    ...domainHackSuggestions,
-  ];
-  const moreNames = [
+  const { data } = useSWR<DomainrResponse>(
+    `/api/list/domain/${encodeURIComponent(query)}`,
+    fetcher
+  );
+
+  const domainrSuggestions =
+    data?.results
+      ?.filter((res) => res.subdomain !== '' && res.path === '')
+      ?.map((res) => res.domain) ?? [];
+
+  const names =
+    // use Set() to eliminate dupes
+    new Set([
+      ...['com', 'org', 'app', 'io'].map((tld) => lowerCase + '.' + tld),
+      ...domainHackSuggestions,
+      ...domainrSuggestions,
+    ]);
+
+  const moreNames = new Set([
     `${lowerCase}app.com`,
     `get${lowerCase}.com`,
-    `${lowerCase}.co`,
-    `${lowerCase}.tools`,
-    `${lowerCase}.build`,
-    `${lowerCase}.run`,
-    `${lowerCase}.ai`,
-    `${lowerCase}.design`,
-    `${lowerCase}.directory`,
-    `${lowerCase}.guru`,
-    `${lowerCase}.ninja`,
-    `${lowerCase}.net`,
-    `${lowerCase}.info`,
-    `${lowerCase}.biz`,
-    `${lowerCase}.website`,
-    `${lowerCase}.eu`,
-  ];
+    ...[
+      'co',
+      'dev',
+      'sh',
+      'tools',
+      'build',
+      'run',
+      'ai',
+      'design',
+      'directory',
+      'guru',
+      'ninja',
+      'net',
+      'info',
+      'biz',
+      'website',
+      'eu',
+    ].map((tld) => lowerCase + '.' + tld),
+  ]);
+
+  for (const name of moreNames) {
+    if (names.has(name)) {
+      moreNames.delete(name);
+    }
+  }
 
   return (
     <Card title={t('providers.domains')}>
-      <Repeater items={names} moreItems={moreNames}>
-        {(name) => (
+      <Repeater
+        items={Array.from(names)}
+        moreItems={Array.from(moreNames)}
+        singleShot={true}
+      >
+        {(names: string[]) => (
           <DedicatedAvailability
-            name={name}
+            name={names.join(',')}
             message="Go to Domainr.com"
             service="domain"
             link={`https://domainr.com/?q=${name}`}
