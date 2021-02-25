@@ -1,8 +1,6 @@
-import fetch from 'cross-fetch';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MdDomain } from 'react-icons/md';
-import useSWR from 'swr';
 import { normalize } from '../../../util/text';
 import { zones } from '../../../util/zones';
 import { Card, DedicatedAvailability, Repeater } from '../core';
@@ -18,9 +16,9 @@ export interface DomainrResponse {
   }[];
 }
 
-function fetcher(url: string) {
-  return fetch(url, {}).then((res) => res.json());
-}
+// function fetcher(url: string) {
+//   return fetch(url, {}).then((res) => res.json());
+// }
 
 const DomainCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
@@ -41,22 +39,21 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
         lowerCase.substring(m.index + 1)
     );
 
-  const { data } = useSWR<DomainrResponse>(
-    `/api/list/domain/${encodeURIComponent(query)}`,
-    fetcher
-  );
+  // const { data } = useSWR<DomainrResponse>(
+  //   `/api/list/domain/${encodeURIComponent(query)}`,
+  //   fetcher
+  // );
 
-  const cctldSuggestions =
-    data?.results
-      ?.filter((res) => res.subdomain !== '' && res.path === '')
-      ?.map((res) => res.domain) ?? [];
+  // const cctldSuggestions =
+  //   data?.results
+  //     ?.filter((res) => res.subdomain !== '' && res.path === '')
+  //     ?.map((res) => res.domain) ?? [];
 
   const names =
     // use Set() to eliminate dupes
     new Set([
       ...['com', 'org', 'app', 'io'].map((tld) => lowerCase + '.' + tld),
       ...domainHackSuggestions,
-      ...cctldSuggestions,
     ]);
 
   const moreNames = new Set([
