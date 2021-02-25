@@ -9,13 +9,14 @@ const GithubCard: React.FC<{ query: string }> = ({ query }) => {
   const normalizedQuery = normalize(query, {});
   const lowerCase = normalizedQuery.toLowerCase();
 
-  const names = [normalizedQuery, `${lowerCase}-dev`, `${lowerCase}-org`];
-  const moreNames = [
-    `${lowerCase}hq`,
+  const names = [
+    normalizedQuery,
+    `${lowerCase}-dev`,
+    `${lowerCase}-org`,
     `${lowerCase}-team`,
-    `${lowerCase}js`,
-    `${lowerCase}-rs`,
+    `${lowerCase}hq`,
   ];
+  const moreNames = [`${lowerCase}js`, `${lowerCase}-rs`];
 
   return (
     <Card title={t('providers.github')}>
