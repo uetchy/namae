@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
 
-export interface Contributors {
+export interface IContributors {
   projectName: string;
   projectOwner: string;
   repoType: string;
@@ -27,7 +27,7 @@ export interface Contributor {
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const Contributors: React.FC = () => {
-  const { data } = useSWR<Contributors>(
+  const { data } = useSWR<IContributors>(
     'https://raw.githubusercontent.com/uetchy/namae/master/.all-contributorsrc',
     fetcher
   );

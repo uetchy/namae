@@ -1,4 +1,5 @@
 import { NowRequest, NowResponse } from '@vercel/node';
+import assert from 'assert';
 import fetch from 'cross-fetch';
 import { send, sendError } from '../../../util/http';
 
@@ -7,6 +8,8 @@ export default async function handler(
   res: NowResponse
 ): Promise<void> {
   const { query } = req.query;
+
+  assert(process.env.DOMAINR_API_KEY);
 
   if (!query || typeof query !== 'string') {
     return sendError(res, new Error('No query given'));

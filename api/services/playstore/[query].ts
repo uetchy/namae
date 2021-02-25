@@ -1,5 +1,6 @@
-import { send, sendError, fetch } from '../../../util/http';
 import { NowRequest, NowResponse } from '@vercel/node';
+import 'cross-fetch';
+import { fetch, send, sendError } from '../../../util/http';
 
 export default async function handler(
   req: NowRequest,
@@ -18,12 +19,14 @@ export default async function handler(
       )}`,
       'GET'
     ).then((res) => res.text());
+
     const response = JSON.parse(
       responseText.match(
         /AF_initDataCallback.+?hash: '5'.+?data:([\w\W]+?), sideChannel/m
-      )[1]
+      )?.[1] ?? ''
     );
-    const apps = response[0][1][0][0][0].map((entry) => ({
+
+    const apps = response[0][1][0][0][0].map((entry: any) => ({
       id: entry[12][0],
       name: entry[2],
       author: entry[4][0][0][0],
