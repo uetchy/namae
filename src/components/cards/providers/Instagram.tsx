@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FaInstagram } from 'react-icons/fa';
 import { normalize } from '../../../util/text';
 
-import { Card, Repeater, ExistentialAvailability } from '../core';
+import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const InstagramCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
@@ -17,10 +17,10 @@ const InstagramCard: React.FC<{ query: string }> = ({ query }) => {
     <Card title={t('providers.instagram')}>
       <Repeater items={names} moreItems={moreNames}>
         {(name) => (
-          <ExistentialAvailability
+          <DedicatedAvailability
             name={name}
-            target={`https://instagram.com/${name}`}
-            link={`https://instagram.com/${name}`}
+            service="instagram"
+            link={`https://www.instagram.com/${name}/`}
             message="Go to Instagram"
             icon={<FaInstagram />}
           />

@@ -6,12 +6,12 @@ import AppStoreCard from './providers/AppStore';
 import CratesioCard from './providers/Cratesio';
 import DomainCard from './providers/Domains';
 import FirebaseCard from './providers/Firebase';
-import GithubCard from './providers/GitHubRepository';
+import GithubCard from './providers/GitHubOrganization';
 import GithubSearchCard from './providers/GitHubSearch';
 import GitLabCard from './providers/GitLab';
 import HerokuCard from './providers/Heroku';
 import HomebrewCard from './providers/Homebrew';
-import InstagramCard from './providers/Instagram';
+// import InstagramCard from './providers/Instagram';
 import JsOrgCard from './providers/JsOrg';
 import LinuxCard from './providers/Linux';
 import NetlifyCard from './providers/Netlify';
@@ -51,7 +51,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <NetlifyCard query={query} />
         <JsOrgCard query={query} />
         <SlackCard query={query} />
-        <InstagramCard query={query} />
+        {/* <InstagramCard query={query} /> */}
         <SpectrumCard query={query} />
         <S3Card query={query} />
         <FirebaseCard query={query} />
