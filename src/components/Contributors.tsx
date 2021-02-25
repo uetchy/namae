@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
+import Tooltip from 'rc-tooltip';
 
 export interface IContributors {
   projectName: string;
@@ -37,15 +38,23 @@ const Contributors: React.FC = () => {
   return (
     <Container>
       {data.contributors.map((contributor) => (
-        <Item key={contributor.login}>
-          <a
-            href={contributor.profile}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Avatar src={contributor.avatar_url} alt={contributor.name} />
-          </a>
-        </Item>
+        <Tooltip
+          overlay={`${contributor.name} (${contributor.contributions.join(
+            ', '
+          )})`}
+          placement="top"
+          trigger={['hover']}
+        >
+          <Item key={contributor.login}>
+            <a
+              href={contributor.profile}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Avatar src={contributor.avatar_url} alt={contributor.name} />
+            </a>
+          </Item>
+        </Tooltip>
       ))}
     </Container>
   );
