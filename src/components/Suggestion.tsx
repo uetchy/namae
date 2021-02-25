@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import fetch from 'isomorphic-unfetch';
+import fetch from 'cross-fetch';
 import { TiArrowSync } from 'react-icons/ti';
 import { motion } from 'framer-motion';
 

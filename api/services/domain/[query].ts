@@ -1,6 +1,7 @@
+import { NowRequest, NowResponse } from '@vercel/node';
+import 'cross-fetch';
 import whois from 'whois-json';
 import { send, sendError } from '../../../util/http';
-import { NowRequest, NowResponse } from '@vercel/node';
 
 export default async function handler(
   req: NowRequest,

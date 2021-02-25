@@ -1,17 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaJsSquare } from 'react-icons/fa';
+import { normalize } from '../../../util/text';
 
 import { Card, Repeater, DedicatedAvailability } from '../core';
 
 const JsOrgCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
 
-  const sanitizedQuery = query
-    .replace(/[^0-9a-zA-Z_-]/g, '')
-    .replace(/_/g, '-');
-  const lowerCase = sanitizedQuery.toLowerCase();
-
+  const normalizedQuery = normalize(query, {
+    allowUnderscore: false,
+  });
+  const lowerCase = normalizedQuery.toLowerCase();
   const names = [lowerCase];
 
   return (

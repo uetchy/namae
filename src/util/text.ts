@@ -5,9 +5,41 @@ export function capitalize(text: string): string {
 
 export function sanitize(text: string): string {
   return text
-    .replace(/[\s@+!#$%^&*()[\]./<>{}]/g, '')
+    .replace(/[@+!#$%^&*()[\]./<>{}]/g, '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '');
+}
+
+export interface NormalizeOptions {
+  alphanumeric?: boolean;
+  allowSpaces?: boolean;
+  allowUnderscore?: boolean;
+  allowHyphens?: boolean;
+}
+
+export function normalize(
+  text: string,
+  {
+    alphanumeric = true,
+    allowSpaces = false,
+    allowUnderscore = true,
+    allowHyphens = true,
+  }: NormalizeOptions = {}
+): string {
+  if (alphanumeric) {
+    text = text.replace(/[^0-9a-zA-Z-_\s]/g, '');
+  }
+  if (!allowUnderscore) {
+    text = text.replace(/_/g, '-');
+  }
+  if (!allowHyphens) {
+    text = text.replace(/-/g, allowUnderscore ? '_' : ' ');
+  }
+  if (!allowSpaces) {
+    text = text.replace(/\s/g, '');
+  }
+  text = text.replace(/[-_\s]+$/, '');
+  return text;
 }
 
 export function upper(word: string): string {

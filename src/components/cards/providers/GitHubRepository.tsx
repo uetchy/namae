@@ -1,13 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGithub } from 'react-icons/fa';
+import { normalize } from '../../../util/text';
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const GithubCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const lowerCase = query.toLowerCase();
+  const normalizedQuery = normalize(query, {});
+  const lowerCase = normalizedQuery.toLowerCase();
 
-  const names = [query, `${lowerCase}-dev`, `${lowerCase}-org`];
+  const names = [normalizedQuery, `${lowerCase}-dev`, `${lowerCase}-org`];
   const moreNames = [
     `${lowerCase}hq`,
     `${lowerCase}-team`,

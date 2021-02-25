@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from '@vercel/node';
-import nodeFetch from 'cross-fetch';
+import fetch from 'cross-fetch';
 import { send, sendError } from '../../../util/http';
 
 export default async function handler(
@@ -12,16 +12,18 @@ export default async function handler(
     return sendError(res, new Error('No query given'));
   }
 
-  if (/[^a-zA-Z0-9_-]/.test(query)) {
-    return sendError(res, new Error('Invalid characters'));
-  }
-
   try {
-    const response = await nodeFetch(`https://gitlab.com/${query}`, {
-      redirect: 'manual',
-    });
-    const availability = response.status === 302;
-    send(res, { availability });
+    const response = await fetch(
+      `https://domainr.p.rapidapi.com/v2/search?query=${encodeURIComponent(
+        query
+      )}`,
+      {
+        headers: {
+          'X-RapidAPI-Key': process.env.DOMAINR_API_KEY,
+        },
+      }
+    ).then((res) => res.json());
+    send(res, response);
   } catch (err) {
     sendError(res, err);
   }

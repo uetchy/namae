@@ -2,14 +2,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaPython } from 'react-icons/fa';
 
-import { capitalize } from '../../../util/text';
+import { capitalize, normalize } from '../../../util/text';
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
 const PypiCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-
-  const names = [query];
-  const moreNames = [`Py${capitalize(query)}`];
+  const normalizedQuery = normalize(query);
+  const capitalCase = capitalize(normalizedQuery);
+  const names = [normalizedQuery];
+  const moreNames = [`Py${capitalCase}`];
 
   return (
     <Card title={t('providers.pypi')}>

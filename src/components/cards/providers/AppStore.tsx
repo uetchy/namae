@@ -7,9 +7,10 @@ import { Card, Result } from '../core';
 
 const Search: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const term = encodeURIComponent(query);
   const response = useFetch(
-    `/api/services/appstore/${term}?country=${t('countryCode')}`
+    `/api/services/appstore/${encodeURIComponent(query)}?country=${t(
+      'countryCode'
+    )}`
   ) as {
     result: Array<{ name: string; viewURL: string; price: number; id: string }>;
   };

@@ -1,5 +1,5 @@
 import { NowResponse } from '@vercel/node';
-import nodeFetch from 'isomorphic-unfetch';
+import nodeFetch from 'cross-fetch';
 
 export type HttpMethod =
   | 'GET'

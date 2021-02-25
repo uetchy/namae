@@ -1,14 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaInstagram } from 'react-icons/fa';
+import { normalize } from '../../../util/text';
 
 import { Card, Repeater, ExistentialAvailability } from '../core';
 
 const InstagramCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const lowerCase = query.toLowerCase();
+  const normalizedQuery = normalize(query, { allowHyphens: false });
+  const lowerCase = normalizedQuery.toLowerCase();
 
-  const names = [query];
+  const names = [normalizedQuery];
   const moreNames = [`${lowerCase}app`, `${lowerCase}_hq`, `get.${lowerCase}`];
 
   return (
