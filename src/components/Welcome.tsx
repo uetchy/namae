@@ -8,7 +8,6 @@ import {
   FaGitlab,
   // FaInstagram,
   FaJsSquare,
-  FaLinux,
   FaPython,
   FaSlack,
   FaTwitter,
@@ -16,7 +15,15 @@ import {
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
 import { RiBuilding2Fill, RiNpmjsFill } from 'react-icons/ri';
-import { SiAppstore, SiFirebase, SiRubygems, SiRust } from 'react-icons/si';
+import {
+  SiAppstore,
+  SiArchlinux,
+  SiDebian,
+  SiFirebase,
+  SiRubygems,
+  SiRust,
+  SiUbuntu,
+} from 'react-icons/si';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { sendGettingStartedEvent } from '../util/analytics';
@@ -27,17 +34,19 @@ const supportedProviders: Record<string, React.ReactNode> = {
   domains: <MdDomain />,
   github: <FaGithub />,
   gitlab: <FaGitlab />,
+  twitter: <FaTwitter />,
+  homebrew: <IoIosBeer />,
   npm: <RiNpmjsFill />,
   rust: <SiRust />,
   pypi: <FaPython />,
   rubygems: <SiRubygems />,
   ocaml: <OcamlIcon />,
-  homebrew: <IoIosBeer />,
-  linux: <FaLinux />,
-  twitter: <FaTwitter />,
+  archlinux: <SiArchlinux />,
+  ubuntu: <SiUbuntu />,
+  debian: <SiDebian />,
   // instagram: <FaInstagram />,
-  spectrum: <SpectrumIcon />,
   slack: <FaSlack />,
+  spectrum: <SpectrumIcon />,
   heroku: <DiHeroku />,
   now: <NowIcon />,
   netlify: <NetlifyIcon />,

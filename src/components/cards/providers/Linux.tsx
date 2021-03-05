@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { SiDebian, SiUbuntu } from 'react-icons/si';
+import { SiDebian, SiUbuntu, SiArchlinux } from 'react-icons/si';
 import { normalize } from '../../../util/text';
 import { Card, DedicatedAvailability, Repeater } from '../core';
 
@@ -16,6 +16,13 @@ const LinuxCard: React.FC<{ query: string }> = ({ query }) => {
       <Repeater items={names}>
         {(name) => (
           <>
+            <DedicatedAvailability
+              name={name}
+              service="archlinux"
+              message="Go to ArchLinux.org"
+              link={`https://archlinux.org/packages/?sort=&q=${name}`}
+              icon={<SiArchlinux />}
+            />
             <DedicatedAvailability
               name={name}
               service="launchpad"

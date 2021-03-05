@@ -15,6 +15,9 @@
   "pressEnterToSearch": "Press Enter to search",
   "providers": {
     "appStore": "App Store",
+    "archlinux": "Arch Linux",
+    "ubuntu": "Ubuntu",
+    "debian": "Debian",
     "domains": "Domains",
     "firebase": "Firebase",
     "github": "GitHub Organization",
