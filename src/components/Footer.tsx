@@ -163,7 +163,7 @@ const About = () => {
 
 const Container = styled(Section)`
   --text: #bdbdbd;
-  --background: #404040;
+  --background: #150c30;
 
   display: flex;
   flex-direction: row;
