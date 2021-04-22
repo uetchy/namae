@@ -60,6 +60,7 @@ const modifiers: Modifier[] = [
   (word): string => njoin('Smart', capitalize(word), { elision: false }),
   (word): string => njoin('Snap', capitalize(word), { elision: false }),
   (word): string => njoin('Super', lower(word), { elision: false }),
+  (word): string => njoin('Strong', lower(word), { elision: false }),
   (word): string => njoin('Ultra', lower(word)),
   (word): string => njoin('Un', lower(word), { elision: false }),
   (word): string => njoin('Uni', lower(word)),
