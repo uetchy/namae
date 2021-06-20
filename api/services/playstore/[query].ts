@@ -22,7 +22,7 @@ export default async function handler(
 
     const response = JSON.parse(
       responseText.match(
-        /AF_initDataCallback.+?hash: '5'.+?data:([\w\W]+?), sideChannel/m
+        /AF_initDataCallback.+?hash: '6'.+?data:([\w\W]+?), sideChannel/m
       )?.[1] ?? ''
     );
 
