@@ -24,7 +24,7 @@ const NpmCard: React.FC<{ query: string }> = ({ query }) => {
               service="npm"
               message={`See ${name}`}
               link={`https://www.npmjs.com/package/${name}`}
-              messageIfTaken={`See ${name}`}
+              messageIfTaken={`See ${name} in npmjs.com`}
               linkIfTaken={`https://www.npmjs.com/package/${name}`}
               icon={<RiNpmjsFill />}
             />
@@ -33,7 +33,7 @@ const NpmCard: React.FC<{ query: string }> = ({ query }) => {
               service="npm-org"
               message="Create Org"
               link="https://www.npmjs.com/org/create"
-              messageIfTaken={`See @${name}`}
+              messageIfTaken={`See @${name} in npmjs.com`}
               linkIfTaken={`https://www.npmjs.com/org/${name}`}
               prefix="@"
               suffix=" (Organization)"

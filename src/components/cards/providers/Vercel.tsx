@@ -21,19 +21,8 @@ const VercelCard: React.FC<{ query: string }> = ({ query }) => {
           <DedicatedAvailability
             name={`${name}.vercel.app`}
             service="existence"
-            message={`Open ${name}.vercel.app`}
+            message={`Go to ${name}.vercel.app`}
             link={`https://${name}.vercel.app`}
-            icon={<NowIcon />}
-          />
-        )}
-      </Repeater>
-      <Repeater items={names}>
-        {(name) => (
-          <DedicatedAvailability
-            name={`${name}.now.sh`}
-            service="existence"
-            message={`Open ${name}.now.sh`}
-            link={`https://${name}.now.sh`}
             icon={<NowIcon />}
           />
         )}

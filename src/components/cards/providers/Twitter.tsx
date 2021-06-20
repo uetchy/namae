@@ -34,7 +34,7 @@ const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
             name={name}
             query={name}
             service="twitter"
-            message="Go to Twitter"
+            message={`Go to twitter.com/${name}`}
             link={`https://twitter.com/${name}`}
             icon={<FaTwitter />}
           />

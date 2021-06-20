@@ -21,7 +21,7 @@ const NetlifyCard: React.FC<{ query: string }> = ({ query }) => {
           <DedicatedAvailability
             name={`${name}.netlify.com`}
             service="existence"
-            message={`Open ${name}.netlify.com`}
+            message={`Go to ${name}.netlify.com`}
             link={`https://${name}.netlify.com`}
             icon={<NetlifyIcon />}
           />

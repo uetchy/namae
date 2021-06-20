@@ -59,6 +59,7 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
   const moreNames = new Set([
     `${lowerCase}app.com`,
     `get${lowerCase}.com`,
+    `join${lowerCase}.com`,
     ...[
       'co',
       'dev',
@@ -74,6 +75,7 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
       'ninja',
       'info',
       'biz',
+      'eu',
     ].map((tld) => lowerCase + '.' + tld),
   ]);
 
@@ -89,9 +91,9 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            message="Go to Domainr.com"
+            message="Go to tld-list.com"
             service="domain"
-            link={`https://domainr.com/?q=${name}`}
+            link={`https://tld-list.com/tld/${name.replace(/^.+?\./, '')}`}
             icon={<MdDomain />}
           />
         )}
