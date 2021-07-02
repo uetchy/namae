@@ -1,11 +1,11 @@
 import { send, sendError, fetch } from '../../../util/http';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
 const APPLICATION_ID = process.env.NTA_APPLICATION_ID;
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query } = req.query;
 
@@ -90,7 +90,7 @@ export default async function handler(
             phoneticName: entry.phoneticName,
             englishName: entry.englishName,
           }))
-          .slice(10) || [],
+          .slice(0, 10) || [],
     });
   } catch (err) {
     sendError(res, err);

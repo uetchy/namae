@@ -97,6 +97,9 @@ const Community = () => {
 
 const About = () => {
   const { t } = useTranslation();
+  const {
+    i18n: { language },
+  } = useTranslation();
 
   return (
     <Pane>
@@ -157,6 +160,16 @@ const About = () => {
           </OutboundLink>
         </Links>
       </ShareBox>
+
+      {language === 'ja' ? (
+        <>
+          <br />
+          <Title>情報の取得元</Title>
+          <p>
+            このサービスは、国税庁法人番号システムのWeb-API機能を利用して取得した情報をもとに作成していますが、サービスの内容は国税庁によって保証されたものではありません。
+          </p>
+        </>
+      ) : null}
     </Pane>
   );
 };
