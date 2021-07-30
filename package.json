@@ -6,15 +6,16 @@
     "build": "NODE_ENV=production react-scripts build",
     "dev": "BROWSER=none react-scripts start",
     "eject": "react-scripts eject",
+    "prepare": "husky install",
     "test": "jest --coverage && CI=true react-scripts test --coverage"
   },
   "dependencies": {
-    "@sentry/browser": "^6.8.0",
+    "@sentry/browser": "^6.13.2",
     "cross-fetch": "^3.1.4",
     "easy-peasy": "^5.0.3",
     "fetch-suspense": "^1.2.2",
     "framer-motion": "^4.1.17",
-    "i18next": ">=20.3.2",
+    "i18next": ">=21.0.1",
     "i18next-browser-languagedetector": "^6.1.2",
     "i18next-chained-backend": "^3.0.2",
     "i18next-localstorage-backend": "^3.1.3",
@@ -25,47 +26,41 @@
     "react-dom": "^17.0.2",
     "react-ga": "^3.3.0",
     "react-helmet": "^6.0.0",
-    "react-i18next": "11.11.0",
+    "react-i18next": "11.12.0",
     "react-icons": "^4.2.0",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.2.0",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "react-spinners": "^0.11.0",
-    "react-toastify": "^7.0.4",
-    "styled-components": "^5.3.0",
-    "swr": "^0.5.6",
+    "react-toastify": "^8.0.2",
+    "styled-components": "^5.3.1",
+    "swr": "^1.0.1",
     "validator": "^13.6.0",
     "whois-json": "^2.0.4"
   },
   "devDependencies": {
-    "@sentry/cli": "^1.66.0",
+    "@sentry/cli": "^1.68.0",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@types/i18next-node-fs-backend": "^2.1.0",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.14.0",
-    "@types/react-dom": "^17.0.8",
-    "@types/react-helmet": "^6.1.1",
-    "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "^5.1.10",
-    "@types/validator": "^13.6.0",
-    "@vercel/build-utils": "^2.11.1",
-    "@vercel/node": "^1.11.1",
+    "@testing-library/react": "^12.1.0",
+    "@types/i18next-node-fs-backend": "^2.1.1",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.9.6",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-helmet": "^6.1.2",
+    "@types/react-router-dom": "^5.3.0",
+    "@types/styled-components": "^5.1.14",
+    "@types/validator": "^13.6.3",
+    "@vercel/build-utils": "^2.12.2",
+    "@vercel/node": "^1.12.1",
     "codacy-coverage": "^3.4.0",
-    "husky": "^6.0.0",
+    "husky": "^7.0.2",
     "i18next-node-fs-backend": "^2.1.3",
     "mutationobserver-shim": "^0.3.5",
-    "nock": "^13.1.0",
-    "prettier": "^2.3.2",
+    "nock": "^13.1.3",
+    "prettier": "^2.4.1",
     "pretty-quick": "^3.1.1",
-    "ts-jest": "^26.5.6",
-    "typescript": "^4.3.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "pre-push": "npm test"
-    }
+    "ts-jest": "^26.4.2",
+    "typescript": "^4.4.3"
   },
   "license": "Apache-2.0",
   "browserslist": {
@@ -81,7 +76,7 @@
     ]
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=14.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"

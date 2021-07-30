@@ -1,10 +1,10 @@
 import isURL from 'validator/lib/isURL';
 import { send, sendError, fetch } from '../../../util/http';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query } = req.query;
 
@@ -21,10 +21,9 @@ export default async function handler(
     const availability = response.status === 404;
     send(res, { availability });
   } catch (err) {
-    console.log(err.code);
-    if (err.code === 'ENOTFOUND') {
+    if ((err as any).code === 'ENOTFOUND') {
       return send(res, { availability: true });
     }
-    sendError(res, err);
+    sendError(res, err as any);
   }
 }

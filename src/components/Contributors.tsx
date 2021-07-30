@@ -39,6 +39,7 @@ const Contributors: React.FC = () => {
     <Container>
       {data.contributors.map((contributor) => (
         <Tooltip
+          key={contributor.login}
           overlay={`${contributor.name} (${contributor.contributions.join(
             ', '
           )})`}

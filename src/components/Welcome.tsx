@@ -84,10 +84,10 @@ const Welcome: React.FC = () => {
           </ListItem>
         ))}
       </HighlightSection>
-      <Section>
+      {/* <Section>
         <Title>Integrations</Title>
         <blockquote>Soon</blockquote>
-      </Section>
+      </Section> */}
     </Container>
   );
 };
@@ -95,7 +95,7 @@ const Welcome: React.FC = () => {
 export default Welcome;
 
 const Container = styled.div`
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
   text-align: center;
   font-size: 1.5rem;
 
@@ -107,7 +107,7 @@ const Container = styled.div`
 `;
 
 const Section = styled.div`
-  padding: 100px 20vw;
+  padding: 40px 20vw 100px;
 
   ${mobile} {
     padding: 60px 40px;

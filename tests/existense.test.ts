@@ -2,12 +2,12 @@ import nock from 'nock';
 import provider from '../api/services/existence/[query]';
 import { mockProvider } from '../util/testHelpers';
 
-test('return false if name is taken', async () => {
+it('return false if name is taken', async () => {
   const result = await mockProvider(provider, { query: 'github.com/uetchy' });
   expect(result).toStrictEqual({ availability: false });
 });
 
-test('return true if name is not taken', async () => {
+it('return true if name is not taken', async () => {
   const result = await mockProvider(provider, {
     query: 'github.com/uetchyasdf',
   });

@@ -40,7 +40,7 @@ serviceWorker.register({
   onUpdate: (registration) => {
     console.log('Update available');
 
-    toast.dark('New version available! Click here to update.', {
+    toast.success('New version available! Click here to update.', {
       onClose: () => {
         window.location.reload();
       },

@@ -37,7 +37,7 @@ export const Content = styled.div`
 
 export const Header = styled.header`
   padding: 0 40px;
-  background-image: linear-gradient(180deg, #bda2ff 0%, #1b24cc 99%);
+  background-image: linear-gradient(#9f78ff, #1b24cc 99%);
 
   ${mobile} {
     padding: 0 20px;

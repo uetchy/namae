@@ -154,7 +154,7 @@ const About = () => {
             target="_blank"
           >
             <SponsorBadge>
-              <GoHeart size="1.3rem" />
+              <GoHeart size="1.3em" />
               <span>Sponsor</span>
             </SponsorBadge>
           </OutboundLink>
