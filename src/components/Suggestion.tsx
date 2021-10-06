@@ -1,18 +1,25 @@
-import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
 import fetch from 'cross-fetch';
-import { TiArrowSync } from 'react-icons/ti';
 import { motion } from 'framer-motion';
-
-import { capitalize, stem, germanify, njoin, lower, upper } from '../util/text';
-import { sampleFromArray, fillArray } from '../util/array';
-import { mobile, slideUp } from '../util/css';
-import { sanitize } from '../util/text';
+import MersenneTwister from 'mersennetwister';
+import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { TiArrowSync } from 'react-icons/ti';
+import styled from 'styled-components';
 import {
-  sendShuffleSuggestionEvent,
   sendAcceptSuggestionEvent,
+  sendShuffleSuggestionEvent,
 } from '../util/analytics';
+import { fillArray, sampleFromArray } from '../util/array';
+import { mobile, slideUp } from '../util/css';
+import {
+  capitalize,
+  germanify,
+  lower,
+  njoin,
+  sanitize,
+  stem,
+  upper,
+} from '../util/text';
 
 type Modifier = (word: string) => string;
 
@@ -31,40 +38,40 @@ const modifiers: Modifier[] = [
   (word): string => njoin('Fire', lower(word), { elision: false }),
   (word): string => njoin('Fusion', capitalize(word), { elision: false }),
   (word): string => njoin('Git', capitalize(word), { elision: false }),
-  (word): string => njoin('Go', capitalize(word), { elision: false }),
-  (word): string => njoin('Hyper', capitalize(word), { elision: false }),
+  (word): string => njoin('Go', capitalize(word)),
+  (word): string => njoin('Hyper', capitalize(word)),
   (word): string => njoin('In', capitalize(word), { elision: false }),
   (word): string => njoin('Infini', lower(word)),
-  (word): string => njoin('Insta', lower(word), { elision: false }),
+  (word): string => njoin('Insta', lower(word)),
   (word): string => njoin('i', capitalize(word)),
-  (word): string => njoin('Lead', lower(word), { elision: false }),
+  (word): string => njoin('Lead', lower(word)),
   (word): string => njoin('Less', lower(word)),
-  (word): string => njoin('lib', lower(word), { elision: false }),
+  (word): string => njoin('lib', lower(word)),
   (word): string => njoin('Many', lower(word)),
-  (word): string => njoin('Max', upper(word), { elision: false }),
-  (word): string => njoin('Micro', lower(word), { elision: false }),
+  (word): string => njoin('Max', capitalize(word)),
+  (word): string => njoin('Micro', lower(word)),
   (word): string => njoin('mini', lower(word)),
   (word): string => njoin('Mono', lower(word)),
   (word): string => njoin('Meta', lower(word)),
-  (word): string => njoin('nano', lower(word), { elision: false }),
+  (word): string => njoin('nano', lower(word)),
   (word): string => njoin('Native', capitalize(word), { elision: false }),
   (word): string => njoin('Next', lower(word)),
   (word): string => njoin('No', upper(word), { elision: false }),
-  (word): string => njoin('Octo', capitalize(word)),
+  (word): string => njoin('Octo', lower(word)),
   (word): string => njoin('Omni', capitalize(word), { elision: false }),
   (word): string => njoin('One', capitalize(word), { elision: false }),
   (word): string => njoin('Open', capitalize(word), { elision: false }),
   (word): string => njoin('Pro', capitalize(word), { elision: false }),
-  (word): string => njoin('quick', lower(word), { elision: false }),
+  (word): string => njoin('Quick', lower(word)),
   (word): string => njoin('Semantic', capitalize(word), { elision: false }),
-  (word): string => njoin('Smart', capitalize(word), { elision: false }),
+  (word): string => njoin('Smart', lower(word)),
   (word): string => njoin('Snap', capitalize(word), { elision: false }),
   (word): string => njoin('Super', lower(word), { elision: false }),
-  (word): string => njoin('Strong', lower(word), { elision: false }),
+  (word): string => njoin('Strong', lower(word)),
   (word): string => njoin('Ultra', lower(word)),
   (word): string => njoin('Un', lower(word), { elision: false }),
   (word): string => njoin('Uni', lower(word)),
-  (word): string => njoin('unified-', lower(word), { elision: false }),
+  (word): string => njoin('unified', lower(word)),
   (word): string => njoin('Up', lower(word), { elision: false }),
   (word): string => njoin('Wunder', lower(germanify(word)), { elision: false }),
   (word): string => njoin('Zen', capitalize(word), { elision: false }),
@@ -94,29 +101,29 @@ const modifiers: Modifier[] = [
   (word): string => njoin(capitalize(word), 'AI', { elision: false }),
   (word): string => njoin(capitalize(word), 'API', { elision: false }),
   (word): string => njoin(capitalize(word), 'App'),
-  (word): string => njoin(capitalize(word), 'base', { elision: false }),
+  (word): string => njoin(capitalize(word), 'base'),
   (word): string => njoin(capitalize(word), 'book', { elision: false }),
   (word): string => njoin(capitalize(word), 'Bot', { elision: false }),
-  (word): string => njoin(capitalize(word), 'butler', { elision: false }),
-  (word): string => njoin(capitalize(word), 'byte', { elision: false }),
-  (word): string => njoin(capitalize(word), 'cast', { elision: false }),
+  (word): string => njoin(capitalize(word), 'butler'),
+  (word): string => njoin(capitalize(word), 'byte'),
+  (word): string => njoin(capitalize(word), 'cast'),
   (word): string => njoin(capitalize(word), 'CDN', { elision: false }),
   (word): string => njoin(capitalize(word), 'CI', { elision: false }),
   (word): string => njoin(capitalize(word), 'Club', { elision: false }),
   (word): string => njoin(capitalize(word), 'DB', { elision: false }),
   (word): string => njoin(capitalize(word), 'Express', { elision: false }),
   (word): string => njoin(capitalize(word), 'en'),
-  (word): string => njoin(capitalize(word), 'feed', { elision: false }),
+  (word): string => njoin(capitalize(word), 'feed'),
   (word): string => njoin(capitalize(word), 'Finder', { elision: false }),
-  (word): string => njoin(capitalize(word), 'flow', { elision: false }),
-  (word): string => njoin(capitalize(word), 'form', { elision: false }),
+  (word): string => njoin(capitalize(word), 'flow'),
+  (word): string => njoin(capitalize(word), 'form'),
   (word): string => njoin(capitalize(word), 'ful'),
   (word): string => njoin(capitalize(word), 'Go', { elision: false }),
-  (word): string => njoin(capitalize(word), 'gram', { elision: false }),
+  (word): string => njoin(capitalize(word), 'gram'),
   (word): string => njoin(capitalize(word), 'Hero', { elision: false }),
   (word): string => njoin(capitalize(word), 'Hub', { elision: false }),
   (word): string => njoin(capitalize(word), 'Hunt', { elision: false }),
-  (word): string => njoin(capitalize(word), 'IO', { elision: false }),
+  (word): string => njoin(capitalize(word), '.IO', { elision: false }),
   (word): string => njoin(capitalize(word), 'It', { elision: false }),
   (word): string => njoin(capitalize(word), 'Kit', { elision: false }),
   (word): string => njoin(capitalize(word), 'Lab', { elision: false }),
@@ -145,10 +152,28 @@ const modifiers: Modifier[] = [
   (word): string => njoin(capitalize(word), 'joy'),
   (word): string => njoin(lower(word), 'lint', { elision: false }),
   (word): string => njoin(lower(word), 'ly', { elision: false }),
+  (word): string => njoin(capitalize(word), 'mate'),
+  (word): string => capitalize(word) + ' by Design',
 ];
 
+const fontFamilies = [
+  `'Helvetica', sans-serif`,
+  `'Avenir', sans-serif`,
+  `'Times New Roman', serif`,
+  `monospace`,
+  `'Montserrat', sans-serif`,
+];
+
+const fontWeight = [300, 600, 900];
+
+const mt = new MersenneTwister();
+
+function sample<T>(arr: T[]): T {
+  return arr[Math.floor(mt.random() * arr.length)];
+}
+
 function modifyWord(word: string): string {
-  return modifiers[Math.floor(Math.random() * modifiers.length)](word);
+  return sample(modifiers)(word);
 }
 
 async function findSynonyms(word: string): Promise<string[]> {
@@ -230,6 +255,10 @@ const Suggestion: React.FC<{
         {bestWords &&
           bestWords.map((name, i) => (
             <Item
+              style={{
+                fontFamily: sample(fontFamilies),
+                fontWeight: sample(fontWeight),
+              }}
               key={name + i}
               onClick={(): void => applyQuery(name)}
               delay={i + 1}
@@ -285,12 +314,12 @@ const Items = styled.div`
 `;
 
 const Item = styled.div<{ delay: number }>`
-  margin: 10px 10px 0;
+  margin: 10px 15px 0;
   padding-bottom: 5px;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
+  letter-spacing: -1px;
   border-bottom: 1px dashed black;
   color: black;
   overflow: hidden;
