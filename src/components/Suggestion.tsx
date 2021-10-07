@@ -1,6 +1,5 @@
 import fetch from 'cross-fetch';
 import { motion } from 'framer-motion';
-import MersenneTwister from 'mersennetwister';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TiArrowSync } from 'react-icons/ti';
@@ -9,7 +8,7 @@ import {
   sendAcceptSuggestionEvent,
   sendShuffleSuggestionEvent,
 } from '../util/analytics';
-import { fillArray, sampleFromArray } from '../util/array';
+import { sample, sampleMany, times } from '../util/array';
 import { mobile, slideUp } from '../util/css';
 import {
   capitalize,
@@ -23,7 +22,6 @@ import {
 
 type Modifier = (word: string) => string;
 
-const maximumCount = 3;
 const modifiers: Modifier[] = [
   (word): string => `${capitalize(germanify(word))}`,
   (word): string => `${capitalize(word)}`,
@@ -166,17 +164,13 @@ const fontFamilies = [
 
 const fontWeight = [300, 600, 900];
 
-const mt = new MersenneTwister();
-
-function sample<T>(arr: T[]): T {
-  return arr[Math.floor(mt.random() * arr.length)];
-}
+const numSuggestion = 3;
 
 function modifyWord(word: string): string {
   return sample(modifiers)(word);
 }
 
-async function findSynonyms(word: string): Promise<string[]> {
+async function getSynonyms(word: string): Promise<string[]> {
   try {
     const response = await fetch(
       `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=ss&ie=UTF-8&oe=UTF-8&dj=1&q=${encodeURIComponent(
@@ -211,10 +205,9 @@ const Suggestion: React.FC<{
   const [bestWords, setBestWords] = useState<string[]>([]);
 
   function shuffle(): void {
-    const best = fillArray(
-      sampleFromArray(synonymRef.current, maximumCount),
-      query,
-      maximumCount
+    const best = sampleMany(
+      [...synonymRef.current.filter((s) => s.length < 8), ...times(query, 10)],
+      numSuggestion
     ).map((word) => modifyWord(word));
     setBestWords(best);
   }
@@ -233,7 +226,7 @@ const Suggestion: React.FC<{
     let isEffective = true;
     const fn = async (): Promise<void> => {
       if (query && query.length > 0) {
-        const synonyms = await findSynonyms(query);
+        const synonyms = await getSynonyms(query);
         if (!isEffective) {
           return;
         }
