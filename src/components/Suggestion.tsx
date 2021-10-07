@@ -213,13 +213,13 @@ const Suggestion: React.FC<{
   }
 
   function applyQuery(name: string): void {
-    sendAcceptSuggestionEvent();
     onSubmit(name);
+    sendAcceptSuggestionEvent();
   }
 
   function onShuffleButtonClicked() {
-    sendShuffleSuggestionEvent();
     shuffle();
+    sendShuffleSuggestionEvent();
   }
 
   useEffect(() => {

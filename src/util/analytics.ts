@@ -19,7 +19,9 @@ export function trackEvent({
   type?: string;
 }) {
   if (isProduction) {
-    umami.trackEvent(value, type);
+    try {
+      umami && umami.trackEvent(value, type);
+    } catch (err) {}
   }
 }
 
