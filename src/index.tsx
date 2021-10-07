@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { store, wrapHistoryWithStoreHandler } from './store';
-import { initSentry, wrapHistoryWithGA } from './util/analytics';
+import { initSentry } from './util/analytics';
 import { compose } from './util/array';
 import { initCrisp } from './util/crisp';
 import './util/i18n';
@@ -18,11 +18,7 @@ import { FullScreenSuspense } from './util/suspense';
 initSentry();
 initCrisp();
 
-const history = compose(
-  createBrowserHistory(),
-  wrapHistoryWithStoreHandler,
-  wrapHistoryWithGA
-);
+const history = compose(createBrowserHistory(), wrapHistoryWithStoreHandler);
 
 ReactDOM.render(
   <StoreProvider store={store}>

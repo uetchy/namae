@@ -1,7 +1,6 @@
 import useFetch from 'fetch-suspense';
 import Tooltip from 'rc-tooltip';
 import React, { Suspense, useEffect, useState } from 'react';
-import { OutboundLink } from 'react-ga';
 import { useTranslation } from 'react-i18next';
 import { GoInfo } from 'react-icons/go';
 import { IoIosFlash } from 'react-icons/io';
@@ -216,13 +215,9 @@ export const Result: React.FC<{
           <ResultIcon>{icon}</ResultIcon>
           <ResultName>
             {link ? (
-              <OutboundLink
-                to={link}
-                eventLabel={link.split('/')[2]}
-                target="_blank"
-              >
+              <a href={link} target="_blank" rel="noreferrer">
                 {content}
-              </OutboundLink>
+              </a>
             ) : (
               content
             )}

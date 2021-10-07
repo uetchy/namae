@@ -1,5 +1,4 @@
 import React from 'react';
-import { OutboundLink } from 'react-ga';
 import { useTranslation } from 'react-i18next';
 import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa';
 import { GoHeart } from 'react-icons/go';
@@ -57,34 +56,34 @@ const Community = () => {
       <Title>{t('community')}</Title>
       <ul>
         <li>
-          <OutboundLink
-            to="https://github.com/uetchy/namae"
-            eventLabel="GitHub Repo"
+          <a
+            href="https://github.com/uetchy/namae"
             aria-label="Go to GitHub repository"
             target="_blank"
+            rel="noreferrer"
           >
             GitHub
-          </OutboundLink>
+          </a>
         </li>
         <li>
-          <OutboundLink
-            to="https://github.com/uetchy/namae/issues"
-            eventLabel="GitHub Issues"
+          <a
+            href="https://github.com/uetchy/namae/issues"
             aria-label="Go to GitHub Issues"
             target="_blank"
+            rel="noreferrer"
           >
             {t('issues')}
-          </OutboundLink>
+          </a>
         </li>
         <li>
-          <OutboundLink
-            to="https://dev.to/uetchy/give-your-app-slick-name-with-namae-dev-5c4h"
-            eventLabel="Blog article"
+          <a
+            href="https://dev.to/uetchy/give-your-app-slick-name-with-namae-dev-5c4h"
             aria-label="Go to blog"
             target="_blank"
+            rel="noreferrer"
           >
             {t('blog')}
-          </OutboundLink>
+          </a>
         </li>
       </ul>
       <Box>
@@ -110,54 +109,54 @@ const About = () => {
           ☕️
         </span>{' '}
         by{' '}
-        <OutboundLink
-          to="https://twitter.com/uechz"
-          eventLabel="Author Page"
+        <a
+          href="https://twitter.com/uechz"
           aria-label="Author page"
           target="_blank"
+          rel="noreferrer"
         >
           <Bold>Yasuaki Uechi</Bold>
-        </OutboundLink>
+        </a>
       </p>
       <ShareBox>
         <Links>
-          <OutboundLink
-            to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
               `namae — ${t('title')}`
             )}&url=${encodeURIComponent('https://namae.dev')}`}
-            eventLabel="Tweet"
             aria-label="Tweet this page"
             target="_blank"
+            rel="noreferrer"
           >
             <FaTwitter />
-          </OutboundLink>
-          <OutboundLink
-            to="https://www.producthunt.com/posts/namae"
-            eventLabel="ProductHunt"
+          </a>
+          <a
+            href="https://www.producthunt.com/posts/namae"
             aria-label="Go to ProductHunt page"
             target="_blank"
+            rel="noreferrer"
           >
             <FaProductHunt />
-          </OutboundLink>
-          <OutboundLink
-            to="https://github.com/uetchy/namae"
-            eventLabel="GitHub Repo"
+          </a>
+          <a
+            href="https://github.com/uetchy/namae"
             aria-label="Go to GitHub repository"
             target="_blank"
+            rel="noreferrer"
           >
             <FaGithub />
-          </OutboundLink>
-          <OutboundLink
-            to="https://github.com/sponsors/uetchy"
-            eventLabel="GitHub Sponsors"
+          </a>
+          <a
+            href="https://github.com/sponsors/uetchy"
             aria-label="Go to GitHub Sponsors"
             target="_blank"
+            rel="noreferrer"
           >
             <SponsorBadge>
               <GoHeart size="1.3em" />
               <span>Sponsor</span>
             </SponsorBadge>
-          </OutboundLink>
+          </a>
         </Links>
       </ShareBox>
 

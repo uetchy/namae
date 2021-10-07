@@ -1,59 +1,46 @@
-import ReactGA from 'react-ga';
 import * as Sentry from '@sentry/browser';
-import { History } from 'history';
 
 const isProduction = process.env.NODE_ENV !== 'development';
 
-export function wrapHistoryWithGA(history: History) {
-  if (isProduction) {
-    ReactGA.initialize('UA-28919359-15');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-    history.listen((location) => {
-      ReactGA.pageview(location.pathname + location.search);
-    });
-  }
-  return history;
+declare namespace umami {
+  var trackEvent: (
+    value: string,
+    type: string,
+    url?: string,
+    websiteId?: string
+  ) => void;
 }
 
 export function trackEvent({
-  category,
-  action,
-  label = undefined,
-  value = undefined,
+  value,
+  type = 'custom',
 }: {
-  category: string;
-  action: string;
-  label?: string;
-  value?: number;
+  value: string;
+  type?: string;
 }) {
   if (isProduction) {
-    ReactGA.event({
-      category,
-      action,
-      label,
-      value,
-    });
+    umami.trackEvent(value, type);
   }
 }
 
 export function sendQueryEvent(query: string): void {
-  trackEvent({ category: 'Search', action: 'Invoke New Search', label: query });
+  trackEvent({ value: 'Invoke new search', type: 'search' });
 }
 
 export function sendGettingStartedEvent(): void {
-  trackEvent({ category: 'Search', action: 'Getting Started' });
+  trackEvent({ value: 'Click getting started button', type: 'search' });
 }
 
 export function sendExpandEvent(): void {
-  trackEvent({ category: 'Result', action: 'Expand Card' });
+  trackEvent({ value: 'Expand card', type: 'search' });
 }
 
 export function sendAcceptSuggestionEvent(): void {
-  trackEvent({ category: 'Suggestion', action: 'Accept' });
+  trackEvent({ value: 'Accept suggestion', type: 'suggest' });
 }
 
 export function sendShuffleSuggestionEvent(): void {
-  trackEvent({ category: 'Suggestion', action: 'Shuffle' });
+  trackEvent({ value: 'Shuffle suggestion', type: 'suggest' });
 }
 
 export function initSentry(): void {
