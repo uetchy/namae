@@ -20,7 +20,7 @@ const JsOrgCard: React.FC<{ query: string }> = ({ query }) => {
         {(name) => (
           <DedicatedAvailability
             name={`${name}.js.org`}
-            service="dns"
+            service="jsorg"
             message="Go to js.org repository"
             link="https://github.com/js-org/js.org"
             messageIfTaken={`Go to ${name}.js.org`}
