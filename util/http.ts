@@ -1,4 +1,4 @@
-import { NowResponse } from '@vercel/node';
+import { VercelResponse } from '@vercel/node';
 import nodeFetch from 'cross-fetch';
 
 export type HttpMethod =
@@ -16,15 +16,15 @@ export function fetch(
   method: HttpMethod = 'HEAD'
 ): Promise<Response> {
   return nodeFetch(url, {
-    method: method,
+    method,
   });
 }
 
-export function send(res: NowResponse, data: object): void {
+export function send(res: VercelResponse, data: object): void {
   res.setHeader('Cache-Control', 's-maxage=86400');
   res.json(data);
 }
 
-export function sendError(res: NowResponse, error: Error): void {
+export function sendError(res: VercelResponse, error: Error): void {
   res.status(400).json({ error: error.message });
 }

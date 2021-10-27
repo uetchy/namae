@@ -1,9 +1,10 @@
-import { send, sendError, fetch } from '../../../util/http';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
+import { VM } from 'vm2';
+import { fetch, send, sendError } from '../../../util/http';
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query } = req.query;
 
@@ -15,18 +16,24 @@ export default async function handler(
     return sendError(res, new Error('Invalid format'));
   }
 
+  const cname = query.replace(/\.js\.org$/, '');
+
   try {
-    // Get js.org domain data from js.org.json repo
-    const domains = await fetch(
-      `https://raw.githubusercontent.com/raikasdev/js.org.json/master/output/subdomains_registered.min.json`,
+    // Get cnames from js.org repo
+    const source = await fetch(
+      `https://raw.githubusercontent.com/js-org/js.org/master/cnames_active.js`,
       'GET'
-    ).then((res) => res.json());
-    if (domains.includes(query)) {
+    ).then((res) => res.text());
+    const vm = new VM();
+    vm.run(source);
+    const cnames = Object.keys(vm.sandbox.cnames_active);
+
+    if (cnames.includes(cname)) {
       send(res, { availability: false });
     } else {
       send(res, { availability: true });
     }
   } catch (err) {
-    sendError(res, err);
+    sendError(res, err as any);
   }
 }
