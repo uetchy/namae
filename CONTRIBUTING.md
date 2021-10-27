@@ -2,13 +2,13 @@
 
 ## Setup
 
-Install `vercel` for development server:
+Install `vercel`:
 
 ```
 npm i -g vercel
 ```
 
-then install deps and fire up dev server.
+then install deps and fire up a dev server.
 
 ```
 yarn install
@@ -17,7 +17,7 @@ vc dev
 
 ## Adding new provider
 
-Create `src/components/cards/providers/<NewCard>.tsx`. Here is the example card that checks if specified repository on GitHub is available.
+Create `src/components/cards/providers/<NewCard>.tsx`. Here is the example card for checking GitHub namespaces.
 
 ```tsx
 import React from 'react';
@@ -44,7 +44,7 @@ const GithubCard: React.FC<{ query: string }> = ({ name }) => {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            service="github" // route to http://namae.dev/api/services/github/<query> which is /api/services/github/[query].ts in the source
+            service="github" // route to http://namae.dev/api/services/github/<query> which is /api/services/github/[query].ts on GitHub
             link={`https://github.com/${name}`}
             prefix="github.com/"
             icon={<FaGithub />}
@@ -83,14 +83,14 @@ import NewCard from './providers/NewCard';
 ### ExistentialAvailability
 
 `ExistentialAvailability` check if the response from passed URL returns `404` or not.
-For example, `<ExistentialAvailability target="https://formulae.brew.sh/api/formula/git.json" />` will send a request to `target` and see if it returns with 404. For security reasons, `target` must send back `Access-Control-Allow-Origin: *` header for bridging across cross-site requests. If they don't support `Access-Control-Allow-Origin`, you might want to use `DedicatedAvailability` for dedicated response handling.
+For example, `<ExistentialAvailability target="https://formulae.brew.sh/api/formula/git.json" />` will send a request to `target` and see if it returns with 404. For security reasons, `target` must send back `Access-Control-Allow-Origin: *` header for bridging across cross-site requests. If they don't support `Access-Control-Allow-Origin`, you might want to use `DedicatedAvailability` for server-side handling.
 
 ### DedicatedAvailability
 
 `DedicatedAvailability` is for interacting with defined API endpoint to check availability.
-For example, `<DedicatedAvailability service="<service>" />` will send a request to `https://namae.dev/availability/<service>/<query>` which is routed to `/api/services/<service>.js` in the repo.
+For example, `<DedicatedAvailability service="<service>" />` will send a request to `https://namae.dev/availability/<service>/<query>` which is routed to `/api/services/<service>.js`.
 
-## Adding new language
+## Adding a new language
 
 Suppose we'll add a support for Esperanto.
 
