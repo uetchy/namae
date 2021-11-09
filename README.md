@@ -17,6 +17,14 @@ PRs welcome!
 
 See [Contribution Guide](./CONTRIBUTING.md) for the detailed instruction.
 
+### Sponsors ⚡️
+
+<!-- START mdmod {use: 'github-sponsors'} -->
+
+[<img src="https://avatars.githubusercontent.com/u/6936373?u=4edd14e6636c45d10ac6a3eecb4b3ffa6cc2bf5c&v=4" width="35" />](https://github.com/Naturalclar) [<img src="https://avatars.githubusercontent.com/u/79023920?v=4" width="35" />](https://github.com/Lierin8oracle)
+
+<!-- END mdmod -->
+
 ### Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
