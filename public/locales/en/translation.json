@@ -52,5 +52,6 @@
     "high": "Pretty unique",
     "low": "Typical",
     "moderate": "Moderately unique"
-  }
+  },
+  "join-us": "Send <1>a pull request</1> and become a contributor!"
 }

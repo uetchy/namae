@@ -1,11 +1,11 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa';
 import { GoHeart } from 'react-icons/go';
 import styled from 'styled-components';
+import Contributors from '../components/Contributors';
 import { Section } from '../theme';
 import { tablet } from '../util/css';
-import Contributors from '../components/Contributors';
 
 const Footer: React.FC = () => {
   return (
@@ -87,8 +87,21 @@ const Community = () => {
         </li>
       </ul>
       <Box>
-        <Subtitle>{t('contributors')}</Subtitle>
+        <Subtitle>{t('contributors')} ✨</Subtitle>
         <Contributors />
+        <Subtext>
+          <Trans i18nKey="join-us">
+            Send
+            <a
+              href="https://github.com/uetchy/namae"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              a pull request
+            </a>
+            and become a contributor!
+          </Trans>
+        </Subtext>
       </Box>
     </Pane>
   );
@@ -219,6 +232,11 @@ const Title = styled.h3`
 
 const Subtitle = styled.h4`
   margin-bottom: 12px;
+`;
+
+const Subtext = styled.span`
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
 `;
 
 const Links = styled.div`
