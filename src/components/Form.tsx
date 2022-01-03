@@ -124,7 +124,7 @@ const InputView = styled.input.attrs({
   autocorrect: 'off',
   autocapitalize: 'off',
   spellcheck: 'false',
-  autofocus: '',
+  autoFocus: true,
 })`
   width: 100%;
   border: none;
