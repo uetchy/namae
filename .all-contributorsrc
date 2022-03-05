@@ -66,6 +66,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "jonahsnider",
+      "name": "Jonah Snider",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7608555?v=4",
+      "profile": "https://jonahsnider.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "miguelsmuller",
+      "name": "Miguel Müller",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4589909?v=4",
+      "profile": "https://github.com/miguelsmuller",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
