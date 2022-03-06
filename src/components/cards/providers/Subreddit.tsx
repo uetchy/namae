@@ -30,3 +30,5 @@ const SubredditCard: React.FC<{ query: string }> = ({ name }) => {
     </Card>
   );
 };
+
+export default SubredditCard;
