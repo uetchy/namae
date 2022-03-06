@@ -24,6 +24,7 @@ import RubyGemsCard from './providers/RubyGems';
 import S3Card from './providers/S3';
 import SlackCard from './providers/Slack';
 import SpectrumCard from './providers/Spectrum';
+import SubredditCard from './providers/Subreddit';
 import TwitterCard from './providers/Twitter';
 import VercelCard from './providers/Vercel';
 
@@ -53,6 +54,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <SlackCard query={query} />
         {/* <InstagramCard query={query} /> */}
         <SpectrumCard query={query} />
+        <SubredditCard query={query} />
         <S3Card query={query} />
         <FirebaseCard query={query} />
       </Cards>
