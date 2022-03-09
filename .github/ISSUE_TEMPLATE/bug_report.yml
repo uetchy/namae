@@ -2,7 +2,7 @@
 
 name: Bug report
 description: Create a report to help us improve
-# title: ''
+title: 'Bug: '
 labels: ['bug']
 # assignees: ''
 
@@ -20,7 +20,7 @@ body:
       label: To Reproduce
       description: >-
         Steps to reproduce the behavior.
-      value: |
+      placeholder: |
         1. Go to '...'
         2. Click on '....'
         3. Scroll down to '....'
