@@ -4,11 +4,14 @@ import { FaReddit } from 'react-icons/fa';
 
 import { Card, Repeater, DedicatedAvailability } from '../core';
 
-const SubredditCard: React.FC<{ query: string }> = ({ name }) => {
+const SubredditCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const lowerCase = name.toLowerCase();
+  const normalizedQuery = normalize(query, {
+    allowUnderscore: false,
+  });
+  const lowerCase = normalizedQuery.toLowerCase();
 
-  const names = [name];
+  const names = [normalizedQuery];
   const moreNames = [
     `get${lowerCase}`,
     `${lowerCase}-team`,
