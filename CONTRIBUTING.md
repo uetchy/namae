@@ -15,6 +15,12 @@ yarn install
 vc dev
 ```
 
+Run tests before creating a pull request:
+
+```
+yarn test
+```
+
 ## Adding new provider
 
 Create `src/components/cards/providers/<NewCard>.tsx`. Here is the example card for checking GitHub namespaces.

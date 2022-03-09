@@ -8,7 +8,7 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "readme": "mdmod README.md --define.owner uetchy",
-    "test": "jest --coverage && CI=true react-scripts test --coverage"
+    "test": "tsc --noEmit && jest --coverage && CI=true react-scripts test --coverage"
   },
   "dependencies": {
     "@sentry/browser": "^6.14.1",
