@@ -8,14 +8,14 @@ import { Card, Repeater, DedicatedAvailability } from '../core';
 const SubredditCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
   const normalizedQuery = normalize(query, {
-    allowUnderscore: false,
+    allowUnderscore: true,
   });
   const lowerCase = normalizedQuery.toLowerCase();
 
   const names = [normalizedQuery];
   const moreNames = [
     `get${lowerCase}`,
-    `${lowerCase}-team`,
+    `${lowerCase}_team`,
   ];
 
   return (
@@ -25,6 +25,7 @@ const SubredditCard: React.FC<{ query: string }> = ({ query }) => {
           <DedicatedAvailability
             name={name}
             service="reddit" // route to http://namae.dev/api/services/reddit/<query> which is /api/services/reddit/[query].ts on GitHub
+            message={`Go to reddit.com/r/${name}`}
             link={`https://reddit.com/r/${name}`}
             prefix="reddit.com/r/"
             icon={<FaReddit />}
