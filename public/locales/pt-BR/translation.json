@@ -41,7 +41,7 @@
     "s3": "AWS S3",
     "slack": "Slack",
     "spectrum": "Spectrum",
-    "subreddit": "Subreddit",
+    "reddit": "Reddit",
     "twitter": "Twitter"
   },
   "showMore": "Mostrar +",
