@@ -1,10 +1,10 @@
 import npmName from 'npm-name';
 import { send, sendError } from '../../../util/http';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query } = req.query;
 
@@ -15,7 +15,7 @@ export default async function handler(
   try {
     const availability = await npmName(`@${query}`);
     send(res, { availability });
-  } catch (err) {
+  } catch (err: any) {
     if (err.code === 'ENOTFOUND') {
       return send(res, { availability: true });
     }

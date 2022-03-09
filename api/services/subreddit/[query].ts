@@ -1,9 +1,9 @@
 import { send, sendError, fetch } from '../../../util/http';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query } = req.query;
 
@@ -16,16 +16,13 @@ export default async function handler(
   }
 
   try {
-    const response = await fetch(
-      `https://reddit.com/r/${query}`,
-      'GET'
-    );
+    const response = await fetch(`https://reddit.com/r/${query}`, 'GET');
     const body = await response.text();
     const availability = body.includes(
       'Sorry, there aren’t any communities on Reddit with that name.'
     );
     send(res, { availability });
-  } catch (err) {
+  } catch (err: any) {
     sendError(res, err);
   }
 }

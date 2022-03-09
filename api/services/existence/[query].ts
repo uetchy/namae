@@ -20,10 +20,10 @@ export default async function handler(
     const response = await fetch(`https://${query}`);
     const availability = response.status === 404;
     send(res, { availability });
-  } catch (err) {
+  } catch (err: any) {
     if ((err as any).code === 'ENOTFOUND') {
       return send(res, { availability: true });
     }
-    sendError(res, err as any);
+    sendError(res, err);
   }
 }

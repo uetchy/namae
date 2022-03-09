@@ -92,7 +92,7 @@ export default async function handler(
           }))
           .slice(0, 10) || [],
     });
-  } catch (err) {
+  } catch (err: any) {
     sendError(res, err);
   }
 }

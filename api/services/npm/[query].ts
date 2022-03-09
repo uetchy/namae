@@ -15,7 +15,7 @@ export default async function handler(
   try {
     const availability = await npmName(query);
     send(res, { availability });
-  } catch (err) {
+  } catch (err: any) {
     sendError(res, err);
   }
 }
