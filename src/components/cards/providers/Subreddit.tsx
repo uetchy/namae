@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaReddit } from 'react-icons/fa';
+import { normalize } from '../../../util/text';
 
 import { Card, Repeater, DedicatedAvailability } from '../core';
 
