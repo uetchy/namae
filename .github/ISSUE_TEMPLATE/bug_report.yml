@@ -1,0 +1,54 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: Bug report
+description: Create a report to help us improve
+# title: ''
+labels: ['bug']
+# assignees: ''
+
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: >-
+        A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: To Reproduce
+      description: >-
+        Steps to reproduce the behavior.
+      value: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: What's My Browser Link
+      description: Copy and paste a link generated on [What's My Browser](https://www.whatsmybrowser.org/)
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: >-
+        A clear and concise description of what you expected to happen.
+
+  - type: textarea
+    attributes:
+      label: Log output
+      render: Shell
+      description: Copy and paste relevant log outputs in Developer Console
+
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: >-
+        Add any other context about the problem here.
