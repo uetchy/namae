@@ -1,5 +1,5 @@
 import { send, sendError, fetch } from '../../../util/http';
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
 interface App {
   trackId: string;
@@ -15,8 +15,8 @@ interface AppStoreResponse {
 }
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query, country } = req.query;
 
@@ -43,7 +43,7 @@ export default async function handler(
       viewURL: app.trackViewUrl,
     }));
     send(res, { result: apps });
-  } catch (err) {
+  } catch (err: any) {
     sendError(res, err);
   }
 }

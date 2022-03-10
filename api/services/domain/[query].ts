@@ -1,11 +1,11 @@
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import 'cross-fetch';
 import whois from 'whois-json';
 import { send, sendError } from '../../../util/http';
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query } = req.query;
 
@@ -17,7 +17,7 @@ export default async function handler(
     const response = await whois(query, { follow: 3, verbose: true });
     const availability = response[0].data.domainName ? false : true;
     send(res, { availability });
-  } catch (err) {
+  } catch (err: any) {
     sendError(res, err);
   }
 }

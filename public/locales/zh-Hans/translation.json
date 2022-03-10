@@ -37,6 +37,7 @@
     "s3": "AWS S3",
     "slack": "Slack",
     "spectrum": "Spectrum",
+    "reddit": "Reddit",
     "twitter": "推特"
   },
   "showMore": "更多",

@@ -33,7 +33,7 @@ export default async function handler(
     } else {
       send(res, { availability: true });
     }
-  } catch (err) {
-    sendError(res, err as any);
+  } catch (err: any) {
+    sendError(res, err);
   }
 }

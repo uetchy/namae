@@ -1,10 +1,10 @@
-import { NowRequest, NowResponse } from '@vercel/node';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import 'cross-fetch';
 import { fetch, send, sendError } from '../../../util/http';
 
 export default async function handler(
-  req: NowRequest,
-  res: NowResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   const { query } = req.query;
 
@@ -34,7 +34,7 @@ export default async function handler(
       url: 'https://play.google.com' + entry[9][4][2],
     }));
     send(res, { result: apps.slice(0, 10) });
-  } catch (err) {
+  } catch (err: any) {
     sendError(res, err);
   }
 }

@@ -1,5 +1,5 @@
+import { send, sendError, fetch } from '../../../util/http';
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { fetch, send, sendError } from '../../../util/http';
 
 export default async function handler(
   req: VercelRequest,
@@ -16,11 +16,11 @@ export default async function handler(
   }
 
   try {
-    const response = await fetch(
-      `https://api.twitter.com/i/users/username_available.json?username=${query}`,
-      'GET'
-    ).then((res) => res.json());
-    const availability = response.valid;
+    const response = await fetch(`https://reddit.com/r/${query}`, 'GET');
+    const body = await response.text();
+    const availability = body.includes(
+      'Sorry, there aren’t any communities on Reddit with that name.'
+    );
     send(res, { availability });
   } catch (err: any) {
     sendError(res, err);
