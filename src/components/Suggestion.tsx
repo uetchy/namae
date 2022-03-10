@@ -157,8 +157,7 @@ const modifiers: Modifier[] = [
 const fontFamilies = [
   `'Helvetica', sans-serif`,
   `'Avenir', sans-serif`,
-  `'Times New Roman', serif`,
-  `monospace`,
+  `'Futura', sans-serif`,
   `'Montserrat', sans-serif`,
 ];
 
@@ -312,7 +311,7 @@ const Item = styled.div<{ delay: number }>`
   cursor: pointer;
   font-weight: 600;
   font-size: 1.7rem;
-  letter-spacing: -1px;
+  /* letter-spacing: -0.5px; */
   border-bottom: 1px dashed black;
   color: black;
   overflow: hidden;

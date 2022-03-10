@@ -1,5 +1,4 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { VM } from 'vm2';
 import { fetch, send, sendError } from '../../../util/http';
 
 export default async function handler(
@@ -24,9 +23,7 @@ export default async function handler(
       `https://raw.githubusercontent.com/js-org/js.org/master/cnames_active.js`,
       'GET'
     ).then((res) => res.text());
-    const vm = new VM();
-    vm.run(source);
-    const cnames = Object.keys(vm.sandbox.cnames_active);
+    const cnames = Array.from(source.matchAll(/^  "(.+)":/gm)).map((m) => m[1]);
 
     if (cnames.includes(cname)) {
       send(res, { availability: false });
@@ -34,6 +31,7 @@ export default async function handler(
       send(res, { availability: true });
     }
   } catch (err: any) {
+    console.log(err);
     sendError(res, err);
   }
 }

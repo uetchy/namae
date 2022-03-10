@@ -37,7 +37,6 @@
     "styled-components": "^5.3.3",
     "swr": "^1.0.1",
     "validator": "^13.7.0",
-    "vm2": "^3.9.5",
     "whois-json": "^2.0.4"
   },
   "devDependencies": {
