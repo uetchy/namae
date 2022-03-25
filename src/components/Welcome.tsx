@@ -29,7 +29,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { sendGettingStartedEvent } from '../util/analytics';
 import { mobile } from '../util/css';
-import { NetlifyIcon, NowIcon, OcamlIcon, SpectrumIcon } from './Icons';
+import { NetlifyIcon, NowIcon, OcamlIcon } from './Icons';
 
 const supportedProviders: Record<string, React.ReactNode> = {
   domains: <MdDomain />,
@@ -48,7 +48,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   reddit: <FaReddit />,
   // instagram: <FaInstagram />,
   slack: <FaSlack />,
-  spectrum: <SpectrumIcon />,
+  // spectrum: <SpectrumIcon />,
   heroku: <DiHeroku />,
   now: <NowIcon />,
   netlify: <NetlifyIcon />,
