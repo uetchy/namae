@@ -9,6 +9,7 @@ import {
   // FaInstagram,
   FaJsSquare,
   FaPython,
+  FaReddit,
   FaSlack,
   FaTwitter,
 } from 'react-icons/fa';
@@ -44,6 +45,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   archlinux: <SiArchlinux />,
   ubuntu: <SiUbuntu />,
   debian: <SiDebian />,
+  reddit: <FaReddit />,
   // instagram: <FaInstagram />,
   slack: <FaSlack />,
   spectrum: <SpectrumIcon />,
