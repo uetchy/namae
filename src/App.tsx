@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Search from './pages/Search';
@@ -15,19 +15,11 @@ export default function App() {
       <GlobalStyle />
       <OpenSearch />
 
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-
-        <Route path="/s/:query">
-          <Search />
-        </Route>
-
-        <Route path="*">
-          <Redirect to="/" />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/s/:query" element={<Search />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
 
       {!isStandalone() && <Footer />}
     </>

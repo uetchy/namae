@@ -1,16 +1,14 @@
 import { StoreProvider } from 'easy-peasy';
-import { createBrowserHistory } from 'history';
 import 'rc-tooltip/assets/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { store, wrapHistoryWithStoreHandler } from './store';
+import { store } from './store';
 import { initSentry } from './util/analytics';
-import { compose } from './util/array';
 import { initCrisp } from './util/crisp';
 import './util/i18n';
 import { FullScreenSuspense } from './util/suspense';
@@ -18,14 +16,12 @@ import { FullScreenSuspense } from './util/suspense';
 initSentry();
 initCrisp();
 
-const history = compose(createBrowserHistory(), wrapHistoryWithStoreHandler);
-
 ReactDOM.render(
   <StoreProvider store={store}>
     <FullScreenSuspense>
-      <Router history={history}>
+      <BrowserRouter>
         <App />
-      </Router>
+      </BrowserRouter>
     </FullScreenSuspense>
     <ToastContainer />
   </StoreProvider>,

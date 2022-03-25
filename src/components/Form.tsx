@@ -1,17 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useHistory } from 'react-router-dom';
-import { sanitize } from '../util/text';
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { useStoreActions } from '../store';
 import { sendQueryEvent } from '../util/analytics';
 import { mobile } from '../util/css';
-import Suggestion from './Suggestion';
 import { useDeferredState } from '../util/hooks';
+import { sanitize } from '../util/text';
+import Suggestion from './Suggestion';
 
 const Form: React.FC<{
   initialValue?: string;
 }> = ({ initialValue = '' }) => {
-  const history = useHistory();
+  const reset = useStoreActions((actions) => actions.stats.reset);
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState(initialValue);
   const [suggestionQuery, setSuggestionQuery] = useDeferredState(800, '');
   const [suggested, setSuggested] = useState(false);
@@ -19,8 +21,9 @@ const Form: React.FC<{
   const { t } = useTranslation();
 
   function search(query: string) {
+    reset();
     sendQueryEvent(sanitize(query));
-    history.push(`/s/${query}`);
+    navigate(`/s/${query}`);
   }
 
   // set input value
@@ -41,6 +44,7 @@ const Form: React.FC<{
     if (!inputValue || inputValue === '') {
       return;
     }
+
     search(inputValue);
   }
 

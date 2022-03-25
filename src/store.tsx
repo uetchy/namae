@@ -1,5 +1,4 @@
 import { action, Action, createStore, createTypedHooks } from 'easy-peasy';
-import { History } from 'history';
 
 interface StatsModel {
   availableCount: number;
@@ -32,14 +31,6 @@ const storeModel: StoreModel = {
 };
 
 export const store = createStore(storeModel);
-
-export function wrapHistoryWithStoreHandler(history: History) {
-  history.listen(() => {
-    // reset stats counter
-    store.getActions().stats.reset();
-  });
-  return history;
-}
 
 const typedHooks = createTypedHooks<StoreModel>();
 export const useStoreActions = typedHooks.useStoreActions;

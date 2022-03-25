@@ -21,7 +21,7 @@ import { sanitize } from '../util/text';
 
 export default function Search() {
   const { query } = useParams<{ query: string }>();
-  const currentQuery = sanitize(query);
+  const currentQuery = sanitize(query ?? '');
   const { t } = useTranslation();
 
   return (
