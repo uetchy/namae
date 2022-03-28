@@ -98,15 +98,16 @@ For example, `<DedicatedAvailability service="<service>" />` will send a request
 
 ## Adding a new language
 
-Suppose we'll add a support for Esperanto.
+Suppose we'll add a support for Esperanto. First, copy `public/locales/en` folder and rename to `public/locales/eo` which is a language code for Esperanto.
 
 ```bash
 cd public/locales
 cp -r en eo
-# edit eo/translation.json
 ```
 
-then edit `src/util/i18n.ts`:
+Then translate `eo/translation.json`.
+
+After that, edit `src/util/i18n.ts`:
 
 ```patch
 - const TRANSLATION_VERSION = '2';
@@ -137,4 +138,44 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
   });
+```
+
+and `src/components/Footer.tsx`:
+
+```patch
+const Languages = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Pane>
+      <Title>{t('language')}</Title>
+      <ul>
+        <li>
+          <a href="/?lng=en">English</a>
+        </li>
+        <li>
+          <a href="/?lng=de">Deutsch</a>
+        </li>
+        <li>
+          <a href="/?lng=fr">Français</a>
+        </li>
+        <li>
+          <a href="/?lng=ja">日本語</a>
+        </li>
+        <li>
+          <a href="/?lng=zh-Hans">简体中文</a>
+        </li>
+        <li>
+          <a href="/?lng=zh-Hant">繁體中文</a>
+        </li>
+        <li>
+          <a href="/?lng=pt-BR">Português-BR</a>
+        </li>
++       <li>
++         <a href="/?lng=eo">Esperanto</a>
++       </li>
+      </ul>
+    </Pane>
+  );
+};
 ```
