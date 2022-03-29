@@ -12,6 +12,7 @@ import {
   FaReddit,
   FaSlack,
   FaTwitter,
+  FaCloudflare,
 } from 'react-icons/fa';
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
@@ -52,6 +53,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   heroku: <DiHeroku />,
   now: <NowIcon />,
   netlify: <NetlifyIcon />,
+  cloudflare: <FaCloudflare />,
   s3: <FaAws />,
   firebase: <SiFirebase />,
   jsorg: <FaJsSquare />,

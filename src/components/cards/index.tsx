@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { mobile } from '../../util/css';
 import AppStoreCard from './providers/AppStore';
+import CloudflareCard from './providers/Cloudflare';
 import CratesioCard from './providers/Cratesio';
 import DomainCard from './providers/Domains';
 import FirebaseCard from './providers/Firebase';
@@ -50,6 +51,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <VercelCard query={query} />
         <HerokuCard query={query} />
         <NetlifyCard query={query} />
+        <CloudflareCard query={query} />
         <JsOrgCard query={query} />
         <SlackCard query={query} />
         {/* <InstagramCard query={query} /> */}
