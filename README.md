@@ -44,6 +44,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/miguelsmuller"><img src="https://avatars.githubusercontent.com/u/4589909?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Miguel Müller</b></sub></a><br /><a href="#translation-miguelsmuller" title="Translation">🌍</a></td>
     <td align="center"><a href="https://atzu.ml"><img src="https://avatars.githubusercontent.com/u/32654584?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Azurnex</b></sub></a><br /><a href="#translation-z3ro0k" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://snazzah.com"><img src="https://avatars.githubusercontent.com/u/7025343?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Snazzah</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=Snazzah" title="Code">💻</a></td>
   </tr>
 </table>
 
