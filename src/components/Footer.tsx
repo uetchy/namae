@@ -22,7 +22,7 @@ const Languages = () => {
   const { t } = useTranslation();
 
   return (
-    <Pane>
+    <Pane style={{ whiteSpace: 'nowrap' }}>
       <Title>{t('language')}</Title>
       <ul>
         <li>
@@ -182,7 +182,7 @@ const About = () => {
       {language === 'ja' ? (
         <>
           <br />
-          <Title>情報の取得元</Title>
+          <Subtitle>情報の取得元</Subtitle>
           <p>
             このサービスは、国税庁法人番号システムのWeb-API機能を利用して取得した情報をもとに作成していますが、サービスの内容は国税庁によって保証されたものではありません。
           </p>
@@ -221,6 +221,7 @@ const Container = styled(Section)`
 `;
 
 const Pane = styled.div`
+  margin: 0 20px;
   font-size: 1rem;
 
   ${tablet} {

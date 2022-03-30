@@ -64,13 +64,11 @@ const Contributors: React.FC = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 const Item = styled.div`
-  margin-left: 10px;
-  :first-child {
-    margin-left: 0;
-  }
+  margin-right: 10px;
 `;
 
 const avatarSize = 32;
