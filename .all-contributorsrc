@@ -93,6 +93,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Snazzah",
+      "name": "Snazzah",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7025343?v=4",
+      "profile": "http://snazzah.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
