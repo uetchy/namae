@@ -47,6 +47,9 @@ const Languages = () => {
           <a href="/?lng=pt-BR">Português-BR</a>
         </li>
         <li>
+          <a href="/?lng=it">Italiano</a>
+        </li>
+        <li>
           <a href="/?lng=es">Español</a>
         </li>
       </ul>
