@@ -102,6 +102,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Thebigbot0000",
+      "name": "Thebigbot",
+      "avatar_url": "https://avatars.githubusercontent.com/u/77632836?v=4",
+      "profile": "http://thebigbot.mod.land",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
