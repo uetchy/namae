@@ -13,8 +13,8 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
     result: Array<{
       id: string;
       name: string;
+      description: string;
       author: string;
-      rating: number;
       url: string;
     }>;
   };
@@ -26,14 +26,18 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
         apps.map((app) => (
           <Result
             title={app.name}
-            message={`Rating: ${app.rating}`}
+            message={`${app.author}: ${app.description}`}
             link={app.url}
             icon={<IoMdAppstore />}
             key={app.id}
           />
         ))
       ) : (
-        <Result title={t('noResult')} icon={<FaInfoCircle />} />
+        <Result
+          title={t('noResult')}
+          message={t('noResult')}
+          icon={<FaInfoCircle />}
+        />
       )}
     </>
   );

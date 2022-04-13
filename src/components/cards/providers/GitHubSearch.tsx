@@ -39,7 +39,11 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
           />
         ))
       ) : (
-        <Result title={t('noResult')} icon={<FaInfoCircle />} />
+        <Result
+          title={t('noResult')}
+          message={t('noResult')}
+          icon={<FaInfoCircle />}
+        />
       )}
     </>
   );
