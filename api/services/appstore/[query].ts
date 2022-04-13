@@ -8,6 +8,8 @@ interface App {
   version: string;
   price: string;
   trackViewUrl: string;
+  sellerName: string;
+  formattedPrice: string;
 }
 
 interface AppStoreResponse {
@@ -37,9 +39,7 @@ export default async function handler(
     const apps = body.results.map((app) => ({
       id: app.trackId,
       name: app.trackName,
-      kind: app.kind,
-      version: app.version,
-      price: app.price,
+      author: app.sellerName,
       viewURL: app.trackViewUrl,
     }));
     send(res, { result: apps });

@@ -12,7 +12,12 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
       'countryCode'
     )}`
   ) as {
-    result: Array<{ name: string; viewURL: string; price: number; id: string }>;
+    result: Array<{
+      name: string;
+      viewURL: string;
+      author: string;
+      id: string;
+    }>;
   };
   const apps = response.result;
 
@@ -22,14 +27,18 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
         apps.map((app) => (
           <Result
             title={app.name.split(/[－–—\-:]/)[0]}
-            message={`Price: ${app.price}`}
+            message={`By ${app.author}`}
             link={app.viewURL}
             icon={<SiAppstore />}
             key={app.id}
           />
         ))
       ) : (
-        <Result title={t('noResult')} icon={<FaInfoCircle />} />
+        <Result
+          title={t('noResult')}
+          message={t('noResult')}
+          icon={<FaInfoCircle />}
+        />
       )}
     </>
   );
