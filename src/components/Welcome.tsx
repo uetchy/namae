@@ -13,6 +13,7 @@ import {
   FaSlack,
   FaTwitter,
   FaCloudflare,
+  FaFirefoxBrowser,
 } from 'react-icons/fa';
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
@@ -60,6 +61,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   githubSearch: <FaGithubAlt />,
   appStore: <SiAppstore />,
   playStore: <IoMdAppstore />,
+  firefoxAddons: <FaFirefoxBrowser />,
   chromeWebStore: <RiChromeFill />,
   nta: <RiBuilding2Fill />,
 };

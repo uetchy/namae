@@ -44,7 +44,8 @@
     "reddit": "Reddit",
     "twitter": "Twitter",
     "cloudflare": "Cloudflare Pages",
-    "chromeWebStore": "Chrome Web Store"
+    "chromeWebStore": "Chrome Web Store",
+    "firefoxAddons": "Firefox Add-ons"
   },
   "showMore": "show more",
   "title": "Grab a slick name for your new app",

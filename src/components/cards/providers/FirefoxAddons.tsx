@@ -1,21 +1,21 @@
 import useFetch from 'fetch-suspense';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaInfoCircle } from 'react-icons/fa';
-import { IoMdAppstore } from 'react-icons/io';
+import { FaFirefoxBrowser } from 'react-icons/fa';
+import { RiChromeFill } from 'react-icons/ri';
 import { Card, Result } from '../core';
 
 const Search: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
   const response = useFetch(
-    `/api/services/playstore/${encodeURIComponent(query)}}`
+    `/api/services/firefox-addons/${encodeURIComponent(query)}`
   ) as {
     result: Array<{
-      id: string;
       name: string;
-      description: string;
-      author: string;
       url: string;
+      author: string;
+      description: string;
+      id: string;
     }>;
   };
   const apps = response.result;
@@ -28,7 +28,7 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
             title={app.name.split(/\s[－–—\-:]\s/)[0]}
             message={`${app.author}: ${app.description}`}
             link={app.url}
-            icon={<IoMdAppstore />}
+            icon={<FaFirefoxBrowser />}
             key={app.id}
           />
         ))
@@ -36,21 +36,21 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
         <Result
           title={t('noResult')}
           message={t('noResult')}
-          icon={<FaInfoCircle />}
+          icon={<FaFirefoxBrowser />}
         />
       )}
     </>
   );
 };
 
-const PlayStoreCard: React.FC<{ query: string }> = ({ query }) => {
+const FirefoxAddonsCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
 
   return (
-    <Card title={t('providers.playStore')}>
+    <Card title={t('providers.firefoxAddons')}>
       <Search query={query} />
     </Card>
   );
 };
 
-export default PlayStoreCard;
+export default FirefoxAddonsCard;

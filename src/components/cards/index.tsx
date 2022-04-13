@@ -8,6 +8,7 @@ import CloudflareCard from './providers/Cloudflare';
 import CratesioCard from './providers/Cratesio';
 import DomainCard from './providers/Domains';
 import FirebaseCard from './providers/Firebase';
+import FirefoxAddonsCard from './providers/FirefoxAddons';
 import GithubCard from './providers/GitHubOrganization';
 import GithubSearchCard from './providers/GitHubSearch';
 import GitLabCard from './providers/GitLab';
@@ -65,6 +66,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <GithubSearchCard query={query} />
         <AppStoreCard query={query} />
         <PlayStoreCard query={query} />
+        <FirefoxAddonsCard query={query} />
         <ChromeWebStoreCard query={query} />
         {language === 'ja' ? <NtaCard query={query} /> : null}
       </Cards>
