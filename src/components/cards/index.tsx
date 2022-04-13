@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { mobile } from '../../util/css';
 import AppStoreCard from './providers/AppStore';
+import ChromeWebStoreCard from './providers/ChromeWebStore';
 import CloudflareCard from './providers/Cloudflare';
 import CratesioCard from './providers/Cratesio';
 import DomainCard from './providers/Domains';
@@ -64,6 +65,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <GithubSearchCard query={query} />
         <AppStoreCard query={query} />
         <PlayStoreCard query={query} />
+        <ChromeWebStoreCard query={query} />
         {language === 'ja' ? <NtaCard query={query} /> : null}
       </Cards>
     </>

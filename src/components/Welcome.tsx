@@ -16,7 +16,7 @@ import {
 } from 'react-icons/fa';
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
-import { RiBuilding2Fill, RiNpmjsFill } from 'react-icons/ri';
+import { RiBuilding2Fill, RiChromeFill, RiNpmjsFill } from 'react-icons/ri';
 import {
   SiAppstore,
   SiArchlinux,
@@ -60,6 +60,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   githubSearch: <FaGithubAlt />,
   appStore: <SiAppstore />,
   playStore: <IoMdAppstore />,
+  chromeWebStore: <RiChromeFill />,
   nta: <RiBuilding2Fill />,
 };
 
