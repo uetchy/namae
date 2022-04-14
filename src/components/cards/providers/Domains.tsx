@@ -92,9 +92,9 @@ const DomainCard: React.FC<{ query: string }> = ({ query }) => {
         {(name) => (
           <DedicatedAvailability
             name={name}
-            message="Go to tld-list.com"
+            message={`Go to ${name}`}
             service="domain"
-            link={`https://tld-list.com/tld/${name.replace(/^.+?\./, '')}`}
+            link={'http://' + name}
             icon={<MdDomain />}
           />
         )}

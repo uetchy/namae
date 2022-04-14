@@ -20,7 +20,7 @@ export default async function handler(
     );
     const body = await response.text();
     const json = JSON.parse(body.slice(5));
-    console.log(json[1][1][0]);
+
     const items = json[1][1].map((item: any) => ({
       id: item[0],
       name: item[1],

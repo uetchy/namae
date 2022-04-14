@@ -19,7 +19,7 @@ export default async function handler(
       'GET'
     );
     const json = await response.json();
-    console.log(json.results.map((i: any) => i.name));
+
     const items = json.results.map((item: any) => {
       const locale = item.name._default || 'en-US';
       return {
