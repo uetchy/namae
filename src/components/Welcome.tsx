@@ -14,6 +14,7 @@ import {
   FaTwitter,
   FaCloudflare,
   FaFirefoxBrowser,
+  FaYoutube,
 } from 'react-icons/fa';
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
@@ -38,6 +39,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   github: <FaGithub />,
   gitlab: <FaGitlab />,
   twitter: <FaTwitter />,
+  youtube: <FaYoutube />,
   homebrew: <IoIosBeer />,
   npm: <RiNpmjsFill />,
   rust: <SiRust />,
