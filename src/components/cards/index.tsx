@@ -30,6 +30,7 @@ import SlackCard from './providers/Slack';
 import SubredditCard from './providers/Subreddit';
 import TwitterCard from './providers/Twitter';
 import VercelCard from './providers/Vercel';
+import YouTubeCard from './providers/YouTube';
 
 const Index: React.FC<{ query: string }> = ({ query }) => {
   const {
@@ -42,6 +43,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <DomainCard query={query} />
         <GithubCard query={query} />
         <TwitterCard query={query} />
+        <YouTubeCard query={query} />
         <NpmCard query={query} />
         <HomebrewCard query={query} />
         <GitLabCard query={query} />
