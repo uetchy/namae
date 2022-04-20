@@ -19,6 +19,7 @@ import {
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
 import { RiBuilding2Fill, RiChromeFill, RiNpmjsFill } from 'react-icons/ri';
+import { SiDeno } from 'react-icons/si';
 import {
   SiAppstore,
   SiArchlinux,
@@ -60,6 +61,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   s3: <FaAws />,
   firebase: <SiFirebase />,
   jsorg: <FaJsSquare />,
+  modland: <SiDeno />,
   githubSearch: <FaGithubAlt />,
   appStore: <SiAppstore />,
   playStore: <IoMdAppstore />,
