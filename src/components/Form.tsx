@@ -11,7 +11,8 @@ import Suggestion from './Suggestion';
 
 const Form: React.FC<{
   initialValue?: string;
-}> = ({ initialValue = '' }) => {
+  useSuggestion?: boolean;
+}> = ({ initialValue = '', useSuggestion = true }) => {
   const reset = useStoreActions((actions) => actions.stats.reset);
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState(initialValue);
@@ -53,8 +54,6 @@ const Form: React.FC<{
     setSuggestionQuery(modifiedValue);
   }, [inputValue, setSuggestionQuery]);
 
-  const queryGiven = suggestionQuery && suggestionQuery !== '';
-
   return (
     <InputContainer>
       <InputHeader>
@@ -71,7 +70,7 @@ const Form: React.FC<{
           aria-label="Search"
         />
       </form>
-      {queryGiven && !suggested ? (
+      {useSuggestion && !suggested ? (
         <Suggestion onSubmit={onSuggestionCompleted} query={suggestionQuery} />
       ) : null}
     </InputContainer>
