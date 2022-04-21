@@ -16,6 +16,7 @@ import HerokuCard from './providers/Heroku';
 import HomebrewCard from './providers/Homebrew';
 // import InstagramCard from './providers/Instagram';
 import JsOrgCard from './providers/JsOrg';
+import ModLandCard from './providers/ModLand';
 import LinuxCard from './providers/Linux';
 import NetlifyCard from './providers/Netlify';
 import NpmCard from './providers/Npm';
@@ -57,6 +58,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <NetlifyCard query={query} />
         <CloudflareCard query={query} />
         <JsOrgCard query={query} />
+        <ModLandCard query={query} />
         <SlackCard query={query} />
         {/* <InstagramCard query={query} /> */}
         {/* <SpectrumCard query={query} /> */}
