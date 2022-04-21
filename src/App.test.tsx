@@ -19,6 +19,6 @@ it('renders welcome message', async () => {
       <ToastContainer />
     </StoreProvider>
   );
-  const text = await findByText('Grab a slick name for your new app');
+  const text = await findByText('Grab a slick name for your new project');
   expect(text).toBeTruthy();
 });

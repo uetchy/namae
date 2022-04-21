@@ -1,11 +1,12 @@
 {
   "about": "About",
   "available": "Available",
-  "blog": "Blog Article",
+  "blog": "Introduction",
   "community": "Community",
   "contributors": "Contributors",
   "countryCode": "us",
-  "description": "Check availability for your new app name ideas across major registries at once.",
+  "title": "Grab a slick name for your new project",
+  "description": "Check availability of your new app/library/organization name ideas across all major registries at once.",
   "gettingStarted": "Getting Started",
   "gettingStartedWithExample": "Try with namae",
   "issues": "Issues",
@@ -50,7 +51,6 @@
     "youtube": "YouTube"
   },
   "showMore": "show more",
-  "title": "Grab a slick name for your new app",
   "try": "How about this?",
   "unavailable": "Unavailable",
   "uniqueness": {
