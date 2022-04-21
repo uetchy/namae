@@ -26,6 +26,7 @@ i18n
             'pt-BR': TRANSLATION_VERSION,
             es: TRANSLATION_VERSION,
             it: TRANSLATION_VERSION,
+            id: TRANSLATION_VERSION,
           },
         },
       ],
