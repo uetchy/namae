@@ -53,7 +53,6 @@ const supportedProviders: Record<string, React.ReactNode> = {
   reddit: <FaReddit />,
   // instagram: <FaInstagram />,
   slack: <FaSlack />,
-  // spectrum: <SpectrumIcon />,
   heroku: <DiHeroku />,
   now: <NowIcon />,
   netlify: <NetlifyIcon />,
