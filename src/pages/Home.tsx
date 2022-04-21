@@ -15,7 +15,7 @@ export default function Home() {
       </Helmet>
 
       <Header>
-        <Form />
+        <Form useSuggestion={false} />
       </Header>
 
       <Content>

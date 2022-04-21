@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TiArrowSync } from 'react-icons/ti';
+import { PropagateLoader } from 'react-spinners';
 import styled from 'styled-components';
 import {
   sendAcceptSuggestionEvent,
@@ -22,7 +23,7 @@ import {
 
 type Modifier = (word: string) => string;
 
-const modifiers: Modifier[] = [
+const MODIFIERS: Modifier[] = [
   (word): string => `${capitalize(germanify(word))}`,
   (word): string => `${capitalize(word)}`,
   (word): string => njoin('Air', capitalize(word), { elision: false }),
@@ -154,19 +155,19 @@ const modifiers: Modifier[] = [
   (word): string => capitalize(word) + ' by Design',
 ];
 
-const fontFamilies = [
+const FONT_FAMILIES = [
   `'Helvetica', sans-serif`,
   `'Avenir', sans-serif`,
   `'Futura', sans-serif`,
   `'Montserrat', sans-serif`,
 ];
 
-const fontWeight = [300, 600, 900];
+const FONT_WEIGHTS = [300, 600, 900];
 
-const numSuggestion = 3;
+const NUM_SUGGESTION = 3;
 
 function modifyWord(word: string): string {
-  return sample(modifiers)(word);
+  return sample(MODIFIERS)(word);
 }
 
 async function getSynonyms(word: string): Promise<string[]> {
@@ -206,7 +207,7 @@ const Suggestion: React.FC<{
   function shuffle(): void {
     const best = sampleMany(
       [...synonymRef.current.filter((s) => s.length < 8), ...times(query, 10)],
-      numSuggestion
+      NUM_SUGGESTION
     ).map((word) => modifyWord(word));
     setBestWords(best);
   }
@@ -223,6 +224,7 @@ const Suggestion: React.FC<{
 
   useEffect(() => {
     let isEffective = true;
+
     const fn = async (): Promise<void> => {
       if (query && query.length > 0) {
         const synonyms = await getSynonyms(query);
@@ -243,13 +245,14 @@ const Suggestion: React.FC<{
   return (
     <Container>
       <Title>{t('try')}</Title>
-      <Items>
-        {bestWords &&
-          bestWords.map((name, i) => (
+
+      {bestWords.length > 0 ? (
+        <Items>
+          {bestWords.map((name, i) => (
             <Item
               style={{
-                fontFamily: sample(fontFamilies),
-                fontWeight: sample(fontWeight),
+                fontFamily: sample(FONT_FAMILIES),
+                fontWeight: sample(FONT_WEIGHTS),
               }}
               key={name + i}
               onClick={(): void => applyQuery(name)}
@@ -257,8 +260,21 @@ const Suggestion: React.FC<{
             >
               <span>{name}</span>
             </Item>
-          ))}
-      </Items>
+          ))}{' '}
+        </Items>
+      ) : (
+        <div
+          style={{
+            height: '50px',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <PropagateLoader size={10} />
+        </div>
+      )}
+
       <Button onClick={onShuffleButtonClicked}>
         <TiArrowSync />
       </Button>
