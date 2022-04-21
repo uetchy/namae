@@ -52,9 +52,9 @@
   "unavailable": "Non disponibile",
   "uniqueness": {
     "description": "UNIQ mostra quanto il tuo nome è unico (da 0 a 100)",
-    "high": "Piuttosto unico",
-    "low": "Tipico",
-    "moderate": "Moderatamente unico"
+    "high": "Molto raro",
+    "low": "Comune",
+    "moderate": "Raro"
   },
   "join-us": "Invia <1>una pull request</1> e diventa un contributore!"
 }
