@@ -85,6 +85,12 @@ const Welcome: React.FC = () => {
                 {t('gettingStartedWithExample')}
               </Link>
             </ListButton>
+            <Subtle>or</Subtle>
+            <HList>
+              <Link to="/s/SpaceX">SpaceX</Link>
+              <Link to="/s/Netflix">Netflix</Link>
+              <Link to="/s/Zoom">Zoom</Link>
+            </HList>
           </List>
         </ButtonContainer>
       </Section>
@@ -105,6 +111,10 @@ const Welcome: React.FC = () => {
 
 export default Welcome;
 
+const Subtle = styled.span`
+  color: #5a5a5a;
+`;
+
 const Container = styled.div`
   /* padding-bottom: 40px; */
   text-align: center;
@@ -121,7 +131,7 @@ const Section = styled.div`
   padding: 40px 20vw 100px;
 
   ${mobile} {
-    padding: 60px 40px;
+    padding: 0px 40px 50px;
   }
 `;
 
@@ -166,19 +176,36 @@ const HeroText = styled.p`
 `;
 
 const ButtonContainer = styled.div`
-  margin: 10px 0 0 0;
+  margin: 30px 0 0 0;
 `;
 
 const List = styled.div`
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1rem;
+`;
+
+const HList = styled.div`
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
+  align-items: center;
   font-size: 1rem;
 
-  ${mobile} {
-    justify-content: flex-start;
+  a {
+    color: black;
+    border-bottom: 1px dashed black;
+    text-decoration: none;
+    font-family: monospace;
+  }
+
+  > *:not(:last-child) {
+    margin-right: 15px;
   }
 `;
 
@@ -211,9 +238,10 @@ const ListButton = styled.div`
   }
 
   a {
-    color: black;
+    color: #632bec;
     padding: 12px 25px;
-    border: 1px solid black;
+    border: 2px solid #632bec;
+    font-family: monospace;
     border-radius: 2px;
     text-decoration: none;
 
