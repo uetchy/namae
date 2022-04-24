@@ -1,7 +1,7 @@
 {
   "about": "О сайте",
   "available": "Доступно",
-  "blog": "Введение",
+  "blog": "Описание работы сайта",
   "community": "Сообщество",
   "contributors": "Контрибьюторы",
   "countryCode": "ru",
@@ -19,7 +19,7 @@
     "archlinux": "Arch Linux",
     "ubuntu": "Ubuntu",
     "debian": "Debian",
-    "domains": "Domains",
+    "domains": "Домены",
     "firebase": "Firebase",
     "github": "Организация GitHub",
     "githubSearch": "Репозиторий GitHub",
