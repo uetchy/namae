@@ -12,7 +12,7 @@
   "issues": "Issues",
   "language": "Language",
   "noResult": "No Result",
-  "placeholder": "search",
+  "placeholder": "Type a name here",
   "pressEnterToSearch": "Press Enter to search",
   "providers": {
     "appStore": "App Store",

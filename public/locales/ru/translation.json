@@ -12,7 +12,7 @@
   "issues": "Issues",
   "language": "Язык",
   "noResult": "Результаты отсутствуют",
-  "placeholder": "поиск",
+  "placeholder": "Напишите сюда желаемое имя",
   "pressEnterToSearch": "Нажмите Enter, чтобы начать поиск",
   "providers": {
     "appStore": "App Store",
