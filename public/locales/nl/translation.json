@@ -56,8 +56,8 @@
   "uniqueness": {
     "description": "UNIQ laat zien hoe uniek de naam is (0 tot 100)",
     "high": "Vrij uniek",
-    "low": "Gewoon",
-    "moderate": "Ongewoon"
+    "low": "Vaak voorkomend",
+    "moderate": "Zeldzaam"
   },
   "join-us": "Stuur <1>een pull request</1> en word een bijdrager!"
 }
