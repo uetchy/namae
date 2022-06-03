@@ -47,6 +47,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://snazzah.com"><img src="https://avatars.githubusercontent.com/u/7025343?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Snazzah</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=Snazzah" title="Code">💻</a></td>
     <td align="center"><a href="http://thebigbot.mod.land"><img src="https://avatars.githubusercontent.com/u/77632836?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Thebigbot</b></sub></a><br /><a href="#translation-Thebigbot0000" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/BlackdestinyXX"><img src="https://avatars.githubusercontent.com/u/65021823?v=4?s=100" width="100px;" alt=""/><br /><sub><b>BlackdestinyXX</b></sub></a><br /><a href="https://github.com/uetchy/namae/commits?author=BlackdestinyXX" title="Code">💻</a></td>
+    <td align="center"><a href="http://danpetrov.xyz"><img src="https://avatars.githubusercontent.com/u/5202322?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniils Petrovs</b></sub></a><br /><a href="https://github.com/uetchy/namae/pulls?q=is%3Apr+reviewed-by%3ADaniruKun" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 
