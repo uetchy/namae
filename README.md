@@ -50,6 +50,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://danpetrov.xyz"><img src="https://avatars.githubusercontent.com/u/5202322?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniils Petrovs</b></sub></a><br /><a href="https://github.com/uetchy/namae/pulls?q=is%3Apr+reviewed-by%3ADaniruKun" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://fyxren.site"><img src="https://avatars.githubusercontent.com/u/68126277?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben</b></sub></a><br /><a href="#translation-Fyxren" title="Translation">🌍</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/MadProbe"><img src="https://avatars.githubusercontent.com/u/49519179?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Evgeniy Istomin</b></sub></a><br /><a href="#translation-MadProbe" title="Translation">🌍</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
