@@ -138,6 +138,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "MadProbe",
+      "name": "Evgeniy Istomin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49519179?v=4",
+      "profile": "https://github.com/MadProbe",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
