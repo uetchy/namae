@@ -120,6 +120,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "DaniruKun",
+      "name": "Daniils Petrovs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5202322?v=4",
+      "profile": "http://danpetrov.xyz",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
