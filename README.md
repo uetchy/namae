@@ -52,6 +52,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/MadProbe"><img src="https://avatars.githubusercontent.com/u/49519179?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Evgeniy Istomin</b></sub></a><br /><a href="#translation-MadProbe" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://lukaspaw.wordpress.com"><img src="https://avatars.githubusercontent.com/u/72651891?v=4?s=100" width="100px;" alt=""/><br /><sub><b>LukasPurbaW</b></sub></a><br /><a href="#translation-LukasPurbaW" title="Translation">🌍</a></td>
   </tr>
 </table>
 
