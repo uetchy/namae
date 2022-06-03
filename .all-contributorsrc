@@ -120,6 +120,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Fyxren",
+      "name": "Ben",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68126277?v=4",
+      "profile": "http://fyxren.site",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
