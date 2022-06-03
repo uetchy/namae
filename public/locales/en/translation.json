@@ -48,7 +48,8 @@
     "cloudflare": "Cloudflare Pages",
     "chromeWebStore": "Chrome Web Store",
     "firefoxAddons": "Firefox Add-ons",
-    "youtube": "YouTube"
+    "youtube": "YouTube",
+    "hexpm": "Hex"
   },
   "showMore": "show more",
   "try": "How about this?",
