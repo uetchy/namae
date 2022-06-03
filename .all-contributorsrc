@@ -120,6 +120,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "DaniruKun",
+      "name": "Daniils Petrovs",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5202322?v=4",
+      "profile": "http://danpetrov.xyz",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "Fyxren",
+      "name": "Ben",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68126277?v=4",
+      "profile": "http://fyxren.site",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,

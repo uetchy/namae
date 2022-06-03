@@ -19,7 +19,7 @@ import {
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
 import { RiBuilding2Fill, RiChromeFill, RiNpmjsFill } from 'react-icons/ri';
-import { SiDeno } from 'react-icons/si';
+import { SiDeno, SiElixir } from 'react-icons/si';
 import {
   SiAppstore,
   SiArchlinux,
@@ -46,6 +46,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   rust: <SiRust />,
   pypi: <FaPython />,
   rubygems: <SiRubygems />,
+  hexpm: <SiElixir />,
   ocaml: <OcamlIcon />,
   archlinux: <SiArchlinux />,
   ubuntu: <SiUbuntu />,

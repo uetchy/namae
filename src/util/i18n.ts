@@ -27,6 +27,7 @@ i18n
             es: TRANSLATION_VERSION,
             it: TRANSLATION_VERSION,
             ru: TRANSLATION_VERSION,
+            nl: TRANSLATION_VERSION,
           },
         },
       ],

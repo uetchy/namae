@@ -13,6 +13,7 @@ import GithubCard from './providers/GitHubOrganization';
 import GithubSearchCard from './providers/GitHubSearch';
 import GitLabCard from './providers/GitLab';
 import HerokuCard from './providers/Heroku';
+import HexPmCard from './providers/HexPm';
 import HomebrewCard from './providers/Homebrew';
 // import InstagramCard from './providers/Instagram';
 import JsOrgCard from './providers/JsOrg';
@@ -50,6 +51,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <PypiCard query={query} />
         <CratesioCard query={query} />
         <RubyGemsCard query={query} />
+        <HexPmCard query={query} />
         <LinuxCard query={query} />
         <OcamlCard query={query} />
         <VercelCard query={query} />
