@@ -52,8 +52,14 @@ const Languages = () => {
         <li>
           <a href="/?lng=it">Italiano</a>
         </li>
+        <li>
+          <a href="/?lng=ru">Русский</a>
+        </li>
+        <li>
+          <a href="/?lng=nl">Nederlands</a>
+        </li>
         <li> 
-        <a href="/?lng=id">Bahasa Indonesia</a>
+          <a href="/?lng=id">Bahasa Indonesia</a>
         </li>
       </ul>
     </Pane>

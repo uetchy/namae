@@ -48,7 +48,8 @@
     "cloudflare": "Cloudflare Pages",
     "chromeWebStore": "Chrome Web Store",
     "firefoxAddons": "Firefox Add-ons",
-    "youtube": "YouTube"
+    "youtube": "YouTube",
+    "hexpm": "Hex"
   },
   "showMore": "show more",
   "try": "How about this?",
@@ -56,8 +57,8 @@
   "uniqueness": {
     "description": "UNIQ shows how unique the name is (0 to 100)",
     "high": "Pretty unique",
-    "low": "Typical",
-    "moderate": "Moderately unique"
+    "low": "Common",
+    "moderate": "Rare"
   },
   "join-us": "Send <1>a pull request</1> and become a contributor!"
 }
