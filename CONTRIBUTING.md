@@ -2,17 +2,11 @@
 
 ## Setup
 
-Install `vercel`:
-
-```
-npm i -g vercel
-```
-
-then install deps and fire up a dev server.
+Install deps and fire up a dev server.
 
 ```
 yarn install
-vc dev
+yarn dev
 ```
 
 Run tests before creating a pull request:
