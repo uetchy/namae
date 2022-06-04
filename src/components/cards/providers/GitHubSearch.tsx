@@ -8,7 +8,7 @@ import { Card, Result } from '../core';
 const Search: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
   const searchQuery = `${query} in:name`;
-  const limit = 10;
+  const limit = 5;
   const response = useFetch(
     `https://api.github.com/search/repositories?q=${encodeURIComponent(
       searchQuery

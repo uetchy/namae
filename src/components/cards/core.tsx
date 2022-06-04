@@ -301,7 +301,7 @@ const ErrorHandler: React.FC = ({ children }) => (
 );
 
 const CardContainer = styled.div`
-  padding: 40px;
+  padding: 30px 50px;
   font-size: 1rem;
   line-height: 1rem;
 

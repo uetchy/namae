@@ -30,7 +30,7 @@ export default async function handler(
         author: item.authors[0].name,
       };
     });
-    send(res, { result: items.slice(0, 10) });
+    send(res, { result: items.slice(0, 5) });
   } catch (err: any) {
     sendError(res, err);
   }

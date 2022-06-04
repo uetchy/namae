@@ -30,7 +30,7 @@
     "netlify": "Netlify",
     "now": "Vercel",
     "npm": "npm",
-    "nta": "法人",
+    "nta": "法人 (日本)",
     "ocaml": "OCaml",
     "pypi": "PyPI",
     "rubygems": "RubyGems",
@@ -51,5 +51,12 @@
     "low": "普通",
     "moderate": "そこそこユニーク"
   },
-  "join-us": "<1>プルリクエスト</1>を送ってコントリビューターになりましょう！"
+  "join-us": "<1>プルリクエスト</1>を送ってコントリビューターになりましょう！",
+  "section": {
+    "starter": "基本",
+    "social": "SNS",
+    "package": "パッケージ",
+    "web": "Web",
+    "app": "アプリとエクステンション"
+  }
 }

@@ -28,7 +28,7 @@ export default async function handler(
 
   const term = encodeURIComponent(query);
   const countryCode = country || 'us';
-  const limit = 10;
+  const limit = 5;
 
   try {
     const response = await fetch(

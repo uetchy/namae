@@ -33,7 +33,7 @@ export default async function handler(
       author: entry[4][0][0][0],
       url: 'https://play.google.com' + entry[9][4][2],
     }));
-    send(res, { result: apps.slice(0, 10) });
+    send(res, { result: apps.slice(0, 5) });
   } catch (err: any) {
     sendError(res, err);
   }

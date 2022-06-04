@@ -90,7 +90,7 @@ export default async function handler(
             phoneticName: entry.phoneticName,
             englishName: entry.englishName,
           }))
-          .slice(0, 10) || [],
+          .slice(0, 5) || [],
     });
   } catch (err: any) {
     sendError(res, err);

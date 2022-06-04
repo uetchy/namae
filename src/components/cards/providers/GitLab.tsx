@@ -12,7 +12,13 @@ const GitLabCard: React.FC<{ query: string }> = ({ query }) => {
   });
   const lowerCase = normalizedQuery.toLowerCase();
 
-  const names = [lowerCase];
+  const names = [
+    normalizedQuery,
+    `${lowerCase}-dev`,
+    `${lowerCase}-org`,
+    `${lowerCase}-team`,
+    `${lowerCase}hq`,
+  ];
 
   return (
     <Card title={t('providers.gitlab')}>

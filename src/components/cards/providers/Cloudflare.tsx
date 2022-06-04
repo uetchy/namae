@@ -13,7 +13,7 @@ const CloudflareCard: React.FC<{ query: string }> = ({ query }) => {
   });
   const lowerCase = normalizedQuery.toLowerCase();
 
-  const names = [normalizedQuery];
+  const names = [lowerCase];
   const moreNames = [
     `${lowerCase}-web`,
     `${lowerCase}-webapp`,
@@ -26,7 +26,7 @@ const CloudflareCard: React.FC<{ query: string }> = ({ query }) => {
         {(name) => (
           <DedicatedAvailability
             name={`${name}.pages.dev`}
-            service="existence"
+            service="dns"
             message={`Go to ${name}.pages.dev`}
             link={`https://${name}.pages.dev`}
             icon={<FaCloudflare />}

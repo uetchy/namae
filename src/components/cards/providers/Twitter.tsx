@@ -14,13 +14,13 @@ const TwitterCard: React.FC<{ query: string }> = ({ query }) => {
 
   const names = [
     normalizedQuery,
+    `${lowerCase}hq`,
     `${capitalCase}App`,
     `${lowerCase}_team`,
-    `${capitalCase}HQ`,
-    `hey${lowerCase}`,
+    `${lowerCase}_support`,
   ];
   const moreNames = [
-    `${lowerCase}_support`,
+    `hey${lowerCase}`,
     `${lowerCase}_org`,
     `${lowerCase}_app`,
     `${capitalCase}JS`,

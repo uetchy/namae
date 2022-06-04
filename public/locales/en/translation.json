@@ -19,7 +19,7 @@
     "archlinux": "Arch Linux",
     "ubuntu": "Ubuntu",
     "debian": "Debian",
-    "domains": "Domains",
+    "domains": "Domain",
     "firebase": "Firebase",
     "github": "GitHub Organization",
     "githubSearch": "GitHub Repository",
@@ -34,7 +34,7 @@
     "netlify": "Netlify",
     "now": "Vercel",
     "npm": "npm",
-    "nta": "Company (JP)",
+    "nta": "Company (Japan)",
     "ocaml": "OCaml",
     "playStore": "Google Play Store",
     "pypi": "PyPI",
@@ -62,5 +62,12 @@
     "low": "Common",
     "moderate": "Rare"
   },
-  "join-us": "Send <1>a pull request</1> and become a contributor!"
+  "join-us": "Send <1>a pull request</1> and become a contributor!",
+  "section": {
+    "starter": "Starter",
+    "social": "Social Network",
+    "package": "Package",
+    "web": "Web Platform",
+    "app": "App & Extension"
+  }
 }

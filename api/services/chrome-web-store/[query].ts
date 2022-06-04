@@ -27,7 +27,7 @@ export default async function handler(
       description: item[6],
       url: item[37],
     }));
-    send(res, { result: items.slice(0, 10) });
+    send(res, { result: items.slice(0, 5) });
   } catch (err: any) {
     sendError(res, err);
   }

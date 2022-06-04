@@ -24,7 +24,7 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
     <>
       {hits.length > 0 ? (
         hits
-          .slice(0, 10)
+          .slice(0, 5)
           .map((hit) => (
             <Result
               title={hit.name}
