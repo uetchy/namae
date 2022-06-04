@@ -33,6 +33,7 @@ import TwitterCard from './providers/Twitter';
 import VercelCard from './providers/Vercel';
 import YouTubeCard from './providers/YouTube';
 import FlyIoCard from './providers/FlyIo';
+import ProductHuntCard from './providers/ProductHunt';
 
 const Index: React.FC<{ query: string }> = ({ query }) => {
   const {
@@ -69,6 +70,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <FirebaseCard query={query} />
       </Cards>
       <Cards>
+        <ProductHuntCard query={query} />
         <GithubSearchCard query={query} />
         <AppStoreCard query={query} />
         <PlayStoreCard query={query} />
