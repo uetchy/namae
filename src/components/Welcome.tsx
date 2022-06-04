@@ -251,7 +251,7 @@ const ListButton = styled.div`
 
     &:hover {
       color: white;
-      background: black;
+      background: #632bec;
     }
   }
 `;
