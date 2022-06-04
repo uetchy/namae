@@ -20,7 +20,7 @@ const ModLandCard: React.FC<{ query: string }> = ({ query }) => {
         {(name) => (
           <DedicatedAvailability
             name={`${name}.mod.land`}
-            service="existence"
+            service="dns"
             message="Go to mod.land repository"
             link="https://github.com/denosaurs/mod.land"
             messageIfTaken={`Go to ${name}.mod.land`}
