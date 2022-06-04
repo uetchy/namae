@@ -29,7 +29,7 @@ const Search: React.FC<{ query: string }> = ({ query }) => {
             <Result
               title={hit.name}
               message={`${hit.tagline} (⬆️ ${hit.vote_count})`}
-              link={hit.url}
+              link={`https://www.producthunt.com${hit.url}`}
               icon={<FaProductHunt />}
               key={hit.id}
             />
