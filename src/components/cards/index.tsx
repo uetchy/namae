@@ -32,6 +32,7 @@ import SubredditCard from './providers/Subreddit';
 import TwitterCard from './providers/Twitter';
 import VercelCard from './providers/Vercel';
 import YouTubeCard from './providers/YouTube';
+import FlyIoCard from './providers/FlyIo';
 
 const Index: React.FC<{ query: string }> = ({ query }) => {
   const {
@@ -54,6 +55,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <HexPmCard query={query} />
         <LinuxCard query={query} />
         <OcamlCard query={query} />
+        <FlyIoCard query={query} />
         <VercelCard query={query} />
         <HerokuCard query={query} />
         <NetlifyCard query={query} />

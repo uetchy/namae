@@ -49,7 +49,8 @@
     "chromeWebStore": "Chrome Web Store",
     "firefoxAddons": "Firefox Add-ons",
     "youtube": "YouTube",
-    "hexpm": "Hex"
+    "hexpm": "Hex",
+    "fly": "Fly.io"
   },
   "showMore": "show more",
   "try": "How about this?",

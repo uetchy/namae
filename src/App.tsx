@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import { GlobalStyle } from './theme';
 import { useOpenSearch } from './util/hooks';
-import { isStandalone } from './util/pwa';
 
 export default function App() {
   const OpenSearch = useOpenSearch('/opensearch.xml');
@@ -21,7 +20,7 @@ export default function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
-      {!isStandalone() && <Footer />}
+      <Footer />
     </>
   );
 }
