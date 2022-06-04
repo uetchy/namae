@@ -15,6 +15,8 @@ import {
   FaCloudflare,
   FaFirefoxBrowser,
   FaYoutube,
+  FaProductHunt,
+  FaFly,
 } from 'react-icons/fa';
 import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
@@ -54,6 +56,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   reddit: <FaReddit />,
   // instagram: <FaInstagram />,
   slack: <FaSlack />,
+  fly: <FaFly />,
   heroku: <DiHeroku />,
   now: <NowIcon />,
   netlify: <NetlifyIcon />,
@@ -62,6 +65,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   firebase: <SiFirebase />,
   jsorg: <FaJsSquare />,
   modland: <SiDeno />,
+  productHunt: <FaProductHunt />,
   githubSearch: <FaGithubAlt />,
   appStore: <SiAppstore />,
   playStore: <IoMdAppstore />,
