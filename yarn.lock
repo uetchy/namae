@@ -10541,6 +10541,13 @@ whois@^2.6.0:
     underscore "^1.9.1"
     yargs "^15.4.1"
 
+whoiser@^1.13.1:
+  version "1.13.1"
+  resolved "https://registry.npmjs.org/whoiser/-/whoiser-1.13.1.tgz#943a2030199efd774d5047df22528316ac6de5de"
+  integrity sha512-4MF0LoIsSdM7R9rs9A+PxbCXMDRmRdF7eZb8IC8pGethCrSizqMLcbJCXZO5iZGqOKovQlRhpSFGGUlwUPzoQA==
+  dependencies:
+    punycode "^2.1.1"
+
 wide-align@^1.1.0:
   version "1.1.5"
   resolved "https://registry.npmjs.org/wide-align/-/wide-align-1.1.5.tgz#df1d4c206854369ecf3c9a4898f1b23fbd9d15d3"

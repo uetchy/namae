@@ -37,7 +37,7 @@
     "styled-components": "^5.3.5",
     "swr": "^1.2.2",
     "validator": "^13.7.0",
-    "whois-json": "^2.0.4"
+    "whoiser": "^1.13.1"
   },
   "devDependencies": {
     "@sentry/cli": "^1.74.2",

@@ -2,7 +2,6 @@ import useFetch from 'fetch-suspense';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaFirefoxBrowser } from 'react-icons/fa';
-import { RiChromeFill } from 'react-icons/ri';
 import { Card, Result } from '../core';
 
 const Search: React.FC<{ query: string }> = ({ query }) => {
