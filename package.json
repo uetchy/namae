@@ -3,12 +3,12 @@
   "description": "namae saves your time searching around registries and checking if the desired name is ready for use.",
   "author": "Yasuaki Uechi <y@uechi.io> (https://uechi.io/)",
   "scripts": {
-    "build": "NODE_ENV=production react-scripts build",
-    "dev": "BROWSER=none react-scripts start",
+    "build": "cross-env NODE_ENV=production react-scripts build",
+    "dev": "cross-env BROWSER=none react-scripts start",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "readme": "mdmod README.md --define.owner uetchy",
-    "test": "tsc --noEmit && jest --coverage && CI=true react-scripts test --coverage"
+    "test": "tsc --noEmit && jest --coverage && cross-env CI=true react-scripts test --coverage"
   },
   "dependencies": {
     "@sentry/browser": "^6.19.2",
@@ -55,6 +55,7 @@
     "@vercel/build-utils": "^2.15.0",
     "@vercel/node": "^1.14.0",
     "codacy-coverage": "^3.4.0",
+    "cross-env": "^7.0.3",
     "husky": "^7.0.4",
     "i18next-node-fs-backend": "^2.1.3",
     "mdmod": "^2.0.0",
@@ -64,7 +65,8 @@
     "prettier": "^2.6.1",
     "pretty-quick": "^3.1.3",
     "ts-jest": "^27.1.4",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "vercel": "^25.0.0"
   },
   "license": "Apache-2.0",
   "browserslist": {
