@@ -92,7 +92,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
         <Title>{t('section.app')}</Title>
         <Cards>
           <AppStoreCard query={query} />
-          <PlayStoreCard query={query} />
+          {/* <PlayStoreCard query={query} /> */}
           <FirefoxAddonsCard query={query} />
           <ChromeWebStoreCard query={query} />
         </Cards>

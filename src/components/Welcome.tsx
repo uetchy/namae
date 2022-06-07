@@ -68,7 +68,7 @@ const supportedProviders: Record<string, React.ReactNode> = {
   productHunt: <FaProductHunt />,
   githubSearch: <FaGithubAlt />,
   appStore: <SiAppstore />,
-  playStore: <IoMdAppstore />,
+  // playStore: <IoMdAppstore />,
   firefoxAddons: <FaFirefoxBrowser />,
   chromeWebStore: <RiChromeFill />,
   nta: <RiBuilding2Fill />,
