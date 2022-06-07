@@ -2,10 +2,10 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { FaGithub, FaProductHunt, FaTwitter } from 'react-icons/fa';
 import { GoHeart } from 'react-icons/go';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Contributors from '../components/Contributors';
-import { Section } from '../theme';
-import { tablet } from '../util/css';
+import { Section } from '../src/theme';
+import { tablet } from '../src/util/css';
 
 const Footer: React.FC = () => {
   return (
@@ -58,7 +58,7 @@ const Languages = () => {
         <li>
           <a href="/?lng=nl">Nederlands</a>
         </li>
-        <li> 
+        <li>
           <a href="/?lng=id">Bahasa Indonesia</a>
         </li>
       </ul>

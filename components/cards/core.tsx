@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { GoInfo } from 'react-icons/go';
 import { IoIosFlash } from 'react-icons/io';
 import BarLoader from 'react-spinners/BarLoader';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { useStoreActions } from '../../store';
 import { sendError, sendExpandEvent } from '../../util/analytics';
 import { mobile } from '../../util/css';

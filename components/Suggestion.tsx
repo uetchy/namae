@@ -4,13 +4,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TiArrowSync } from 'react-icons/ti';
 import { PropagateLoader } from 'react-spinners';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {
   sendAcceptSuggestionEvent,
   sendShuffleSuggestionEvent,
-} from '../util/analytics';
-import { sample, sampleMany, times } from '../util/array';
-import { mobile, slideUp } from '../util/css';
+} from '../src/util/analytics';
+import { sample, sampleMany, times } from '../src/util/array';
+import { mobile, slideUp } from '../src/util/css';
 import {
   capitalize,
   germanify,
@@ -19,7 +19,7 @@ import {
   sanitize,
   stem,
   upper,
-} from '../util/text';
+} from '../src/util/text';
 
 type Modifier = (word: string) => string;
 
@@ -345,10 +345,7 @@ const Item = styled.div<{ delay: number }>`
   }
 `;
 
-const Button = styled(motion.div).attrs({
-  whileHover: { scale: 1.1 },
-  whileTap: { scale: 0.9 },
-})`
+const Button = styled(motion.div)`
   margin: 15px 0 0 0;
   padding: 8px 12px;
   display: flex;
@@ -370,3 +367,7 @@ const Button = styled(motion.div).attrs({
     background: #a17ff5;
   }
 `;
+Button.defaultProps = {
+  whileHover: { scale: 1.1 },
+  whileTap: { scale: 0.9 },
+};

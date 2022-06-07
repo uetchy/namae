@@ -1,40 +1,41 @@
+import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { DiHeroku } from 'react-icons/di';
 import {
   FaAws,
+  FaCloudflare,
+  FaFirefoxBrowser,
+  FaFly,
   FaGithub,
   FaGithubAlt,
   FaGitlab,
   // FaInstagram,
   FaJsSquare,
+  FaProductHunt,
   FaPython,
   FaReddit,
   FaSlack,
   FaTwitter,
-  FaCloudflare,
-  FaFirefoxBrowser,
   FaYoutube,
-  FaProductHunt,
-  FaFly,
 } from 'react-icons/fa';
-import { IoIosBeer, IoMdAppstore } from 'react-icons/io';
+import { IoIosBeer } from 'react-icons/io';
 import { MdDomain } from 'react-icons/md';
 import { RiBuilding2Fill, RiChromeFill, RiNpmjsFill } from 'react-icons/ri';
-import { SiDeno, SiElixir } from 'react-icons/si';
 import {
   SiAppstore,
   SiArchlinux,
   SiDebian,
+  SiDeno,
+  SiElixir,
   SiFirebase,
   SiRubygems,
   SiRust,
   SiUbuntu,
 } from 'react-icons/si';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { sendGettingStartedEvent } from '../util/analytics';
-import { mobile } from '../util/css';
+import styled from '@emotion/styled';
+import { sendGettingStartedEvent } from '../src/util/analytics';
+import { mobile } from '../src/util/css';
 import { NetlifyIcon, NowIcon, OcamlIcon } from './Icons';
 
 const supportedProviders: Record<string, React.ReactNode> = {
@@ -85,15 +86,15 @@ const Welcome: React.FC = () => {
         <ButtonContainer>
           <List>
             <ListButton>
-              <Link to="/s/namae" onClick={() => sendGettingStartedEvent()}>
+              <Link href="/s/namae" onClick={() => sendGettingStartedEvent()}>
                 {t('gettingStartedWithExample')}
               </Link>
             </ListButton>
             <Subtle>or</Subtle>
             <HList>
-              <Link to="/s/SpaceX">SpaceX</Link>
-              <Link to="/s/Netflix">Netflix</Link>
-              <Link to="/s/Zoom">Zoom</Link>
+              <Link href="/s/SpaceX">SpaceX</Link>
+              <Link href="/s/Netflix">Netflix</Link>
+              <Link href="/s/Zoom">Zoom</Link>
             </HList>
           </List>
         </ButtonContainer>

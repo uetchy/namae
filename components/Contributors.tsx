@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import useSWR from 'swr';
 import Tooltip from 'rc-tooltip';
 
@@ -72,8 +72,9 @@ const Item = styled.div`
 `;
 
 const avatarSize = 32;
-const Avatar = styled.img.attrs({ width: avatarSize, height: avatarSize })`
+const Avatar = styled.img`
   border-radius: ${avatarSize}px;
 `;
+Avatar.defaultProps = { width: avatarSize, height: avatarSize };
 
 export default Contributors;

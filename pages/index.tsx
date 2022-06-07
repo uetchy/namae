@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { Content, Header } from '../theme';
 import Form from '../components/Form';
 import Welcome from '../components/Welcome';
+import { Content, Header } from '../src/theme';
 
-export default function Home() {
+export default function App() {
   const { t } = useTranslation();
 
   return (

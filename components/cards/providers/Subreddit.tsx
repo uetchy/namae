@@ -13,10 +13,7 @@ const SubredditCard: React.FC<{ query: string }> = ({ query }) => {
   const lowerCase = normalizedQuery.toLowerCase();
 
   const names = [normalizedQuery];
-  const moreNames = [
-    `get${lowerCase}`,
-    `${lowerCase}_team`,
-  ];
+  const moreNames = [`get${lowerCase}`, `${lowerCase}_team`];
 
   return (
     <Card title={t('providers.reddit')}>

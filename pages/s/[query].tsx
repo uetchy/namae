@@ -1,27 +1,28 @@
+import { useRouter } from 'next/router';
 import Tooltip from 'rc-tooltip';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { IoIosFlash, IoIosRocket } from 'react-icons/io';
-import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import Cards from '../components/cards';
+import styled from '@emotion/styled';
+import Cards from '../../components/cards';
 import {
   AvailableIcon,
   COLORS as ResultColor,
   ResultIcon,
   ResultItem,
   ResultName,
-} from '../components/cards/core';
-import Form from '../components/Form';
-import { useStoreState } from '../store';
-import { Content, Header } from '../theme';
-import { mobile } from '../util/css';
-import { sanitize } from '../util/text';
+} from '../../components/cards/core';
+import Form from '../../components/Form';
+import { useStoreState } from '../../store';
+import { Content, Header } from '../../src/theme';
+import { mobile } from '../../src/util/css';
+import { sanitize } from '../../src/util/text';
 
 export default function Search() {
-  const { query } = useParams<{ query: string }>();
-  const currentQuery = sanitize(query ?? '');
+  const router = useRouter();
+  const { query } = router.query;
+  const currentQuery = sanitize((query as string) ?? '');
   const { t } = useTranslation();
 
   return (

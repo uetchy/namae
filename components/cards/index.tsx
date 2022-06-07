@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { mobile } from '../../util/css';
 import AppStoreCard from './providers/AppStore';
 import ChromeWebStoreCard from './providers/ChromeWebStore';

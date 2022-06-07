@@ -46,6 +46,7 @@ export function sendShuffleSuggestionEvent(): void {
 }
 
 export function initSentry(): void {
+  console.log('initSentry');
   if (isProduction) {
     Sentry.init({
       dsn: 'https://7ab2df74aead499b950ebef190cc40b7@sentry.io/1759299',

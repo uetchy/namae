@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import BarLoader from 'react-spinners/BarLoader';
 
 export const FullScreenSuspense: React.FC = ({ children }) => {

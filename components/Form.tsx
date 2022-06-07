@@ -1,20 +1,21 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { useStoreActions } from '../store';
-import { sendQueryEvent } from '../util/analytics';
-import { mobile } from '../util/css';
-import { useDeferredState } from '../util/hooks';
-import { sanitize } from '../util/text';
+import { sendQueryEvent } from '../src/util/analytics';
+import { mobile } from '../src/util/css';
+import { useDeferredState } from '../src/util/hooks';
+import { sanitize } from '../src/util/text';
 import Suggestion from './Suggestion';
 
 const Form: React.FC<{
   initialValue?: string;
   useSuggestion?: boolean;
 }> = ({ initialValue = '', useSuggestion = true }) => {
+  const router = useRouter();
   const reset = useStoreActions((actions) => actions.stats.reset);
-  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState(initialValue);
   const [suggestionQuery, setSuggestionQuery] = useDeferredState(800, '');
   const [suggested, setSuggested] = useState(false);
@@ -24,7 +25,7 @@ const Form: React.FC<{
   function search(query: string) {
     reset();
     sendQueryEvent(sanitize(query));
-    navigate(`/s/${query}`);
+    router.push(`/s/${query}`);
   }
 
   // set input value
@@ -57,7 +58,7 @@ const Form: React.FC<{
   return (
     <InputContainer>
       <InputHeader>
-        <Logo to="/">
+        <Logo href="/">
           <LogoImage src="/logo.svg" />
         </Logo>
       </InputHeader>
@@ -120,15 +121,7 @@ const LogoImage = styled.img`
   }
 `;
 
-const InputView = styled.input.attrs({
-  type: 'search',
-  enterkeyhint: 'search',
-  autocomplete: 'off',
-  autocorrect: 'off',
-  autocapitalize: 'off',
-  spellcheck: 'false',
-  autoFocus: true,
-})`
+const InputView = styled.input`
   width: 100%;
   border: none;
   outline: none;
@@ -146,3 +139,12 @@ const InputView = styled.input.attrs({
     color: #c8cdda;
   }
 `;
+InputView.defaultProps = {
+  type: 'search',
+  enterKeyHint: 'search',
+  autoComplete: 'off',
+  autoCorrect: 'off',
+  autoCapitalize: 'off',
+  spellCheck: 'false',
+  autoFocus: true,
+};

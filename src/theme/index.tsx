@@ -1,30 +1,31 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from '@emotion/styled';
 import { mobile } from '../util/css';
+import { css } from '@emotion/react';
 
-export const GlobalStyle = createGlobalStyle`
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 100%;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  line-height: 1.625em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #ffffff;
-
-  ${mobile} {
-    background: #f5f5f5;
+export const globalStyle = css`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-}
+
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+    line-height: 1.625em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #ffffff;
+
+    ${mobile} {
+      background: #f5f5f5;
+    }
+  }
 `;
 
 export const Content = styled.div`
