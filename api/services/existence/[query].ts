@@ -6,7 +6,9 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ): Promise<void> {
-  const { query } = req.query;
+  const { query, existIf = '404' } = req.query;
+
+  const availableStatus = (existIf as string).split(',').map((s) => s.trim());
 
   if (!query || typeof query !== 'string') {
     return sendError(res, new Error('no query given'));
@@ -18,7 +20,7 @@ export default async function handler(
 
   try {
     const response = await fetch(`https://${query}`);
-    const availability = response.status === 404;
+    const availability = availableStatus.includes(response.status.toString());
     send(res, { availability });
   } catch (err: any) {
     if ((err as any).code === 'ENOTFOUND') {

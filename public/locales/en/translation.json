@@ -51,7 +51,8 @@
     "youtube": "YouTube",
     "hexpm": "Hex",
     "fly": "Fly.io",
-    "productHunt": "Product Hunt"
+    "productHunt": "Product Hunt",
+    "docker": "Docker Hub"
   },
   "showMore": "show more",
   "try": "How about this?",

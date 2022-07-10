@@ -6,6 +6,7 @@ import AppStoreCard from './providers/AppStore';
 import ChromeWebStoreCard from './providers/ChromeWebStore';
 import CloudflareCard from './providers/Cloudflare';
 import CratesioCard from './providers/Cratesio';
+import DockerCard from './providers/Docker';
 import DomainCard from './providers/Domains';
 import FirebaseCard from './providers/Firebase';
 import FirefoxAddonsCard from './providers/FirefoxAddons';
@@ -23,7 +24,7 @@ import NetlifyCard from './providers/Netlify';
 import NpmCard from './providers/Npm';
 import NtaCard from './providers/Nta';
 import OcamlCard from './providers/Ocaml';
-import PlayStoreCard from './providers/PlayStore';
+// import PlayStoreCard from './providers/PlayStore';
 import ProductHuntCard from './providers/ProductHunt';
 import PypiCard from './providers/PyPI';
 import RubyGemsCard from './providers/RubyGems';
@@ -64,6 +65,7 @@ const Index: React.FC<{ query: string }> = ({ query }) => {
       <Section>
         <Title>{t('section.package')}</Title>
         <Cards>
+          <DockerCard query={query} />
           <HomebrewCard query={query} />
           <LinuxCard query={query} />
           <NpmCard query={query} />

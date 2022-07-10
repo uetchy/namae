@@ -83,6 +83,7 @@ class NotFoundError extends Error {
 export const DedicatedAvailability: React.FC<{
   name: string;
   query?: string;
+  args?: Record<string, string>;
   message?: string;
   messageIfTaken?: string;
   service: string;
@@ -94,6 +95,7 @@ export const DedicatedAvailability: React.FC<{
 }> = ({
   name,
   query = undefined,
+  args = {},
   message = '',
   messageIfTaken = undefined,
   service,
@@ -105,7 +107,8 @@ export const DedicatedAvailability: React.FC<{
 }) => {
   const increaseCounter = useStoreActions((actions) => actions.stats.add);
   const response = useFetch(
-    `/api/services/${service}/${encodeURIComponent(query || name)}`
+    `/api/services/${service}/${encodeURIComponent(query || name)}` +
+      new URLSearchParams(args).toString()
   ) as Response;
 
   if (response.error) {
