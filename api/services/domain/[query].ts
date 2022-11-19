@@ -20,7 +20,7 @@ export default async function handler(
       throw new Error(`Got error while querying for ${query}: ${first.error}`);
     }
     try {
-      const availability = first['Domain Status'].length > 0 ? false : true;
+      const availability = first['Domain Status'].length == 0;
       send(res, { availability });
     } catch (err) {
       console.log(response);
