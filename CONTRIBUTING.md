@@ -32,11 +32,11 @@ import { FaGithub } from 'react-icons/fa';
 
 import { Card, Repeater, DedicatedAvailability } from '../core';
 
-const GithubCard: React.FC<{ query: string }> = ({ name }) => {
+const GithubCard: React.FC<{ query: string }> = ({ query }) => {
   const { t } = useTranslation();
-  const lowerCase = name.toLowerCase();
+  const lowerCase = query.toLowerCase();
 
-  const names = [name];
+  const names = [lowerCase];
   const moreNames = [
     `${lowerCase}hq`,
     `${lowerCase}-team`,
@@ -60,6 +60,8 @@ const GithubCard: React.FC<{ query: string }> = ({ name }) => {
     </Card>
   );
 };
+
+export default GithubCard;
 ```
 
 and add the card to `src/components/cards/index.tsx`:
