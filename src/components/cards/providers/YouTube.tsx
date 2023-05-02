@@ -22,10 +22,10 @@ const YouTubeCard: React.FC<{ query: string }> = ({ query }) => {
       <Repeater items={names} moreItems={moreNames}>
         {(name) => (
           <DedicatedAvailability
-            name={`youtube.com/c/${name}`}
+            name={`youtube.com/@${name}`}
             service="existence"
-            message={`Go to youtube.com/c/${name}`}
-            link={`https://www.youtube.com/c/${name}`}
+            message={`Go to youtube.com/@${name}`}
+            link={`https://www.youtube.com/@${name}`}
             icon={<FaYoutube />}
           />
         )}
